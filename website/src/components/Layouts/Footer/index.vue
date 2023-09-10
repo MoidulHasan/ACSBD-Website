@@ -1,5 +1,5 @@
 <template>
-  <div class="footer pt-12 pb-6">
+  <div class="footer pt-12 pb-24px">
     <div class="container mx-auto">
       <div class="footerItems">
         <div class="grid footerCols">
@@ -186,8 +186,8 @@
               </span>
             </div>
           </div>
-          <div class="col flex flex-column text-white">
-            <h2 class="mt-1 mb-5 font-semibold">Shopping With Us</h2>
+          <div class="col-12 md:col flex flex-column text-white">
+            <h2 class="mt-1 mb-3 md:mb-5 font-semibold">Shopping With Us</h2>
             <h4 class="footer-point">Our Showroom</h4>
             <h4 class="footer-point">Why Shop With Us</h4>
             <h4 class="footer-point">Frequently Asked Questions</h4>
@@ -195,8 +195,8 @@
             <h4 class="footer-point">Online Payment Methods</h4>
             <h4 class="footer-point">Online Payment Security</h4>
           </div>
-          <div class="col flex flex-column text-white">
-            <h2 class="mt-1 mb-5 font-semibold">Customer Service</h2>
+          <div class="col-12 md:col flex flex-column text-white">
+            <h2 class="mt-1 mb-3 md:mb-5 font-semibold">Customer Service</h2>
             <h4 class="footer-point">Contact US</h4>
             <h4 class="footer-point">Warranty Policy</h4>
             <h4 class="footer-point">Return & Refund Policy</h4>
@@ -205,7 +205,7 @@
             <h4 class="footer-point">Terms & Conditions</h4>
           </div>
           <div class="col flex flex-column text-white">
-            <h2 class="mt-1 mb-5 font-semibold">Get Connected</h2>
+            <h2 class="mt-1 mb-3 md:mb-5 font-semibold">Get Connected</h2>
             <h4 class="footer-point mb-24px">
               AC SERVICE always posts AC related news & company news regularly.
               So connect with us our recently news.
@@ -268,7 +268,7 @@ p {
 .pt-12 {
   padding-top: 48px;
 }
-.pb-6 {
+.pb-24px {
   padding-bottom: 24px;
 }
 .mb-12px {
