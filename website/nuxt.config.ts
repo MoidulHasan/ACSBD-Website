@@ -5,7 +5,11 @@ export default defineNuxtConfig({
 
   alias: {
     public: fileURLToPath(new URL("./public/", import.meta.url)),
-    constants: fileURLToPath(new URL("./constants/", import.meta.url)),
+    constants: fileURLToPath(new URL("./src/constants", import.meta.url)),
+  },
+
+  dir: {
+    public: "../public/",
   },
 
   devtools: { enabled: true },
