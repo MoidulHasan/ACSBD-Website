@@ -9,9 +9,8 @@
     --primary-color-navy-blue: #1D3566;
     --primary-color-dark-gray: #565656;
     --primary-color-white: #FFFFFF;
+    --product-Front-color: #f9f9f9;
 
-    --navy-blue-100: #1D3566;
-    --dark-gray-100: #565656;
 
 }
 
@@ -23,7 +22,7 @@
 
 
 .heading2 {
-    color: var(--navy-blue-100);
+    color: var(--primary-color-navy-blue);
     text-align: center;
     font-size: 36px;
     font-style: normal;
@@ -33,7 +32,7 @@
 
 
 .subtitle {
-    color: var(--dark-gray-100);
+    color: var(--primary-color-dark-gray);
     text-align: center;
     font-size: 16px;
     font-style: normal;
