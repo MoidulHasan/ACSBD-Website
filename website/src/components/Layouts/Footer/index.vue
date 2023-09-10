@@ -265,6 +265,18 @@ p {
   margin-block-start: 0;
   margin-block-end: 0;
 }
+.pt-12 {
+  padding-top: 48px;
+}
+.pb-6 {
+  padding-bottom: 24px;
+}
+.mb-12px {
+  margin-bottom: 12px;
+}
+.mb-24px {
+  margin-bottom: 24px;
+}
 
 .footer {
   background-color: var(--primary-color-navy-blue);
@@ -279,25 +291,12 @@ p {
 .footerCols {
   padding-bottom: 60px;
 }
-.pt-12 {
-  padding-top: 48px;
-}
-.pb-6 {
-  padding-bottom: 24px;
-}
-.mb-12px {
-  margin-bottom: 12px;
-}
-
 .footer-point {
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: 20px;
   margin-bottom: 12px;
-}
-.mb-24px {
-  margin-bottom: 24px;
 }
 
 .subscription {
@@ -316,19 +315,19 @@ p {
   line-height: 24px;
   overflow: hidden;
   border: none;
+  outline: none !important;
 }
 
 :deep(.p-button:enabled:hover) {
   background: var(--primary-color-envitect-sam-blue);
   color: white;
   border-color: var(--primary-color-envitect-sam-blue);
+  outline: none;
 }
-
 .location {
   width: 25px !important;
   height: 25px;
 }
-
 .copyWrite {
   text-align: center;
   font-size: 16px;
