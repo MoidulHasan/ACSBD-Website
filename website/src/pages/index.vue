@@ -1,5 +1,8 @@
 <template>
-  <div>this is home page</div>
+  <div>
+    <div>this is home page</div>
+    <PagesHomeAtaGlance />
+  </div>
 </template>
 
 <script lang="ts" setup></script>
