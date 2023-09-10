@@ -2,9 +2,11 @@
   background: #fff;
   font-family: Poppins, serif;
 
-  /*    Colors Variables  */
-  --primary-color-envitect-sam-blue: "#1476BF";
-  --primary-color-navy-blue: "#1D3566";
-  --primary-color-dark-gray: "#565656";
-  --primary-color-white: "#FFFFFF";
+    /*    Colors Variables  */
+    --primary-color-envitect-sam-blue: #1476BF;
+    --primary-color-navy-blue: #1D3566;
+    --primary-color-dark-gray: #565656;
+    --primary-color-white: #FFFFFF;
+
+
 }
