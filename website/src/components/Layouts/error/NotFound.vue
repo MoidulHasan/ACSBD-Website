@@ -1,6 +1,5 @@
 <template>
   <div class="notfound">
-    <!-- <img :src="image" /> -->
     <img src="/images/404-Not-found.png" alt="" />
     <h3 class="text-blue-800 text-2xl font-semibold">
       Opps! The page you requested not found!
@@ -18,6 +17,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: var(--primary-color-navy-blue);
+  img {
+    width: auto;
+  }
+  h3 {
+    color: var(--primary-color-navy-blue);
+  }
 }
 </style>
