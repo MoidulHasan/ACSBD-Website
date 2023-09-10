@@ -18,6 +18,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* background-color: var(--primary-color-navy-blue); */
+  background: var(--primary-color-navy-blue);
 }
 </style>
