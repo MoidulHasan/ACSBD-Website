@@ -10,10 +10,22 @@
     --primary-color-dark-gray: #565656;
     --primary-color-white: #FFFFFF;
 
+    --navy-blue-100: #1D3566;
+
 }
 
 .container {
     max-width: 1440px;
     margin: 0;
     padding: 0;
+}
+
+
+.heading2 {
+    color: var(--navy-blue-100);
+    text-align: center;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 44px;
 }
