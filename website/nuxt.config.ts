@@ -70,4 +70,13 @@ export default defineNuxtConfig({
       ],
     },
   },
+
+  runtimeConfig: {
+    apiUrl: "",
+    public: {
+      baseURL: "",
+    },
+  },
+
+  ssr: true,
 });
