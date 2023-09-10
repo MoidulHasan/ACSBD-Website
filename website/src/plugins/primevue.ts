@@ -7,6 +7,7 @@ import BadgeDirective from "primevue/badgedirective";
 import ConfirmationService from "primevue/confirmationservice";
 
 import Button from "primevue/button";
+import InputText from "primevue/inputtext";
 import { defineNuxtPlugin } from "#app";
 
 export default defineNuxtPlugin((nuxtApp) => {
@@ -19,6 +20,6 @@ export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.directive("ripple", Ripple);
   nuxtApp.vueApp.directive("badge", BadgeDirective);
   nuxtApp.vueApp.directive("styleclass", StyleClass);
-
   nuxtApp.vueApp.component("Button", Button);
+  nuxtApp.vueApp.component("InputText", InputText);
 });
