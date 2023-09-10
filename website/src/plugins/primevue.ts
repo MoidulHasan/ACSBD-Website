@@ -7,6 +7,7 @@ import BadgeDirective from "primevue/badgedirective";
 import ConfirmationService from "primevue/confirmationservice";
 
 import Button from "primevue/button";
+import Carousel from "primevue/carousel";
 import { defineNuxtPlugin } from "#app";
 
 export default defineNuxtPlugin((nuxtApp) => {
@@ -21,4 +22,5 @@ export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.directive("styleclass", StyleClass);
 
   nuxtApp.vueApp.component("Button", Button);
+  nuxtApp.vueApp.component("Carousel", Carousel);
 });
