@@ -2,7 +2,8 @@
   <div class="container">
     <CommonSliderSection
       :items="clientReviews"
-      class=""
+      :number-of-scroll="1"
+      :visible-item="4"
       slide-component="ClientReviewCard"
     >
       <template #header>

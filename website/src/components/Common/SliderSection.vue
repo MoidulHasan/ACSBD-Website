@@ -6,8 +6,8 @@
 
     <div class="slider">
       <Carousel
-        :num-scroll="1"
-        :num-visible="4"
+        :num-scroll="numberOfScroll"
+        :num-visible="visibleItem"
         :responsive-options="responsiveOptions"
         :show-indicators="false"
         :value="items"
@@ -34,10 +34,17 @@
 </template>
 
 <script lang="ts" setup>
-const props = defineProps<{
-  slideComponent: HTMLElement;
+interface SliderProps {
+  slideComponent: string;
   items: any;
-}>();
+  visibleItem: number;
+  numberOfScroll: number;
+  showIndicators?: boolean;
+}
+
+const props = withDefaults(defineProps<SliderProps>(), {
+  showIndicators: false,
+});
 
 console.log(props);
 
