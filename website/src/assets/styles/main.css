@@ -39,7 +39,7 @@ p {
 }
 .heading3 {
   color: var(--primary-color-navy-blue);
-  text-align: center;
+  text-align: left;
   font-size: 28px;
   font-style: normal;
   font-weight: 700;
