@@ -1,6 +1,7 @@
 <template>
   <div>
     <PagesHomeHeroSliderSection />
+    <PagesHomeCustomerReviewSection />
   </div>
 </template>
 
