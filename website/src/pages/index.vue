@@ -1,6 +1,7 @@
 <template>
   <div>
     <PagesHomeCustomerReviewSection />
+    <PagesHomeCoreValues />
     <PagesHomeAtaGlance />
   </div>
 </template>
