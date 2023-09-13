@@ -12,7 +12,7 @@
     </div>
     <div>
       <h1 class="mobile-heading heading3 mb-0 pt-6">Data that we collect</h1>
-      <p class="mobile-subtitle subtitle pt-3">
+      <p class="mobile-subtitle subtitle lg:text-left xl:text-left pt-3">
         We may collect various pieces of information if you seek to place an
         order for a product with us on the Site. We collect, store and process
         your data for processing your purchase on the Site and any possible
@@ -29,7 +29,7 @@
         Purposes for collection, Storage and/or use of personal data or
         information
       </h1>
-      <p class="mobile-subtitle subtitle pt-3">
+      <p class="mobile-subtitle subtitle lg:text-left xl:text-left pt-3">
         We may collect various pieces of information if you seek to place an
         order for a product with us on the Site. We collect, store and process
         your data for processing your purchase on the Site and any possible
@@ -50,7 +50,7 @@
     </div>
     <div>
       <h1 class="mobile-heading heading3 mb-0 pt-6">Data that we cllect</h1>
-      <p class="mobile-subtitle subtitle pt-3">
+      <p class="mobile-subtitle subtitle lg:text-left xl:text-left pt-3">
         We may collect various pieces of information if you seek to place an
         order for a product with us on the Site. We collect, store and process
         your data for processing your purchase on the Site and any possible
@@ -71,7 +71,7 @@
     </div>
     <div>
       <h1 class="mobile-heading heading3 mb-0 pt-6">Third parties and Links</h1>
-      <p class="mobile-subtitle subtitle pt-3">
+      <p class="mobile-subtitle subtitle lg:text-left xl:text-left pt-3">
         We may pass your details to other companies in our group. We may also
         pass your details to our agents and subcontractors to help us with any
         of our uses of your data set out in our Privacy Policy. For example, we
@@ -82,7 +82,7 @@
     </div>
     <div>
       <h1 class="mobile-heading heading3 mb-0 pt-6">Security</h1>
-      <p class="mobile-subtitle subtitle pt-3">
+      <p class="mobile-subtitle subtitle lg:text-left xl:text-left pt-3">
         We have in place appropriate technical and security measures to prevent
         unauthorized or unlawful access to or accidental loss of or destruction
         or damage to your information. When we collect data through the Site, we
@@ -95,7 +95,7 @@
     </div>
     <div>
       <h1 class="mobile-heading heading3 mb-0 pt-6">Your Rights</h1>
-      <p class="mobile-subtitle subtitle pt-3 pb-8">
+      <p class="mobile-subtitle subtitle lg:text-left xl:text-left pt-3 pb-8">
         If you are concerned about your data you have the right to request
         access to the personal data which we may hold or process about you. You
         have the right to require us to correct any inaccuracies in your data
