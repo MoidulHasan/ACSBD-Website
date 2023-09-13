@@ -1,8 +1,8 @@
 <template>
   <div class="container">
     <div>
-      <h1 class="heading2 mb-0">Privacy Policy</h1>
-      <p class="subtitle text-left pt-3">
+      <h1 class="mobile-heading heading2 mb-0">Privacy Policy</h1>
+      <p class="mobile-subtitle subtitle pt-3">
         We have already completed 3500+ projects. Our clients are Hospitals,
         Group of companies, Markets, Bank, Shopping Mall, Multinational
         Organization, University, Governments project, Tender Work, private
@@ -11,8 +11,8 @@
       </p>
     </div>
     <div>
-      <h1 class="heading3 mb-0 pt-6">Data that we collect</h1>
-      <p class="subtitle text-left pt-3">
+      <h1 class="mobile-heading heading3 mb-0 pt-6">Data that we collect</h1>
+      <p class="mobile-subtitle subtitle pt-3">
         We may collect various pieces of information if you seek to place an
         order for a product with us on the Site. We collect, store and process
         your data for processing your purchase on the Site and any possible
@@ -25,11 +25,11 @@
       </p>
     </div>
     <div>
-      <h1 class="heading3 mb-0 pt-6">
+      <h1 class="mobile-heading heading3 mb-0 pt-6">
         Purposes for collection, Storage and/or use of personal data or
         information
       </h1>
-      <p class="subtitle text-left pt-3">
+      <p class="mobile-subtitle subtitle pt-3">
         We may collect various pieces of information if you seek to place an
         order for a product with us on the Site. We collect, store and process
         your data for processing your purchase on the Site and any possible
@@ -49,8 +49,8 @@
       </p>
     </div>
     <div>
-      <h1 class="heading3 mb-0 pt-6">Data that we cllect</h1>
-      <p class="subtitle text-left pt-3">
+      <h1 class="mobile-heading heading3 mb-0 pt-6">Data that we cllect</h1>
+      <p class="mobile-subtitle subtitle pt-3">
         We may collect various pieces of information if you seek to place an
         order for a product with us on the Site. We collect, store and process
         your data for processing your purchase on the Site and any possible
@@ -70,8 +70,8 @@
       </p>
     </div>
     <div>
-      <h1 class="heading3 mb-0 pt-6">Third parties and Links</h1>
-      <p class="subtitle text-left pt-3">
+      <h1 class="mobile-heading heading3 mb-0 pt-6">Third parties and Links</h1>
+      <p class="mobile-subtitle subtitle pt-3">
         We may pass your details to other companies in our group. We may also
         pass your details to our agents and subcontractors to help us with any
         of our uses of your data set out in our Privacy Policy. For example, we
@@ -81,8 +81,8 @@
       </p>
     </div>
     <div>
-      <h1 class="heading3 mb-0 pt-6">Security</h1>
-      <p class="subtitle text-left pt-3">
+      <h1 class="mobile-heading heading3 mb-0 pt-6">Security</h1>
+      <p class="mobile-subtitle subtitle pt-3">
         We have in place appropriate technical and security measures to prevent
         unauthorized or unlawful access to or accidental loss of or destruction
         or damage to your information. When we collect data through the Site, we
@@ -94,8 +94,8 @@
       </p>
     </div>
     <div>
-      <h1 class="heading3 mb-0 pt-6">Your Rights</h1>
-      <p class="subtitle text-left pt-3 pb-8">
+      <h1 class="mobile-heading heading3 mb-0 pt-6">Your Rights</h1>
+      <p class="mobile-subtitle subtitle pt-3 pb-8">
         If you are concerned about your data you have the right to request
         access to the personal data which we may hold or process about you. You
         have the right to require us to correct any inaccuracies in your data
@@ -108,4 +108,23 @@
 
 <script lang="ts" setup></script>
 
-<style scoped></style>
+<style scoped>
+@media only screen and (max-width: 600px) {
+  .mobile-heading {
+    text-align: center;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 32px;
+    padding-top: 40px;
+  }
+  .mobile-subtitle {
+    text-align: center;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    padding-top: 12px;
+  }
+}
+</style>
