@@ -1,5 +1,9 @@
 <template>
   <div>
+    <div class="container">
+      <PagesHomeOurShopSection />
+    </div>
+
     <PagesHomeCustomerReviewSection />
   </div>
 </template>
