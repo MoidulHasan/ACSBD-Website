@@ -17,7 +17,7 @@ const component = computed(() => {
         () => import("~/components/Layouts/error/NotFound.vue"),
       )
     : defineAsyncComponent(
-        () => import("~/components/layouts/error/ServerError.vue"),
+        () => import("~/components/Layouts/error/ServerError.vue"),
       );
 });
 
