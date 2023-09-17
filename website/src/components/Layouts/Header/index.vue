@@ -482,7 +482,7 @@ nav ul li.right .navLink {
     width: 100%;
     left: 0;
     border-radius: 2px 0px 0px 2px;
-    background: #fff;
+    background: #157ecd;
     box-shadow: 0 0 0 0 #fff;
   }
 
