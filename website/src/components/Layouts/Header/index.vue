@@ -86,23 +86,30 @@
             <NuxtLink
               class="flex flex-column align-items-center justify-content-center"
             >
-              <img
-                class="headerIcon"
-                src="@/assets/images/header/cart.svg"
-                alt="three dot"
-              />
+              <div class="navbar-content-container flex justify-content-center">
+                <span class="navbar-items-count">2</span>
+                <img
+                  class="favoriteIcon navBarIcons"
+                  src="@/assets/images/header/cart.svg"
+                  alt="cart"
+                />
+              </div>
               <span class="block headerIcon-text">Shop</span>
             </NuxtLink>
             <NuxtLink
               class="flex flex-column align-items-center justify-content-center"
             >
-              <img
-                class="headerIcon"
-                src="@/assets/images/header/heart.svg"
-                alt="three dot"
-              />
+              <div class="navbar-content-container flex justify-content-center">
+                <span class="navbar-items-count">2</span>
+                <img
+                  class="favoriteIcon navBarIcons"
+                  src="@/assets/images/header/heart.svg"
+                  alt="favorite"
+                />
+              </div>
               <span class="block headerIcon-text">Favorite</span>
             </NuxtLink>
+
             <NuxtLink
               class="flex flex-column align-items-center justify-content-center"
             >
@@ -154,18 +161,55 @@
                 </li>
               </ul>
             </li>
+
             <li class="right">
-              <NuxtLink class="navLink" active-class="" to="/">
-                Account</NuxtLink
+              <NuxtLink
+                class="navLink flex align-items-center justify-content-center"
+                active-class=""
+                to="/"
               >
+                <div class="header-item-container flex justify-content-center">
+                  <span class="header-item-count">2</span>
+                  <img
+                    class="favoriteIcon navBarIcons"
+                    src="@/assets/images/header/cartsIcon.svg"
+                    alt="cart"
+                  />
+                </div>
+                <span class="block">Cart</span>
+              </NuxtLink>
             </li>
             <li class="right">
-              <NuxtLink class="navLink" active-class="" to="/"
-                >Favourites</NuxtLink
+              <NuxtLink
+                class="navLink flex align-items-center justify-content-center"
+                active-class=""
+                to="/"
               >
+                <div class="header-item-container flex justify-content-center">
+                  <span class="header-item-count">2</span>
+                  <img
+                    class="favoriteIcon navBarIcons"
+                    src="@/assets/images/header/heart.svg"
+                    alt="favorite"
+                  />
+                </div>
+
+                <span class="block">Favorites</span>
+              </NuxtLink>
             </li>
             <li class="right">
-              <NuxtLink class="navLink" active-class="" to="/">Carts</NuxtLink>
+              <NuxtLink
+                class="navLink flex align-items-center justify-content-center"
+                active-class=""
+                to="/"
+              >
+                <img
+                  class="profileIcon navBarIcons"
+                  src="@/assets/images/header/profile.svg"
+                  alt="profile"
+                />
+                <span class="block">Account</span>
+              </NuxtLink>
             </li>
           </ul>
         </nav>
@@ -299,15 +343,6 @@ const navMenues: Array<menus> = [
   },
 ];
 
-const menuSvg: string = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17" fill="none">
-  <path fill-rule="evenodd" clip-rule="evenodd" d="M20 0.0825195L0.0015583 0.0825216L0.00155848 2.45288L20 2.45288L20 0.0825195ZM16 6.89734L0.00124791 6.89734L0.00124808 9.2677L16 9.2677L16 6.89734ZM0.00288873 13.7122L12.002 13.7122L12.002 16.0825L0.00288891 16.0825L0.00288873 13.7122Z" fill="white"/>
-</svg>`;
-const callSvg: string = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect width="24" height="24" rx="2" fill="white"/>
-<path d="M18.6467 16.22C18.6467 16.46 18.5933 16.7067 18.48 16.9467C18.3667 17.1867 18.22 17.4134 18.0267 17.6267C17.7 17.9867 17.34 18.2467 16.9333 18.4134C16.5333 18.58 16.1 18.6667 15.6333 18.6667C14.9533 18.6667 14.2267 18.5067 13.46 18.18C12.6933 17.8534 11.9267 17.4134 11.1667 16.86C10.4 16.3 9.67334 15.68 8.98 14.9934C8.29334 14.3 7.67334 13.5734 7.12 12.8134C6.57334 12.0534 6.13334 11.2934 5.81334 10.54C5.49334 9.78004 5.33334 9.05337 5.33334 8.36004C5.33334 7.90671 5.41334 7.47337 5.57334 7.07337C5.73334 6.66671 5.98667 6.29337 6.34 5.96004C6.76667 5.54004 7.23334 5.33337 7.72667 5.33337C7.91334 5.33337 8.1 5.37337 8.26667 5.45337C8.44 5.53337 8.59334 5.65337 8.71334 5.82671L10.26 8.00671C10.38 8.17337 10.4667 8.32671 10.5267 8.47337C10.5867 8.61337 10.62 8.75337 10.62 8.88004C10.62 9.04004 10.5733 9.20004 10.48 9.35337C10.3933 9.50671 10.2667 9.66671 10.1067 9.82671L9.6 10.3534C9.52667 10.4267 9.49334 10.5134 9.49334 10.62C9.49334 10.6734 9.5 10.72 9.51334 10.7734C9.53334 10.8267 9.55334 10.8667 9.56667 10.9067C9.68667 11.1267 9.89334 11.4134 10.1867 11.76C10.4867 12.1067 10.8067 12.46 11.1533 12.8134C11.5133 13.1667 11.86 13.4934 12.2133 13.7934C12.56 14.0867 12.8467 14.2867 13.0733 14.4067C13.1067 14.42 13.1467 14.44 13.1933 14.46C13.2467 14.48 13.3 14.4867 13.36 14.4867C13.4733 14.4867 13.56 14.4467 13.6333 14.3734L14.14 13.8734C14.3067 13.7067 14.4667 13.58 14.62 13.5C14.7733 13.4067 14.9267 13.36 15.0933 13.36C15.22 13.36 15.3533 13.3867 15.5 13.4467C15.6467 13.5067 15.8 13.5934 15.9667 13.7067L18.1733 15.2734C18.3467 15.3934 18.4667 15.5334 18.54 15.7C18.6067 15.8667 18.6467 16.0334 18.6467 16.22Z" stroke="#1476BF" stroke-width="1.5" stroke-miterlimit="10"/>
-<path d="M16.3333 9.99996C16.3333 9.59996 16.02 8.98663 15.5533 8.48663C15.1267 8.02663 14.56 7.66663 14 7.66663" stroke="#1476BF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M18.6667 10C18.6667 7.42004 16.58 5.33337 14 5.33337" stroke="#1476BF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>`;
 const caretSvg: string = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
   <path d="M16.293 9.29297L12 13.586L7.70697 9.29297L6.29297 10.707L12 16.414L17.707 10.707L16.293 9.29297Z" fill="#565656"/>
 </svg>`;
@@ -446,6 +481,52 @@ nav ul li.right .navLink {
   line-height: 18px;
   color: var(--primary-color-dark-gray);
   padding-top: 4px;
+}
+
+/* navBarIcons */
+
+.navBarIcons {
+  height: 1.5rem;
+  width: 1.5rem;
+  margin-right: 0.375rem;
+}
+.header-item-container,
+.navbar-content-container {
+  position: relative;
+}
+
+.navbar-items-count {
+  position: absolute;
+  display: block;
+  top: -0.2rem;
+  left: 0.8rem;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 600;
+  background: var(--primary-color-navy-blue);
+  color: var(--primary-color-white);
+  width: 1.125rem;
+  height: 1.125rem;
+  padding: 1px 5px;
+  line-height: normal;
+  border-radius: 50%;
+}
+.header-item-count,
+.cart-item-count {
+  position: absolute;
+  display: block;
+  top: -0.5rem;
+  left: 0.7rem;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 600;
+  background: var(--primary-color-navy-blue);
+  color: var(--primary-color-white);
+  width: 1.125rem;
+  height: 1.125rem;
+  padding: 1px 5px;
+  line-height: normal;
+  border-radius: 50%;
 }
 
 /* animation */
