@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container h-screen">
     <CommonSliderSection
       :items="clientReviews"
       :number-of-scroll="1"
