@@ -1,5 +1,5 @@
 <template>
-  <div class="mb-8">
+  <div class="mb-8 headerContainer">
     <div class="first-row">
       <div
         class="grid container align-items-center justify-between pt-4 pb-10px"
@@ -45,20 +45,77 @@
       </div>
     </div>
     <div class="second-row">
-      <div class="container">
+      <div class="navbar">
         <nav :class="{ active: show }">
-          <div class="mobileMenu flex justify-content-between">
+          <div
+            class="mobileMenu flex justify-content-between container lg:hidden"
+          >
             <!--            <input id="check" type="checkbox" name="check" class="hidden" />-->
-            <label
+            <!--            <label-->
+            <!--              ref="menuToggle"-->
+            <!--              :class="[{ 'lg:hidden menuToggle': true }]"-->
+            <!--              @click="toggleMenu"-->
+            <!--            >-->
+            <!--              <i v-html="menuSvg"></i>-->
+            <!--            </label>-->
+            <!--            <label class="lg:hidden"> <i v-html="callSvg"></i></label> -->
+
+            <div
               ref="menuToggle"
+              class="flex flex-column align-items-center justify-content-center"
               :class="[{ 'lg:hidden menuToggle': true }]"
               @click="toggleMenu"
             >
-              <i v-html="menuSvg"></i>
-            </label>
-            <label class="lg:hidden"> <i v-html="callSvg"></i></label>
+              <img
+                class="headerIcon"
+                src="@/assets/images/header/threebarMenu.svg"
+                alt="three dot"
+              />
+              <span class="block headerIcon-text">Menu</span>
+            </div>
+            <div
+              class="flex flex-column align-items-center justify-content-center"
+            >
+              <img
+                class="headerIcon"
+                src="@/assets/images/header/home.svg"
+                alt="three dot"
+              />
+              <span class="block headerIcon-text">Home</span>
+            </div>
+            <div
+              class="flex flex-column align-items-center justify-content-center"
+            >
+              <img
+                class="headerIcon"
+                src="@/assets/images/header/cart.svg"
+                alt="three dot"
+              />
+              <span class="block headerIcon-text">Shop</span>
+            </div>
+            <div
+              class="flex flex-column align-items-center justify-content-center"
+            >
+              <img
+                class="headerIcon"
+                src="@/assets/images/header/heart.svg"
+                alt="three dot"
+              />
+              <span class="block headerIcon-text">Favorite</span>
+            </div>
+            <div
+              class="flex flex-column align-items-center justify-content-center"
+            >
+              <img
+                class="headerIcon"
+                src="@/assets/images/header/profile.svg"
+                alt="three dot"
+              />
+              <span class="block headerIcon-text">Profile</span>
+            </div>
           </div>
-          <ul class="menu">
+          <ul class="menu container lg:mx-auto">
+            <li></li>
             <li>
               <NuxtLink class="navLink" active-class="" to="/">Home</NuxtLink>
             </li>
@@ -169,96 +226,6 @@
 </template>
 
 <script lang="ts" setup>
-interface dropDownLink {
-  title: string;
-  path: string;
-  cName: string;
-  childMenu?: Array<dropDownLink>;
-}
-interface navLink {
-  title: string;
-  path: string;
-  cName: string;
-  subMenu?: Array<dropDownLink>;
-}
-
-const menuItems: Array<navLink> = [
-  {
-    title: "Home",
-    path: "/",
-    cName: "nav-links",
-  },
-  {
-    title: "Services",
-    path: "/services",
-    cName: "nav-links",
-  },
-  {
-    title: "Products",
-    path: "/products",
-    cName: "nav-links",
-    subMenu: [
-      {
-        title: "Air Conditioner",
-        path: "/air-conditioner",
-        cName: "dropdown",
-        childMenu: [
-          {
-            title: "Non-Inverter AC",
-            path: "/non-inverter-ac",
-            cName: "dropdown",
-          },
-          {
-            title: "Non-Inverter AC",
-            path: "/non-inverter-ac",
-            cName: "dropdown",
-          },
-          {
-            title: "Non-Inverter AC",
-            path: "/non-inverter-ac",
-            cName: "dropdown",
-          },
-          {
-            title: "Non-Inverter AC",
-            path: "/non-inverter-ac",
-            cName: "dropdown",
-          },
-          {
-            title: "Non-Inverter AC",
-            path: "/non-inverter-ac",
-            cName: "dropdown",
-          },
-          {
-            title: "Non-Inverter AC",
-            path: "/non-inverter-ac",
-            cName: "dropdown",
-          },
-          {
-            title: "Non-Inverter AC",
-            path: "/non-inverter-ac",
-            cName: "dropdown",
-          },
-          {
-            title: "Non-Inverter AC",
-            path: "/non-inverter-ac",
-            cName: "dropdown",
-          },
-          {
-            title: "Non-Inverter AC",
-            path: "/non-inverter-ac",
-            cName: "dropdown",
-          },
-        ],
-      },
-      {
-        title: "AC Spares Parts",
-        path: "/ac-spares-parts",
-        cName: "dropdown",
-      },
-    ],
-  },
-];
-
 const menuSvg: string = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17" fill="none">
   <path fill-rule="evenodd" clip-rule="evenodd" d="M20 0.0825195L0.0015583 0.0825216L0.00155848 2.45288L20 2.45288L20 0.0825195ZM16 6.89734L0.00124791 6.89734L0.00124808 9.2677L16 9.2677L16 6.89734ZM0.00288873 13.7122L12.002 13.7122L12.002 16.0825L0.00288891 16.0825L0.00288873 13.7122Z" fill="white"/>
 </svg>`;
@@ -381,7 +348,7 @@ nav ul li.right .navLink {
   box-shadow: 0px 2px 4px 1px rgba(159, 159, 159, 0.35);
   padding: 1rem;
   min-width: 11.75rem;
-  z-index: 1000;
+  z-index: 99;
   display: none;
 }
 .submenu2 li {
@@ -397,12 +364,33 @@ nav ul li.right .navLink {
   animation: slideleft 0.5s ease;
 }
 
+/* menu bar */
+
+.headerIcon-text {
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+  color: var(--primary-color-dark-gray);
+  padding-top: 4px;
+}
+
 /* animation */
 
 @keyframes slideup {
   0% {
     opacity: 0;
     transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes menu-slideup {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
   }
   100% {
     opacity: 1;
@@ -419,47 +407,57 @@ nav ul li.right .navLink {
   }
 }
 
-@keyframes slide-in {
-  from {
-    left: -100%;
-    opacity: 0;
-  }
-  to {
-    left: 0;
-    opacity: 1;
-  }
-}
-
-@keyframes slide-down {
-  0% {
-    height: 0;
-  }
-
-  100% {
-    height: auto;
-  }
-}
-
 @media (max-width: 900px) {
-  .second-row {
-    background-color: var(--primary-color-envitect-sam-blue) !important;
-    transition: height 0.5s ease-in-out;
-    animation: slide-down 0.5s ease-in-out;
+  .headerContainer {
+    position: relative;
   }
-
+  .second-row {
+    border-radius: 24px 24px 0px 0px;
+    background: var(--primary-color-white);
+    box-shadow: 0px -2px 25px 0px rgba(70, 70, 85, 0.1);
+    transition: height 0.5s ease-in-out;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 9999;
+  }
   nav {
     width: 100%;
     left: 0;
-    padding: 0.8rem 0 0.6rem 0;
+    padding: 0.625rem 1.25rem;
+    position: relative;
+  }
+
+  .menuToggle {
+    padding: 0.2rem 0rem;
+  }
+
+  .navbar {
+    position: relative;
+  }
+  .mobileMenu {
+    position: relative;
+    z-index: 9999;
   }
 
   nav .menu {
     display: none;
-    animation: slide-in 0.5s ease-in-out;
+    width: calc(100% - 2rem);
+    position: fixed;
+    max-height: calc(100vh - 10rem - 4.27375rem);
+    min-height: 0;
+    overflow-y: scroll;
+    background: var(--primary-color-envitect-sam-blue) !important;
+    top: 10rem;
+    z-index: 9990;
+    border-radius: 0.5rem 0.5rem 0 0;
+    padding: 1rem;
   }
 
   nav.active .menu {
     display: initial;
+    left: 1rem;
+    animation: menu-slideup 0.4s ease;
   }
 
   .menu li {
@@ -468,9 +466,13 @@ nav ul li.right .navLink {
     line-height: 45px;
   }
 
+  .menu li .navLink {
+    position: relative;
+    color: var(--primary-color-white);
+  }
+
   nav ul li.right {
-    float: none;
-    margin-right: 0;
+    display: none;
   }
 
   nav ul li.right .navLink {
@@ -484,6 +486,13 @@ nav ul li.right .navLink {
     border-radius: 2px 0px 0px 2px;
     background: #157ecd;
     box-shadow: 0 0 0 0 #fff;
+  }
+  .submenu .subMenuLink {
+    color: var(--primary-color-white);
+  }
+
+  .submenu2 .subMenuLink {
+    color: var(--primary-color-dark-gray);
   }
 
   .submenu li .subMenuLink {
@@ -499,7 +508,7 @@ nav ul li.right .navLink {
     box-shadow: 0 0 0 0 #fff;
     padding: 0 1rem 1rem 1rem;
     min-width: 6rem;
-    z-index: 1000;
+    z-index: 999;
     //display: none;
   }
 }
