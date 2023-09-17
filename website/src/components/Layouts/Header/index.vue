@@ -60,20 +60,20 @@
             <!--            </label>-->
             <!--            <label class="lg:hidden"> <i v-html="callSvg"></i></label> -->
 
-            <div
+            <NuxtLink
               ref="menuToggle"
               class="flex flex-column align-items-center justify-content-center"
               :class="[{ 'lg:hidden menuToggle': true }]"
               @click="toggleMenu"
             >
               <img
-                class="headerIcon"
+                class="headerIcon menuBarIcon"
                 src="@/assets/images/header/threebarMenu.svg"
                 alt="three dot"
               />
               <span class="block headerIcon-text">Menu</span>
-            </div>
-            <div
+            </NuxtLink>
+            <NuxtLink
               class="flex flex-column align-items-center justify-content-center"
             >
               <img
@@ -82,8 +82,8 @@
                 alt="three dot"
               />
               <span class="block headerIcon-text">Home</span>
-            </div>
-            <div
+            </NuxtLink>
+            <NuxtLink
               class="flex flex-column align-items-center justify-content-center"
             >
               <img
@@ -92,8 +92,8 @@
                 alt="three dot"
               />
               <span class="block headerIcon-text">Shop</span>
-            </div>
-            <div
+            </NuxtLink>
+            <NuxtLink
               class="flex flex-column align-items-center justify-content-center"
             >
               <img
@@ -102,8 +102,8 @@
                 alt="three dot"
               />
               <span class="block headerIcon-text">Favorite</span>
-            </div>
-            <div
+            </NuxtLink>
+            <NuxtLink
               class="flex flex-column align-items-center justify-content-center"
             >
               <img
@@ -112,98 +112,47 @@
                 alt="three dot"
               />
               <span class="block headerIcon-text">Profile</span>
-            </div>
+            </NuxtLink>
           </div>
           <ul class="menu container lg:mx-auto">
-            <li></li>
-            <li>
-              <NuxtLink class="navLink" active-class="" to="/">Home</NuxtLink>
-            </li>
-            <li>
-              <NuxtLink class="navLink" active-class="" to="/"
-                >Services</NuxtLink
+            <li v-for="navItem in navMenues" :key="navItem.title">
+              <NuxtLink
+                class="navLink flex"
+                active-class=""
+                exact-active-class=""
+                :to="navItem.path"
               >
-            </li>
-            <li>
-              <NuxtLink class="navLink flex" active-class="">
-                <span>Products</span>
-                <i class="navLink_i" v-html="caretSvg"></i>
+                <span>{{ navItem.title }}</span>
+                <i
+                  v-if="navItem.submenu"
+                  class="navLink_i"
+                  v-html="caretSvg"
+                ></i>
               </NuxtLink>
-              <ul class="submenu">
-                <li>
+              <ul v-if="navItem.submenu" class="submenu">
+                <li
+                  v-for="subNavItem in navItem.submenu"
+                  :key="subNavItem.title"
+                >
                   <NuxtLink
                     class="subMenuLink pb-2 flex gap-3 lg:justify-content-center"
                   >
-                    <span>Air Conditioner</span>
+                    <span>{{ subNavItem.title }}</span>
                     <i class="" v-html="caretRightSvg"></i>
                   </NuxtLink>
-                  <ul class="submenu2">
-                    <li>
-                      <NuxtLink class="subMenuLink">Non-Inverter AC</NuxtLink>
-                    </li>
-                    <li>
-                      <NuxtLink class="subMenuLink">Inverter AC</NuxtLink>
-                    </li>
-                    <li>
-                      <NuxtLink class="subMenuLink">Cooling AC</NuxtLink>
-                    </li>
-                    <li>
-                      <NuxtLink class="subMenuLink">Sasroyi AC</NuxtLink>
-                    </li>
-                    <li>
-                      <NuxtLink class="subMenuLink">Komdami AC</NuxtLink>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <NuxtLink
-                    class="subMenuLink flex gap-3 lg:justify-content-center"
-                  >
-                    <span>AC Spare Parts</span>
-                    <i class="" v-html="caretRightSvg"></i>
-                  </NuxtLink>
-                  <ul class="submenu2">
-                    <li>
-                      <NuxtLink class="subMenuLink">Fiver Card</NuxtLink>
-                    </li>
-                    <li>
-                      <NuxtLink class="subMenuLink">Fan Turbo</NuxtLink>
-                    </li>
-                    <li>
-                      <NuxtLink class="subMenuLink">Cooling Engine</NuxtLink>
-                    </li>
-                    <li>
-                      <NuxtLink class="subMenuLink">Suparior Dana</NuxtLink>
-                    </li>
-                    <li>
-                      <NuxtLink class="subMenuLink">Cable Dan</NuxtLink>
+                  <ul v-if="subNavItem.submenu2" class="submenu2">
+                    <li
+                      v-for="multiSubNavItem in subNavItem.submenu2"
+                      :key="multiSubNavItem.title"
+                      class=""
+                    >
+                      <NuxtLink class="subMenuLink">{{
+                        multiSubNavItem.title
+                      }}</NuxtLink>
                     </li>
                   </ul>
                 </li>
               </ul>
-            </li>
-            <li>
-              <NuxtLink class="navLink" active-class="" to="/"
-                >AC Rent</NuxtLink
-              >
-            </li>
-            <li>
-              <NuxtLink class="navLink" active-class="" to="/"
-                >Work Pricing</NuxtLink
-              >
-            </li>
-            <li>
-              <NuxtLink class="navLink" active-class="" to="/">Blog</NuxtLink>
-            </li>
-            <li>
-              <NuxtLink class="navLink" active-class="" to="/"
-                >About Us</NuxtLink
-              >
-            </li>
-            <li>
-              <NuxtLink class="navLink" active-class="" to="/"
-                >Contact Us</NuxtLink
-              >
             </li>
             <li class="right">
               <NuxtLink class="navLink" active-class="" to="/">
@@ -226,10 +175,134 @@
 </template>
 
 <script lang="ts" setup>
+interface submenu {
+  title: string;
+  path: string;
+  submenu2?: Array<submenu>;
+}
+interface menus {
+  title: string;
+  path: string;
+  submenu?: Array<submenu>;
+}
+
+const navMenues: Array<menus> = [
+  {
+    title: "Home",
+    path: "/",
+  },
+  {
+    title: "Services",
+    path: "/services",
+  },
+  {
+    title: "Products",
+    path: "",
+    submenu: [
+      {
+        title: "Air Conditioner",
+        path: "",
+        submenu2: [
+          {
+            title: "Non-Inverter AC",
+            path: "",
+          },
+          {
+            title: "Inverter AC",
+            path: "",
+          },
+          {
+            title: "Window AC",
+            path: "",
+          },
+          {
+            title: "Portable AC",
+            path: "",
+          },
+          {
+            title: "Ceiling Type AC",
+            path: "",
+          },
+          {
+            title: "Cassette Type AC",
+            path: "",
+          },
+          {
+            title: "Duct Type AC",
+            path: "",
+          },
+          {
+            title: "VRF AC",
+            path: "",
+          },
+        ],
+      },
+      {
+        title: "AC Spares Parts",
+        path: "",
+        submenu2: [
+          {
+            title: "Non-Inverter AC",
+            path: "",
+          },
+          {
+            title: "Inverter AC",
+            path: "",
+          },
+          {
+            title: "Window AC",
+            path: "",
+          },
+          {
+            title: "Portable AC",
+            path: "",
+          },
+          {
+            title: "Ceiling Type AC",
+            path: "",
+          },
+          {
+            title: "Cassette Type AC",
+            path: "",
+          },
+          {
+            title: "Duct Type AC",
+            path: "",
+          },
+          {
+            title: "VRF AC",
+            path: "",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "AC Rent",
+    path: "/acrent",
+  },
+  {
+    title: "Work Pricing",
+    path: "/workpricing",
+  },
+  {
+    title: "Blog",
+    path: "/blog",
+  },
+  {
+    title: "About Us",
+    path: "/about",
+  },
+  {
+    title: "Contact Us",
+    path: "",
+  },
+];
+
 const menuSvg: string = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17" fill="none">
   <path fill-rule="evenodd" clip-rule="evenodd" d="M20 0.0825195L0.0015583 0.0825216L0.00155848 2.45288L20 2.45288L20 0.0825195ZM16 6.89734L0.00124791 6.89734L0.00124808 9.2677L16 9.2677L16 6.89734ZM0.00288873 13.7122L12.002 13.7122L12.002 16.0825L0.00288891 16.0825L0.00288873 13.7122Z" fill="white"/>
 </svg>`;
-const callSvg: srting = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+const callSvg: string = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 <rect width="24" height="24" rx="2" fill="white"/>
 <path d="M18.6467 16.22C18.6467 16.46 18.5933 16.7067 18.48 16.9467C18.3667 17.1867 18.22 17.4134 18.0267 17.6267C17.7 17.9867 17.34 18.2467 16.9333 18.4134C16.5333 18.58 16.1 18.6667 15.6333 18.6667C14.9533 18.6667 14.2267 18.5067 13.46 18.18C12.6933 17.8534 11.9267 17.4134 11.1667 16.86C10.4 16.3 9.67334 15.68 8.98 14.9934C8.29334 14.3 7.67334 13.5734 7.12 12.8134C6.57334 12.0534 6.13334 11.2934 5.81334 10.54C5.49334 9.78004 5.33334 9.05337 5.33334 8.36004C5.33334 7.90671 5.41334 7.47337 5.57334 7.07337C5.73334 6.66671 5.98667 6.29337 6.34 5.96004C6.76667 5.54004 7.23334 5.33337 7.72667 5.33337C7.91334 5.33337 8.1 5.37337 8.26667 5.45337C8.44 5.53337 8.59334 5.65337 8.71334 5.82671L10.26 8.00671C10.38 8.17337 10.4667 8.32671 10.5267 8.47337C10.5867 8.61337 10.62 8.75337 10.62 8.88004C10.62 9.04004 10.5733 9.20004 10.48 9.35337C10.3933 9.50671 10.2667 9.66671 10.1067 9.82671L9.6 10.3534C9.52667 10.4267 9.49334 10.5134 9.49334 10.62C9.49334 10.6734 9.5 10.72 9.51334 10.7734C9.53334 10.8267 9.55334 10.8667 9.56667 10.9067C9.68667 11.1267 9.89334 11.4134 10.1867 11.76C10.4867 12.1067 10.8067 12.46 11.1533 12.8134C11.5133 13.1667 11.86 13.4934 12.2133 13.7934C12.56 14.0867 12.8467 14.2867 13.0733 14.4067C13.1067 14.42 13.1467 14.44 13.1933 14.46C13.2467 14.48 13.3 14.4867 13.36 14.4867C13.4733 14.4867 13.56 14.4467 13.6333 14.3734L14.14 13.8734C14.3067 13.7067 14.4667 13.58 14.62 13.5C14.7733 13.4067 14.9267 13.36 15.0933 13.36C15.22 13.36 15.3533 13.3867 15.5 13.4467C15.6467 13.5067 15.8 13.5934 15.9667 13.7067L18.1733 15.2734C18.3467 15.3934 18.4667 15.5334 18.54 15.7C18.6067 15.8667 18.6467 16.0334 18.6467 16.22Z" stroke="#1476BF" stroke-width="1.5" stroke-miterlimit="10"/>
 <path d="M16.3333 9.99996C16.3333 9.59996 16.02 8.98663 15.5533 8.48663C15.1267 8.02663 14.56 7.66663 14 7.66663" stroke="#1476BF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -334,8 +407,8 @@ nav ul li.right .navLink {
 .subMenuLink {
   font-size: 1rem;
   font-style: normal;
-  font-weight: 500;
   line-height: 1.5rem;
+  font-weight: 400;
   color: var(--primary-color-dark-gray);
 }
 
@@ -347,7 +420,7 @@ nav ul li.right .navLink {
   background: #fff;
   box-shadow: 0px 2px 4px 1px rgba(159, 159, 159, 0.35);
   padding: 1rem;
-  min-width: 11.75rem;
+  min-width: 14rem !important;
   z-index: 99;
   display: none;
 }
@@ -471,6 +544,10 @@ nav ul li.right .navLink {
     color: var(--primary-color-white);
   }
 
+  .navLink_i {
+    color: var(--primary-color-white);
+  }
+
   nav ul li.right {
     display: none;
   }
@@ -509,7 +586,6 @@ nav ul li.right .navLink {
     padding: 0 1rem 1rem 1rem;
     min-width: 6rem;
     z-index: 999;
-    //display: none;
   }
 }
 </style>
