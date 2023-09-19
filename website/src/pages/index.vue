@@ -1,6 +1,7 @@
 <template>
   <div>
     <PagesHomeCustomerReviewSection />
+    <PagesHomeClientsSection />
   </div>
 </template>
 

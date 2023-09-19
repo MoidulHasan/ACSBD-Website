@@ -1,26 +1,26 @@
 [
   {
     "title": "panasonic",
-    "imgUrl": "/images/clients/panasonic.png"
+    "imageUrl": "/images/clients/panasonic.png"
   },
   {
     "title": "hotel zakaria",
-    "imgUrl": "/images/clients/hotelzakaria.png"
+    "imageUrl": "/images/clients/hotelzakaria.png"
   },
   {
     "title": "blu star",
-    "imgUrl": "/images/clients/blue_star.png"
+    "imageUrl": "/images/clients/blue_star.png"
   },
   {
     "title": "york",
-    "imgUrl": "/images/clients/york.png"
+    "imageUrl": "/images/clients/york.png"
   },
   {
     "title": "daikin",
-    "imgUrl": "/images/clients/daikin.png"
+    "imageUrl": "/images/clients/daikin.png"
   },
   {
     "title": "daffodil",
-    "imgUrl": "/images/clients/diu.png"
+    "imageUrl": "/images/clients/diu.png"
   }
 ]
