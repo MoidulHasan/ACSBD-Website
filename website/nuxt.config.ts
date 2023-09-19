@@ -13,6 +13,11 @@ export default defineNuxtConfig({
   },
 
   devtools: { enabled: true },
+
+  modules: [
+    '@nuxt/image',
+  ],
+
   css: [
     "primevue/resources/themes/lara-light-blue/theme.css",
     "primevue/resources/primevue.css",
