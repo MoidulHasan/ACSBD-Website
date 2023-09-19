@@ -1,0 +1,224 @@
+Index: website/src/assets/styles/main.css
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>:root {\n    background: #FFF;\n    font-family: Poppins, serif;\n\n\n    /*    Colors Variables  */\n    --primary-color-envitect-sam-blue: #1476BF;\n    --primary-color-navy-blue: #1D3566;\n    --primary-color-dark-gray: #565656;\n    --primary-color-white: #FFFFFF;\n    --product-Front-color: #f9f9f9;\n\n\n}\nbody{\n    box-sizing: border-box;\n    margin:0;\n    padding:0;\n}\n\nh4,\nh2,\nh3,\np {\n    margin-block-start: 0;\n    margin-block-end: 0;\n}\n\n.container {\n    max-width: 1440px;\n    margin: 0 auto;\n    padding: 0;\n}\n\n\n.heading2 {\n    color: var(--primary-color-navy-blue);\n    text-align: center;\n    font-size: 36px;\n    font-style: normal;\n    font-weight: 700;\n    line-height: 44px;\n}\n\n\n.subtitle {\n    color: var(--primary-color-dark-gray);\n    text-align: center;\n    font-size: 16px;\n    font-style: normal;\n    font-weight: 400;\n    line-height: 24px;\n}\n\n\n.mb-12px {\n    margin-bottom: 12px;\n}\n\n.pb-10px{\n    padding-bottom:10px;\n}\n\n@media only screen and (max-width: 600px){\n    .container{\n        width: 100%;\n        padding: 0 16px;\n    }\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/website/src/assets/styles/main.css b/website/src/assets/styles/main.css
+--- a/website/src/assets/styles/main.css	(revision bd1e6b051e9ce68aab1cef750814680e12a15d5a)
++++ b/website/src/assets/styles/main.css	(date 1694538262606)
+@@ -6,6 +6,7 @@
+     /*    Colors Variables  */
+     --primary-color-envitect-sam-blue: #1476BF;
+     --primary-color-navy-blue: #1D3566;
++    --primary-color-navy-blue-10: #E8EBF0;
+     --primary-color-dark-gray: #565656;
+     --primary-color-white: #FFFFFF;
+     --product-Front-color: #f9f9f9;
+Index: website/src/components/Layouts/Header/index.vue
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><template>\n  <div>\n    <div class=\"grid container align-items-center justify-between pt-4 pb-10px\">\n      <div\n        class=\"col-12 lg:col-3 flex justify-content-center lg:justify-content-start\"\n      >\n        <img src=\"@/assets/images/header/logo_colored.svg\" alt=\"ACBD\" />\n      </div>\n      <div class=\"col-12 md:col-12 lg:col-5\">\n        <div class=\"p-inputgroup flex-1\">\n          <InputText placeholder=\"Search Product\" />\n          <Button icon=\"pi pi-search\" class=\"search-button\" />\n        </div>\n      </div>\n      <div\n        class=\"col-12 lg:col-4 md:align-items-center md:justify-content-center lg:justify-content-end float-right hidden md:flex\"\n      >\n        <img\n          src=\"@/assets/images/header/service.svg\"\n          alt=\"service\"\n          class=\"mr-3\"\n        />\n        <div>\n          <p class=\"flex align-items-center\">\n            <img\n              class=\"inline-block mr-1 contact-img\"\n              src=\"@/assets/images/header/phoneIcon.svg\"\n              alt=\"phone\"\n            />\n            <span class=\"contact-info\">09613 755755</span>\n          </p>\n          <p class=\"flex align-items-center\">\n            <img\n              class=\"inline-block mr-1 contact-img\"\n              src=\"@/assets/images/header/mail.svg\"\n              alt=\"mail\"\n            />\n            <span class=\"contact-info\">info@acsevice.com</span>\n          </p>\n        </div>\n      </div>\n    </div>\n  </div>\n</template>\n\n<script lang=\"ts\" setup></script>\n\n<style scoped>\n.search-button,\n.search-button:hover {\n  background-color: var(--primary-color-envitect-sam-blue);\n  padding: 14px 29px;\n}\n\n.contact-info {\n  font-size: 16px;\n  font-style: normal;\n  font-weight: 600;\n  line-height: 24px;\n  color: var(--primary-color-dark-gray);\n}\n</style>\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/website/src/components/Layouts/Header/index.vue b/website/src/components/Layouts/Header/index.vue
+--- a/website/src/components/Layouts/Header/index.vue	(revision bd1e6b051e9ce68aab1cef750814680e12a15d5a)
++++ b/website/src/components/Layouts/Header/index.vue	(date 1694611559047)
+@@ -1,51 +1,158 @@
+ <template>
+   <div>
+-    <div class="grid container align-items-center justify-between pt-4 pb-10px">
++    <div class="first-row">
+       <div
+-        class="col-12 lg:col-3 flex justify-content-center lg:justify-content-start"
+-      >
+-        <img src="@/assets/images/header/logo_colored.svg" alt="ACBD" />
+-      </div>
+-      <div class="col-12 md:col-12 lg:col-5">
+-        <div class="p-inputgroup flex-1">
+-          <InputText placeholder="Search Product" />
+-          <Button icon="pi pi-search" class="search-button" />
+-        </div>
+-      </div>
+-      <div
+-        class="col-12 lg:col-4 md:align-items-center md:justify-content-center lg:justify-content-end float-right hidden md:flex"
+-      >
+-        <img
+-          src="@/assets/images/header/service.svg"
+-          alt="service"
+-          class="mr-3"
+-        />
+-        <div>
+-          <p class="flex align-items-center">
+-            <img
+-              class="inline-block mr-1 contact-img"
+-              src="@/assets/images/header/phoneIcon.svg"
+-              alt="phone"
+-            />
+-            <span class="contact-info">09613 755755</span>
+-          </p>
+-          <p class="flex align-items-center">
+-            <img
+-              class="inline-block mr-1 contact-img"
+-              src="@/assets/images/header/mail.svg"
+-              alt="mail"
+-            />
+-            <span class="contact-info">info@acsevice.com</span>
+-          </p>
++        class="grid container align-items-center justify-between pt-4 pb-10px"
++      >
++        <div
++          class="col-12 lg:col-3 flex justify-content-center lg:justify-content-start"
++        >
++          <img src="@/assets/images/header/logo_colored.svg" alt="ACBD" />
++        </div>
++        <div class="col-12 md:col-12 lg:col-5">
++          <div class="p-inputgroup flex-1">
++            <InputText placeholder="Search Product" />
++            <Button icon="pi pi-search" class="search-button" />
++          </div>
++        </div>
++        <div
++          class="col-12 lg:col-4 md:align-items-center md:justify-content-center lg:justify-content-end float-right hidden md:flex"
++        >
++          <img
++            src="@/assets/images/header/service.svg"
++            alt="service"
++            class="mr-3"
++          />
++          <div>
++            <p class="flex align-items-center">
++              <img
++                class="inline-block mr-1 contact-img"
++                src="@/assets/images/header/phoneIcon.svg"
++                alt="phone"
++              />
++              <span class="contact-info">09613 755755</span>
++            </p>
++            <p class="flex align-items-center">
++              <img
++                class="inline-block mr-1 contact-img"
++                src="@/assets/images/header/mail.svg"
++                alt="mail"
++              />
++              <span class="contact-info">info@acsevice.com</span>
++            </p>
++          </div>
+         </div>
+       </div>
+     </div>
++    <div class="second-row">
++      <div class="container">
++        <input id="checkInput" type="checkbox" />
++        <label> <i v-html="menuSvg"></i> </label>
++      </div>
++    </div>
+   </div>
+ </template>
+ 
+-<script lang="ts" setup></script>
++<script lang="ts" setup>
++interface dropDownLink {
++  title: string;
++  path: string;
++  cName: string;
++  childMenu?: Array<dropDownLink>;
++}
++interface navLink {
++  title: string;
++  path: string;
++  cName: string;
++  subMenu?: Array<dropDownLink>;
++}
++
++const menuItems: Array<navLink> = [
++  {
++    title: "Home",
++    path: "/",
++    cName: "nav-links",
++  },
++  {
++    title: "Services",
++    path: "/services",
++    cName: "nav-links",
++  },
++  {
++    title: "Products",
++    path: "/products",
++    cName: "nav-links",
++    subMenu: [
++      {
++        title: "Air Conditioner",
++        path: "/air-conditioner",
++        cName: "dropdown",
++        childMenu: [
++          {
++            title: "Non-Inverter AC",
++            path: "/non-inverter-ac",
++            cName: "dropdown",
++          },
++          {
++            title: "Non-Inverter AC",
++            path: "/non-inverter-ac",
++            cName: "dropdown",
++          },
++          {
++            title: "Non-Inverter AC",
++            path: "/non-inverter-ac",
++            cName: "dropdown",
++          },
++          {
++            title: "Non-Inverter AC",
++            path: "/non-inverter-ac",
++            cName: "dropdown",
++          },
++          {
++            title: "Non-Inverter AC",
++            path: "/non-inverter-ac",
++            cName: "dropdown",
++          },
++          {
++            title: "Non-Inverter AC",
++            path: "/non-inverter-ac",
++            cName: "dropdown",
++          },
++          {
++            title: "Non-Inverter AC",
++            path: "/non-inverter-ac",
++            cName: "dropdown",
++          },
++          {
++            title: "Non-Inverter AC",
++            path: "/non-inverter-ac",
++            cName: "dropdown",
++          },
++          {
++            title: "Non-Inverter AC",
++            path: "/non-inverter-ac",
++            cName: "dropdown",
++          },
++        ],
++      },
++      {
++        title: "AC Spares Parts",
++        path: "/ac-spares-parts",
++        cName: "dropdown",
++      },
++    ],
++  },
++];
++
++const menuSvg: string = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17" fill="none">
++  <path fill-rule="evenodd" clip-rule="evenodd" d="M20 0.0825195L0.0015583 0.0825216L0.00155848 2.45288L20 2.45288L20 0.0825195ZM16 6.89734L0.00124791 6.89734L0.00124808 9.2677L16 9.2677L16 6.89734ZM0.00288873 13.7122L12.002 13.7122L12.002 16.0825L0.00288891 16.0825L0.00288873 13.7122Z" fill="white"/>
++</svg>`;
++</script>
+ 
+ <style scoped>
++.first-row {
++  border-bottom: 0.1rem solid var(--primary-color-navy-blue-10);
++}
+ .search-button,
+ .search-button:hover {
+   background-color: var(--primary-color-envitect-sam-blue);
