@@ -1,15 +1,9 @@
 <template>
   <div class="flex flex-column align-items-center justify-center service-card">
-    <img
-      class="mb-3"
-      src="@/assets/images/ac_installation.svg"
-      alt="ac installation"
-    />
-    <h2 class="service-title">AC Installation</h2>
+    <img class="service-image mb-3" :src="imageUrl" :alt="title" />
+    <h2 class="service-title">{{ title }}</h2>
     <p class="description">
-      We have a large team of experienced technicians to provide any type of AC
-      servicing services with state-of-the-art equipment. Our service quality is
-      complete.
+      {{ description }}
     </p>
     <div class="button-container">
       <NuxtLink
@@ -23,7 +17,13 @@
   </div>
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+defineProps<{
+  title: string;
+  imageUrl: string;
+  description: string;
+}>();
+</script>
 
 <style lang="scss" scoped>
 .service-card {
@@ -31,6 +31,7 @@
   border-radius: 12px;
   background: var(--primary-color-sam-blue-100);
   transition: 0.4s;
+  margin: 0 15px 0 15px;
 
   .service-title {
     font-size: 24px;
@@ -47,6 +48,7 @@
     line-height: 24px;
     color: var(--primary-color-dark-gray-100);
     margin-bottom: 24px;
+    text-align: center;
   }
   .button-container {
     .contact-button {
