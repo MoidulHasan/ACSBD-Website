@@ -1,18 +1,22 @@
 <template>
-  <div class="flex flex-column align-items-center justify-center service-card">
-    <img class="service-image mb-3" :src="imageUrl" :alt="title" />
-    <h2 class="service-title">{{ title }}</h2>
-    <p class="description">
-      {{ description }}
-    </p>
-    <div class="button-container">
-      <NuxtLink
-        class="contact-button flex align-items-center no-underline"
-        to="services"
-      >
-        <span class="mr-2">Contact Us</span>
-        <i class="pi pi-arrow-right" />
-      </NuxtLink>
+  <div class="service-card-container">
+    <div
+      class="flex flex-column align-items-center justify-center service-card"
+    >
+      <img class="service-image mb-3" :src="imageUrl" :alt="title" />
+      <h2 class="service-title">{{ title }}</h2>
+      <p class="description">
+        {{ description }}
+      </p>
+      <div class="button-container">
+        <NuxtLink
+          class="contact-button flex align-items-center no-underline"
+          to="services"
+        >
+          <span class="mr-2">Contact Us</span>
+          <i class="pi pi-arrow-right" />
+        </NuxtLink>
+      </div>
     </div>
   </div>
 </template>
@@ -26,12 +30,14 @@ defineProps<{
 </script>
 
 <style lang="scss" scoped>
+.service-card-container {
+  margin: 0 15px 0 15px;
+}
 .service-card {
   padding: 1.25rem 3rem 1.25rem 3rem;
   border-radius: 12px;
   background: var(--primary-color-sam-blue-100);
   transition: 0.4s;
-  margin: 0 15px 0 15px;
 
   .service-title {
     font-size: 24px;

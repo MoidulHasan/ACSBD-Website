@@ -6,12 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="d9b847a9-ea33-4415-aedc-46576bd38427" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/nuxt.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/website/nuxt.config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/src/app/api/services.ts" beforeDir="false" afterPath="$PROJECT_DIR$/website/src/app/api/services.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/website/src/components/Common/ServiceCard.vue" beforeDir="false" afterPath="$PROJECT_DIR$/website/src/components/Common/ServiceCard.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/src/components/Pages/Home/CustomerReviewSection.vue" beforeDir="false" afterPath="$PROJECT_DIR$/website/src/components/Pages/Home/CustomerReviewSection.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/website/src/pages/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/website/src/pages/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/src/plugins/common-components.ts" beforeDir="false" afterPath="$PROJECT_DIR$/website/src/plugins/common-components.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +77,7 @@
       <workItem from="1694940669643" duration="7593000" />
       <workItem from="1694957658284" duration="16326000" />
       <workItem from="1695137676451" duration="7832000" />
-      <workItem from="1695146962544" duration="9571000" />
+      <workItem from="1695146962544" duration="9935000" />
     </task>
     <servers />
   </component>
