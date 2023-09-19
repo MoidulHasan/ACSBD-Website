@@ -1,38 +1,66 @@
 <template>
-  <div class="card-carousel-wrapper">
-    <div
-      :disabled="atHeadOfList"
-      class="card-carousel--nav__left"
-      @click="moveCarousel(-1)"
-    >
+  <div ref="carouselCard" class="card-carousel-wrapper">
+    <teleport v-if="teleportPrevButton" :to="teleportPrevButton">
       <slot name="prevButton">
-        <!--        <button class="carousel-prev-button">-->
-        <i class="pi pi-chevron-left" />
-        <!--        </button>-->
+        <button
+          :disabled="atHeadOfList"
+          class="card-carousel--nav__left"
+          @click="moveCarousel(-1)"
+        >
+          <i class="pi pi-chevron-left" />
+        </button>
       </slot>
-    </div>
+    </teleport>
+
+    <slot v-else name="prevButton">
+      <button
+        :disabled="atHeadOfList"
+        class="card-carousel--nav__left"
+        @click="moveCarousel(-1)"
+      >
+        <i class="pi pi-chevron-left" />
+      </button>
+    </slot>
 
     <div class="card-carousel">
-      <div class="card-carousel--overflow-container">
+      <div
+        :style="{
+          transform: 'translateX(' + currentOffset + 'px)',
+        }"
+        class="card-carousel-cards"
+      >
         <div
-          ref="carouselCard"
-          :style="{
-            transform: 'translateX(' + currentOffset + 'px)',
-          }"
-          class="card-carousel-cards"
+          v-for="(item, index) in items"
+          :key="'card-slide-' + index"
+          :style="{ width: singleCardWidth + 'px' }"
+          class="single-card"
         >
-          <div v-for="item in items" class="card-carousel--card">
-            <img :alt="item.name" :src="item.image" />
-          </div>
+          <slot :data="item" :index="index" name="item"></slot>
         </div>
       </div>
     </div>
 
-    <div
-      :disabled="atEndOfList"
-      class="card-carousel--nav__right"
-      @click="moveCarousel(1)"
-    />
+    <teleport v-if="teleportNextButton" :to="teleportNextButton">
+      <slot name="nextButton">
+        <button
+          :disabled="atEndOfList"
+          class="card-carousel--nav__right"
+          @click="moveCarousel(1)"
+        >
+          <i class="pi pi-chevron-right" />
+        </button>
+      </slot>
+    </teleport>
+
+    <slot v-else name="nextButton">
+      <button
+        :disabled="atEndOfList"
+        class="card-carousel--nav__right"
+        @click="moveCarousel(1)"
+      >
+        <i class="pi pi-chevron-right" />
+      </button>
+    </slot>
   </div>
 </template>
 
@@ -41,6 +69,8 @@ interface CarouselProps {
   items: any;
   visibleSlider: number;
   numberOfScroll: number;
+  teleportPrevButton?: string;
+  teleportNextButton?: string;
 }
 
 const props = withDefaults(defineProps<CarouselProps>(), {
@@ -50,10 +80,12 @@ const props = withDefaults(defineProps<CarouselProps>(), {
 });
 
 const currentOffset = ref(0);
-const windowSize = ref(3);
-const paginationFactor = ref(220);
 
 const carouselCard = ref();
+
+const singleCardWidth = computed(() => {
+  return carouselCard.value?.offsetWidth / props.visibleSlider;
+});
 
 const atHeadOfList = computed(() => {
   return currentOffset.value === 0;
@@ -62,91 +94,57 @@ const atHeadOfList = computed(() => {
 const atEndOfList = computed(() => {
   return (
     currentOffset.value <=
-    paginationFactor.value * -1 * (props.items.length - windowSize.value)
+    singleCardWidth.value * -1 * (props.items.length - props.visibleSlider)
   );
 });
 
-const moveCarousel = (direction) => {
-  console.log(carouselCard.value.offsetWidth / props.items.length);
-
+const moveCarousel = (direction: number) => {
   if (direction === 1 && !atEndOfList.value) {
-    currentOffset.value -= paginationFactor.value;
+    currentOffset.value -=
+      Math.round(singleCardWidth.value) * props.numberOfScroll;
   } else if (direction === -1 && !atHeadOfList.value) {
-    currentOffset.value += paginationFactor.value;
+    currentOffset.value +=
+      Math.round(singleCardWidth.value) * props.numberOfScroll;
   }
-
-  console.log(currentOffset.value);
 };
 </script>
 
 <style lang="scss" scoped>
 .card-carousel-wrapper {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  //margin: 20px 0 40px;
-
-  width: 100%;
-}
-
-.card-carousel--nav__left,
-.card-carousel--nav__right {
-  //box-sizing: border-box;
-
-  //margin: 0 20px;
-  //transition: transform 150ms linear;
-
-  padding: 8px;
-  border-radius: 2px;
-  cursor: pointer;
-  background: var(--primary-color-dark-gray);
-  color: var(--primary-color-white);
-}
-
-.card-carousel--nav__left[disabled],
-.card-carousel--nav__right[disabled] {
-  opacity: 0.2;
-  border-color: black;
-}
-
-.card-carousel--nav__left:active {
-  //transform: rotate(-135deg) scale(0.9);
-  background: var(--primary-color-envitect-sam-blue);
-}
-
-.card-carousel--nav__right {
-  transform: rotate(45deg);
-}
-
-.card-carousel--nav__right:active {
-  transform: rotate(45deg) scale(0.9);
-}
-
-.card-carousel {
-  display: flex;
-  justify-content: center;
-}
-
-.card-carousel--overflow-container {
   overflow: hidden;
-}
+  align-items: center;
+  justify-content: space-between;
 
-.card-carousel-cards {
-  display: flex;
-  transition: transform 150ms ease-out;
-  transform: translatex(0px);
-}
+  .card-carousel--nav__left,
+  .card-carousel--nav__right {
+    padding: 8px;
+    border-radius: 2px;
+    cursor: pointer;
+    background: var(--primary-color-envitect-sam-blue);
+    color: var(--primary-color-white);
+  }
 
-.carousel-prev-button {
-  padding: 8px !important;
+  .card-carousel--nav__left[disabled],
+  .card-carousel--nav__right[disabled] {
+    background: var(--dark-gray-20);
+  }
 
-  border-radius: 2px !important;
-  background: var(--primary-color-dark-gray) !important;
+  .card-carousel {
+    .card-carousel-cards {
+      display: flex;
+      overflow: hidden;
+      width: 100%;
 
-  color: var(--primary-color-white) !important;
-}
+      transition: transform 150ms ease-out;
+      transform: translatex(0px);
 
-.carousel-prev-button:hover {
-  background: var(--primary-color-envitect-sam-blue) !important;
+      .single-card {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
 }
 </style>

@@ -4,7 +4,9 @@
       <PagesHomeOurShopSection />
     </div>
 
-    <PagesHomeCustomerReviewSection />
+    <div class="container">
+      <PagesHomeCustomerReviewSection />
+    </div>
   </div>
 </template>
 

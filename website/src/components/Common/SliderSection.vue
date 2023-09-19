@@ -46,8 +46,6 @@ const props = withDefaults(defineProps<SliderProps>(), {
   showIndicators: false,
 });
 
-console.log(props);
-
 const responsiveOptions = ref([
   {
     breakpoint: "1199px",

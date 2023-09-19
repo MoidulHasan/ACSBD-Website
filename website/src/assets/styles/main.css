@@ -5,17 +5,26 @@
 
     /*    Colors Variables  */
     --primary-color-envitect-sam-blue: #1476BF;
+    --envitect-sam-blue-100: #1476BF;
+
+
     --primary-color-navy-blue: #1D3566;
-    --primary-color-dark-gray: #565656;
+
     --primary-color-white: #FFFFFF;
     --product-Front-color: #f9f9f9;
 
 
+    --primary-color-dark-gray: #565656;
+    --dark-gray-40: #bbb;
+    --dark-gray-20: #DDD;
+
+    --orange-color: #f2994a
 }
-body{
+
+body {
     box-sizing: border-box;
-    margin:0;
-    padding:0;
+    margin: 0;
+    padding: 0;
 }
 
 h4,
@@ -57,9 +66,24 @@ p {
     margin-bottom: 12px;
 }
 
-@media only screen and (max-width: 600px){
-    .container{
+@media only screen and (max-width: 600px) {
+    .container {
         width: 100%;
         padding: 0 16px;
     }
+}
+
+
+.card-carousel--nav__left,
+.card-carousel--nav__right {
+    padding: 8px;
+    border-radius: 2px;
+    cursor: pointer;
+    background: var(--primary-color-envitect-sam-blue);
+    color: var(--primary-color-white);
+}
+
+.card-carousel--nav__left[disabled],
+.card-carousel--nav__right[disabled] {
+    background: var(--dark-gray-20);
 }

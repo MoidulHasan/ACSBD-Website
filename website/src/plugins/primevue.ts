@@ -9,6 +9,7 @@ import ConfirmationService from "primevue/confirmationservice";
 import Button from "primevue/button";
 import Carousel from "primevue/carousel";
 import InputText from "primevue/inputtext";
+import Rating from "primevue/rating";
 import { defineNuxtPlugin } from "#app";
 
 export default defineNuxtPlugin((nuxtApp) => {
@@ -24,4 +25,5 @@ export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.component("Button", Button);
   nuxtApp.vueApp.component("Carousel", Carousel);
   nuxtApp.vueApp.component("InputText", InputText);
+  nuxtApp.vueApp.component("Rating", Rating);
 });
