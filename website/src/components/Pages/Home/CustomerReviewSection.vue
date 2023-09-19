@@ -21,6 +21,11 @@
         <CommonViewAllButton label="View All Review" />
       </template>
     </CommonSliderSection>
+
+    <div class="mt-8 pt-8 mb-8 pb-8">
+      <h1 class="text-center mb-4">Common Service Card</h1>
+      <CommonServiceCard/>
+    </div>
   </div>
 </template>
 
