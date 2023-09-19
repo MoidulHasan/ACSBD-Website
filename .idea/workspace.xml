@@ -6,10 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="d9b847a9-ea33-4415-aedc-46576bd38427" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/public/data/clients.json" beforeDir="false" afterPath="$PROJECT_DIR$/website/public/data/clients.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/src/assets/styles/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/website/src/assets/styles/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/src/components/Common/ClientCard.vue" beforeDir="false" afterPath="$PROJECT_DIR$/website/src/components/Common/ClientCard.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/website/src/pages/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/website/src/pages/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/src/plugins/common-components.ts" beforeDir="false" afterPath="$PROJECT_DIR$/website/src/plugins/common-components.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,7 +81,7 @@
       <workItem from="1694957658284" duration="16326000" />
       <workItem from="1695137676451" duration="7832000" />
       <workItem from="1695146962544" duration="11270000" />
-      <workItem from="1695159853544" duration="1576000" />
+      <workItem from="1695159853544" duration="2414000" />
     </task>
     <servers />
   </component>

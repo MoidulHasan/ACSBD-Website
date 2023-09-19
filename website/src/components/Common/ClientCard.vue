@@ -27,4 +27,15 @@ defineProps<{
     background: var(--primary-color-sam-blue-50);
   }
 }
+
+@media (max-width: 900px) {
+  .client-info-container {
+    margin: 0 8px 0 8px;
+    .client-image-container {
+      .client-image {
+        height: 42.48px;
+      }
+    }
+  }
+}
 </style>

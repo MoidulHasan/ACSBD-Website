@@ -2,6 +2,7 @@
   <div>
     <PagesHomeCustomerReviewSection />
     <PagesHomeClientsSection />
+    <PagesHomeTopBrandsSection />
   </div>
 </template>
 
