@@ -50,7 +50,7 @@
           </p>
         </div>
       </div>
-      <!-- projessional team  -->
+      <!-- professional team  -->
       <div class="core-values-provide flex aligin-items-center">
         <div class="core-values-provide-image">
           <img src="/images/professional team.svg" alt="great-services" />
