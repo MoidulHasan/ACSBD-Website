@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="container">
+    <div class="container" style="padding: 100px 0">
       <PagesHomeOurShopSection />
     </div>
 

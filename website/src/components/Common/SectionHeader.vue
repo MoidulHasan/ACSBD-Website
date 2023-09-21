@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="heading2 mb-0">{{ header }}</h1>
+    <h1 class="heading2 mb-16">{{ header }}</h1>
     <p class="subtitle">
       {{ subHeader }}
     </p>

@@ -1,116 +1,69 @@
 <template>
   <div>
     <CommonSectionHeader
+      class="mb-32px"
       header="Our Shop"
       sub-header="Dear customers, we have been selling AC service for 17 years in the Bangladesh market with reliability and honesty of global brands at reasonable prices. Apart from this, all types of spare parts for AC are sold wholesale and retail."
     />
 
-    <CommonCardListHeader label="Air Conditioner">
+    <CommonCardListHeader class="mb-16px" label="Air Conditioner">
       <template #rightSideContent>
         <div class="button-container">
-          <div id="prevButton" class="mb-5" />
-          <div id="nextButton" class="mb-5" />
+          <NuxtLink class="button-primary no-underline px-16px" to="/shop">
+            View All
+          </NuxtLink>
+          <div id="acSecPrevButton" />
+          <div id="acSecNextButton" />
         </div>
       </template>
     </CommonCardListHeader>
-    <CommonCardSlider1
-      :items="items"
+
+    <CommonCardCarousel
+      :items="airConditioners"
       :number-of-scroll="1"
       :visible-slider="6"
-      teleport-next-button="#nextButton"
-      teleport-prev-button="#prevButton"
+      teleport-next-button="#acSecNextButton"
+      teleport-prev-button="#acSecPrevButton"
     >
       <template #item="slotProps">
         <CommonProductCard v-bind="{ ...slotProps.data }" />
       </template>
-    </CommonCardSlider1>
+    </CommonCardCarousel>
+
+    <CommonCardListHeader
+      class="mb-16px"
+      label="AC Spare Parts"
+      style="margin-top: 100px"
+    >
+      <template #rightSideContent>
+        <div class="button-container">
+          <NuxtLink class="button-primary no-underline px-16px" to="/shop">
+            View All
+          </NuxtLink>
+          <div id="acSparePartsPrevButton" />
+          <div id="acSparePartsNextButton" />
+        </div>
+      </template>
+    </CommonCardListHeader>
+
+    <CommonCardCarousel
+      :items="airConditioners"
+      :number-of-scroll="1"
+      :visible-slider="6"
+      teleport-next-button="#acSparePartsNextButton"
+      teleport-prev-button="#acSparePartsPrevButton"
+    >
+      <template #item="slotProps">
+        <CommonProductCard v-bind="{ ...slotProps.data }" />
+      </template>
+    </CommonCardCarousel>
   </div>
 </template>
 
 <script lang="ts" setup>
-const items = ref([
-  {
-    id: 1,
-    name: "Whirlpool Fantasia AC SPOW 224 1.0 Ton",
-    image: "https://source.unsplash.com/200x200?girl",
-    rating: 4.5,
-    price: 59000,
-    discount_price: 48000,
-    discount_percentage: 30,
-  },
-  {
-    id: 2,
-    name: "Black 1.5 Ton GMCC Rotary Compressor",
-    image: "https://source.unsplash.com/200x200?natural",
-    rating: 4.5,
-    price: 59000,
-    discount_price: 48000,
-    discount_percentage: 30,
-  },
-  {
-    id: 3,
-    name: "Whirlpool Supreme Cool Inverter 3S Corp INV 1 Ton",
-    image: "https://source.unsplash.com/200x200?beautiful",
-    rating: 4.5,
-    price: 59000,
-    discount_price: 48000,
-    discount_percentage: 30,
-  },
-  {
-    id: 4,
-    name: "Vacuum Rotary vane pump Air conditioning",
-    image: "https://source.unsplash.com/200x200?attraction",
-    rating: 4.5,
-    price: 59000,
-    discount_price: 48000,
-    discount_percentage: 30,
-  },
-  {
-    id: 5,
-    name: "Midea 1.0 MS-12KBTU Ton Wall Type AC",
-    image: "https://source.unsplash.com/200x200?rose",
-    rating: 4.5,
-    price: 59000,
-    discount_price: 48000,
-    discount_percentage: 30,
-  },
-  {
-    id: 6,
-    name: "Round Copper Pipes, Thickness: 4 mm",
-    image: "https://source.unsplash.com/200x200?beach",
-    rating: 4.5,
-    price: 59000,
-    discount_price: 48000,
-    discount_percentage: 30,
-  },
-  {
-    id: 7,
-    name: "Midea R410A DC VRF (VC pro Modular series)",
-    image: "https://source.unsplash.com/200x200?forest",
-    rating: 4.5,
-    price: 59000,
-    discount_price: 48000,
-    discount_percentage: 30,
-  },
-  {
-    id: 8,
-    name: "Round Copper Pipes, Thickness: 4 mm",
-    image: "https://source.unsplash.com/200x200?beach",
-    rating: 4.5,
-    price: 59000,
-    discount_price: 48000,
-    discount_percentage: 30,
-  },
-  {
-    id: 9,
-    name: "Midea R410A DC VRF (VC pro Modular series)",
-    image: "https://source.unsplash.com/200x200?forest",
-    rating: 4.5,
-    price: 59000,
-    discount_price: 48000,
-    discount_percentage: 30,
-  },
-]);
+import { getAirConditioners } from "~/app/api/getAirConditioners";
+
+const { data: airConditioners } = await getAirConditioners();
 </script>
 
 <style lang="scss" scoped>

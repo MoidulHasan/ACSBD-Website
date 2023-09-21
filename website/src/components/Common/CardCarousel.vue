@@ -4,7 +4,7 @@
       <slot name="prevButton">
         <button
           :disabled="atHeadOfList"
-          class="card-carousel--nav__left"
+          class="button-primary"
           @click="moveCarousel(-1)"
         >
           <i class="pi pi-chevron-left" />
@@ -15,7 +15,7 @@
     <slot v-else name="prevButton">
       <button
         :disabled="atHeadOfList"
-        class="card-carousel--nav__left"
+        class="button-primary"
         @click="moveCarousel(-1)"
       >
         <i class="pi pi-chevron-left" />
@@ -44,7 +44,7 @@
       <slot name="nextButton">
         <button
           :disabled="atEndOfList"
-          class="card-carousel--nav__right"
+          class="button-primary"
           @click="moveCarousel(1)"
         >
           <i class="pi pi-chevron-right" />
@@ -55,7 +55,7 @@
     <slot v-else name="nextButton">
       <button
         :disabled="atEndOfList"
-        class="card-carousel--nav__right"
+        class="button-primary"
         @click="moveCarousel(1)"
       >
         <i class="pi pi-chevron-right" />
@@ -115,20 +115,6 @@ const moveCarousel = (direction: number) => {
   overflow: hidden;
   align-items: center;
   justify-content: space-between;
-
-  .card-carousel--nav__left,
-  .card-carousel--nav__right {
-    padding: 8px;
-    border-radius: 2px;
-    cursor: pointer;
-    background: var(--primary-color-envitect-sam-blue);
-    color: var(--primary-color-white);
-  }
-
-  .card-carousel--nav__left[disabled],
-  .card-carousel--nav__right[disabled] {
-    background: var(--dark-gray-20);
-  }
 
   .card-carousel {
     .card-carousel-cards {

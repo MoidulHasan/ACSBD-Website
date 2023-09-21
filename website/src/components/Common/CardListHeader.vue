@@ -1,7 +1,10 @@
 <template>
   <div class="flex justify-content-between">
     <slot name="leftSideContent">
-      <div v-if="label" class="label">
+      <div
+        v-if="label"
+        class="flex justify-content-between align-items-center heading4"
+      >
         {{ label }}
       </div>
     </slot>
@@ -13,9 +16,7 @@
 </template>
 
 <script lang="ts" setup>
-const props = defineProps<{
+defineProps<{
   label?: string;
 }>();
 </script>
-
-<style scoped></style>
