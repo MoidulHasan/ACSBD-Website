@@ -6,16 +6,13 @@
     /*    Colors Variables  */
     --primary-color-envitect-sam-blue: #1476BF;
     --primary-color-navy-blue: #1D3566;
+    --primary-color-sam-blue-100: #F3F8FC;
     --primary-color-dark-gray: #565656;
+    --primary-color-dark-gray-100: #787878;
     --primary-color-white: #FFFFFF;
     --product-Front-color: #f9f9f9;
 
 
-}
-body{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
 }
 
 .container {
@@ -42,6 +39,11 @@ body{
     font-style: normal;
     font-weight: 400;
     line-height: 24px;
+}
+
+
+.mb-12px {
+    margin-bottom: 12px;
 }
 
 @media only screen and (max-width: 600px){

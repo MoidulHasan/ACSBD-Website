@@ -21,7 +21,6 @@ export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.directive("ripple", Ripple);
   nuxtApp.vueApp.directive("badge", BadgeDirective);
   nuxtApp.vueApp.directive("styleclass", StyleClass);
-
   nuxtApp.vueApp.component("Button", Button);
   nuxtApp.vueApp.component("Carousel", Carousel);
   nuxtApp.vueApp.component("InputText", InputText);
