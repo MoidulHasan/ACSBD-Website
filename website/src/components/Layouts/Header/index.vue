@@ -121,97 +121,113 @@
               <span class="block headerIcon-text">Profile</span>
             </NuxtLink>
           </div>
-          <ul class="menu container lg:mx-auto">
-            <li v-for="navItem in navMenues" :key="navItem.title">
-              <NuxtLink
-                class="navLink flex"
-                active-class=""
-                exact-active-class=""
-                :to="navItem.path"
-              >
-                <span>{{ navItem.title }}</span>
-                <i
-                  v-if="navItem.submenu"
-                  class="navLink_i"
-                  v-html="caretSvg"
-                ></i>
-              </NuxtLink>
-              <ul v-if="navItem.submenu" class="submenu">
-                <li
-                  v-for="subNavItem in navItem.submenu"
-                  :key="subNavItem.title"
+          <div class="relative menu-box">
+            <div class="overlap" @click="toggleMenu"></div>
+            <ul class="menu container lg:mx-auto">
+              <li v-for="navItem in navMenues" :key="navItem.title">
+                <NuxtLink
+                  class="navLink flex"
+                  active-class="active"
+                  exact-active-class="active"
+                  :to="navItem.path"
+                  @click="checkNav(navItem.path)"
                 >
-                  <NuxtLink
-                    class="subMenuLink pb-2 flex gap-3 lg:justify-content-center"
+                  <span>{{ navItem.title }}</span>
+                  <i
+                    v-if="navItem.submenu"
+                    class="navLink_i"
+                    v-html="caretSvg"
+                  ></i>
+                </NuxtLink>
+                <ul v-if="navItem.submenu" class="submenu">
+                  <li
+                    v-for="subNavItem in navItem.submenu"
+                    :key="subNavItem.title"
                   >
-                    <span>{{ subNavItem.title }}</span>
-                    <i class="" v-html="caretRightSvg"></i>
-                  </NuxtLink>
-                  <ul v-if="subNavItem.submenu2" class="submenu2">
-                    <li
-                      v-for="multiSubNavItem in subNavItem.submenu2"
-                      :key="multiSubNavItem.title"
-                      class=""
+                    <NuxtLink
+                      class="subMenuLink pb-2 flex gap-3 lg:justify-content-center"
+                      active-class="active"
+                      :to="subNavItem.path"
+                      @click="checkNav(subNavItem.path)"
                     >
-                      <NuxtLink class="subMenuLink">{{
-                        multiSubNavItem.title
-                      }}</NuxtLink>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
+                      <span>{{ subNavItem.title }}</span>
+                      <i class="" v-html="caretRightSvg"></i>
+                    </NuxtLink>
+                    <ul v-if="subNavItem.submenu2" class="submenu2">
+                      <li
+                        v-for="multiSubNavItem in subNavItem.submenu2"
+                        :key="multiSubNavItem.title"
+                        class=""
+                      >
+                        <NuxtLink
+                          class="subMenuLink"
+                          active-class="active"
+                          :to="multiSubNavItem.path"
+                          @click="checkNav(multiSubNavItem.path)"
+                        >
+                          {{ multiSubNavItem.title }}
+                        </NuxtLink>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
 
-            <li class="right">
-              <NuxtLink
-                class="navLink flex align-items-center justify-content-center"
-                active-class=""
-                to="/"
-              >
-                <div class="header-item-container flex justify-content-center">
-                  <span class="header-item-count">2</span>
-                  <img
-                    class="favoriteIcon navBarIcons"
-                    src="@/assets/images/header/cartsIcon.svg"
-                    alt="cart"
-                  />
-                </div>
-                <span class="block">Cart</span>
-              </NuxtLink>
-            </li>
-            <li class="right">
-              <NuxtLink
-                class="navLink flex align-items-center justify-content-center"
-                active-class=""
-                to="/"
-              >
-                <div class="header-item-container flex justify-content-center">
-                  <span class="header-item-count">2</span>
-                  <img
-                    class="favoriteIcon navBarIcons"
-                    src="@/assets/images/header/heart.svg"
-                    alt="favorite"
-                  />
-                </div>
+              <li class="right">
+                <NuxtLink
+                  class="navLink flex align-items-center justify-content-center"
+                  active-class="active"
+                  to="/"
+                >
+                  <div
+                    class="header-item-container flex justify-content-center"
+                  >
+                    <span class="header-item-count">2</span>
+                    <img
+                      class="favoriteIcon navBarIcons"
+                      src="@/assets/images/header/cartsIcon.svg"
+                      alt="cart"
+                    />
+                  </div>
+                  <span class="block">Cart</span>
+                </NuxtLink>
+              </li>
+              <li class="right">
+                <NuxtLink
+                  class="navLink flex align-items-center justify-content-center"
+                  active-class="active"
+                  to="/"
+                >
+                  <div
+                    class="header-item-container flex justify-content-center"
+                  >
+                    <span class="header-item-count">2</span>
+                    <img
+                      class="favoriteIcon navBarIcons"
+                      src="@/assets/images/header/heart.svg"
+                      alt="favorite"
+                    />
+                  </div>
 
-                <span class="block">Favorites</span>
-              </NuxtLink>
-            </li>
-            <li class="right">
-              <NuxtLink
-                class="navLink flex align-items-center justify-content-center"
-                active-class=""
-                to="/"
-              >
-                <img
-                  class="profileIcon navBarIcons"
-                  src="@/assets/images/header/profile.svg"
-                  alt="profile"
-                />
-                <span class="block">Account</span>
-              </NuxtLink>
-            </li>
-          </ul>
+                  <span class="block">Favorites</span>
+                </NuxtLink>
+              </li>
+              <li class="right">
+                <NuxtLink
+                  class="navLink flex align-items-center justify-content-center"
+                  active-class="active"
+                  to="/"
+                >
+                  <img
+                    class="profileIcon navBarIcons"
+                    src="@/assets/images/header/profile.svg"
+                    alt="profile"
+                  />
+                  <span class="block">Account</span>
+                </NuxtLink>
+              </li>
+            </ul>
+          </div>
         </nav>
       </div>
     </div>
@@ -249,35 +265,35 @@ const navMenues: Array<menus> = [
         submenu2: [
           {
             title: "Non-Inverter AC",
-            path: "",
+            path: "/products/non-air-conditioner",
           },
           {
             title: "Inverter AC",
-            path: "",
+            path: "/products/inverter-ac",
           },
           {
             title: "Window AC",
-            path: "",
+            path: "/products/window-ac",
           },
           {
             title: "Portable AC",
-            path: "",
+            path: "/products/portable-ac",
           },
           {
             title: "Ceiling Type AC",
-            path: "",
+            path: "/products/ceiling-type-ac",
           },
           {
             title: "Cassette Type AC",
-            path: "",
+            path: "/products/cassette-type-ac",
           },
           {
             title: "Duct Type AC",
-            path: "",
+            path: "/products/duct-type-ac",
           },
           {
             title: "VRF AC",
-            path: "",
+            path: "/products/vrf-ac",
           },
         ],
       },
@@ -287,35 +303,35 @@ const navMenues: Array<menus> = [
         submenu2: [
           {
             title: "Non-Inverter AC",
-            path: "",
+            path: "/products/non-air-conditioner",
           },
           {
             title: "Inverter AC",
-            path: "",
+            path: "/products/inverter-ac",
           },
           {
             title: "Window AC",
-            path: "",
+            path: "/products/window-ac",
           },
           {
             title: "Portable AC",
-            path: "",
+            path: "/products/portable-ac",
           },
           {
             title: "Ceiling Type AC",
-            path: "",
+            path: "/products/ceiling-type-ac",
           },
           {
             title: "Cassette Type AC",
-            path: "",
+            path: "/products/cassette-type-ac",
           },
           {
             title: "Duct Type AC",
-            path: "",
+            path: "/products/duct-type-ac",
           },
           {
             title: "VRF AC",
-            path: "",
+            path: "/products/vrf-ac",
           },
         ],
       },
@@ -323,11 +339,11 @@ const navMenues: Array<menus> = [
   },
   {
     title: "AC Rent",
-    path: "/acrent",
+    path: "/ac-rent",
   },
   {
     title: "Work Pricing",
-    path: "/workpricing",
+    path: "/work-pricing",
   },
   {
     title: "Blog",
@@ -339,7 +355,7 @@ const navMenues: Array<menus> = [
   },
   {
     title: "Contact Us",
-    path: "",
+    path: "/contact-us",
   },
 ];
 
@@ -356,10 +372,19 @@ const show = ref(false);
 const toggleMenu = () => {
   show.value = !show.value;
 };
+
+const checkNav = (path: string): void => {
+  if (path !== "") {
+    toggleMenu();
+  }
+};
 </script>
 
 <style scoped>
 .first-row {
+  border-bottom: 0.1rem solid var(--primary-color-navy-blue-10);
+}
+.second-row {
   border-bottom: 0.1rem solid var(--primary-color-navy-blue-10);
 }
 .search-button,
@@ -409,6 +434,11 @@ nav .menu {
   padding: 0.625rem 3rem 0.625rem 0;
 }
 
+.menu .navLink:hover,
+.active {
+  color: var(--primary-color-envitect-sam-blue) !important;
+}
+
 .navLink_i {
   padding-left: 0.25rem;
   display: flex;
@@ -445,6 +475,11 @@ nav ul li.right .navLink {
   line-height: 1.5rem;
   font-weight: 400;
   color: var(--primary-color-dark-gray);
+  text-decoration: none;
+}
+
+.subMenuLink:hover {
+  color: var(--primary-color-envitect-sam-blue) !important;
 }
 
 .submenu2 {
@@ -594,23 +629,41 @@ nav ul li.right .navLink {
     z-index: 9999;
   }
 
+  .menu-box {
+    display: none;
+  }
+
+  .overlap {
+    position: fixed;
+    top: 0;
+    bottom: 4.27375rem;
+    left: 0;
+    right: 0;
+    content: " ";
+    background: rgba(0, 0, 0, 0.5);
+  }
+
   nav .menu {
     display: none;
-    width: calc(100% - 2rem);
+    width: 100%;
     position: fixed;
-    max-height: calc(100vh - 10rem - 4.27375rem);
-    min-height: 0;
+    height: calc(100vh - 10rem - 4.27375rem);
     overflow-y: scroll;
     background: var(--primary-color-envitect-sam-blue) !important;
     top: 10rem;
     z-index: 9990;
-    border-radius: 0.5rem 0.5rem 0 0;
+    border-radius: 1.25rem 1.25rem 0 0;
     padding: 1rem;
+    animation: slidedown 0.4s ease;
+  }
+
+  nav.active .menu-box {
+    display: initial;
   }
 
   nav.active .menu {
     display: initial;
-    left: 1rem;
+    left: 0;
     animation: menu-slideup 0.4s ease;
   }
 
@@ -623,6 +676,11 @@ nav ul li.right .navLink {
   .menu li .navLink {
     position: relative;
     color: var(--primary-color-white);
+  }
+
+  .menu .navLink:hover,
+  .active {
+    color: var(--primary-color-dark-gray) !important;
   }
 
   .navLink_i {
@@ -651,6 +709,10 @@ nav ul li.right .navLink {
 
   .submenu2 .subMenuLink {
     color: var(--primary-color-dark-gray);
+  }
+
+  .subMenuLink:hover {
+    color: var(--primary-color-white) !important;
   }
 
   .submenu li .subMenuLink {
