@@ -42,7 +42,7 @@ interface SliderProps {
   showIndicators?: boolean;
 }
 
-const props = withDefaults(defineProps<SliderProps>(), {
+withDefaults(defineProps<SliderProps>(), {
   showIndicators: false,
 });
 
