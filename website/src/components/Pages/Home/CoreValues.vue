@@ -85,6 +85,7 @@ export default {};
 <style lang="scss">
 .core-container {
   padding: 30px 0;
+  margin-top: 80px;
   @media screen and (min-width: 375px) {
     padding: 20px 10px;
   }
@@ -165,7 +166,7 @@ export default {};
     }
   }
   .core-values {
-    margin-top: -20px;
+    margin-top: -30px;
     height: auto;
 
     .core-header {
