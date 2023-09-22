@@ -1,7 +1,6 @@
 <template>
   <div>
     <PagesHomeCustomerReviewSection />
-    <PagesPrivacyPolicyPage />
   </div>
 </template>
 

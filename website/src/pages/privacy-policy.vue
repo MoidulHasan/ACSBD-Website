@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container sm:px-0 md:px-5 lg:px-7 xl:px-8">
     <div>
       <h1 class="mobile-heading heading2 mb-0">Privacy Policy</h1>
       <p class="mobile-subtitle subtitle pt-3">
