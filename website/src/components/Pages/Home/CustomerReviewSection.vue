@@ -27,12 +27,7 @@
 <script lang="ts" setup>
 import { getCoustomersReview } from "~/app/api/customers-review";
 
-const {
-  data: clientReviews,
-  pending,
-  error,
-  refresh,
-} = await getCoustomersReview();
+const { data: clientReviews } = await getCoustomersReview();
 </script>
 
 <style lang="scss" scoped></style>
