@@ -1,7 +1,7 @@
 <template>
   <div class="core-container container grid">
     <div class="core-header-mobile block lg:hidden">
-      <h3 class="text-center">Our Core Values</h3>
+      <h3 class="text-center">Our Core Value</h3>
       <p class="text-center">
         We always try to happy our customers with our best services. AC
         Installation, Servicing, Repair, Maintenance, AC Sales & AC Rent Service
@@ -85,14 +85,18 @@ export default {};
 <style lang="scss">
 .core-container {
   padding: 30px 0;
-  margin-bottom: -80px;
   @media screen and (min-width: 375px) {
     padding: 20px 10px;
   }
   @media screen and (min-width: 768px) {
     padding: 0px 10px;
   }
-
+  @media screen and (min-width: 1024px) {
+    padding: 0px 10px;
+  }
+  @media screen and (min-width: 1280px) {
+    padding: 0px 0px;
+  }
   .core-header-mobile {
     h3 {
       color: var(--primary-color-navy-blue);
@@ -131,6 +135,17 @@ export default {};
         opacity: 0.8;
       }
     }
+
+    @media screen and (min-width: 1024px) {
+      h3 {
+        font-size: 360px;
+      }
+      p {
+        font-size: 18x;
+        line-height: 24px;
+        opacity: 0.8;
+      }
+    }
   }
   .core-image {
     display: flex;
@@ -143,6 +158,9 @@ export default {};
       }
       @media screen and (min-width: 768px) {
         width: 60%;
+      }
+      @media screen and (min-width: 1024px) and (max-width: 1280px) {
+        width: 80%;
       }
     }
   }
@@ -178,9 +196,13 @@ export default {};
         width: 50px;
         height: 50px;
         border-radius: 2px;
-        @media screen and (min-width: 375px) {
+        @media screen and (min-width: 375px) and (max-width: 1280px) {
           width: 40px;
           height: 40px;
+        }
+        @media screen and (min-width: 1280px) {
+          width: 50px;
+          height: 50px;
         }
       }
       .core-great-header {
@@ -193,6 +215,9 @@ export default {};
         }
         @media screen and (min-width: 768px) {
           margin-top: -22px;
+        }
+        @media screen and (min-width: 1280px) {
+          margin-top: -26px;
         }
         h2 {
           color: var(--primary-color-navy-blue);
