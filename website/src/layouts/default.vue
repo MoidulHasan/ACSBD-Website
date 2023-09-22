@@ -1,7 +1,7 @@
 <template>
   <main>
     <div>
-      <LayoutsHeader />
+      <LayoutsHeaderNav />
     </div>
 
     <div>
