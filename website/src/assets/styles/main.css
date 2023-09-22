@@ -8,6 +8,14 @@
   --primary-color-dark-gray: #565656;
   --primary-color-white: #ffffff;
   --product-Front-color: #f9f9f9;
+  /*    Colors Variables  */
+  --primary-color-envitect-sam-blue: #1476bf;
+  --primary-color-navy-blue: #1d3566;
+  --primary-color-sam-blue-100: #f3f8fc;
+  --primary-color-dark-gray: #565656;
+  --primary-color-dark-gray-100: #787878;
+  --primary-color-white: #ffffff;
+  --product-Front-color: #f9f9f9;
 }
 body {
   box-sizing: border-box;
