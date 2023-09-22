@@ -10,6 +10,7 @@ import Button from "primevue/button";
 import Carousel from "primevue/carousel";
 import InputText from "primevue/inputtext";
 import { defineNuxtPlugin } from "#app";
+import Card from "primevue/card";
 
 export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.use(PrimeVue, { ripple: true });
@@ -24,4 +25,5 @@ export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.component("Button", Button);
   nuxtApp.vueApp.component("Carousel", Carousel);
   nuxtApp.vueApp.component("InputText", InputText);
+  nuxtApp.vueApp.component("Card", Card);
 });

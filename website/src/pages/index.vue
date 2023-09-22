@@ -2,6 +2,7 @@
   <div>
     <PagesHomeHeroSliderSection />
     <PagesHomeCustomerReviewSection />
+    <PagesHomeBlogSection />
   </div>
 </template>
 
