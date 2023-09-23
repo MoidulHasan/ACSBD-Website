@@ -121,6 +121,7 @@
               <span class="block headerIcon-text">Profile</span>
             </NuxtLink>
           </div>
+          <!--          here transition can be added  -->
           <div class="relative menu-box">
             <div class="overlap" @click="toggleMenu"></div>
             <ul class="menu container lg:mx-auto">
@@ -412,10 +413,14 @@ nav {
 nav .menu {
   width: 100%;
 }
+
 .menu > li,
 .menu > a {
   display: inline-block;
   line-height: 45px;
+}
+.menu li {
+  animation: slideleft 0.5s ease;
 }
 
 .menu .navLink {
