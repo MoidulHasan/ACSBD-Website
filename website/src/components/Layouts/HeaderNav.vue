@@ -135,8 +135,7 @@
                   <span>{{ navItem.title }}</span>
                   <i
                     v-if="navItem.submenu"
-                    class="navLink_i"
-                    v-html="caretSvg"
+                    class="pi pi-chevron-down navLink_i"
                   ></i>
                 </NuxtLink>
                 <ul v-if="navItem.submenu" class="submenu">
@@ -145,13 +144,16 @@
                     :key="subNavItem.title"
                   >
                     <NuxtLink
-                      class="subMenuLink pb-2 flex gap-3 lg:justify-content-center"
+                      class="subMenuLink pb-2 flex gap-3 lg:justify-content-between"
                       active-class="active"
                       :to="subNavItem.path"
                       @click="checkNav(subNavItem.path)"
                     >
                       <span>{{ subNavItem.title }}</span>
-                      <i class="" v-html="caretRightSvg"></i>
+                      <i
+                        v-if="subNavItem.submenu2"
+                        class="pi pi-chevron-right navLink_i"
+                      ></i>
                     </NuxtLink>
                     <ul v-if="subNavItem.submenu2" class="submenu2">
                       <li
@@ -359,14 +361,6 @@ const navMenues: Array<menus> = [
   },
 ];
 
-const caretSvg: string = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-  <path d="M16.293 9.29297L12 13.586L7.70697 9.29297L6.29297 10.707L12 16.414L17.707 10.707L16.293 9.29297Z" fill="#565656"/>
-</svg>`;
-
-const caretRightSvg: string = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-  <path d="M8.33333 5.83341L12.5 10.0001L8.33333 14.1667" stroke="#4A5D85" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>`;
-
 const show = ref(false);
 
 const toggleMenu = () => {
@@ -440,7 +434,8 @@ nav .menu {
 }
 
 .navLink_i {
-  padding-left: 0.25rem;
+  width: 25px;
+  padding-left: 0.6rem;
   display: flex;
   justify-contet: center;
   align-items: center;
