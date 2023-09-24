@@ -11,6 +11,8 @@ import Carousel from "primevue/carousel";
 import InputText from "primevue/inputtext";
 import Accordion from "primevue/accordion";
 import AccordionTab from "primevue/accordiontab";
+import Textarea from "primevue/textarea";
+import Checkbox from "primevue/checkbox";
 import { defineNuxtPlugin } from "#app";
 
 export default defineNuxtPlugin((nuxtApp) => {
@@ -28,4 +30,6 @@ export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.component("InputText", InputText);
   nuxtApp.vueApp.component("Accordion", Accordion);
   nuxtApp.vueApp.component("AccordionTab", AccordionTab);
+  nuxtApp.vueApp.component("Textarea", Textarea);
+  nuxtApp.vueApp.component("Checkbox", Checkbox);
 });

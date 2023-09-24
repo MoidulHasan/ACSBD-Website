@@ -4,6 +4,8 @@
     <PagesFaqTopTitle />
     <!--faq tab section -->
     <PagesFaqTabsSection />
+    <!--    question form -->
+    <PagesFaqMoreQuestionForm />
   </div>
 </template>
 

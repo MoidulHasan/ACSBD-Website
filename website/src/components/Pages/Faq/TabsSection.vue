@@ -1,11 +1,11 @@
 <template>
   <div class="tab-with-content relative">
-    <div class="container relative flex flex-column align-items-center">
+    <div class="container relative flex flex-column align-items-center mx-auto">
       <div class="tabs pb-8">
         <div
           class="faq-topics container flex gap-4 lg:gap-7 align-items-center justify-content-center"
         >
-          <NavLink class="services topic text-center">
+          <div class="services topic text-center">
             <div
               class="image-container flex align-items-center justify-content-center"
             >
@@ -16,16 +16,16 @@
               />
             </div>
             <h3 class="topic-title">Services?</h3>
-          </NavLink>
-          <Navlink class="ac-rent topic text-center">
+          </div>
+          <div class="ac-rent topic text-center">
             <div
               class="image-container flex align-items-center justify-content-center"
             >
               <img class="faq-image" src="@/assets/images/ac_rent.svg" alt="" />
             </div>
             <h3 class="topic-title">AC Rent?</h3>
-          </Navlink>
-          <NavLink class="products topic text-center">
+          </div>
+          <div class="products topic text-center hidden lg:block">
             <div
               class="image-container flex align-items-center justify-content-center"
             >
@@ -36,15 +36,15 @@
               />
             </div>
             <h3 class="topic-title">Products?</h3>
-          </NavLink>
-          <NavLink class="policy topic text-center">
+          </div>
+          <div class="policy topic text-center hidden lg:block">
             <div
               class="image-container flex align-items-center justify-content-center"
             >
               <img class="faq-image" src="@/assets/images/policy.svg" alt="" />
             </div>
             <h3 class="topic-title">Policy?</h3>
-          </NavLink>
+          </div>
         </div>
       </div>
       <div>
@@ -54,9 +54,7 @@
   </div>
 </template>
 
-<script lang="ts" setup>
-
-</script>
+<script lang="ts" setup></script>
 
 <style lang="scss" scoped>
 .tab-with-content {
@@ -91,6 +89,12 @@
         }
       }
     }
+  }
+}
+
+@media (max-width: 900px) {
+  .tab-with-content {
+    padding: 0px 0px 30px 0px;
   }
 }
 </style>

@@ -36,4 +36,12 @@
     }
   }
 }
+
+@media (max-width: 900px) {
+  .faq-header {
+    .header-section {
+      min-height: 16.125rem;
+    }
+  }
+}
 </style>

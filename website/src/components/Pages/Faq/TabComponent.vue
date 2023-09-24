@@ -24,7 +24,7 @@
         </AccordionTab>
       </Accordion>
       <div class="flex justify-content-center">
-        <Button class="view-all-tabs">Load More Questions</Button>
+        <Button class="view-all-tabs mb-1 lg:mb-6">Load More Questions</Button>
       </div>
     </div>
   </div>
@@ -125,9 +125,10 @@ const tabs = ref([
     transition: 0.4s ease-in-out;
   }
 
-  .view-all-tabs:hover {
+  .view-all-tabs:hover, .view-all-tabs:focus {
     background: var(--primary-color-envitect-sam-blue);
     color: var(--primary-color-white);
+    box-shadow: none;
   }
 }
 
