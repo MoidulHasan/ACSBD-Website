@@ -18,17 +18,19 @@
       </template>
     </CommonCardListHeader>
 
-    <CommonCardCarousel
+    <CommonCardCarosel
+      :carousel-responsive-options="responsiveOptions"
       :items="airConditioners"
-      :number-of-scroll="1"
-      :visible-slider="6"
+      :visible-slider="3"
       teleport-next-button="#acSecNextButton"
       teleport-prev-button="#acSecPrevButton"
     >
       <template #item="slotProps">
-        <CommonProductCard v-bind="{ ...slotProps.data }" />
+        <div class="px-16px">
+          <CommonProductCard v-bind="{ ...slotProps.data }" />
+        </div>
       </template>
-    </CommonCardCarousel>
+    </CommonCardCarosel>
 
     <CommonCardListHeader
       class="mb-16px"
@@ -46,24 +48,56 @@
       </template>
     </CommonCardListHeader>
 
-    <CommonCardCarousel
-      :items="airConditioners"
-      :number-of-scroll="1"
+    <CommonCardCarosel
+      :carousel-responsive-options="responsiveOptions"
+      :items="acSpareSparts"
       :visible-slider="6"
       teleport-next-button="#acSparePartsNextButton"
       teleport-prev-button="#acSparePartsPrevButton"
     >
       <template #item="slotProps">
-        <CommonProductCard v-bind="{ ...slotProps.data }" />
+        <div class="px-16px">
+          <CommonProductCard v-bind="{ ...slotProps.data }" />
+        </div>
       </template>
-    </CommonCardCarousel>
+    </CommonCardCarosel>
   </div>
 </template>
 
 <script lang="ts" setup>
 import { getAirConditioners } from "~/app/api/getAirConditioners";
+import { getACSpareSparts } from "~/app/api/getACSpareSparts";
 
 const { data: airConditioners } = await getAirConditioners();
+const { data: acSpareSparts } = await getACSpareSparts();
+
+const responsiveOptions = [
+  {
+    breakpoint: 1290,
+    numVisible: 6,
+    numScroll: 1,
+  },
+  {
+    breakpoint: 860,
+    numVisible: 4,
+    numScroll: 1,
+  },
+  {
+    breakpoint: 645,
+    numVisible: 3,
+    numScroll: 1,
+  },
+  {
+    breakpoint: 320,
+    numVisible: 2,
+    numScroll: 1,
+  },
+  {
+    breakpoint: 215,
+    numVisible: 1,
+    numScroll: 1,
+  },
+];
 </script>
 
 <style lang="scss" scoped>
