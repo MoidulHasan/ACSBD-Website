@@ -1,19 +1,17 @@
 <template>
   <div class="tab">
     <div class="tab-title-component text-center">
-      <h1 class="tab-title mb-3">Services?</h1>
-      <p class="tab-description">
-        We have a large team to service any kind of branded AC with the latest
-        tools under Experienced engineer. Best AC servicing company in
-        Bangladesh.
+      <h1 class="tab-title mb-3">{{ faqByTopic.title }}?</h1>
+      <p class="tab-description mb-2 lg:mb-5">
+        {{faqByTopic.description}}
       </p>
     </div>
     <div class="mt-3">
       <Accordion :active-index="0" class="mb-6">
         <AccordionTab
-          v-for="tab in tabs"
-          :key="tab.title"
-          :header="tab.title"
+          v-for="tab in faqByTopic?.tabs"
+          :key="tab.question"
+          :header="tab.question"
           :pt="{
             headerAction: ({ props, parent }) => ({
               class: panelClass(props, parent, index),
@@ -31,6 +29,10 @@
 </template>
 
 <script lang="ts" setup>
+const props = defineProps<{
+  faqByTopic: object;
+}>();
+
 const panelClass = (props, parent, index) => {
   return [
     {
@@ -38,49 +40,6 @@ const panelClass = (props, parent, index) => {
     },
   ];
 };
-
-const tabs = ref([
-  {
-    title: "What types of service do you provide?",
-    content:
-      "We provide all type of Air Conditioner (AC) solution. We provide AC Installation, AC Repair, AC Service, AC Rent & sell branded Air Conditioner (AC) from our shop. We provide all type of Air Conditioner (AC) solution. We provide AC Installation, AC Repair, AC Service, AC Rent & sell branded Air Conditioner (AC) from our shop.",
-  },
-  {
-    title: "Do you deliver product to customer within a day?",
-    content:
-      "We provide all type of Air Conditioner (AC) solution. We provide AC Installation, AC Repair, AC Service, AC Rent & sell branded Air Conditioner (AC) from our shop. We provide all type of Air Conditioner (AC) solution. We provide AC Installation, AC Repair, AC Service, AC Rent & sell branded Air Conditioner (AC) from our shop.",
-  },
-  {
-    title: "How to install and active the free plugin?",
-    content:
-      "We provide all type of Air Conditioner (AC) solution. We provide AC Installation, AC Repair, AC Service, AC Rent & sell branded Air Conditioner (AC) from our shop. We provide all type of Air Conditioner (AC) solution. We provide AC Installation, AC Repair, AC Service, AC Rent & sell branded Air Conditioner (AC) from our shop.",
-  },
-  {
-    title: "What is the advantage of Inverter AC?",
-    content:
-      "We provide all type of Air Conditioner (AC) solution. We provide AC Installation, AC Repair, AC Service, AC Rent & sell branded Air Conditioner (AC) from our shop. We provide all type of Air Conditioner (AC) solution. We provide AC Installation, AC Repair, AC Service, AC Rent & sell branded Air Conditioner (AC) from our shop.",
-  },
-  {
-    title: "Can I purchase from outside the Bangladesh?",
-    content:
-      "We provide all type of Air Conditioner (AC) solution. We provide AC Installation, AC Repair, AC Service, AC Rent & sell branded Air Conditioner (AC) from our shop. We provide all type of Air Conditioner (AC) solution. We provide AC Installation, AC Repair, AC Service, AC Rent & sell branded Air Conditioner (AC) from our shop.",
-  },
-  {
-    title: "How do I make sure I order the right size & right color?",
-    content:
-      "We provide all type of Air Conditioner (AC) solution. We provide AC Installation, AC Repair, AC Service, AC Rent & sell branded Air Conditioner (AC) from our shop. We provide all type of Air Conditioner (AC) solution. We provide AC Installation, AC Repair, AC Service, AC Rent & sell branded Air Conditioner (AC) from our shop.",
-  },
-  {
-    title: "What shipping provider do you use?",
-    content:
-      "We provide all type of Air Conditioner (AC) solution. We provide AC Installation, AC Repair, AC Service, AC Rent & sell branded Air Conditioner (AC) from our shop. We provide all type of Air Conditioner (AC) solution. We provide AC Installation, AC Repair, AC Service, AC Rent & sell branded Air Conditioner (AC) from our shop.",
-  },
-  {
-    title: "What makes you different from your competitors?",
-    content:
-      "We provide all type of Air Conditioner (AC) solution. We provide AC Installation, AC Repair, AC Service, AC Rent & sell branded Air Conditioner (AC) from our shop. We provide all type of Air Conditioner (AC) solution. We provide AC Installation, AC Repair, AC Service, AC Rent & sell branded Air Conditioner (AC) from our shop.",
-  },
-]);
 </script>
 
 <style lang="scss" scoped>
@@ -125,7 +84,8 @@ const tabs = ref([
     transition: 0.4s ease-in-out;
   }
 
-  .view-all-tabs:hover, .view-all-tabs:focus {
+  .view-all-tabs:hover,
+  .view-all-tabs:focus {
     background: var(--primary-color-envitect-sam-blue);
     color: var(--primary-color-white);
     box-shadow: none;
@@ -134,5 +94,8 @@ const tabs = ref([
 
 .active-title-color {
   color: var(--primary-color-envitect-sam-blue);
+}
+:deep(.p-accordion-tab) {
+  margin-bottom: 16px;
 }
 </style>

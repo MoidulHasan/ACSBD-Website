@@ -4,36 +4,39 @@
       <form class="flex flex-column gap-3" @submit.prevent="submitQuestion">
         <h2 class="question-title">Have more Questions?</h2>
         <InputText
-          id="value"
-          v-model="value"
+          id="name"
+          v-model="question.name"
           placeholder="Name"
           type="text"
-          :class="{ 'p-invalid': errorMessage, questionInput: true }"
+          :class="{ questionInput: true }"
           aria-describedby="text-error"
+          required
         />
         <InputText
-          id="value"
-          v-model="value"
+          id="email"
+          v-model="question.email"
           placeholder="Email"
           type="text"
-          :class="{ 'p-invalid': errorMessage, questionInput: true }"
+          :class="{ questionInput: true }"
           aria-describedby="text-error"
+          required
         />
         <Textarea
-          v-model="value"
+          v-model="question.questions"
           placeholder="Questions?"
           auto-resize
           rows="5"
-          :class="{ 'p-invalid': errorMessage, questionInput: true }"
+          :class="{ questionInput: true }"
           aria-describedby="text-error"
+          required
         />
         <div class="flex align-items-center mb-3">
           <Checkbox
+            v-model="question.check"
             type="checkbox"
             class="check-box"
             input-id="aggrement"
             name="aggrement"
-            v-model="checked"
             :binary="true"
             required
           />
@@ -41,15 +44,33 @@
             I Accept the Terms of Service and Privacy Policy
           </label>
         </div>
-        <Button>Submit</Button>
+        <Button type="submit" label="Submit" />
       </form>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-const checked = ref(false);
-const submitQuestion = () => {};
+interface questions {
+  name: string;
+  email: string;
+  message: string;
+  check: boolean;
+}
+const question: Ref<questions> = ref({
+  name: "",
+  email: "",
+  questions: "",
+  check: false,
+});
+const submitQuestion = () => {
+  console.log("DOne");
+  alert("Done");
+  question.value.name = "";
+  question.value.email = "";
+  question.value.questions = "";
+  question.value.check = false;
+};
 </script>
 
 <style lang="scss" scoped>
@@ -107,7 +128,7 @@ const submitQuestion = () => {};
 }
 
 @media (max-width: 900px) {
-  .contact{
+  .contact {
     padding: 40px 0px;
   }
 }

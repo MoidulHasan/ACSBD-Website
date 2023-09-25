@@ -5,7 +5,10 @@
         <div
           class="faq-topics container flex gap-4 lg:gap-7 align-items-center justify-content-center"
         >
-          <div class="services topic text-center">
+          <div
+            class="services topic text-center"
+            @click="getFaqsByTopic('Services')"
+          >
             <div
               class="image-container flex align-items-center justify-content-center"
             >
@@ -17,7 +20,10 @@
             </div>
             <h3 class="topic-title">Services?</h3>
           </div>
-          <div class="ac-rent topic text-center">
+          <div
+            class="ac-rent topic text-center"
+            @click="getFaqsByTopic('AC Rent')"
+          >
             <div
               class="image-container flex align-items-center justify-content-center"
             >
@@ -25,7 +31,10 @@
             </div>
             <h3 class="topic-title">AC Rent?</h3>
           </div>
-          <div class="products topic text-center hidden lg:block">
+          <div
+            class="products topic text-center hidden lg:block"
+            @click="getFaqsByTopic('Products')"
+          >
             <div
               class="image-container flex align-items-center justify-content-center"
             >
@@ -37,7 +46,10 @@
             </div>
             <h3 class="topic-title">Products?</h3>
           </div>
-          <div class="policy topic text-center hidden lg:block">
+          <div
+            class="policy topic text-center hidden lg:block"
+            @click="getFaqsByTopic('Policy')"
+          >
             <div
               class="image-container flex align-items-center justify-content-center"
             >
@@ -48,13 +60,35 @@
         </div>
       </div>
       <div>
-        <PagesFaqTabComponent />
+        <PagesFaqTabComponent :faqByTopic="faqByTopic" />
+        {{ faqByTopic }}
       </div>
     </div>
   </div>
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+// import { useFaqsByTopics } from "~/composables/useFaqsByTopics";
+import { getFaqs } from "~/app/api/faqs";
+const selectedTopic: Ref<object> = ref({});
+const { data: faqs } = await getFaqs();
+
+const faqByTopic: Ref<object> = computed(() => {
+  return selectedTopic.value;
+});
+
+onMounted(() => {
+  getFaqsByTopic();
+});
+const getFaqsByTopic = (topic = "Services") => {
+  selectedTopic.value = faqs.value.find((faq) => faq.title.toLowerCase() === topic.toLowerCase());
+};
+
+// const selectedRef: Ref<object> = ref({});
+
+// const { selectedFaq } = await useSelectedFaqs();
+// console.log(selectedFaq.value);
+</script>
 
 <style lang="scss" scoped>
 .tab-with-content {
