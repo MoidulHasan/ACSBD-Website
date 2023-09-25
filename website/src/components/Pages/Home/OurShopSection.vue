@@ -12,6 +12,31 @@
           <NuxtLink class="button-primary no-underline px-16px" to="/shop">
             View All
           </NuxtLink>
+          <div id="offerProductSecPrevButton" />
+          <div id="offerProductSecNextButton" />
+        </div>
+      </template>
+    </CommonCardListHeader>
+
+    <CommonCardCarosel
+      :items="offerProducts"
+      :visible-slider="3"
+      teleport-next-button="#offerProductSecNextButton"
+      teleport-prev-button="#offerProductSecPrevButton"
+    >
+      <template #item="slotProps">
+        <div class="px-16px">
+          <CommonOfferProductCard v-bind="{ ...slotProps.data }" />
+        </div>
+      </template>
+    </CommonCardCarosel>
+
+    <CommonCardListHeader class="mb-16px" label="Air Conditioner">
+      <template #rightSideContent>
+        <div class="button-container">
+          <NuxtLink class="button-primary no-underline px-16px" to="/shop">
+            View All
+          </NuxtLink>
           <div id="acSecPrevButton" />
           <div id="acSecNextButton" />
         </div>
@@ -67,7 +92,9 @@
 <script lang="ts" setup>
 import { getAirConditioners } from "~/app/api/getAirConditioners";
 import { getACSpareSparts } from "~/app/api/getACSpareSparts";
+import { getOfferProducts } from "~/app/api/getOfferProducts";
 
+const { data: offerProducts } = await getOfferProducts();
 const { data: airConditioners } = await getAirConditioners();
 const { data: acSpareSparts } = await getACSpareSparts();
 

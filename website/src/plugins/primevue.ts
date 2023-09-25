@@ -11,6 +11,7 @@ import Carousel from "primevue/carousel";
 import InputText from "primevue/inputtext";
 import Rating from "primevue/rating";
 import { defineNuxtPlugin } from "#app";
+import Calendar from "primevue/calendar";
 
 export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.use(PrimeVue, { ripple: true });
@@ -26,4 +27,5 @@ export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.component("Carousel", Carousel);
   nuxtApp.vueApp.component("InputText", InputText);
   nuxtApp.vueApp.component("Rating", Rating);
+  nuxtApp.vueApp.component("Calendar", Calendar);
 });
