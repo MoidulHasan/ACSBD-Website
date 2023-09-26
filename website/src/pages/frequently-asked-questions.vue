@@ -9,7 +9,11 @@
   </div>
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+useHead({
+  title: "Frequently Asked Questions",
+});
+</script>
 
 <style lang="scss" scoped>
 .faq-topics {

@@ -133,4 +133,9 @@ const getFaqsByTopic = (topic = "Services") => {
     padding: 0px 0px 30px 0px;
   }
 }
+
+:deep(.p-accordion-toggle-icon) {
+  position: absolute;
+  right: 1rem;
+}
 </style>
