@@ -492,7 +492,7 @@ nav ul li.right .navLink {
   padding: 1rem;
   min-width: 14rem !important;
   z-index: 1;
-/* this is for overlapping the customer card */
+  /* this is for overlapping the customer card */
   display: none;
 }
 .submenu2 li {
