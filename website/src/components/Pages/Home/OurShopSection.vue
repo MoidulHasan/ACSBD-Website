@@ -12,8 +12,14 @@
           <NuxtLink class="button-primary no-underline px-16px" to="/shop">
             View All
           </NuxtLink>
-          <div id="offerProductSecPrevButton" />
-          <div id="offerProductSecNextButton" />
+          <div
+            id="offerProductSecPrevButton"
+            class="flex justify-content-center align-items-center"
+          />
+          <div
+            id="offerProductSecNextButton"
+            class="flex justify-content-center align-items-center"
+          />
         </div>
       </template>
     </CommonCardListHeader>
@@ -39,8 +45,14 @@
           <NuxtLink class="button-primary no-underline px-16px" to="/shop">
             View All
           </NuxtLink>
-          <div id="acSecPrevButton" />
-          <div id="acSecNextButton" />
+          <div
+            id="acSecPrevButton"
+            class="flex justify-content-center align-items-center"
+          />
+          <div
+            id="acSecNextButton"
+            class="flex justify-content-center align-items-center"
+          />
         </div>
       </template>
     </CommonCardListHeader>
@@ -69,8 +81,14 @@
           <NuxtLink class="button-primary no-underline px-16px" to="/shop">
             View All
           </NuxtLink>
-          <div id="acSparePartsPrevButton" />
-          <div id="acSparePartsNextButton" />
+          <div
+            id="acSparePartsPrevButton"
+            class="flex justify-content-center align-items-center"
+          />
+          <div
+            id="acSparePartsNextButton"
+            class="flex justify-content-center align-items-center"
+          />
         </div>
       </template>
     </CommonCardListHeader>
@@ -161,6 +179,7 @@ const offerProductResponsiveOptions = [
 .button-container {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   gap: 8px;
 }
 </style>

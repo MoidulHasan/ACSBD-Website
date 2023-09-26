@@ -40,7 +40,7 @@ const productRating = ref(props.rating);
 <style lang="scss" scoped>
 .product-card {
   width: 100%;
-  height: fit-content;
+  min-height: 377px;
 
   border-radius: 8px;
   background: var(--product-Front-color);
@@ -128,6 +128,6 @@ const productRating = ref(props.rating);
 }
 
 .product-card:hover {
-  transform: scale(1.05);
+  transform: scale(1.03);
 }
 </style>

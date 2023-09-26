@@ -3,7 +3,7 @@
     <slot name="leftSideContent">
       <div
         v-if="label"
-        class="flex justify-content-between align-items-center heading4"
+        class="label flex justify-content-between align-items-center primary-color-navy-blue"
       >
         {{ label }}
       </div>
@@ -30,5 +30,21 @@ defineProps<{
 
   border-radius: 4px;
   background: var(--product-Front-color);
+
+  .label {
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    height: 40px;
+
+    .label {
+      font-size: 14px;
+    }
+  }
 }
 </style>

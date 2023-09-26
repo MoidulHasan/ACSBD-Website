@@ -96,7 +96,7 @@ defineProps<Product>();
 }
 
 .card-container:hover {
-  transform: scale(1.05);
+  transform: scale(1.03);
 }
 
 @media only screen and (max-width: 600px) {

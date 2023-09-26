@@ -64,8 +64,6 @@ p {
 }
 
 .heading4 {
-    color: var(--primary-color-navy-blue);
-
     font-size: 24px;
     font-style: normal;
     font-weight: 600;
@@ -109,6 +107,10 @@ p {
     line-height: 20px;
 }
 
+.primary-color-navy-blue {
+    color: var(--primary-color-navy-blue)
+}
+
 .dark-gray-100 {
     color: var(--primary-color-dark-gray)
 }
@@ -119,11 +121,23 @@ p {
 
 
 .button-primary {
-    padding: 8px;
+    height: 28px;
     border-radius: 2px;
     cursor: pointer;
     background: var(--primary-color-envitect-sam-blue);
     color: var(--primary-color-white);
+
+    display: inline-flex;
+    padding: 2px 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+
+@media (max-width: 768px) {
+    .button-primary {
+        height: 20px;
+    }
 }
 
 .button-primary[disabled] {
