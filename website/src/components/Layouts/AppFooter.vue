@@ -30,7 +30,7 @@
               </div>
 
               <span class="mr-3"
-              >BTI Premier Shopping Mall, Cha# 90/A, 2nd Floor, Progoti
+                >BTI Premier Shopping Mall, Cha# 90/A, 2nd Floor, Progoti
                 Shoroni, Shahjadpur, North Badda, Dhaka-1212.
               </span>
             </div>
@@ -38,43 +38,43 @@
           <div class="col-12 md:col flex flex-column text-white">
             <h2 class="mt-1 mb-3 md:mb-5 font-semibold">Shopping With Us</h2>
             <NuxtLink to="/our-showroom" class="footer-point"
-            >Our Showroom</NuxtLink
+              >Our Showroom</NuxtLink
             >
             <NuxtLink to="/about" class="footer-point"
-            >Why Shop With Us</NuxtLink
+              >Why Shop With Us</NuxtLink
             >
             <NuxtLink to="/faq" class="footer-point"
-            >Frequently Asked Questions</NuxtLink
+              >Frequently Asked Questions</NuxtLink
             >
             <NuxtLink to="/purchase-procedure" class="footer-point"
-            >Online Purchase Procedure</NuxtLink
+              >Online Purchase Procedure</NuxtLink
             >
             <NuxtLink to="/payment-methods" class="footer-point"
-            >Online Payment Methods</NuxtLink
+              >Online Payment Methods</NuxtLink
             >
             <NuxtLink to="/payment-security" class="footer-point"
-            >Online Payment Security</NuxtLink
+              >Online Payment Security</NuxtLink
             >
           </div>
           <div class="col-12 md:col flex flex-column text-white">
             <h2 class="mt-1 mb-3 md:mb-5 font-semibold">Customer Service</h2>
             <NuxtLink to="/contact-us" class="footer-point"
-            >Contact US</NuxtLink
+              >Contact US</NuxtLink
             >
             <NuxtLink to="/warranty-policy" class="footer-point"
-            >Warranty Policy</NuxtLink
+              >Warranty Policy</NuxtLink
             >
             <NuxtLink to="/return-refund-policy" class="footer-point"
-            >Return & Refund Policy</NuxtLink
+              >Return & Refund Policy</NuxtLink
             >
             <NuxtLink to="/privacy-policy" class="footer-point"
-            >Privacy Policy</NuxtLink
+              >Privacy Policy</NuxtLink
             >
             <NuxtLink to="/cookie-policy" class="footer-point"
-            >Cookie Policy</NuxtLink
+              >Cookie Policy</NuxtLink
             >
             <NuxtLink to="/terms-conditions" class="footer-point"
-            >Terms & Conditions</NuxtLink
+              >Terms & Conditions</NuxtLink
             >
           </div>
           <div class="col flex flex-column text-white">
@@ -97,13 +97,13 @@
                   <img src="~/assets/images/link.svg" alt="linkedin" />
                 </NuxtLink>
                 <NuxtLink to="https://www.facebook.com/"
-                ><img src="~/assets/images/tweet.svg" alt="tweeter"
+                  ><img src="~/assets/images/tweet.svg" alt="tweeter"
                 /></NuxtLink>
                 <NuxtLink to="https://www.facebook.com/"
-                ><img src="~/assets/images/pin.svg" alt="pinterest"
+                  ><img src="~/assets/images/pin.svg" alt="pinterest"
                 /></NuxtLink>
                 <NuxtLink to="https://www.facebook.com/"
-                ><img src="~/assets/images/ins.svg" alt="instagram"
+                  ><img src="~/assets/images/ins.svg" alt="instagram"
                 /></NuxtLink>
               </div>
             </div>
@@ -117,8 +117,7 @@
   </div>
 </template>
 
-<script lang="ts" setup>
-</script>
+<script lang="ts" setup></script>
 
 <style scoped>
 .footer {
