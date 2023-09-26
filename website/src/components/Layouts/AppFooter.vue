@@ -37,23 +37,23 @@
           </div>
           <div class="col-12 md:col flex flex-column text-white">
             <h2 class="mt-1 mb-3 md:mb-5 font-semibold">Shopping With Us</h2>
-            <NuxtLink class="footer-point" to="/our-showroom">
-              Our Showroom
+            <NuxtLink class="footer-point" to="/our-showroom"
+              >Our Showroom
             </NuxtLink>
-            <NuxtLink class="footer-point" to="/about">
-              Why Shop With Us
+            <NuxtLink class="footer-point" to="/about"
+              >Why Shop With Us
             </NuxtLink>
-            <NuxtLink class="footer-point" to="/faq">
-              Frequently Asked Questions
+            <NuxtLink class="footer-point" to="/faq"
+              >Frequently Asked Questions
             </NuxtLink>
-            <NuxtLink class="footer-point" to="/purchase-procedure">
-              Online Purchase Procedure
+            <NuxtLink class="footer-point" to="/purchase-procedure"
+              >Online Purchase Procedure
             </NuxtLink>
-            <NuxtLink class="footer-point" to="/payment-methods">
-              Online Payment Methods
+            <NuxtLink class="footer-point" to="/payment-methods"
+              >Online Payment Methods
             </NuxtLink>
-            <NuxtLink class="footer-point" to="/payment-security">
-              Online Payment Security
+            <NuxtLink class="footer-point" to="/payment-security"
+              >Online Payment Security
             </NuxtLink>
           </div>
           <div class="col-12 md:col flex flex-column text-white">
@@ -70,11 +70,11 @@
             <NuxtLink class="footer-point" to="/privacy-policy">
               Privacy Policy
             </NuxtLink>
-            <NuxtLink class="footer-point" to="/cookie-policy">
-              Cookie Policy
+            <NuxtLink class="footer-point" to="/cookie-policy"
+              >Cookie Policy
             </NuxtLink>
-            <NuxtLink class="footer-point" to="/terms-conditions">
-              Terms & Conditions
+            <NuxtLink class="footer-point" to="/terms-conditions"
+              >Terms & Conditions
             </NuxtLink>
           </div>
           <div class="col flex flex-column text-white">
@@ -96,15 +96,15 @@
                 <NuxtLink to="https://www.facebook.com/">
                   <img alt="linkedin" src="~/assets/images/link.svg" />
                 </NuxtLink>
-                <NuxtLink to="https://www.facebook.com/"
-                  ><img alt="tweeter" src="~/assets/images/tweet.svg"
-                /></NuxtLink>
-                <NuxtLink to="https://www.facebook.com/"
-                  ><img alt="pinterest" src="~/assets/images/pin.svg"
-                /></NuxtLink>
-                <NuxtLink to="https://www.facebook.com/"
-                  ><img alt="instagram" src="~/assets/images/ins.svg"
-                /></NuxtLink>
+                <NuxtLink to="https://www.facebook.com/">
+                  <img alt="tweeter" src="~/assets/images/tweet.svg" />
+                </NuxtLink>
+                <NuxtLink to="https://www.facebook.com/">
+                  <img alt="pinterest" src="~/assets/images/pin.svg" />
+                </NuxtLink>
+                <NuxtLink to="https://www.facebook.com/">
+                  <img alt="instagram" src="~/assets/images/ins.svg" />
+                </NuxtLink>
               </div>
             </div>
           </div>
