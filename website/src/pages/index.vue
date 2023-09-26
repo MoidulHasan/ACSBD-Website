@@ -3,6 +3,9 @@
     <div class="container section">
       <PagesHomeOurShopSection />
     </div>
+    <div>
+      <PagesHomeClientsSection />
+    </div>
 
     <div class="section">
       <PagesHomeAtaGlance />
@@ -10,6 +13,9 @@
 
     <div class="container section">
       <PagesHomeCustomerReviewSection />
+    </div>
+    <div>
+      <PagesHomeTopBrandsSection />
     </div>
   </div>
 </template>
