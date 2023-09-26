@@ -11,6 +11,9 @@
     <div class="container section">
       <PagesHomeCustomerReviewSection />
     </div>
+    <div class="container section">
+      <PagesHomeBlogSection />
+    </div>
   </div>
 </template>
 

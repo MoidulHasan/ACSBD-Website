@@ -7,15 +7,12 @@
       slide-component="SingleBlogCard"
     >
       <template #header>
-
-        <h1 class="heading2">Our Latest Blogs</h1>
-        <p class="paragraph3">
-          AC SERVICE always posts AC-related news and company news regularly. So
-          stay connected with us to know about our latest news.
-        </p>
-        
+        <CommonSectionHeader
+          class="mb-32px"
+          header="Our Latest Blogs"
+          sub-header="AC SERVICE always posts AC-related news and company news regularly. So stay connected with us to know about our latest news."
+        />
       </template>
-
       <template #footer>
         <CommonViewAllButton label="View All Blogs" />
       </template>
