@@ -575,7 +575,6 @@ nav ul li.right .navLink {
   line-height: normal;
   border-radius: 50%;
 }
-
 /* animation */
 
 @keyframes slideup {
@@ -721,16 +720,15 @@ nav ul li.right .navLink {
     position: relative;
     width: 100%;
     left: 0;
-    border-radius: 2px 0px 0px 2px;
+    border-radius: 0.5rem;
     background: #157ecd;
     box-shadow: 0 0 0 0 #fff;
   }
+  .submenu > li:not(:last-child) {
+    padding-bottom: 1rem;
+  }
   .submenu .subMenuLink {
     color: var(--primary-color-white);
-  }
-
-  .submenu2 .subMenuLink {
-    color: var(--primary-color-dark-gray);
   }
 
   .subMenuLink:hover {
@@ -753,11 +751,16 @@ nav ul li.right .navLink {
     position: relative;
     left: 0;
     top: 0;
-    border-radius: 2px 0px 0px 2px;
-    background: #fff;
+    border-radius: 0.5rem;
+    background: #e4efffff;
     box-shadow: 0 0 0 0 #fff;
-    padding: 0 1rem 1rem 1rem;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    margin: 0.5rem 0 1rem 0;
     min-width: 6rem;
+  }
+
+  .submenu2 .subMenuLink {
+    color: var(--primary-color-dark-gray);
   }
 }
 </style>
