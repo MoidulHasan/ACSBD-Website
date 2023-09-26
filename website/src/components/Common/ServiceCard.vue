@@ -1,7 +1,7 @@
 <template>
   <div class="service-card-container">
     <div
-      class="flex flex-column align-items-center justify-center service-card"
+      class="flex flex-column align-items-center justify-content-between service-card"
     >
       <img class="service-image mb-3" :src="imageUrl" :alt="title" />
       <h2 class="service-title">{{ title }}</h2>
@@ -38,6 +38,7 @@ defineProps<{
   border-radius: 12px;
   background: var(--primary-color-sam-blue-100);
   transition: 0.8s;
+  min-height: 360px;
 
   .service-title {
     font-size: 24px;
@@ -81,6 +82,12 @@ defineProps<{
     .contact-button {
       color: var(--primary-color-white);
     }
+  }
+}
+
+@media (max-width: 600px) {
+  .service-card {
+    padding: 1.25rem;
   }
 }
 </style>
