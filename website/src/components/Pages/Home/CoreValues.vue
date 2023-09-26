@@ -84,20 +84,6 @@ export default {};
 </script>
 <style lang="scss">
 .core-container {
-  padding: 30px 0;
-  margin-top: 80px;
-  @media screen and (min-width: 375px) {
-    padding: 20px 10px;
-  }
-  @media screen and (min-width: 768px) {
-    padding: 0px 10px;
-  }
-  @media screen and (min-width: 1024px) {
-    padding: 0px 10px;
-  }
-  @media screen and (min-width: 1280px) {
-    padding: 0px 0px;
-  }
   .core-header-mobile {
     h3 {
       color: var(--primary-color-navy-blue);
@@ -114,16 +100,18 @@ export default {};
       line-height: 24px;
       letter-spacing: 0em;
       text-align: left;
+      color: var(--primary-color-dark-gray);
     }
     @media screen and (min-width: 375px) {
       h3 {
         font-size: 24px;
       }
       p {
-        font-size: 14;
+        font-size: 14px;
         font-weight: 400;
         line-height: 20px;
         opacity: 0.8;
+        padding: 24px 0;
       }
     }
     @media screen and (min-width: 768px) {
@@ -156,6 +144,7 @@ export default {};
       width: 95%;
       @media screen and (min-width: 375px) {
         width: 70%;
+        margin-bottom: 40px;
       }
       @media screen and (min-width: 768px) {
         width: 60%;
@@ -184,6 +173,8 @@ export default {};
         line-height: 24px;
         letter-spacing: 0em;
         text-align: left;
+        padding: 8px 0;
+        color: var(--primary-color-dark-gray);
       }
     }
     .core-values-provide {
@@ -191,6 +182,10 @@ export default {};
       margin-top: 18px;
       @media screen and (min-width: 375px) {
         width: 100%;
+      }
+      @media screen and (min-width: 768px) {
+        /* width: 90%; */
+        padding: 0 30px;
       }
       .core-values-provide-image img {
         width: 50px;
@@ -207,17 +202,16 @@ export default {};
       }
       .core-great-header {
         position: relative;
-        margin-top: -26px;
         margin-left: 25px;
         @media screen and (min-width: 375px) {
-          margin-top: -21px;
+          margin-top: -8px;
           margin-left: 15px;
         }
         @media screen and (min-width: 768px) {
-          margin-top: -22px;
+          margin-top: -6px;
         }
         @media screen and (min-width: 1280px) {
-          margin-top: -26px;
+          margin-top: -4px;
         }
         h2 {
           color: var(--primary-color-navy-blue);
@@ -234,7 +228,7 @@ export default {};
             font-size: 20px;
             line-height: 26px;
             /* margin-bottom: 0.5px; */
-            padding-bottom: 2px;
+            padding-bottom: 3px;
           }
         }
         p {
@@ -243,11 +237,11 @@ export default {};
           line-height: 24px;
           letter-spacing: 0em;
           text-align: left;
-          margin-top: -18px;
+          color: var(--primary-color-dark-gray);
           @media screen and (min-width: 375px) {
             font-size: 12px;
             line-height: 18px;
-            padding-top: 2px;
+            padding-top: 3px;
           }
           @media screen and (min-width: 768px) {
             font-size: 15px;
