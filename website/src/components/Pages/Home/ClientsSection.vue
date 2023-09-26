@@ -8,14 +8,15 @@
         slide-component="ClientCard"
       >
         <template #header>
-          <h1 class="heading2 mb-0 lg:mb-3">Our Our Clients in Bangladesh</h1>
-          <p class="subtitle mb-1 lg:mb-5">
-            We have already completed 25000+ projects. Our clients are
+          <CommonSectionHeader
+            class="mb-32px"
+            header="Our Our Clients in Bangladesh"
+            sub-header="We have already completed 25000+ projects. Our clients are
             Hospitals, groups of companies, Markets, Banks, Shopping malls,
             Multinational organizations, universities, Governments project,
             Tender Work, the private business sector, and so on. Here are some
-            customers.
-          </p>
+            customers."
+          />
         </template>
 
         <template #footer>

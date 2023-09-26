@@ -8,10 +8,11 @@
           slide-component="ClientCard"
       >
         <template #header>
-          <h1 class="heading2 mb-0 lg:mb-3">Buy Top Brands</h1>
-          <p class="subtitle mb-1 lg:mb-5">
-            Dear customers, we have been selling AC service for 16 years in the Bangladesh market with reliability and honesty of global brands Media, ELITE, Gree, General, Sharp, Daikin, Chigo, Panasonic, and Walton at reasonable prices. Apart from this, all types of spare parts for AC are sold wholesale and retail.
-          </p>
+          <CommonSectionHeader
+            class="mb-32px"
+            header="Buy Top Brands"
+            sub-header="Dear customers, we have been selling AC service for 16 years in the Bangladesh market with reliability and honesty of global brands Media, ELITE, Gree, General, Sharp, Daikin, Chigo, Panasonic, and Walton at reasonable prices. Apart from this, all types of spare parts for AC are sold wholesale and retail."
+          />
         </template>
 
         <template #footer>
