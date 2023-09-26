@@ -444,6 +444,13 @@ nav .menu {
   display: flex;
   justify-contet: center;
   align-items: center;
+  transition: 0.5s;
+}
+.menu .navLink:hover .navLink_i {
+  transform: scale(1.1) rotate(-180deg);
+  transition: 0.5s;
+  padding-left: 0;
+  padding-right: 0.6rem;
 }
 
 nav ul li.right {
