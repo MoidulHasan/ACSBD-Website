@@ -37,7 +37,7 @@ defineProps<{
   padding: 1.25rem 3rem 1.25rem 3rem;
   border-radius: 12px;
   background: var(--primary-color-sam-blue-100);
-  transition: 0.4s;
+  transition: 0.8s;
 
   .service-title {
     font-size: 24px;
