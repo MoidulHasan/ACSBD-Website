@@ -1,20 +1,21 @@
 <template>
   <div class="min-w-100 min-h-100">
     <Galleria
-      :num-visible="5"
+      :num-visible="2"
       :responsive-options="responsiveOptions"
       :show-indicators="true"
       :show-indicators-on-item="true"
       :show-thumbnails="false"
       :value="heroSliderImages"
       auto-play
+      circular
       class="slider"
       container-style="min-width: 100%"
     >
       <template #item="slotProps">
         <img
-          :alt="slotProps.item.title"
-          :src="slotProps.item.imageUrl"
+          :alt="slotProps.item?.title"
+          :src="slotProps.item?.imageUrl"
           style="width: 100%; display: block"
         />
       </template>

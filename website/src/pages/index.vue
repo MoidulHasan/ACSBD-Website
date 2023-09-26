@@ -3,6 +3,9 @@
     <div>
       <PagesHomeHeroSlider />
     </div>
+    <div class="container mt-5">
+      <PagesHomeBannerSection />
+    </div>
     <div>
       <PagesHomeServicesSection />
     </div>
