@@ -1,7 +1,13 @@
 <template>
   <div>
+    <div>
+      <PagesHomeServicesSection />
+    </div>
     <div class="container section">
       <PagesHomeOurShopSection />
+    </div>
+    <div>
+      <PagesHomeClientsSection />
     </div>
 
     <div class="section">
@@ -10,6 +16,9 @@
 
     <div class="container section">
       <PagesHomeCustomerReviewSection />
+    </div>
+    <div>
+      <PagesHomeTopBrandsSection />
     </div>
   </div>
 </template>
