@@ -18,7 +18,10 @@
       </template>
 
       <template #footer>
-        <CommonViewAllButton label="View All Review" />
+        <CommonViewAllButton
+          label="View All Review"
+          redirect-page-url="/client-review"
+        />
       </template>
     </CommonSliderSection>
   </div>

@@ -1,19 +1,22 @@
 <template>
-  <button :class="'button'">
-    <span class="label">
-      {{ label }}
-    </span>
-    <span>
-      <slot name="icon">
-        <i class="pi pi-arrow-right icon" />
-      </slot>
-    </span>
-  </button>
+  <div>
+    <a :class="'button'" :href="redirectPageUrl ?? '/'">
+      <span class="label">
+        {{ label }}
+      </span>
+      <span>
+        <slot name="icon">
+          <i class="pi pi-arrow-right icon" />
+        </slot>
+      </span>
+    </a>
+  </div>
 </template>
 
 <script lang="ts" setup>
 defineProps<{
   label: string;
+  redirectPageUrl?: string;
 }>();
 </script>
 
@@ -30,6 +33,8 @@ defineProps<{
   border-radius: 4px;
 
   cursor: pointer;
+
+  text-decoration: none;
 
   .label {
     color: var(--primary-color-envitect-sam-blue);
