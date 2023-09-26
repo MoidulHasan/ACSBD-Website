@@ -7,11 +7,13 @@
       slide-component="SingleBlogCard"
     >
       <template #header>
+
         <h1 class="heading2">Our Latest Blogs</h1>
         <p class="paragraph3">
           AC SERVICE always posts AC-related news and company news regularly. So
           stay connected with us to know about our latest news.
         </p>
+        
       </template>
 
       <template #footer>
