@@ -12,6 +12,7 @@ import InputText from "primevue/inputtext";
 import Rating from "primevue/rating";
 import { defineNuxtPlugin } from "#app";
 import Calendar from "primevue/calendar";
+import Galleria from "primevue/galleria";
 
 export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.use(PrimeVue, { ripple: true });
@@ -28,4 +29,5 @@ export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.component("InputText", InputText);
   nuxtApp.vueApp.component("Rating", Rating);
   nuxtApp.vueApp.component("Calendar", Calendar);
+  nuxtApp.vueApp.component("Galleria", Galleria);
 });

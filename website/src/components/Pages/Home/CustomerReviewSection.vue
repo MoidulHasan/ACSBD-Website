@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container h-screen">
     <CommonSliderSection
       :items="clientReviews"
       :number-of-scroll="1"
@@ -18,7 +18,10 @@
       </template>
 
       <template #footer>
-        <CommonViewAllButton label="View All Review" />
+        <CommonViewAllButton
+          label="View All Review"
+          redirect-page-url="/client-review"
+        />
       </template>
     </CommonSliderSection>
   </div>
