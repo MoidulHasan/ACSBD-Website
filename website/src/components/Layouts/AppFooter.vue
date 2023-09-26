@@ -43,7 +43,7 @@
             <NuxtLink class="footer-point" to="/about"
               >Why Shop With Us
             </NuxtLink>
-            <NuxtLink class="footer-point" to="/frequently-ask-questions"
+            <NuxtLink class="footer-point" to="/frequently-asked-questions"
               >Frequently Asked Questions
             </NuxtLink>
             <NuxtLink class="footer-point" to="/purchase-procedure"
