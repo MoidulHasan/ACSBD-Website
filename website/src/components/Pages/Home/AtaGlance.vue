@@ -6,7 +6,7 @@
         <div class="root-glance grid">
           <div class="service-expert-glance col-6 md:col-6 lg:col">
             <div class="icon-glance">
-              <img src="/images/expert-technician.svg" alt="expert" />
+              <img alt="expert" src="/images/expert-technician.svg" />
             </div>
             <div class="count-glance">
               <span>45+</span>
@@ -15,7 +15,7 @@
           </div>
           <div class="service-projects-glance col-6 md:col-6 lg:col">
             <div class="icon-glance">
-              <img src="/images/complete-projects.svg" alt="expert" />
+              <img alt="expert" src="/images/complete-projects.svg" />
             </div>
             <div class="count-glance">
               <span>25000+</span>
@@ -25,7 +25,7 @@
 
           <div class="service-customers-glance col-6 md:col-6 lg:col">
             <div class="icon-glance">
-              <img src="/images/happy-customers.svg" alt="expert" />
+              <img alt="expert" src="/images/happy-customers.svg" />
             </div>
             <div class="count-glance">
               <span>24600+</span>
@@ -35,7 +35,7 @@
 
           <div class="service-year-glance col-6 md:col-6 lg:col">
             <div class="icon-glance">
-              <img src="/images/years-of-company.svg" alt="expert" />
+              <img alt="expert" src="/images/years-of-company.svg" />
             </div>
             <div class="count-glance">
               <span>16+</span>
@@ -47,11 +47,9 @@
     </div>
   </div>
 </template>
-<script>
-export default {
-  name: "AtaGlance",
-};
-</script>
+
+<script lang="ts" setup></script>
+
 <style lang="scss">
 .at-a-glance {
   color: var(--primary-color-white);
@@ -68,17 +66,20 @@ export default {
     height: 350px;
     background-position: center;
   }
+
   .bg-glance {
     margin: 80px 0;
     width: 100%;
     height: 100%;
     background: rgba(29, 53, 102, 0.8);
+
     .container-glance {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-items: center;
       height: 100%;
+
       h2 {
         text-align: center;
         font-size: 28px;
@@ -91,15 +92,18 @@ export default {
           font-size: 15px;
         }
       }
+
       .root-glance {
         width: 100%;
-        margin-top: 0px;
+        margin-top: 38px;
+
         .service-expert-glance,
         .service-customers-glance {
           position: relative;
           display: flex;
           flex-direction: column;
           align-items: center;
+
           .icon-glance {
             height: 50px;
             width: 50px;
@@ -112,6 +116,7 @@ export default {
               width: 40px;
               height: 40px;
             }
+
             img {
               width: 25px;
               height: 25px;
@@ -121,8 +126,10 @@ export default {
               }
             }
           }
+
           .count-glance {
             margin-top: 5px;
+
             & span {
               font-size: 25px;
               font-weight: 600;
@@ -130,6 +137,7 @@ export default {
                 font-size: 20px;
               }
             }
+
             p {
               margin-top: 0px;
               font-size: 15px;
@@ -140,6 +148,7 @@ export default {
               }
             }
           }
+
           &::before {
             content: "";
             position: absolute;
@@ -155,6 +164,7 @@ export default {
             right: 0;
             /* bottom: 0; */
           }
+
           &::after {
             content: "";
             position: absolute;
@@ -170,11 +180,13 @@ export default {
             bottom: 0;
           }
         }
+
         .service-projects-glance {
           position: relative;
           display: flex;
           flex-direction: column;
           align-items: center;
+
           .icon-glance {
             height: 50px;
             width: 50px;
@@ -187,6 +199,7 @@ export default {
               width: 40px;
               height: 40px;
             }
+
             img {
               width: 25px;
               height: 25px;
@@ -196,8 +209,10 @@ export default {
               }
             }
           }
+
           .count-glance {
             margin-top: 5px;
+
             & span {
               font-size: 25px;
               font-weight: 600;
@@ -205,6 +220,7 @@ export default {
                 font-size: 20px;
               }
             }
+
             p {
               margin-top: 0px;
               font-size: 15px;
@@ -215,6 +231,7 @@ export default {
               }
             }
           }
+
           @media screen and (min-width: 1024px) {
             &::before {
               content: "";
@@ -246,10 +263,12 @@ export default {
             }
           }
         }
+
         .service-year-glance {
           display: flex;
           flex-direction: column;
           align-items: center;
+
           .icon-glance {
             height: 50px;
             width: 50px;
@@ -262,6 +281,7 @@ export default {
               width: 40px;
               height: 40px;
             }
+
             img {
               width: 25px;
               height: 25px;
@@ -271,8 +291,10 @@ export default {
               }
             }
           }
+
           .count-glance {
             margin-top: 5px;
+
             & span {
               font-size: 25px;
               font-weight: 600;
@@ -280,6 +302,7 @@ export default {
                 font-size: 20px;
               }
             }
+
             p {
               margin-top: 0px;
               font-size: 15px;
@@ -296,4 +319,3 @@ export default {
   }
 }
 </style>
-ss
