@@ -12,8 +12,10 @@
     --primary-color-navy-blue-50: #4A5D85;
     --navy-blue-80: #4a5d85;
 
-    --primary-color-sam-blue-100: #F3F8FC;
+    --primary-color-sam-blue-100: #e4efff;
     --primary-color-sam-blue-50: #FAFCFE;
+    --primary-color-navy-blue-10: #E8EBF0;
+
     --primary-color-white: #FFFFFF;
     --product-Front-color: #f9f9f9;
 
@@ -170,6 +172,16 @@ body{
 
 .mx-32px {
     margin: 0 32px;
+}
+.pb-10px{
+    padding-bottom:10px;
+}
+
+@media only screen and (max-width: 600px){
+    .container{
+        width: 100%;
+        padding: 0 16px;
+    }
 }
 
 

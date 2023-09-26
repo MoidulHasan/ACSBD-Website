@@ -14,8 +14,9 @@ import AccordionTab from "primevue/accordiontab";
 import Textarea from "primevue/textarea";
 import Checkbox from "primevue/checkbox";
 import Rating from "primevue/rating";
-import Calendar from "primevue/calendar";
 import { defineNuxtPlugin } from "#app";
+import Calendar from "primevue/calendar";
+import Galleria from "primevue/galleria";
 
 export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.use(PrimeVue, { ripple: true });
@@ -36,4 +37,5 @@ export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.component("AccordionTab", AccordionTab);
   nuxtApp.vueApp.component("Textarea", Textarea);
   nuxtApp.vueApp.component("Checkbox", Checkbox);
+  nuxtApp.vueApp.component("Galleria", Galleria);
 });
