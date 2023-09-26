@@ -742,6 +742,11 @@ nav ul li.right .navLink {
   }
 
   .subMenuLink:hover .subNavLink_i {
+    width: 16px;
+    transform: scale(1.1) rotate(90deg);
+    transition: 0.5s;
+    padding-right: 0;
+    padding-left: 0;
   }
 
   .submenu2 {
