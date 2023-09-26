@@ -64,6 +64,8 @@ defineProps<{
   }
 
   .name {
+    margin-top: 65px;
+
     color: var(--primary-color-navy-blue);
     text-align: center;
 
