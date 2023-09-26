@@ -1,5 +1,5 @@
 <template>
-  <div class="mb-8 headerContainer">
+  <div class="headerContainer">
     <div class="first-row">
       <div
         class="grid container align-items-center justify-between pt-4 pb-10px"
@@ -8,13 +8,13 @@
           class="col-12 lg:col-3 flex justify-content-center lg:justify-content-start"
         >
           <NuxtLink to="/">
-            <img src="@/assets/images/header/logo_colored.svg" alt="ACBD" />
+            <img alt="ACBD" src="@/assets/images/header/logo_colored.svg" />
           </NuxtLink>
         </div>
         <div class="col-12 md:col-12 lg:col-5">
           <div class="p-inputgroup flex-1">
             <InputText placeholder="Search Product" />
-            <Button icon="pi pi-search" class="search-button" />
+            <Button class="search-button" icon="pi pi-search" />
           </div>
         </div>
         <div
@@ -22,25 +22,25 @@
         >
           <NuxtLink to="/services">
             <img
-              src="@/assets/images/header/service.svg"
               alt="service"
               class="mr-3"
+              src="@/assets/images/header/service.svg"
             />
           </NuxtLink>
           <div>
             <p class="flex align-items-center">
               <img
+                alt="phone"
                 class="inline-block mr-1 contact-img"
                 src="@/assets/images/header/phoneIcon.svg"
-                alt="phone"
               />
               <span class="contact-info">09613 755755</span>
             </p>
             <p class="flex align-items-center">
               <img
+                alt="mail"
                 class="inline-block mr-1 contact-img"
                 src="@/assets/images/header/mail.svg"
-                alt="mail"
               />
               <span class="contact-info">info@acsevice.com</span>
             </p>
@@ -66,14 +66,14 @@
 
             <NuxtLink
               ref="menuToggle"
-              class="flex flex-column align-items-center justify-content-center"
               :class="[{ 'lg:hidden menuToggle': true }]"
+              class="flex flex-column align-items-center justify-content-center"
               @click="toggleMenu"
             >
               <img
+                alt="three dot"
                 class="headerIcon menuBarIcon"
                 src="@/assets/images/header/threebarMenu.svg"
-                alt="three dot"
               />
               <span class="block headerIcon-text">Menu</span>
             </NuxtLink>
@@ -81,9 +81,9 @@
               class="flex flex-column align-items-center justify-content-center"
             >
               <img
+                alt="three dot"
                 class="headerIcon"
                 src="@/assets/images/header/home.svg"
-                alt="three dot"
               />
               <span class="block headerIcon-text">Home</span>
             </NuxtLink>
@@ -93,9 +93,9 @@
               <div class="navbar-content-container flex justify-content-center">
                 <span class="navbar-items-count">2</span>
                 <img
+                  alt="cart"
                   class="favoriteIcon navBarIcons"
                   src="@/assets/images/header/cart.svg"
-                  alt="cart"
                 />
               </div>
               <span class="block headerIcon-text">Shop</span>
@@ -106,9 +106,9 @@
               <div class="navbar-content-container flex justify-content-center">
                 <span class="navbar-items-count">2</span>
                 <img
+                  alt="favorite"
                   class="favoriteIcon navBarIcons"
                   src="@/assets/images/header/heart.svg"
-                  alt="favorite"
                 />
               </div>
               <span class="block headerIcon-text">Favorite</span>
@@ -118,9 +118,9 @@
               class="flex flex-column align-items-center justify-content-center"
             >
               <img
+                alt="three dot"
                 class="headerIcon"
                 src="@/assets/images/header/profile.svg"
-                alt="three dot"
               />
               <span class="block headerIcon-text">Profile</span>
             </NuxtLink>
@@ -131,10 +131,10 @@
             <ul class="menu container lg:mx-auto">
               <li v-for="navItem in navMenues" :key="navItem.title">
                 <NuxtLink
-                  class="navLink flex"
-                  active-class="active"
-                  exact-active-class="active"
                   :to="navItem.path"
+                  active-class="active"
+                  class="navLink flex"
+                  exact-active-class="active"
                   @click="checkNav(navItem.path)"
                 >
                   <span>{{ navItem.title }}</span>
@@ -149,9 +149,9 @@
                     :key="subNavItem.title"
                   >
                     <NuxtLink
-                      class="subMenuLink pb-2 flex gap-3 lg:justify-content-between"
-                      active-class="active"
                       :to="subNavItem.path"
+                      active-class="active"
+                      class="subMenuLink pb-2 flex gap-3 lg:justify-content-between"
                       @click="checkNav(subNavItem.path)"
                     >
                       <span>{{ subNavItem.title }}</span>
@@ -167,9 +167,9 @@
                         class=""
                       >
                         <NuxtLink
-                          class="subMenuLink"
-                          active-class="active"
                           :to="multiSubNavItem.path"
+                          active-class="active"
+                          class="subMenuLink"
                           @click="checkNav(multiSubNavItem.path)"
                         >
                           {{ multiSubNavItem.title }}
@@ -182,8 +182,8 @@
 
               <li class="right">
                 <NuxtLink
-                  class="navLink flex align-items-center justify-content-center"
                   active-class="active"
+                  class="navLink flex align-items-center justify-content-center"
                   to="/"
                 >
                   <div
@@ -191,9 +191,9 @@
                   >
                     <span class="header-item-count">2</span>
                     <img
+                      alt="cart"
                       class="favoriteIcon navBarIcons"
                       src="@/assets/images/header/cartsIcon.svg"
-                      alt="cart"
                     />
                   </div>
                   <span class="block">Cart</span>
@@ -201,8 +201,8 @@
               </li>
               <li class="right">
                 <NuxtLink
-                  class="navLink flex align-items-center justify-content-center"
                   active-class="active"
+                  class="navLink flex align-items-center justify-content-center"
                   to="/"
                 >
                   <div
@@ -210,9 +210,9 @@
                   >
                     <span class="header-item-count">2</span>
                     <img
+                      alt="favorite"
                       class="favoriteIcon navBarIcons"
                       src="@/assets/images/header/heart.svg"
-                      alt="favorite"
                     />
                   </div>
 
@@ -221,14 +221,14 @@
               </li>
               <li class="right">
                 <NuxtLink
-                  class="navLink flex align-items-center justify-content-center"
                   active-class="active"
+                  class="navLink flex align-items-center justify-content-center"
                   to="/"
                 >
                   <img
+                    alt="profile"
                     class="profileIcon navBarIcons"
                     src="@/assets/images/header/profile.svg"
-                    alt="profile"
                   />
                   <span class="block">Account</span>
                 </NuxtLink>
@@ -247,6 +247,7 @@ interface submenu {
   path: string;
   submenu2?: Array<submenu>;
 }
+
 interface menus {
   title: string;
   path: string;
@@ -383,9 +384,11 @@ const checkNav = (path: string): void => {
 .first-row {
   border-bottom: 0.1rem solid var(--primary-color-navy-blue-10);
 }
+
 .second-row {
   border-bottom: 0.1rem solid var(--primary-color-navy-blue-10);
 }
+
 .search-button,
 .search-button:hover {
   background-color: var(--primary-color-envitect-sam-blue);
@@ -423,6 +426,7 @@ nav .menu {
   display: inline-block;
   line-height: 45px;
 }
+
 .menu li {
   animation: slideleft 0.5s ease;
 }
@@ -450,6 +454,7 @@ nav .menu {
   align-items: center;
   transition: 0.5s;
 }
+
 .menu .navLink:hover .navLink_i {
   transform: scale(1.1) rotate(-180deg);
   transition: 0.5s;
@@ -506,6 +511,7 @@ nav ul li.right .navLink {
   /* this is for overlapping the customer card */
   display: none;
 }
+
 .submenu2 li {
   display: block;
 }
@@ -514,6 +520,7 @@ nav ul li.right .navLink {
   display: block;
   animation: slideup 0.3s ease;
 }
+
 .submenu li:hover > .submenu2 {
   display: block;
   animation: slideleft 0.5s ease;
@@ -537,6 +544,7 @@ nav ul li.right .navLink {
   width: 1.5rem;
   margin-right: 0.375rem;
 }
+
 .header-item-container,
 .navbar-content-container {
   position: relative;
@@ -558,6 +566,7 @@ nav ul li.right .navLink {
   line-height: normal;
   border-radius: 50%;
 }
+
 .header-item-count,
 .cart-item-count {
   position: absolute;
@@ -575,6 +584,7 @@ nav ul li.right .navLink {
   line-height: normal;
   border-radius: 50%;
 }
+
 /* animation */
 
 @keyframes slideup {
@@ -611,6 +621,7 @@ nav ul li.right .navLink {
   .headerContainer {
     position: relative;
   }
+
   .second-row {
     border-radius: 24px 24px 0px 0px;
     background: var(--primary-color-white);
@@ -622,6 +633,7 @@ nav ul li.right .navLink {
     z-index: 1;
     /* for overlaping customer review */
   }
+
   nav {
     width: 100%;
     left: 0;
@@ -636,6 +648,7 @@ nav ul li.right .navLink {
   .navbar {
     position: relative;
   }
+
   .mobileMenu {
     position: relative;
     z-index: 112;
@@ -724,9 +737,11 @@ nav ul li.right .navLink {
     background: #157ecd;
     box-shadow: 0 0 0 0 #fff;
   }
+
   .submenu > li:not(:last-child) {
     padding-bottom: 1rem;
   }
+
   .submenu .subMenuLink {
     color: var(--primary-color-white);
   }
