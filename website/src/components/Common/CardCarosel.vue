@@ -172,7 +172,7 @@ onUnmounted(() => {
 });
 
 const getResponsiveOption = (value: number) => {
-  const options = props?.carouselResponsiveOptions || responsiveOptions;
+  const options = props?.carouselResponsiveOptions ?? responsiveOptions;
 
   for (let i = 0; i < options.length; i++) {
     if (value >= options[i].breakpoint) {
@@ -202,13 +202,10 @@ const getResponsiveOption = (value: number) => {
       display: flex;
       flex-direction: row;
 
-      transition: transform 150ms ease-out;
+      transition: transform 250ms ease-out;
       transform: translatex(0px);
 
       .slide {
-        box-shadow:
-          2px 2px 4px 2px white,
-          -2px -2px 4px 2px white;
         display: grid;
         place-items: center;
         cursor: pointer;

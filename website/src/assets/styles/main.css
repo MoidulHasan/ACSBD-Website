@@ -9,6 +9,8 @@
 
 
     --primary-color-navy-blue: #1D3566;
+    --navy-blue-80: #4a5d85;
+
 
     --primary-color-white: #FFFFFF;
     --product-Front-color: #f9f9f9;
@@ -134,6 +136,14 @@ p {
 
 .mb-16px {
     margin-bottom: 16px;
+}
+
+.mx-32px {
+    margin: 0 32px;
+}
+
+.my-32px {
+    margin: 32px 0;
 }
 
 .mb-32px {

@@ -45,7 +45,7 @@ const productRating = ref(props.rating);
   border-radius: 8px;
   background: var(--product-Front-color);
 
-  transition: all 0.2s ease-in-out;
+  transition: all 0.5s ease-in-out;
 
   .product-image {
     height: 220px;
@@ -68,9 +68,9 @@ const productRating = ref(props.rating);
     gap: 8px;
 
     border-radius: 2px;
-    background: var(--navy-blue-80, #4a5d85);
+    background: var(--navy-blue-80);
 
-    color: var(--white-100, #fff);
+    color: var(--primary-color-white);
     text-align: center;
 
     font-size: 14px;
@@ -128,6 +128,6 @@ const productRating = ref(props.rating);
 }
 
 .product-card:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 </style>

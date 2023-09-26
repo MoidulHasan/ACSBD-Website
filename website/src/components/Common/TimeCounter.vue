@@ -63,4 +63,16 @@ const { remainingDay, remainingHour, remainingMinute, remainingSecond } =
   margin-top: 5px;
   color: var(--dark-gray-80);
 }
+
+@media (max-width: 575.98px) {
+  .time-box {
+    width: 28.522px;
+    height: 22.817px;
+    flex-shrink: 0;
+  }
+
+  .time-label {
+    font-size: 10px;
+  }
+}
 </style>

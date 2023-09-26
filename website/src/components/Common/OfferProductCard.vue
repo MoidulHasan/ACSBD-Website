@@ -58,14 +58,13 @@ defineProps<Product>();
 
   min-width: 460px;
   max-width: 100%;
-  height: 286px;
+  min-height: 286px;
   flex-shrink: 0;
 
   border-radius: 8px;
-  background: var(--product-Front-color, #f9f9f9);
-  box-shadow: 0px 4px 16px 5px rgba(174, 174, 174, 0.16);
+  background: var(--product-Front-color);
 
-  transition: all 0.2s ease-in-out;
+  transition: all 0.5s ease-in-out;
 
   .card-image {
     width: 45%;
@@ -97,6 +96,14 @@ defineProps<Product>();
 }
 
 .card-container:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
+}
+
+@media only screen and (max-width: 600px) {
+  .card-container {
+    min-width: 328px;
+    min-height: 204px;
+    flex-shrink: 0;
+  }
 }
 </style>

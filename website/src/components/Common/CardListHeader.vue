@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-content-between">
+  <div class="header flex justify-content-between">
     <slot name="leftSideContent">
       <div
         v-if="label"
@@ -20,3 +20,15 @@ defineProps<{
   label?: string;
 }>();
 </script>
+
+<style lang="scss" scoped>
+.header {
+  width: 100%;
+  height: 48px;
+  flex-shrink: 0;
+  padding: 8px 16px;
+
+  border-radius: 4px;
+  background: var(--product-Front-color);
+}
+</style>
