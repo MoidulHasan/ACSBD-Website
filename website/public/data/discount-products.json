@@ -1,0 +1,101 @@
+[
+  {
+    "id": 1,
+    "name": "Black 1.5 Ton GMCC Rotary Compressor",
+    "image": "images/products/Black-1.5-Ton-GMCC-Rotary-Compressor.png",
+    "rating": 4.5,
+    "total_review": 48,
+    "price": 59000,
+    "discount_price": 48000,
+    "discount_percentage": 30,
+    "offerEndsAt": "2023-10-25T19:02:57+0000"
+  },
+  {
+    "id": 2,
+    "name": "Black 1.5 Ton GMCC Rotary Compressor",
+    "image": "images/products/Power-factor-correction-capacitor.png",
+    "rating": 4.5,
+    "total_review": 48,
+    "price": 59000,
+    "discount_price": 48000,
+    "discount_percentage": 30,
+    "offerEndsAt": "2023-10-25T19:02:57+0000"
+  },
+  {
+    "id": 3,
+    "name": "Whirlpool Supreme Cool Inverter 3S Corp INV 1 Ton",
+    "image": "images/products/Round-Copper-Pipes-Thickness-4mm.png",
+    "rating": 4.5,
+    "total_review": 48,
+    "price": 59000,
+    "discount_price": 48000,
+    "discount_percentage": 30,
+    "offerEndsAt": "2023-10-25T19:02:57+0000"
+  },
+  {
+    "id": 4,
+    "name": "Vacuum Rotary vane pump Air conditioning",
+    "image": "images/products/Vacuum-Rotary-vane-pump-Air-conditioning.png",
+    "rating": 4.5,
+    "total_review": 48,
+    "price": 59000,
+    "discount_price": 48000,
+    "discount_percentage": 30,
+    "offerEndsAt": "2023-10-25T19:02:57+0000"
+  },
+  {
+    "id": 5,
+    "name": "Midea 1.0 MS-12KBTU Ton Wall Type AC",
+    "image": "images/products/Vacuum-Rotary-vane-pump-Air-conditioning-1.png",
+    "rating": 4.5,
+    "total_review": 48,
+    "price": 59000,
+    "discount_price": 48000,
+    "discount_percentage": 30,
+    "offerEndsAt": "2023-10-25T19:02:57+0000"
+  },
+  {
+    "id": 6,
+    "name": "Round Copper Pipes, Thickness: 4 mm",
+    "image": "images/products/R-410A-AC-Refrigerant-Gas.png",
+    "rating": 4.5,
+    "total_review": 48,
+    "price": 59000,
+    "discount_price": 48000,
+    "discount_percentage": 30,
+    "offerEndsAt": "2023-10-25T19:02:57+0000"
+  },
+  {
+    "id": 7,
+    "name": "Midea R410A DC VRF (VC pro Modular series)",
+    "image": "images/products/Gree-AC-1-ton-GS-12CT-1.png",
+    "rating": 4.5,
+    "total_review": 48,
+    "price": 59000,
+    "discount_price": 48000,
+    "discount_percentage": 30,
+    "offerEndsAt": "2023-10-25T19:02:57+0000"
+  },
+  {
+    "id": 8,
+    "name": "Round Copper Pipes, Thickness: 4 mm",
+    "image": "images/products/Gree-AC-1-ton-GS-12CT-1.png",
+    "rating": 4.5,
+    "total_review": 48,
+    "price": 59000,
+    "discount_price": 48000,
+    "discount_percentage": 30,
+    "offerEndsAt": "2023-10-25T19:02:57+0000"
+  },
+  {
+    "id": 9,
+    "name": "Midea R410A DC VRF (VC pro Modular series)",
+    "image": "images/products/Gree-AC-1-ton-GS-12CT-1.png",
+    "rating": 4.5,
+    "total_review": 48,
+    "price": 59000,
+    "discount_price": 48000,
+    "discount_percentage": 30,
+    "offerEndsAt": "2023-10-25T19:02:57+0000"
+  }
+]
