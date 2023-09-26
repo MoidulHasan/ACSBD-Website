@@ -4,18 +4,17 @@
       <PagesHomeOurShopSection />
     </div>
 
-    <div class="container section">
-      <PagesHomeCustomerReviewSection />
+    <div class="section">
+      <PagesHomeAtaGlance />
     </div>
 
     <div class="container section">
-      <PagesHomeAtaGlance />
+      <PagesHomeCustomerReviewSection />
     </div>
   </div>
 </template>
 
-<script lang="ts" setup>
-</script>
+<script lang="ts" setup></script>
 
 <style lang="scss" scoped>
 .section {
