@@ -1,7 +1,7 @@
 :root {
     background: #FFF;
     font-family: Poppins, serif;
- 
+
 
     /*    Colors Variables  */
     --primary-color-envitect-sam-blue: #1476BF;
@@ -68,6 +68,14 @@ body{
     font-style: normal;
     font-weight: 700;
     line-height: 44px;
+}
+.heading3 {
+  color: var(--primary-color-navy-blue);
+  text-align: left;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 36px;
 }
 
 .heading4 {
@@ -162,6 +170,7 @@ body{
 .mx-32px {
     margin: 0 32px;
 }
+
 
 .my-32px {
     margin: 32px 0;
