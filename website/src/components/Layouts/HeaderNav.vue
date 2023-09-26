@@ -491,7 +491,8 @@ nav ul li.right .navLink {
   box-shadow: 0px 2px 4px 1px rgba(159, 159, 159, 0.35);
   padding: 1rem;
   min-width: 14rem !important;
-  z-index: 99;
+  z-index: 1;
+/* this is for overlapping the customer card */
   display: none;
 }
 .submenu2 li {
@@ -608,13 +609,14 @@ nav ul li.right .navLink {
     position: fixed;
     bottom: 0;
     width: 100%;
-    z-index: 9999;
+    z-index: 1;
+    /* for overlaping customer review */
   }
   nav {
     width: 100%;
     left: 0;
-    padding: 0.625rem 1.25rem;
     position: relative;
+    z-index: 111;
   }
 
   .menuToggle {
@@ -626,7 +628,10 @@ nav ul li.right .navLink {
   }
   .mobileMenu {
     position: relative;
-    z-index: 9999;
+    z-index: 112;
+    padding: 0.625rem 1.25rem;
+    background: var(--primary-color-white);
+    border-radius: 24px 24px 0px 0px;
   }
 
   .menu-box {
@@ -647,13 +652,12 @@ nav ul li.right .navLink {
     display: none;
     width: 100%;
     position: fixed;
-    height: calc(100vh - 10rem - 4.27375rem);
+    height: calc(100vh - 10rem - 3.27375rem);
     overflow-y: scroll;
     background: var(--primary-color-envitect-sam-blue) !important;
     top: 10rem;
-    z-index: 9990;
     border-radius: 1.25rem 1.25rem 0 0;
-    padding: 1rem;
+    padding: 1rem 1rem 2rem 1rem;
     animation: slidedown 0.4s ease;
   }
 
@@ -728,7 +732,6 @@ nav ul li.right .navLink {
     box-shadow: 0 0 0 0 #fff;
     padding: 0 1rem 1rem 1rem;
     min-width: 6rem;
-    z-index: 999;
   }
 }
 </style>
