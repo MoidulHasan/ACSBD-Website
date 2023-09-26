@@ -1,16 +1,22 @@
 <template>
   <div class="container">
-    <h1 class="heading2">Our Latest Blogs</h1>
-    <p class="paragraph3">
-      AC SERVICE always posts AC-related news and company news regularly. So
-      stay connected with us to know about our latest news.
-    </p>
     <CommonSliderSection
       :items="blogData"
       :number-of-scroll="1"
       :visible-item="4"
       slide-component="SingleBlogCard"
     >
+      <template #header>
+        <h1 class="heading2">Our Latest Blogs</h1>
+        <p class="paragraph3">
+          AC SERVICE always posts AC-related news and company news regularly. So
+          stay connected with us to know about our latest news.
+        </p>
+      </template>
+
+      <template #footer>
+        <CommonViewAllButton label="View All Blogs" />
+      </template>
     </CommonSliderSection>
   </div>
 </template>

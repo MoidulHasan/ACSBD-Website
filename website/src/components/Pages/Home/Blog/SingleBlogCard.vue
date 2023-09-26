@@ -1,32 +1,29 @@
 <template>
-  <div class="container pt-4" style="width: 22rem; padding-bottom: 160px">
-    <div class="blog-card align-items-center justify-content-center">
-      <div class="">
-        <div class="blog-image-container">
-          <img :src="imageUrl" alt="blog-card-image" />
-        </div>
+  <div class="blog-card align-items-center justify-content-center">
+    <div class="blog-image-container">
+      <img :src="imageUrl" alt="blog-card-image" />
+    </div>
+
+    <div class="blog-view-container flex justify-content-between">
+      <div>
+        <a href="#" class="blog-tips no-underline">AC Tips</a>
       </div>
-      <div class="blog-view-container flex justify-content-between">
-        <div>
-          <a href="#" class="blog-tips no-underline">AC Tips</a>
-        </div>
-        <div class="flex">
-          <i class="pi pi-eye views-icon"></i>
-          <p class="view-text">{{ views }}</p>
-        </div>
+      <div class="flex">
+        <i class="pi pi-eye views-icon"></i>
+        <p class="view-text">{{ views }}</p>
       </div>
-      <h1 class="blog-title">
-        {{ title }}
-      </h1>
-      <p class="blog-content">
-        {{ content }}
-      </p>
-      <div class="blog-explore-container">
-        <a href="#" class="no-underline blog-explore-text">
-          Explore More
-          <i class="pi pi-arrow-right blog-explore-icon"></i>
-        </a>
-      </div>
+    </div>
+    <h1 class="blog-title">
+      {{ title }}
+    </h1>
+    <p class="blog-content">
+      {{ content.length > 110 ? `${content.slice(0, 110)}...` : `${content}` }}
+    </p>
+    <div class="blog-explore-container">
+      <a href="#" class="no-underline blog-explore-text">
+        Explore More
+        <i class="pi pi-arrow-right blog-explore-icon"></i>
+      </a>
     </div>
   </div>
 </template>
@@ -42,7 +39,7 @@ defineProps<{
 
 <style lang="scss" scoped>
 .blog-card {
-  width: 348px;
+  width: 308px;
   height: 524px;
   flex-shrink: 0;
   border-radius: 4px;
@@ -51,7 +48,7 @@ defineProps<{
 }
 .blog-image-container {
   img {
-    width: 348px;
+    width: 308px;
     height: 308.826px;
     flex-shrink: 0;
   }
