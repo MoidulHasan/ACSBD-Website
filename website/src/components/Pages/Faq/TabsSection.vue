@@ -60,8 +60,7 @@
         </div>
       </div>
       <div>
-        <PagesFaqTabComponent :faqByTopic="faqByTopic" />
-        {{ faqByTopic }}
+        <PagesFaqTabComponent :faq-by-topic="faqByTopic" />
       </div>
     </div>
   </div>
@@ -81,7 +80,9 @@ onMounted(() => {
   getFaqsByTopic();
 });
 const getFaqsByTopic = (topic = "Services") => {
-  selectedTopic.value = faqs.value.find((faq) => faq.title.toLowerCase() === topic.toLowerCase());
+  selectedTopic.value = faqs.value.find(
+    (faq) => faq.title.toLowerCase() === topic.toLowerCase(),
+  );
 };
 
 // const selectedRef: Ref<object> = ref({});
