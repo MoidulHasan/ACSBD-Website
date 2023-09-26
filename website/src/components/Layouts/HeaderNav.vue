@@ -157,7 +157,7 @@
                       <span>{{ subNavItem.title }}</span>
                       <i
                         v-if="subNavItem.submenu2"
-                        class="pi pi-chevron-right navLink_i"
+                        class="pi pi-chevron-right navLink_i subNavLink_i"
                       ></i>
                     </NuxtLink>
                     <ul v-if="subNavItem.submenu2" class="submenu2">
@@ -702,6 +702,13 @@ nav ul li.right .navLink {
     color: var(--primary-color-white);
   }
 
+  .menu .navLink:hover .navLink_i {
+    width: 16px;
+    transform: scale(1.1) rotate(-90deg);
+    transition: 0.5s;
+    padding-top: 0.6rem;
+  }
+
   nav ul li.right {
     display: none;
   }
@@ -732,6 +739,9 @@ nav ul li.right .navLink {
 
   .submenu li .subMenuLink {
     display: inline-block;
+  }
+
+  .subMenuLink:hover .subNavLink_i {
   }
 
   .submenu2 {
