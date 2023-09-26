@@ -6,6 +6,11 @@
     <div>
       <PagesHomeClientsSection />
     </div>
+
+    <div class="section">
+      <PagesHomeAtaGlance />
+    </div>
+
     <div class="container section">
       <PagesHomeCustomerReviewSection />
     </div>
