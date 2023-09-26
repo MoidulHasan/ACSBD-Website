@@ -1,6 +1,12 @@
 <template>
   <div>
     <div>
+      <PagesHomeHeroSlider />
+    </div>
+    <div class="container mt-5">
+      <PagesHomeBannerSection />
+    </div>
+    <div>
       <PagesHomeServicesSection />
     </div>
     <div class="container section">
