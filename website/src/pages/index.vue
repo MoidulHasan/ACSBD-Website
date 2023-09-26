@@ -1,6 +1,9 @@
 <template>
   <div>
     <div>
+      <PagesHomeHeroSlider />
+    </div>
+    <div>
       <PagesHomeServicesSection />
     </div>
     <div class="container section">
