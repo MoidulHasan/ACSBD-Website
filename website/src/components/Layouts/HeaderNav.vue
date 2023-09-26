@@ -7,7 +7,9 @@
         <div
           class="col-12 lg:col-3 flex justify-content-center lg:justify-content-start"
         >
-          <img src="@/assets/images/header/logo_colored.svg" alt="ACBD" />
+          <NuxtLink to="/">
+            <img src="@/assets/images/header/logo_colored.svg" alt="ACBD" />
+          </NuxtLink>
         </div>
         <div class="col-12 md:col-12 lg:col-5">
           <div class="p-inputgroup flex-1">
@@ -18,11 +20,13 @@
         <div
           class="col-12 lg:col-4 md:align-items-center md:justify-content-center lg:justify-content-end float-right hidden md:flex"
         >
-          <img
-            src="@/assets/images/header/service.svg"
-            alt="service"
-            class="mr-3"
-          />
+          <NuxtLink to="/services">
+            <img
+              src="@/assets/images/header/service.svg"
+              alt="service"
+              class="mr-3"
+            />
+          </NuxtLink>
           <div>
             <p class="flex align-items-center">
               <img
