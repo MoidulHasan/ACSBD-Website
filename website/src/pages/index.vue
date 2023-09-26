@@ -1,5 +1,8 @@
 <template>
   <div>
+    <div>
+      <PagesHomeServicesSection />
+    </div>
     <div class="container section">
       <PagesHomeOurShopSection />
     </div>

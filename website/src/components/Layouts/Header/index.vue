@@ -133,6 +133,10 @@
   </div>
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
 
-<style scoped></style>
+</script>
+
+<style scoped>
+
+</style>
