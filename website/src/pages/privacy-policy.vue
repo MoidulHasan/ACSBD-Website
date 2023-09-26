@@ -106,7 +106,11 @@
   </div>
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+useHead({
+  title: "Privacy Policy",
+});
+</script>
 
 <style scoped>
 @media only screen and (max-width: 600px) {
@@ -118,6 +122,7 @@
     line-height: 32px;
     padding-top: 40px;
   }
+
   .mobile-subtitle {
     text-align: center;
     font-size: 14px;
