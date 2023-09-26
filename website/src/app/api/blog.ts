@@ -1,4 +1,4 @@
-export const getblog = async () => {
+export const getBlog = async () => {
   const runtimeConfig = useRuntimeConfig();
 
   const { data, pending, error, refresh } = await useAsyncData("blog", () =>

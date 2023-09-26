@@ -16,7 +16,7 @@
 </template>
 
 <script lang="ts" setup>
-import { getBlog } from "~/app/api/blog.json";
+import { getBlog } from "~/app/api/blog";
 
 const { data: blogData, pending, error, refresh } = await getBlog();
 </script>
