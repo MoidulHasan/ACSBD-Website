@@ -179,7 +179,6 @@ export default {};
         text-align: left;
       }
       p {
-        margin-top: -20px;
         font-size: 16px;
         font-weight: 400;
         line-height: 24px;
