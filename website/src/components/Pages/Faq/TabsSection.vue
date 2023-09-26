@@ -106,6 +106,7 @@ const getFaqsByTopic = (topic = "Services") => {
         background: var(--primary-color-white);
         box-shadow: 0px 4px 12px 1px rgba(164, 164, 164, 0.18);
         text-decoration: none;
+        cursor: pointer;
 
         .image-container {
           margin-bottom: 12px;
