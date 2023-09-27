@@ -20,6 +20,9 @@ const {
   error,
   refresh,
 } = await getCoustomersReview();
+useHead({
+  title: "Client Reviews",
+});
 </script>
 
 <style scoped></style>
