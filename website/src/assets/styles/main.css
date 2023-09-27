@@ -1,26 +1,39 @@
 :root {
     background: #FFF;
     font-family: Poppins, serif;
- 
+
 
     /*    Colors Variables  */
     --primary-color-envitect-sam-blue: #1476BF;
     --envitect-sam-blue-100: #1476BF;
-    --primary-color-dark-gray: #565656;
+
 
     --primary-color-navy-blue: #1D3566;
+    --primary-color-navy-blue-50: #4A5D85;
     --navy-blue-80: #4a5d85;
 
+    --primary-color-sam-blue-100: #e4efff;
+    --primary-color-sam-blue-50: #FAFCFE;
+    --primary-color-navy-blue-10: #E8EBF0;
 
     --primary-color-white: #FFFFFF;
     --product-Front-color: #f9f9f9;
 
 
+    --primary-color-dark-gray: #565656;
+    --primary-color-dark-gray-100: #787878;
+    --dark-gray-80: #787878;
+    --dark-gray-60: #9a9a9a;
+    --dark-gray-40: #bbb;
+    --dark-gray-20: #DDD;
+
+    --orange-color: #f2994a
 }
-body{
+
+body {
     box-sizing: border-box;
-    margin:0;
-    padding:0;
+    margin: 0;
+    padding: 0;
 }
 
 h4,
@@ -53,6 +66,14 @@ p {
     font-style: normal;
     font-weight: 700;
     line-height: 44px;
+}
+.heading3 {
+  color: var(--primary-color-navy-blue);
+  text-align: left;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 36px;
 }
 
 .heading4 {
@@ -147,6 +168,17 @@ p {
 .mx-32px {
     margin: 0 32px;
 }
+.pb-10px{
+    padding-bottom:10px;
+}
+
+@media only screen and (max-width: 600px){
+    .container{
+        width: 100%;
+        padding: 0 16px;
+    }
+}
+
 
 .my-32px {
     margin: 32px 0;
