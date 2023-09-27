@@ -1,7 +1,7 @@
 <template>
   <main>
     <div>
-      <LayoutsHeader />
+      <LayoutsHeaderNav />
     </div>
 
     <div>
@@ -9,7 +9,7 @@
     </div>
 
     <div>
-      <LayoutsFooter />
+      <LayoutsAppFooter />
     </div>
   </main>
 </template>

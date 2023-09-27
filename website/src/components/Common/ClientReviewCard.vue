@@ -11,7 +11,9 @@
     </p>
 
     <div v-if="review.length > 175" class="p-0 m-0 text-center mt-[4px]">
-      <NuxtLink class="read-more-button" to="client-review">Read More</NuxtLink>
+      <NuxtLink class="read-more-button" external to="client-review">
+        Read More
+      </NuxtLink>
     </div>
   </div>
 </template>
@@ -30,7 +32,6 @@ defineProps<{
   margin-right: 8px;
   margin-left: 8px;
   margin-top: 70px;
-  //width: 348px;
   height: 381px;
   padding: 32px;
 

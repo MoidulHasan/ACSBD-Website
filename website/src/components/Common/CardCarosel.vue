@@ -109,7 +109,7 @@ const atEndOfList = computed(() => {
     currentOffset.value <=
     Math.round(slideWidth.value) *
       -1 *
-      (props.items.length - numOfVisibleSlider.value)
+      (props.items?.length - numOfVisibleSlider.value)
   );
 });
 
@@ -174,13 +174,13 @@ onUnmounted(() => {
 const getResponsiveOption = (value: number) => {
   const options = props?.carouselResponsiveOptions ?? responsiveOptions;
 
-  for (let i = 0; i < options.length; i++) {
+  for (let i = 0; i < options?.length; i++) {
     if (value >= options[i].breakpoint) {
       return options[i];
     }
   }
 
-  return options[options.length - 1];
+  return options[options?.length - 1];
 };
 </script>
 
