@@ -32,7 +32,6 @@ defineProps<{
   margin-right: 8px;
   margin-left: 8px;
   margin-top: 70px;
-  //width: 348px;
   height: 381px;
   padding: 32px;
 
