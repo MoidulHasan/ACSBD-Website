@@ -16,6 +16,7 @@ import Checkbox from "primevue/checkbox";
 import Rating from "primevue/rating";
 import { defineNuxtPlugin } from "#app";
 import Calendar from "primevue/calendar";
+import Card from "primevue/card";
 import Galleria from "primevue/galleria";
 
 export default defineNuxtPlugin((nuxtApp) => {
@@ -38,4 +39,5 @@ export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.component("Textarea", Textarea);
   nuxtApp.vueApp.component("Checkbox", Checkbox);
   nuxtApp.vueApp.component("Galleria", Galleria);
+  nuxtApp.vueApp.component("Card", Card);
 });

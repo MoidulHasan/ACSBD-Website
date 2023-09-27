@@ -30,6 +30,9 @@
     <div>
       <PagesHomeTopBrandsSection />
     </div>
+    <div class="container section">
+      <PagesHomeBlogSection />
+    </div>
   </div>
 </template>
 
