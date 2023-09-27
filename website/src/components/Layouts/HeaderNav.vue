@@ -489,6 +489,7 @@ nav ul li.right .navLink {
   box-shadow: 0px 2px 4px 1px rgba(159, 159, 159, 0.35);
   padding: 1rem 0;
   display: none;
+  z-index: 1;
 }
 
 .submenu li {
@@ -518,7 +519,7 @@ nav ul li.right .navLink {
   box-shadow: 0px 2px 4px 1px rgba(159, 159, 159, 0.35);
   padding: 1rem;
   min-width: 14rem !important;
-  z-index: 1;
+  z-index: 2;
   /* this is for overlapping the customer card */
   display: none;
 }
