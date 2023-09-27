@@ -11,7 +11,7 @@
       </p>
     </div>
     <div class="core-image col-12 lg:col-6">
-      <img src="/images/oioioioi 1.png" alt="" />
+      <img alt="" src="/images/oioioioi 1.png" />
     </div>
     <div class="core-values col-12 lg:col-6">
       <div class="core-header hidden lg:block">
@@ -27,7 +27,7 @@
       <!-- great-services  -->
       <div class="core-values-provide flex aligin-items-center">
         <div class="core-values-provide-image">
-          <img src="/images/great services.png" alt="great-services" />
+          <img alt="great-services" src="/images/great services.png" />
         </div>
         <div class="core-great-header">
           <h2>Great Services</h2>
@@ -40,7 +40,7 @@
       <!-- highest standards -->
       <div class="core-values-provide flex aligin-items-center">
         <div class="core-values-provide-image">
-          <img src="/images/highest standards.png" alt="great-services" />
+          <img alt="great-services" src="/images/highest standards.png" />
         </div>
         <div class="core-great-header">
           <h2>highest standards</h2>
@@ -53,7 +53,7 @@
       <!-- professional team  -->
       <div class="core-values-provide flex aligin-items-center">
         <div class="core-values-provide-image">
-          <img src="/images/professional team.svg" alt="great-services" />
+          <img alt="great-services" src="/images/professional team.svg" />
         </div>
         <div class="core-great-header">
           <h2>Professional Team</h2>
@@ -66,7 +66,7 @@
       <!-- creative solutions -->
       <div class="core-values-provide flex aligin-items-center">
         <div class="core-values-provide-image">
-          <img src="/images/creative solutions.svg" alt="great-services" />
+          <img alt="great-services" src="/images/creative solutions.svg" />
         </div>
         <div class="core-great-header">
           <h2>creative Solutions</h2>
@@ -79,9 +79,7 @@
     </div>
   </div>
 </template>
-<script>
-export default {};
-</script>
+<script lang="ts" setup></script>
 <style lang="scss">
 .core-container {
   .core-header-mobile {
@@ -93,6 +91,7 @@ export default {};
       letter-spacing: 0em;
       text-align: left;
     }
+
     p {
       margin-top: -20px;
       font-size: 16px;
@@ -102,6 +101,7 @@ export default {};
       text-align: left;
       color: var(--primary-color-dark-gray);
     }
+
     @media screen and (min-width: 375px) {
       h3 {
         font-size: 24px;
@@ -136,10 +136,12 @@ export default {};
       }
     }
   }
+
   .core-image {
     display: flex;
     align-items: center;
     justify-content: center;
+
     img {
       width: 95%;
       @media screen and (min-width: 375px) {
@@ -154,6 +156,7 @@ export default {};
       }
     }
   }
+
   .core-values {
     margin-top: -30px;
     height: auto;
@@ -167,6 +170,7 @@ export default {};
         letter-spacing: 0em;
         text-align: left;
       }
+
       p {
         font-size: 16px;
         font-weight: 400;
@@ -177,6 +181,7 @@ export default {};
         color: var(--primary-color-dark-gray);
       }
     }
+
     .core-values-provide {
       width: 70%;
       margin-top: 18px;
@@ -187,6 +192,7 @@ export default {};
         /* width: 90%; */
         padding: 0 30px;
       }
+
       .core-values-provide-image img {
         width: 50px;
         height: 50px;
@@ -200,6 +206,7 @@ export default {};
           height: 50px;
         }
       }
+
       .core-great-header {
         position: relative;
         margin-left: 25px;
@@ -213,6 +220,7 @@ export default {};
         @media screen and (min-width: 1280px) {
           margin-top: -4px;
         }
+
         h2 {
           color: var(--primary-color-navy-blue);
           font-size: 24px;
@@ -231,6 +239,7 @@ export default {};
             padding-bottom: 3px;
           }
         }
+
         p {
           font-size: 16px;
           font-weight: 400;
