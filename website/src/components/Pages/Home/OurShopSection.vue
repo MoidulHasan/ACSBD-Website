@@ -9,7 +9,11 @@
     <CommonCardListHeader class="mt-5 mb-3" label="Best Offer Products">
       <template #rightSideContent>
         <div class="button-container">
-          <NuxtLink class="button-primary no-underline px-16px" to="/shop">
+          <NuxtLink
+            class="button-primary no-underline px-16px"
+            external
+            to="/shop"
+          >
             View All
           </NuxtLink>
           <div
@@ -42,7 +46,11 @@
     <CommonCardListHeader class="mt-5 mb-3" label="Air Conditioner">
       <template #rightSideContent>
         <div class="button-container">
-          <NuxtLink class="button-primary no-underline px-16px" to="/shop">
+          <NuxtLink
+            class="button-primary no-underline px-16px"
+            external
+            to="/shop"
+          >
             View All
           </NuxtLink>
           <div
@@ -78,7 +86,11 @@
     >
       <template #rightSideContent>
         <div class="button-container">
-          <NuxtLink class="button-primary no-underline px-16px" to="/shop">
+          <NuxtLink
+            class="button-primary no-underline px-16px"
+            external
+            to="/shop"
+          >
             View All
           </NuxtLink>
           <div

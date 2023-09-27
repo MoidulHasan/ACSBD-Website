@@ -4,20 +4,10 @@
     <h3 class="text-blue-800 text-2xl font-semibold">
       Opps! The page you requested not found!
     </h3>
-    <Button
-      class="mt-5 font-base font-semibold px-6 line-height-3"
-      @click="redirectToHome"
-    >
-      Back to home
-    </Button>
+    <NuxtLink class="back-button" external to="/"> Back to home</NuxtLink>
   </div>
 </template>
-<script lang="ts" setup>
-const router = useRouter();
-const redirectToHome = () => {
-  router.push("/");
-};
-</script>
+<script lang="ts" setup></script>
 
 <style lang="scss" scoped>
 .notfound {
@@ -32,6 +22,22 @@ const redirectToHome = () => {
 
   h3 {
     color: var(--primary-color-navy-blue);
+  }
+
+  .back-button {
+    margin-top: 50px;
+
+    display: inline-flex;
+    padding: 12px 48px;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+
+    border-radius: 4px;
+    background: var(--envitect-sam-blue-100);
+
+    color: var(--primary-color-white);
+    text-decoration: none;
   }
 }
 </style>
