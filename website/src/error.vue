@@ -33,6 +33,10 @@ definePageMeta({
       <Title>{{ error.statusMessage }}</Title>
     </Head>
 
-    <Component :is="component" :error="error" />
+    <NuxtLayout>
+      <div :style="{ margin: '80px 0' }">
+        <Component :is="component" :error="error" />
+      </div>
+    </NuxtLayout>
   </div>
 </template>

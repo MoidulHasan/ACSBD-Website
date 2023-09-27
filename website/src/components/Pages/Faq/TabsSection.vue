@@ -7,88 +7,79 @@
         >
           <div
             class="services topic text-center"
-            @click="getFaqsByTopic('Services')"
+            @click="() => (selectedTopic = 'Services')"
           >
             <div
               class="image-container flex align-items-center justify-content-center"
             >
               <img
+                alt=""
                 class="faq-image"
                 src="@/assets/images/services.svg"
-                alt=""
               />
             </div>
             <h3 class="topic-title">Services?</h3>
           </div>
           <div
             class="ac-rent topic text-center"
-            @click="getFaqsByTopic('AC Rent')"
+            @click="() => (selectedTopic = 'AC Rent')"
           >
             <div
               class="image-container flex align-items-center justify-content-center"
             >
-              <img class="faq-image" src="@/assets/images/ac_rent.svg" alt="" />
+              <img alt="" class="faq-image" src="@/assets/images/ac_rent.svg" />
             </div>
             <h3 class="topic-title">AC Rent?</h3>
           </div>
           <div
             class="products topic text-center hidden lg:block"
-            @click="getFaqsByTopic('Products')"
+            @click="() => (selectedTopic = 'Products')"
           >
             <div
               class="image-container flex align-items-center justify-content-center"
             >
               <img
+                alt=""
                 class="faq-image"
                 src="@/assets/images/products.svg"
-                alt=""
               />
             </div>
             <h3 class="topic-title">Products?</h3>
           </div>
           <div
             class="policy topic text-center hidden lg:block"
-            @click="getFaqsByTopic('Policy')"
+            @click="() => (selectedTopic = 'Policy')"
           >
             <div
               class="image-container flex align-items-center justify-content-center"
             >
-              <img class="faq-image" src="@/assets/images/policy.svg" alt="" />
+              <img alt="" class="faq-image" src="@/assets/images/policy.svg" />
             </div>
             <h3 class="topic-title">Policy?</h3>
           </div>
         </div>
       </div>
       <div>
-        <PagesFaqTabComponent :faq-by-topic="faqByTopic" />
+        <PagesFaqTabComponent :faq-by-topic="faqsByTopic" />
       </div>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-// import { useFaqsByTopics } from "~/composables/useFaqsByTopics";
-import { getFaqs } from "~/app/api/faqs";
-const selectedTopic: Ref<object> = ref({});
-const { data: faqs } = await getFaqs();
+import { getFAQData } from "~/app/api/getFAQData";
 
-const faqByTopic: Ref<object> = computed(() => {
-  return selectedTopic.value;
+const { data: faqsData } = await getFAQData();
+
+const selectedTopic = ref("Services");
+
+const faqsByTopic = computed(() => {
+  if (!faqsData?.value?.length) {
+    return [];
+  }
+
+  return faqsData.value.find((faq) => faq.title === selectedTopic.value);
 });
-
-onMounted(() => {
-  getFaqsByTopic();
-});
-const getFaqsByTopic = (topic = "Services") => {
-  selectedTopic.value = faqs.value.find(
-    (faq) => faq.title.toLowerCase() === topic.toLowerCase(),
-  );
-};
-
-// const selectedRef: Ref<object> = ref({});
-
-// const { selectedFaq } = await useSelectedFaqs();
-// console.log(selectedFaq.value);
 </script>
 
 <style lang="scss" scoped>
@@ -99,6 +90,7 @@ const getFaqsByTopic = (topic = "Services") => {
   .tabs {
     position: absolute;
     top: -74px;
+
     .faq-topics {
       .topic {
         padding: 21px 32px;

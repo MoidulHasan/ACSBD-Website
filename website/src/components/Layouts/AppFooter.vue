@@ -12,7 +12,7 @@
                 alt="footer phone icon"
                 src="~/assets/images/footer_phone.svg"
               />
-              <span class="font-medium"> 01712 262552 / 09613 755755 </span>
+              <span class="font-medium"> 01712262552 / 09613755755 </span>
             </div>
             <div class="flex gap-2 mb-12px">
               <img
@@ -37,43 +37,47 @@
           </div>
           <div class="col-12 md:col flex flex-column text-white">
             <h2 class="mt-1 mb-3 md:mb-5 font-semibold">Shopping With Us</h2>
-            <NuxtLink class="footer-point" to="/our-showroom"
+            <NuxtLink class="footer-point" external to="/our-showroom"
               >Our Showroom
             </NuxtLink>
-            <NuxtLink class="footer-point" to="/about"
-              >Why Shop With Us
+            <NuxtLink class="footer-point" external to="/about">
+              Why Shop With Us
             </NuxtLink>
-            <NuxtLink class="footer-point" to="/frequently-asked-questions"
-              >Frequently Asked Questions
+            <NuxtLink
+              class="footer-point"
+              external
+              to="/frequently-asked-questions"
+            >
+              Frequently Asked Questions
             </NuxtLink>
-            <NuxtLink class="footer-point" to="/purchase-procedure"
+            <NuxtLink class="footer-point" external to="/purchase-procedure"
               >Online Purchase Procedure
             </NuxtLink>
-            <NuxtLink class="footer-point" to="/payment-methods"
+            <NuxtLink class="footer-point" external to="/payment-methods"
               >Online Payment Methods
             </NuxtLink>
-            <NuxtLink class="footer-point" to="/payment-security"
+            <NuxtLink class="footer-point" external to="/payment-security"
               >Online Payment Security
             </NuxtLink>
           </div>
           <div class="col-12 md:col flex flex-column text-white">
             <h2 class="mt-1 mb-3 md:mb-5 font-semibold">Customer Service</h2>
-            <NuxtLink class="footer-point" to="/contact-us">
+            <NuxtLink class="footer-point" external to="/contact-us">
               Contact US
             </NuxtLink>
-            <NuxtLink class="footer-point" to="/warranty-policy">
+            <NuxtLink class="footer-point" external to="/warranty-policy">
               Warranty Policy
             </NuxtLink>
-            <NuxtLink class="footer-point" to="/return-refund-policy">
+            <NuxtLink class="footer-point" external to="/return-refund-policy">
               Return & Refund Policy
             </NuxtLink>
-            <NuxtLink class="footer-point" to="/privacy-policy">
+            <NuxtLink class="footer-point" external to="/privacy-policy">
               Privacy Policy
             </NuxtLink>
-            <NuxtLink class="footer-point" to="/cookie-policy"
+            <NuxtLink class="footer-point" external to="/cookie-policy"
               >Cookie Policy
             </NuxtLink>
-            <NuxtLink class="footer-point" to="/terms-conditions"
+            <NuxtLink class="footer-point" external to="/terms-conditions"
               >Terms & Conditions
             </NuxtLink>
           </div>
@@ -90,19 +94,19 @@
             <div class="flex align-items-center">
               <text class="font-semibold mr-3">Follow Us:</text>
               <div class="flex gap-2 md:gap-3 align-items-center">
-                <NuxtLink class="" to="https://www.facebook.com/">
+                <NuxtLink class="" external to="https://www.facebook.com/">
                   <img alt="facebook" src="~/assets/images/facebook.svg" />
                 </NuxtLink>
-                <NuxtLink to="https://www.facebook.com/">
+                <NuxtLink external to="https://www.facebook.com/">
                   <img alt="linkedin" src="~/assets/images/link.svg" />
                 </NuxtLink>
-                <NuxtLink to="https://www.facebook.com/">
+                <NuxtLink external to="https://www.facebook.com/">
                   <img alt="tweeter" src="~/assets/images/tweet.svg" />
                 </NuxtLink>
-                <NuxtLink to="https://www.facebook.com/">
+                <NuxtLink external to="https://www.facebook.com/">
                   <img alt="pinterest" src="~/assets/images/pin.svg" />
                 </NuxtLink>
-                <NuxtLink to="https://www.facebook.com/">
+                <NuxtLink external to="https://www.facebook.com/">
                   <img alt="instagram" src="~/assets/images/ins.svg" />
                 </NuxtLink>
               </div>
