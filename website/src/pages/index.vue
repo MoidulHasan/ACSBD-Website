@@ -16,6 +16,10 @@
       <PagesHomeClientsSection />
     </div>
 
+    <div class="container section">
+      <PagesHomeCoreValues />
+    </div>
+
     <div class="section">
       <PagesHomeAtaGlance />
     </div>
