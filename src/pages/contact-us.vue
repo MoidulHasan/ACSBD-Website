@@ -1,7 +1,7 @@
-<template lang="">
-  <div>
-    <p>Contact us page</p>
+<template>
+  <div class="container">
+    <PagesContact />
   </div>
 </template>
 <script lang="ts" setup></script>
-<style lang="scss" scoped></style>
+<style lang="sass" scoped></style>
