@@ -1,9 +1,9 @@
 import { CommonSectionHeader } from '#build/components';
 <template>
-  <div class="container-getin-touch">
+  <div class="container-getin-touch border-round-md">
     <div class="getin-touch-section">
       <h3 class="font-bold">Get in Touch</h3>
-      <p class="text-xs lg:text-base">
+      <p class="text-xs md:text-base">
         We are ready to answer your queries and provide a solution to your
         problems. So, don’t hesitate to reach out to us by filling up the form
         below. And we will get back to you as soon as possible.
@@ -125,7 +125,6 @@ import { CommonSectionHeader } from '#build/components';
       span {
         @media only screen and (max-width: 1023px) {
           font-size: 12.206px;
-          background-color: yellow;
         }
       }
     }
