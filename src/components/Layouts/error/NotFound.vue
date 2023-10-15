@@ -34,7 +34,7 @@
     gap: 12px;
 
     border-radius: 4px;
-    background: var(--envitect-sam-blue-100);
+    background: var(--primary-color-envitect-sam-blue);
 
     color: var(--primary-color-white);
     text-decoration: none;

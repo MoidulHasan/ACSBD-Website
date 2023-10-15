@@ -83,7 +83,7 @@ defineProps<Product>();
       gap: 16px;
 
       .discount-price {
-        color: var(--envitect-sam-blue-100);
+        color: var(--primary-color-envitect-sam-blue);
       }
     }
 
