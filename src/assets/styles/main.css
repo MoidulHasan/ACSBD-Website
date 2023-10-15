@@ -1,48 +1,119 @@
+/* Reseat Browser's Default CSS Start */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+    box-sizing: border-box;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+blockquote, q {
+    quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* Reseat Browser's Default CSS End */
+
+
 :root {
     background: #FFF;
     font-family: Poppins, serif;
 
 
-    /*    Colors Variables  */
+    /* Primary Colors */
     --primary-color-envitect-sam-blue: #1476BF;
-    --envitect-sam-blue-100: #1476BF;
-
-
     --primary-color-navy-blue: #1D3566;
-    --primary-color-navy-blue-50: #4A5D85;
-    --navy-blue-80: #4a5d85;
-
-    --primary-color-sam-blue-100: #e4efff;
-    --primary-color-sam-blue-50: #FAFCFE;
-    --primary-color-navy-blue-10: #E8EBF0;
-
-    --primary-color-white: #FFFFFF;
-    --product-Front-color: #f9f9f9;
-
-
     --primary-color-dark-gray: #565656;
-    --primary-color-dark-gray-100: #787878;
+    --primary-color-white: #FFFFFF;
+
+    /* Shades of Envitect Sam Blue */
+    --envitect-sam-blue-90: #2C84C5;
+    --envitect-sam-blue-80: #4391CC;
+    --envitect-sam-blue-70: #5B9FD2;
+    --envitect-sam-blue-60: #72ADD9;
+    --envitect-sam-blue-50: #89BADF;
+    --envitect-sam-blue-40: #A1C8E5;
+    --envitect-sam-blue-30: #B9D6EC;
+    --envitect-sam-blue-20: #D0E4F2;
+    --envitect-sam-blue-5: #F3F8FC;
+    --envitect-sam-blue-2: #FAFCFE;
+
+    /* Shades of Navy Blue */
+    --navy-blue-90: #344975;
+    --navy-blue-80: #4A5D85;
+    --navy-blue-70: #617294;
+    --navy-blue-60: #7786A3;
+    --navy-blue-50: #8E9AB2;
+    --navy-blue-40: #A5AEC2;
+    --navy-blue-30: #BBC2D1;
+    --navy-blue-20: #D2D7E0;
+    --navy-blue-10: #E8EBF0;
+
+    /* Shades of Dark Gray */
+    --dark-gray-90: #676767;
     --dark-gray-80: #787878;
-    --dark-gray-60: #9a9a9a;
-    --dark-gray-40: #bbb;
-    --dark-gray-20: #DDD;
+    --dark-gray-70: #898989;
+    --dark-gray-60: #9A9A9A;
+    --dark-gray-50: #AAAAAA;
+    --dark-gray-40: #BBBBBB;
+    --dark-gray-30: #CCCCCC;
+    --dark-gray-20: #DDDDDD;
+    --dark-gray-10: #EEEEEE;
 
-    --orange-color: #f2994a
+
+    /*Gradient Colors*/
+    --Gradient--Sam-Blue: linear-gradient(90deg, #1476BF 0%, #09F 100%);
+    --Gradient-Navy-Blue: linear-gradient(90deg, #1D3566 0%, #0D40A9 100%);
+    --Gradient-Red: linear-gradient(90deg, #F00000 0%, #DE0000 100%);
+
+
+    /*Other Colors*/
+    --color-success: #53A451;
+    --color-info: #4BA0B5;
+    --color-warning: #F6C244;
+    --color-danger: #CB444A;
+    --color-orange: #F2994A;
+
+
+    --product-Front-color: #f9f9f9;
 }
 
-body {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-h4,
-h2,
-h3,
-p {
-    margin-block-start: 0;
-    margin-block-end: 0;
-}
 
 .container {
     max-width: 1440px;
@@ -51,12 +122,89 @@ p {
 }
 
 
-@media only screen and (max-width: 600px) {
-    .container {
-        width: 100%;
-        padding: 0 16px;
-    }
+/* Fonts style classes start */
+
+/* Headings/01 */
+.font-heading-1 {
+    font-size: 56px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 68px;
 }
+
+/* Headings/02 */
+.font-heading-2 {
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 44px;
+}
+
+/* Headings/03 */
+.font-heading-3 {
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 36px;
+}
+
+/* Headings/03.1 */
+.font-heading-3-semi-bold {
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 36px;
+}
+
+/* Headings/04 */
+.font-heading-4 {
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 32px;
+}
+
+/* Headings/04.1 */
+.font-heading-4-semi-bold {
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 32px;
+}
+
+/* Headings/05 */
+.font-heading-5 {
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 28px;
+}
+
+/* Headings/05.1 */
+.font-heading-5-semi-bold {
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 28px;
+}
+
+/* Headings/06 */
+.font-heading-6 {
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 26px;
+}
+
+/* Headings/06.1 */
+.font-heading-6-semi-bold {
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 26px;
+}
+
+/* Fonts style classes end */
 
 
 .heading2 {
@@ -67,13 +215,14 @@ p {
     font-weight: 700;
     line-height: 44px;
 }
+
 .heading3 {
-  color: var(--primary-color-navy-blue);
-  text-align: left;
-  font-size: 28px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 36px;
+    color: var(--primary-color-navy-blue);
+    text-align: left;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 36px;
 }
 
 .heading4 {
@@ -168,12 +317,13 @@ p {
 .mx-32px {
     margin: 0 32px;
 }
-.pb-10px{
-    padding-bottom:10px;
+
+.pb-10px {
+    padding-bottom: 10px;
 }
 
-@media only screen and (max-width: 600px){
-    .container{
+@media only screen and (max-width: 600px) {
+    .container {
         width: 100%;
         padding: 0 16px;
     }
@@ -206,4 +356,121 @@ p {
 .card-carousel--nav__left[disabled],
 .card-carousel--nav__right[disabled] {
     background: var(--dark-gray-20);
+}
+
+
+/* Small screens (up to 640px) */
+@media screen and (max-width: 640px) {
+    /* CSS styles for small screens */
+    .container {
+        width: 100%;
+        padding: 0 16px;
+    }
+
+
+    /* Fonts style classes start */
+    /* Headings/01 */
+    .font-heading-1 {
+        font-size: 36px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 44px;
+    }
+
+    /* Headings/02 */
+    .font-heading-2 {
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 32px;
+    }
+
+    /* Headings/03 */
+    .font-heading-3 {
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 28px;
+    }
+
+    /* Headings/03.1 */
+    .font-heading-3-semi-bold {
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 28px;
+    }
+
+    /* Headings/04 */
+    .font-heading-4 {
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 26px;
+    }
+
+    /* Headings/04.1 */
+    .font-heading-4-semi-bold {
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 26px;
+    }
+
+    /* Headings/05 */
+    .font-heading-5 {
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 24px;
+    }
+
+    /* Headings/05.1 */
+    .font-heading-5-semi-bold {
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 24px;
+    }
+
+    /* Headings/06 */
+    .font-heading-6 {
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 16px;
+    }
+
+    /* Headings/06.1 */
+    .font-heading-6-semi-bold {
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 16px;
+    }
+}
+
+/* Medium screens (641px to 768px) */
+@media screen and (min-width: 641px) and (max-width: 768px) {
+    /* CSS styles for medium screens */
+}
+
+/* Medium screens (769px to 1024px) */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    /* CSS styles for medium screens */
+}
+
+/* Large screens (1025px to 1280px) */
+@media screen and (min-width: 1025px) and (max-width: 1280px) {
+    /* CSS styles for large screens */
+}
+
+/* Extra-Large screens (1025px to 1440px) */
+@media screen and (min-width: 1281px) and (max-width: 1536px) {
+    /* CSS styles for extra-large screens */
+}
+
+/* Extra Extra-large screens (1536px and above) */
+@media screen and (min-width: 1536px) {
+    /* CSS styles for extra extra-large screens */
 }

@@ -107,7 +107,7 @@ const productRating = ref(props.rating);
       gap: 8px;
 
       .product-price {
-        color: var(--envitect-sam-blue-100);
+        color: var(--primary-color-envitect-sam-blue);
 
         font-size: 16px;
         font-style: normal;
