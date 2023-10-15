@@ -123,8 +123,6 @@ table {
 
 
 /* Fonts style classes start */
-
-/* Headings/01 */
 .font-heading-1 {
     font-size: 56px;
     font-style: normal;
@@ -132,7 +130,6 @@ table {
     line-height: 68px;
 }
 
-/* Headings/02 */
 .font-heading-2 {
     font-size: 36px;
     font-style: normal;
@@ -140,7 +137,6 @@ table {
     line-height: 44px;
 }
 
-/* Headings/03 */
 .font-heading-3 {
     font-size: 28px;
     font-style: normal;
@@ -148,7 +144,6 @@ table {
     line-height: 36px;
 }
 
-/* Headings/03.1 */
 .font-heading-3-semi-bold {
     font-size: 28px;
     font-style: normal;
@@ -156,7 +151,6 @@ table {
     line-height: 36px;
 }
 
-/* Headings/04 */
 .font-heading-4 {
     font-size: 24px;
     font-style: normal;
@@ -164,7 +158,6 @@ table {
     line-height: 32px;
 }
 
-/* Headings/04.1 */
 .font-heading-4-semi-bold {
     font-size: 24px;
     font-style: normal;
@@ -172,7 +165,6 @@ table {
     line-height: 32px;
 }
 
-/* Headings/05 */
 .font-heading-5 {
     font-size: 20px;
     font-style: normal;
@@ -180,7 +172,6 @@ table {
     line-height: 28px;
 }
 
-/* Headings/05.1 */
 .font-heading-5-semi-bold {
     font-size: 20px;
     font-style: normal;
@@ -188,7 +179,6 @@ table {
     line-height: 28px;
 }
 
-/* Headings/06 */
 .font-heading-6 {
     font-size: 18px;
     font-style: normal;
@@ -196,7 +186,6 @@ table {
     line-height: 26px;
 }
 
-/* Headings/06.1 */
 .font-heading-6-semi-bold {
     font-size: 18px;
     font-style: normal;
@@ -204,9 +193,43 @@ table {
     line-height: 26px;
 }
 
+.text-semi-bold-1 {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+}
+
+.text-medium-2 {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+}
+
+.text-regular-3 {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+.text-regular-4 {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+.text-semi-bold-5 {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px;
+}
+
+
 /* Fonts style classes end */
-
-
 .heading2 {
     color: var(--primary-color-navy-blue);
     text-align: center;
@@ -240,34 +263,6 @@ table {
     line-height: 24px;
 }
 
-
-.text-semi-bold-1 {
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 24px;
-}
-
-.text-semi-bold-5 {
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 20px;
-}
-
-.text-regular-3 {
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 24px;
-}
-
-.text-regular-4 {
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 20px;
-}
 
 .primary-color-navy-blue {
     color: var(--primary-color-navy-blue)
@@ -322,13 +317,6 @@ table {
     padding-bottom: 10px;
 }
 
-@media only screen and (max-width: 600px) {
-    .container {
-        width: 100%;
-        padding: 0 16px;
-    }
-}
-
 
 .my-32px {
     margin: 32px 0;
@@ -361,7 +349,6 @@ table {
 
 /* Small screens (up to 640px) */
 @media screen and (max-width: 640px) {
-    /* CSS styles for small screens */
     .container {
         width: 100%;
         padding: 0 16px;
@@ -369,7 +356,6 @@ table {
 
 
     /* Fonts style classes start */
-    /* Headings/01 */
     .font-heading-1 {
         font-size: 36px;
         font-style: normal;
@@ -377,7 +363,6 @@ table {
         line-height: 44px;
     }
 
-    /* Headings/02 */
     .font-heading-2 {
         font-size: 24px;
         font-style: normal;
@@ -385,7 +370,6 @@ table {
         line-height: 32px;
     }
 
-    /* Headings/03 */
     .font-heading-3 {
         font-size: 20px;
         font-style: normal;
@@ -393,7 +377,6 @@ table {
         line-height: 28px;
     }
 
-    /* Headings/03.1 */
     .font-heading-3-semi-bold {
         font-size: 20px;
         font-style: normal;
@@ -401,7 +384,6 @@ table {
         line-height: 28px;
     }
 
-    /* Headings/04 */
     .font-heading-4 {
         font-size: 18px;
         font-style: normal;
@@ -409,7 +391,6 @@ table {
         line-height: 26px;
     }
 
-    /* Headings/04.1 */
     .font-heading-4-semi-bold {
         font-size: 18px;
         font-style: normal;
@@ -417,7 +398,6 @@ table {
         line-height: 26px;
     }
 
-    /* Headings/05 */
     .font-heading-5 {
         font-size: 16px;
         font-style: normal;
@@ -425,7 +405,6 @@ table {
         line-height: 24px;
     }
 
-    /* Headings/05.1 */
     .font-heading-5-semi-bold {
         font-size: 16px;
         font-style: normal;
@@ -433,7 +412,6 @@ table {
         line-height: 24px;
     }
 
-    /* Headings/06 */
     .font-heading-6 {
         font-size: 16px;
         font-style: normal;
@@ -441,13 +419,22 @@ table {
         line-height: 16px;
     }
 
-    /* Headings/06.1 */
     .font-heading-6-semi-bold {
         font-size: 16px;
         font-style: normal;
         font-weight: 600;
         line-height: 16px;
     }
+
+    .text-semi-bold-5 {
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px;
+    }
+
+    /* Fonts style classes end */
+
 }
 
 /* Medium screens (641px to 768px) */
