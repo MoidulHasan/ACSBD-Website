@@ -1,8 +1,6 @@
 <template>
   <div>
-    <div>
-      <PagesHomeHeroSlider />
-    </div>
+    <PagesHomeHeroSlider />
     <div class="container mt-2 md:mt-4">
       <PagesHomeBannerSection />
     </div>
@@ -27,9 +25,9 @@
     <div class="container section">
       <PagesHomeCustomerReviewSection />
     </div>
-    <div>
-      <PagesHomeTopBrandsSection />
-    </div>
+
+    <PagesHomeTopBrandsSection />
+
     <div class="container section">
       <PagesHomeBlogSection />
     </div>
