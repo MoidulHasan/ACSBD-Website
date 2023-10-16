@@ -76,9 +76,190 @@
 }
 
 
+.primary-color-navy-blue {
+    color: var(--primary-color-navy-blue)
+}
+
+.dark-gray-100 {
+    color: var(--primary-color-dark-gray)
+}
+
+.dark-gray-40 {
+    color: var(--dark-gray-40)
+}
+
+
+.button-primary {
+    height: 28px;
+    border-radius: 2px;
+    cursor: pointer;
+    background: var(--primary-color-envitect-sam-blue);
+    color: var(--primary-color-white);
+
+    display: inline-flex;
+    padding: 2px 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+
+@media (max-width: 768px) {
+    .button-primary {
+        height: 20px;
+    }
+}
+
+.button-primary[disabled] {
+    background: var(--dark-gray-20);
+}
+
+.mb-12px {
+    margin-bottom: 12px;
+}
+
+.mb-16px {
+    margin-bottom: 16px;
+}
+
+.mx-32px {
+    margin: 0 32px;
+}
+
+.pb-10px {
+    padding-bottom: 10px;
+}
+
+
+.my-32px {
+    margin: 32px 0;
+}
+
+.mb-32px {
+    margin-bottom: 32px;
+}
+
+.px-16px {
+    padding-left: 16px;
+    padding-right: 16px
+}
+
+
+.card-carousel--nav__left,
+.card-carousel--nav__right {
+    padding: 8px;
+    border-radius: 2px;
+    cursor: pointer;
+    background: var(--primary-color-envitect-sam-blue);
+    color: var(--primary-color-white);
+}
+
+.card-carousel--nav__left[disabled],
+.card-carousel--nav__right[disabled] {
+    background: var(--dark-gray-20);
+}
+
+
+/* sm: Breakpoint of screens such as phones. (up to 640px) */
 @media screen and (max-width: 576px) {
-    .faq-tab-header {
-        font-size: 11px;
+    .container {
+        width: 100%;
+        padding: 0 16px;
+    }
+
+
+    /* Fonts style classes start */
+    .font-heading-1 {
+        font-size: 36px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 44px;
+    }
+
+    .font-heading-2 {
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 32px;
+    }
+
+    .font-heading-3 {
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 28px;
+    }
+
+    .font-heading-3-semi-bold {
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 28px;
+    }
+
+    .font-heading-4 {
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 26px;
+    }
+
+    .font-heading-4-semi-bold {
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 26px;
+    }
+
+    .font-heading-5 {
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 24px;
+    }
+
+    .font-heading-5-semi-bold {
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 24px;
+    }
+
+    .font-heading-6 {
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 700;
         line-height: 16px;
     }
+
+    .font-heading-6-semi-bold {
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 16px;
+    }
+
+    .text-semi-bold-5 {
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px;
+    }
+
+    /* Fonts style classes end */
+
+}
+
+/* md: Breakpoint of screens such as tablets. (641px to 768px) */
+@media screen and (min-width: 577px) and (max-width: 768px) {
+    /* CSS styles for medium screens */
+}
+
+/* lg: Breakpoint of screens such as notebook monitors. (769px to 992px) */
+@media screen and (min-width: 769px) and (max-width: 992px) {
+    /* CSS styles for medium screens */
+}
+
+/* xl: Breakpoint of smaller screens such as desktop monitors. (993px to 1200px) */
+@media screen and (min-width: 993px) and (max-width: 1200px) {
+    /* CSS styles for large screens */
 }
