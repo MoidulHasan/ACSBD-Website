@@ -12,7 +12,7 @@
     <div class="container mt-5 md:mt-6">
       <PagesHomeOurShopSection />
     </div>
-    <div>
+    <div class="mt-5 md:mt-6">
       <PagesHomeClientsSection />
     </div>
 
