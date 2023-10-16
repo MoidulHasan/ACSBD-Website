@@ -9,7 +9,7 @@
     <div class="container mt-5 md:mt-6">
       <PagesHomeServicesSection />
     </div>
-    <div class="container section">
+    <div class="container mt-5 md:mt-6">
       <PagesHomeOurShopSection />
     </div>
     <div>
