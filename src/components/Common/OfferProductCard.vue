@@ -30,6 +30,7 @@
           <span>{{ rating }}</span>
         </div>
 
+        <div class="review text-color-primary-dark-gray text-center text-regular-3">
         <div
           class="review text-color-primary-dark-gray text-center text-regular-3"
         >
