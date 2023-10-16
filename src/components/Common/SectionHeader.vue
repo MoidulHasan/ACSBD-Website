@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1 class="font-heading-2 title mb-2 md:mb-3">{{ header }}</h1>
-    <p class="subtitle mx-auto">
+    <p class="subtitle text-regular-3 text-color-primary-dark-gray mx-auto">
       {{ subHeader }}
     </p>
   </div>
