@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="heading2 mb-16">{{ header }}</h1>
+    <h1 class="font-heading-2 title mb-16">{{ header }}</h1>
     <p class="subtitle mx-auto">
       {{ subHeader }}
     </p>
@@ -14,7 +14,12 @@ defineProps<{
 }>();
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+.title {
+  color: var(--primary-color-navy-blue);
+  text-align: center;
+}
+
 .subtitle {
   max-width: 1100px;
 }
