@@ -230,6 +230,26 @@ table {
 
 
 /* Fonts style classes end */
+
+
+/* common styles start*/
+.text-color-primary-envitect-sam-blue {
+    color: var(--primary-color-envitect-sam-blue);
+}
+
+.text-color-primary-navy-blue {
+    color: var(--primary-color-navy-blue);
+}
+
+.text-color-primary-dark-gray {
+    color: var(--primary-color-dark-gray);
+}
+
+.text-color-primary-white {
+    color: var(--primary-color-white);
+}
+
+/* common styles end*/
 .heading2 {
     color: var(--primary-color-navy-blue);
     text-align: center;
