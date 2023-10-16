@@ -44,6 +44,6 @@ useHead({
 
 <style lang="scss" scoped>
 .section {
-  margin: 100px auto;
+  margin: 80px auto;
 }
 </style>
