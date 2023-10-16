@@ -347,8 +347,8 @@ table {
 }
 
 
-/* Small screens (up to 640px) */
-@media screen and (max-width: 640px) {
+/* sm: Breakpoint of screens such as phones. (up to 640px) */
+@media screen and (max-width: 576px) {
     .container {
         width: 100%;
         padding: 0 16px;
@@ -437,27 +437,17 @@ table {
 
 }
 
-/* Medium screens (641px to 768px) */
-@media screen and (min-width: 641px) and (max-width: 768px) {
+/* md: Breakpoint of screens such as tablets. (641px to 768px) */
+@media screen and (min-width: 577px) and (max-width: 768px) {
     /* CSS styles for medium screens */
 }
 
-/* Medium screens (769px to 1024px) */
-@media screen and (min-width: 769px) and (max-width: 1024px) {
+/* lg: Breakpoint of screens such as notebook monitors. (769px to 992px) */
+@media screen and (min-width: 769px) and (max-width: 992px) {
     /* CSS styles for medium screens */
 }
 
-/* Large screens (1025px to 1280px) */
-@media screen and (min-width: 1025px) and (max-width: 1280px) {
+/* xl: Breakpoint of smaller screens such as desktop monitors. (993px to 1200px) */
+@media screen and (min-width: 993px) and (max-width: 1200px) {
     /* CSS styles for large screens */
-}
-
-/* Extra-Large screens (1025px to 1440px) */
-@media screen and (min-width: 1281px) and (max-width: 1536px) {
-    /* CSS styles for extra-large screens */
-}
-
-/* Extra Extra-large screens (1536px and above) */
-@media screen and (min-width: 1536px) {
-    /* CSS styles for extra extra-large screens */
 }
