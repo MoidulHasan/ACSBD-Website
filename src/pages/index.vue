@@ -3,10 +3,10 @@
     <div>
       <PagesHomeHeroSlider />
     </div>
-    <div class="container mt-5">
+    <div class="container mt-2 md:mt-4">
       <PagesHomeBannerSection />
     </div>
-    <div>
+    <div class="container mt-5 md:mt-6">
       <PagesHomeServicesSection />
     </div>
     <div class="container section">
@@ -38,7 +38,7 @@
 
 <script lang="ts" setup>
 useHead({
-  title: "AC Service BD",
+  title: "AC Service BD"
 });
 </script>
 
