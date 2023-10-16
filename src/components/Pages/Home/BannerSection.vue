@@ -6,9 +6,9 @@
       class="col-12 md:col-4"
     >
       <img
+        :alt="image?.title"
         :src="image?.imageUrl"
         :style="{ maxWidth: '100%', borderRadius: '4px' }"
-        :title="image?.title"
       />
     </div>
   </div>
