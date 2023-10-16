@@ -1,5 +1,5 @@
 <template>
-  <div class="container h-screen">
+  <div class="h-screen">
     <CommonSliderSection
       :items="clientReviews"
       :number-of-scroll="1"
@@ -32,5 +32,3 @@ import { getCoustomersReview } from "~/app/api/customers-review";
 
 const { data: clientReviews } = await getCoustomersReview();
 </script>
-
-<style lang="scss" scoped></style>
