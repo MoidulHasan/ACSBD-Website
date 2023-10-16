@@ -1,10 +1,12 @@
 <template>
   <div class="notfound">
     <img alt="" src="/images/404-Not-found.png" />
-    <h3 class="text-blue-800 text-2xl font-semibold">
+    <h3 class="font-heading-3 text-primary-color-navy-blue mt-40px">
       Opps! The page you requested not found!
     </h3>
-    <NuxtLink class="back-button" to="/"> Back to home</NuxtLink>
+    <NuxtLink class="back-button text-semi-bold-1" to="/">
+      Back to home
+    </NuxtLink>
   </div>
 </template>
 <script lang="ts" setup></script>
@@ -18,10 +20,6 @@
 
   img {
     width: auto;
-  }
-
-  h3 {
-    color: var(--primary-color-navy-blue);
   }
 
   .back-button {
