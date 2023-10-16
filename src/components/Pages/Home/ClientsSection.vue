@@ -30,7 +30,7 @@
 <script lang="ts" setup>
 import { getClients } from "~/app/api/clients";
 
-const { data: clients, pending, error, refresh } = await getClients();
+const { data: clients } = await getClients();
 </script>
 
 <style lang="scss" scoped>
