@@ -1,31 +1,29 @@
 <template>
-  <div class="container">
-    <CommonSliderSection
-      :items="services"
-      :number-of-scroll="1"
-      :visible-item="4"
-      slide-component="ServiceCard"
-    >
-      <template #header>
-        <CommonSectionHeader
-          class="mb-32px"
-          header="Our Services"
-          sub-header="We have a large team of AC Service A Expert Technicians. Our services
+  <CommonSliderSection
+    :items="services"
+    :number-of-scroll="1"
+    :visible-item="4"
+    slide-component="ServiceCard"
+  >
+    <template #header>
+      <CommonSectionHeader
+        class="mb-32px"
+        header="Our Services"
+        sub-header="We have a large team of AC Service A Expert Technicians. Our services
           are AC installation, AC servicing, AC repair, AC maintenance, AC
           rental, and selling AC of any brand. and selling AC spare parts. AC
           SERVICE is the best AC service company in Bangladesh. So you can
           contact us at any time. Our expert technicians are available 7 days a
           week to solve your AC problem."
-        />
-      </template>
-    </CommonSliderSection>
-  </div>
+      />
+    </template>
+  </CommonSliderSection>
 </template>
 
 <script lang="ts" setup>
 import { getServices } from "~/app/api/services";
 
-const { data: services, pending, error, refresh } = await getServices();
+const { data: services } = await getServices();
 </script>
 
 <style lang="scss" scoped></style>
