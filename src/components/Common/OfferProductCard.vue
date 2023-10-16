@@ -5,7 +5,7 @@
     </div>
 
     <div class="product-info flex flex-column">
-      <p class="dark-gray-100 text-semi-bold-1">
+      <p class="text-color-primary-dark-gray text-semi-bold-1">
         Black 1.5 Ton GMCC Rotary Compressor
       </p>
 
@@ -30,15 +30,15 @@
           <span>{{ rating }}</span>
         </div>
 
-        <div class="review dark-gray-100 text-center text-regular-3">
+        <div class="review text-color-primary-dark-gray text-center text-regular-3">
           {{ total_review }} Reviews
         </div>
       </div>
 
       <hr class="divider" />
 
-      <p class="text-semi-bold-1 dark-gray-100">Hurry UP !</p>
-      <p class="text-regular-4 dark-gray-100">Offers end in:</p>
+      <p class="text-semi-bold-1 text-color-primary-dark-gray">Hurry UP !</p>
+      <p class="text-regular-4 text-color-primary-dark-gray">Offers end in:</p>
 
       <CommonTimeCounter :count-down-to-time="offerEndsAt" />
     </div>

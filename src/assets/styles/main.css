@@ -249,52 +249,40 @@ table {
     color: var(--primary-color-white);
 }
 
-/* common styles end*/
-.heading2 {
-    color: var(--primary-color-navy-blue);
-    text-align: center;
-    font-size: 36px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 44px;
-}
-
-.heading3 {
-    color: var(--primary-color-navy-blue);
-    text-align: left;
-    font-size: 28px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 36px;
-}
-
-.heading4 {
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 600;
-}
-
-.subtitle {
-    color: var(--primary-color-dark-gray);
-    text-align: center;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 24px;
-}
-
-
-.primary-color-navy-blue {
-    color: var(--primary-color-navy-blue)
-}
-
-.dark-gray-100 {
-    color: var(--primary-color-dark-gray)
-}
-
 .dark-gray-40 {
     color: var(--dark-gray-40)
 }
+
+.mb-12px {
+    margin-bottom: 12px;
+}
+
+.mb-16px {
+    margin-bottom: 16px;
+}
+
+.mb-32px {
+    margin-bottom: 32px;
+}
+
+.my-32px {
+    margin: 32px 0;
+}
+
+.mx-32px {
+    margin: 0 32px;
+}
+
+.pb-10px {
+    padding-bottom: 10px;
+}
+
+.px-16px {
+    padding-left: 16px;
+    padding-right: 16px
+}
+
+/* common styles end*/
 
 
 .button-primary {
@@ -311,44 +299,8 @@ table {
     gap: 12px;
 }
 
-@media (max-width: 768px) {
-    .button-primary {
-        height: 20px;
-    }
-}
-
 .button-primary[disabled] {
     background: var(--dark-gray-20);
-}
-
-.mb-12px {
-    margin-bottom: 12px;
-}
-
-.mb-16px {
-    margin-bottom: 16px;
-}
-
-.mx-32px {
-    margin: 0 32px;
-}
-
-.pb-10px {
-    padding-bottom: 10px;
-}
-
-
-.my-32px {
-    margin: 32px 0;
-}
-
-.mb-32px {
-    margin-bottom: 32px;
-}
-
-.px-16px {
-    padding-left: 16px;
-    padding-right: 16px
 }
 
 
@@ -454,20 +406,41 @@ table {
     }
 
     /* Fonts style classes end */
+    .button-primary {
+        height: 20px;
+    }
 
 }
 
 /* md: Breakpoint of screens such as tablets. (641px to 768px) */
 @media screen and (min-width: 577px) and (max-width: 768px) {
-    /* CSS styles for medium screens */
+    .container {
+        width: 100%;
+        padding: 0 16px;
+    }
 }
 
 /* lg: Breakpoint of screens such as notebook monitors. (769px to 992px) */
 @media screen and (min-width: 769px) and (max-width: 992px) {
-    /* CSS styles for medium screens */
+    .container {
+        width: 100%;
+        padding: 0 16px;
+    }
 }
 
-/* xl: Breakpoint of smaller screens such as desktop monitors. (993px to 1200px) */
+/* xl: Breakpoint of large screens such as laptop. (993px to 1200px) */
 @media screen and (min-width: 993px) and (max-width: 1200px) {
-    /* CSS styles for large screens */
+    .container {
+        width: 100%;
+        padding: 0 16px;
+    }
+}
+
+
+/* xxl: Breakpoint of extra large screens such as desktop monitors. (1200px to 1440px) */
+@media screen and (min-width: 1201px) and (max-width: 1440px) {
+    .container {
+        width: 100%;
+        padding: 0 16px;
+    }
 }
