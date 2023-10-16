@@ -31,19 +31,20 @@
         </div>
 
         <div class="review text-color-primary-dark-gray text-center text-regular-3">
-        <div
-          class="review text-color-primary-dark-gray text-center text-regular-3"
-        >
-          {{ total_review }} Reviews
+          <div
+            class="review text-color-primary-dark-gray text-center text-regular-3"
+          >
+            {{ total_review }} Reviews
+          </div>
         </div>
+
+        <hr class="divider" />
+
+        <p class="text-semi-bold-1 text-color-primary-dark-gray">Hurry UP !</p>
+        <p class="text-regular-4 text-color-primary-dark-gray">Offers end in:</p>
+
+        <CommonTimeCounter :count-down-to-time="offerEndsAt" />
       </div>
-
-      <hr class="divider" />
-
-      <p class="text-semi-bold-1 text-color-primary-dark-gray">Hurry UP !</p>
-      <p class="text-regular-4 text-color-primary-dark-gray">Offers end in:</p>
-
-      <CommonTimeCounter :count-down-to-time="offerEndsAt" />
     </div>
   </div>
 </template>
