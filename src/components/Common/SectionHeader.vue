@@ -1,6 +1,10 @@
 <template>
   <div>
-    <h1 class="font-heading-2 title mb-2 md:mb-3">{{ header }}</h1>
+    <h1
+      class="text-primary-color-navy-blue font-heading-2 text-center mb-2 md:mb-3"
+    >
+      {{ header }}
+    </h1>
     <p class="subtitle text-regular-3 text-color-primary-dark-gray mx-auto">
       {{ subHeader }}
     </p>
@@ -15,11 +19,6 @@ defineProps<{
 </script>
 
 <style lang="scss" scoped>
-.title {
-  color: var(--primary-color-navy-blue);
-  text-align: center;
-}
-
 .subtitle {
   max-width: 1100px;
 }
