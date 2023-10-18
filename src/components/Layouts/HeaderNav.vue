@@ -1,9 +1,7 @@
 <template>
   <div class="headerContainer">
     <div class="first-row">
-      <div
-        class="grid container align-items-center justify-between pt-4 pb-10px"
-      >
+      <div class="grid container align-items-center justify-between py-4">
         <div
           class="col-12 lg:col-3 flex justify-content-center lg:justify-content-start"
         >
@@ -268,11 +266,11 @@ interface menus {
 const navMenues: Array<menus> = [
   {
     title: "Home",
-    path: "/"
+    path: "/",
   },
   {
     title: "Services",
-    path: "/services"
+    path: "/services",
   },
   {
     title: "Products",
@@ -284,37 +282,37 @@ const navMenues: Array<menus> = [
         submenu2: [
           {
             title: "Non-Inverter AC",
-            path: "/products/non-air-conditioner"
+            path: "/products/non-air-conditioner",
           },
           {
             title: "Inverter AC",
-            path: "/products/inverter-ac"
+            path: "/products/inverter-ac",
           },
           {
             title: "Window AC",
-            path: "/products/window-ac"
+            path: "/products/window-ac",
           },
           {
             title: "Portable AC",
-            path: "/products/portable-ac"
+            path: "/products/portable-ac",
           },
           {
             title: "Ceiling Type AC",
-            path: "/products/ceiling-type-ac"
+            path: "/products/ceiling-type-ac",
           },
           {
             title: "Cassette Type AC",
-            path: "/products/cassette-type-ac"
+            path: "/products/cassette-type-ac",
           },
           {
             title: "Duct Type AC",
-            path: "/products/duct-type-ac"
+            path: "/products/duct-type-ac",
           },
           {
             title: "VRF AC",
-            path: "/products/vrf-ac"
-          }
-        ]
+            path: "/products/vrf-ac",
+          },
+        ],
       },
       {
         title: "AC Spares Parts",
@@ -322,60 +320,60 @@ const navMenues: Array<menus> = [
         submenu2: [
           {
             title: "Non-Inverter AC",
-            path: "/products/non-air-conditioner"
+            path: "/products/non-air-conditioner",
           },
           {
             title: "Inverter AC",
-            path: "/products/inverter-ac"
+            path: "/products/inverter-ac",
           },
           {
             title: "Window AC",
-            path: "/products/window-ac"
+            path: "/products/window-ac",
           },
           {
             title: "Portable AC",
-            path: "/products/portable-ac"
+            path: "/products/portable-ac",
           },
           {
             title: "Ceiling Type AC",
-            path: "/products/ceiling-type-ac"
+            path: "/products/ceiling-type-ac",
           },
           {
             title: "Cassette Type AC",
-            path: "/products/cassette-type-ac"
+            path: "/products/cassette-type-ac",
           },
           {
             title: "Duct Type AC",
-            path: "/products/duct-type-ac"
+            path: "/products/duct-type-ac",
           },
           {
             title: "VRF AC",
-            path: "/products/vrf-ac"
-          }
-        ]
-      }
-    ]
+            path: "/products/vrf-ac",
+          },
+        ],
+      },
+    ],
   },
   {
     title: "AC Rent",
-    path: "/ac-rent"
+    path: "/ac-rent",
   },
   {
     title: "Work Pricing",
-    path: "/work-pricing"
+    path: "/work-pricing",
   },
   {
     title: "Blog",
-    path: "/blog"
+    path: "/blog",
   },
   {
     title: "About Us",
-    path: "/about"
+    path: "/about",
   },
   {
     title: "Contact Us",
-    path: "/contact-us"
-  }
+    path: "/contact-us",
+  },
 ];
 
 const show = ref(false);

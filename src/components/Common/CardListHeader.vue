@@ -3,7 +3,7 @@
     <slot name="leftSideContent">
       <div
         v-if="label"
-        class="label flex justify-content-between align-items-center text-color-primary-navy-blue"
+        class="label flex justify-content-between align-items-center text-primary-color-navy-blue"
       >
         {{ label }}
       </div>
