@@ -1,0 +1,58 @@
+@use "../base/_variables.scss" as *;
+
+$colors: (
+        primary-color-envitect-sam-blue: $primary-color-envitect-sam-blue,
+        primary-color-navy-blue: $primary-color-navy-blue,
+        primary-color-dark-gray: $primary-color-dark-gray,
+        primary-color-white: $primary-color-white,
+        envitect-sam-blue-90: $envitect-sam-blue-90,
+        envitect-sam-blue-80: $envitect-sam-blue-80,
+        envitect-sam-blue-70: $envitect-sam-blue-70,
+        envitect-sam-blue-60: $envitect-sam-blue-60,
+        envitect-sam-blue-50: $envitect-sam-blue-50,
+        envitect-sam-blue-40: $envitect-sam-blue-40,
+        envitect-sam-blue-30: $envitect-sam-blue-30,
+        envitect-sam-blue-20: $envitect-sam-blue-20,
+        envitect-sam-blue-10: $envitect-sam-blue-10,
+        envitect-sam-blue-5: $envitect-sam-blue-5,
+        navy-blue-90: $navy-blue-90,
+        navy-blue-80: $navy-blue-80,
+        navy-blue-70: $navy-blue-70,
+        navy-blue-60: $navy-blue-60,
+        navy-blue-50: $navy-blue-50,
+        navy-blue-40: $navy-blue-40,
+        navy-blue-30: $navy-blue-30,
+        navy-blue-20: $navy-blue-20,
+        navy-blue-10: $navy-blue-10,
+        dark-gray-90: $dark-gray-90,
+        dark-gray-80: $dark-gray-80,
+        dark-gray-70: $dark-gray-70,
+        dark-gray-60: $dark-gray-60,
+        dark-gray-50: $dark-gray-50,
+        dark-gray-40: $dark-gray-40,
+        dark-gray-30: $dark-gray-30,
+        dark-gray-20: $dark-gray-20,
+        dark-gray-10: $dark-gray-10,
+        Gradient-Sam-Blue: $Gradient-Sam-Blue,
+        Gradient-Navy-Blue: $Gradient-Navy-Blue,
+        Gradient-Red: $Gradient-Red,
+        color-success: $color-success,
+        color-info: $color-info,
+        color-warning: $color-warning,
+        color-danger: $color-danger,
+        color-orange: $color-orange
+);
+
+
+@each $color-name, $color-value in $colors {
+  .text-#{$color-name} {
+    color: $color-value;
+  }
+  .bg-#{$color-name} {
+    background-color: $color-value;
+  }
+  .border-#{$color-name} {
+    border-color: $color-value;
+  }
+}
+
