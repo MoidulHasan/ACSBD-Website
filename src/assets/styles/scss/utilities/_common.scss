@@ -1,0 +1,36 @@
+@use "../base/mixins" as *;
+
+.button-primary {
+  height: 28px;
+  border-radius: 2px;
+  cursor: pointer;
+  background: var(--primary-color-envitect-sam-blue);
+  color: var(--primary-color-white);
+  display: inline-flex;
+  padding: 2px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+
+  @include media-query(sm) {
+    height: 20px;
+  }
+}
+
+.button-primary[disabled] {
+  background: var(--dark-gray-20);
+}
+
+.card-carousel--nav__left,
+.card-carousel--nav__right {
+  padding: 8px;
+  border-radius: 2px;
+  cursor: pointer;
+  background: var(--primary-color-envitect-sam-blue);
+  color: var(--primary-color-white);
+}
+
+.card-carousel--nav__left[disabled],
+.card-carousel--nav__right[disabled] {
+  background: var(--dark-gray-20);
+}
