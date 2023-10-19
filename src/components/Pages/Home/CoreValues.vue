@@ -11,7 +11,7 @@
       </p>
     </div>
     <div class="core-image col-12 lg:col-6">
-      <img alt="" src="/images/oioioioi 1.png" />
+      <img alt="" src="/images/ac-servicing.png" />
     </div>
     <div class="core-values col-12 lg:col-6">
       <div class="core-header hidden lg:block">
@@ -27,7 +27,7 @@
       <!-- great-services  -->
       <div class="core-values-provide flex aligin-items-center">
         <div class="core-values-provide-image">
-          <img alt="great-services" src="/images/great services.png" />
+          <img alt="great-services" src="/images/great-services.png" />
         </div>
         <div class="core-great-header">
           <h2>Great Services</h2>
@@ -40,7 +40,7 @@
       <!-- highest standards -->
       <div class="core-values-provide flex aligin-items-center">
         <div class="core-values-provide-image">
-          <img alt="great-services" src="/images/highest standards.png" />
+          <img alt="great-services" src="/images/highest-standards.png" />
         </div>
         <div class="core-great-header">
           <h2>highest standards</h2>
@@ -53,7 +53,7 @@
       <!-- professional team  -->
       <div class="core-values-provide flex aligin-items-center">
         <div class="core-values-provide-image">
-          <img alt="great-services" src="/images/professional team.svg" />
+          <img alt="great-services" src="/images/professional-team.svg" />
         </div>
         <div class="core-great-header">
           <h2>Professional Team</h2>
@@ -66,7 +66,7 @@
       <!-- creative solutions -->
       <div class="core-values-provide flex aligin-items-center">
         <div class="core-values-provide-image">
-          <img alt="great-services" src="/images/creative solutions.svg" />
+          <img alt="great-services" src="/images/creative-solutions.svg" />
         </div>
         <div class="core-great-header">
           <h2>creative Solutions</h2>
