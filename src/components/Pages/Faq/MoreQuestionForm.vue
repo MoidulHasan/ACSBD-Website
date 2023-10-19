@@ -6,45 +6,45 @@
         <InputText
           id="name"
           v-model="question.name"
-          placeholder="Name"
-          type="text"
           :class="{ questionInput: true }"
           aria-describedby="text-error"
+          placeholder="Name"
           required
+          type="text"
         />
         <InputText
           id="email"
           v-model="question.email"
-          placeholder="Email"
-          type="text"
           :class="{ questionInput: true }"
           aria-describedby="text-error"
+          placeholder="Email"
           required
+          type="text"
         />
         <Textarea
           v-model="question.questions"
-          placeholder="Questions?"
-          auto-resize
-          rows="5"
           :class="{ questionInput: true }"
           aria-describedby="text-error"
+          auto-resize
+          placeholder="Questions?"
           required
+          rows="5"
         />
         <div class="flex align-items-center mb-3">
           <Checkbox
             v-model="question.check"
-            type="checkbox"
+            :binary="true"
             class="check-box"
             input-id="aggrement"
             name="aggrement"
-            :binary="true"
             required
+            type="checkbox"
           />
-          <label for="aggrement" class="checkbox-label ml-3">
+          <label class="checkbox-label ml-3" for="aggrement">
             I Accept the Terms of Service and Privacy Policy
           </label>
         </div>
-        <Button type="submit" label="Submit" />
+        <Button label="Submit" type="submit" />
       </form>
     </div>
   </div>
@@ -57,6 +57,7 @@ interface questions {
   message: string;
   check: boolean;
 }
+
 const question: Ref<questions> = ref({
   name: "",
   email: "",
@@ -64,8 +65,6 @@ const question: Ref<questions> = ref({
   check: false,
 });
 const submitQuestion = () => {
-  console.log("DOne");
-  alert("Done");
   question.value.name = "";
   question.value.email = "";
   question.value.questions = "";
@@ -77,6 +76,7 @@ const submitQuestion = () => {
 .contact {
   background: var(--primary-color-white);
   padding: 60px 410px 100px;
+
   .question-title {
     font-size: 28px;
     font-style: normal;
@@ -84,15 +84,17 @@ const submitQuestion = () => {
     line-height: 36px;
     color: var(--primary-color-envitect-sam-blue);
   }
+
   .questionInput {
     padding: 16px 24px 16px 24px;
   }
+
   .checkbox-label {
     font-size: 16px;
     font-style: normal;
     font-weight: 600;
     line-height: 24px;
-    color: var(--primary-color-dark-gray-100);
+    color: var(--primary-color-dark-gray);
   }
 }
 
@@ -101,7 +103,7 @@ const submitQuestion = () => {
   width: 24px;
   border-radius: 5px !important;
   transition: 0.5s ease;
-  border: 1px solid var(--primary-color-navy-blue-50) !important;
+  border: 1px solid var(--navy-blue-80) !important;
 }
 
 :deep(.p-button) {
@@ -122,6 +124,7 @@ const submitQuestion = () => {
   line-height: 24px;
   color: var(--primary-color-white);
 }
+
 :deep(.p-button:focus) {
   box-shadow: none;
   background: var(--primary-color-envitect-sam-blue);

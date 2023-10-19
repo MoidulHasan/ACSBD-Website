@@ -1,0 +1,16 @@
+@use "_variables.scss" as *;
+
+@mixin media-query($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media screen and #{map-get($breakpoints, $breakpoint)} {
+      @content;
+    }
+  }
+}
+
+@mixin font-styles($font-size, $font-weight, $line-height) {
+  font-size: $font-size;
+  font-style: normal;
+  font-weight: $font-weight;
+  line-height: $line-height;
+}

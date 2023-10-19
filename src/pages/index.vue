@@ -1,18 +1,16 @@
 <template>
   <div>
-    <div>
-      <PagesHomeHeroSlider />
-    </div>
-    <div class="container mt-5">
+    <PagesHomeHeroSlider />
+    <div class="container mt-2 md:mt-4">
       <PagesHomeBannerSection />
     </div>
-    <div>
+    <div class="container mt-5 md:mt-6">
       <PagesHomeServicesSection />
     </div>
-    <div class="container section">
+    <div class="container mt-5 md:mt-6">
       <PagesHomeOurShopSection />
     </div>
-    <div>
+    <div class="mt-5 md:mt-6">
       <PagesHomeClientsSection />
     </div>
 
@@ -27,9 +25,9 @@
     <div class="container section">
       <PagesHomeCustomerReviewSection />
     </div>
-    <div>
-      <PagesHomeTopBrandsSection />
-    </div>
+
+    <PagesHomeTopBrandsSection />
+
     <div class="container section">
       <PagesHomeBlogSection />
     </div>
@@ -44,6 +42,6 @@ useHead({
 
 <style lang="scss" scoped>
 .section {
-  margin: 100px auto;
+  margin: 80px auto;
 }
 </style>

@@ -1,7 +1,11 @@
 <template>
   <div>
-    <h1 class="heading2 mb-16">{{ header }}</h1>
-    <p class="subtitle mx-auto">
+    <h1
+      class="text-primary-color-navy-blue font-heading-2 text-center mb-2 md:mb-3"
+    >
+      {{ header }}
+    </h1>
+    <p class="subtitle text-regular-3 text-color-primary-dark-gray mx-auto">
       {{ subHeader }}
     </p>
   </div>
@@ -14,7 +18,7 @@ defineProps<{
 }>();
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .subtitle {
   max-width: 1100px;
 }

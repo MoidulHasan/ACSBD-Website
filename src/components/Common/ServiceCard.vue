@@ -56,7 +56,7 @@ defineProps<{
     font-style: normal;
     font-weight: 400;
     line-height: 24px;
-    color: var(--primary-color-dark-gray-100);
+    color: var(--primary-color-dark-gray);
     margin-bottom: 24px;
     text-align: center;
   }
@@ -70,12 +70,15 @@ defineProps<{
       line-height: 24px;
     }
   }
+
   &:hover {
     box-shadow: 0px 2px 8px 1px rgba(2, 2, 2, 0.15);
+
     .contact-button {
       color: var(--primary-color-envitect-sam-blue);
     }
   }
+
   @media (max-width: 600px) {
     padding: 1.25rem;
   }

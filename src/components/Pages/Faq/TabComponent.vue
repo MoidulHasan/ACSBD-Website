@@ -3,7 +3,7 @@
     <div class="tab-title-component text-center">
       <h1 class="tab-title mb-3">{{ faqByTopic.title }}?</h1>
       <p class="tab-description mb-2 lg:mb-5">
-        {{faqByTopic.description}}
+        {{ faqByTopic.description }}
       </p>
     </div>
     <div class="mt-3">
@@ -29,7 +29,7 @@
 </template>
 
 <script lang="ts" setup>
-const props = defineProps<{
+defineProps<{
   faqByTopic: object;
 }>();
 
@@ -45,6 +45,7 @@ const panelClass = (props, parent, index) => {
 <style lang="scss" scoped>
 .tab {
   padding-top: 134px;
+
   .tab-title-component {
     .tab-title {
       color: var(--primary-color-envitect-sam-blue);
@@ -53,6 +54,7 @@ const panelClass = (props, parent, index) => {
       font-weight: 700;
       line-height: 44px;
     }
+
     .tab-description {
       font-size: 16px;
       font-style: normal;
@@ -61,6 +63,7 @@ const panelClass = (props, parent, index) => {
       color: var(--primary-color-dark-gray);
     }
   }
+
   .accordion {
     border-radius: 4px;
     border: 1px solid #dbe5ec;
@@ -95,6 +98,7 @@ const panelClass = (props, parent, index) => {
 .active-title-color {
   color: var(--primary-color-envitect-sam-blue);
 }
+
 :deep(.p-accordion-tab) {
   margin-bottom: 16px;
 }

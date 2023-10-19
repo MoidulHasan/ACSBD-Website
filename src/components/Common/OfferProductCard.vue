@@ -46,7 +46,17 @@
 </template>
 
 <script lang="ts" setup>
-import { Product } from "~/contracts/common";
+interface Product {
+  id: number;
+  name: string;
+  price: number;
+  discount_price: number;
+  discount_percentage: number;
+  rating: number;
+  total_review: number;
+  image: string;
+  offerEndsAt: string;
+}
 
 defineProps<Product>();
 </script>

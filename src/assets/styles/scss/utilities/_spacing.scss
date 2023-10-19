@@ -1,0 +1,58 @@
+$spacing-values: 4px, 8px, 12px, 16px, 24px, 32px, 40px, 48px, 64px, 80px, 96px,
+  128px, 160px, 192px, 240px;
+
+@each $spacing in $spacing-values {
+  .mt-#{$spacing} {
+    margin-top: #{$spacing};
+  }
+
+  .mb-#{$spacing} {
+    margin-bottom: #{$spacing};
+  }
+
+  .ml-#{$spacing} {
+    margin-left: #{$spacing};
+  }
+
+  .mr-#{$spacing} {
+    margin-right: #{$spacing};
+  }
+
+  .pt-#{$spacing} {
+    padding-top: #{$spacing};
+  }
+
+  .pb-#{$spacing} {
+    padding-bottom: #{$spacing};
+  }
+
+  .pl-#{$spacing} {
+    padding-left: #{$spacing};
+  }
+
+  .pr-#{$spacing} {
+    padding-right: #{$spacing};
+  }
+}
+
+@each $spacing in $spacing-values {
+  .mx-#{$spacing} {
+    margin-left: #{$spacing};
+    margin-right: #{$spacing};
+  }
+
+  .my-#{$spacing} {
+    margin-top: #{$spacing};
+    margin-bottom: #{$spacing};
+  }
+
+  .px-#{$spacing} {
+    padding-left: #{$spacing};
+    padding-right: #{$spacing};
+  }
+
+  .py-#{$spacing} {
+    padding-top: #{$spacing};
+    padding-bottom: #{$spacing};
+  }
+}
