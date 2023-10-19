@@ -1,39 +1,38 @@
 <template>
-  <CommonAuthFormSection>
+  <CommonAuthFormSection
+    form-title="Welcome!"
+    form-sub-title="Sign Up or Login to Continue"
+  >
     <template #innerContent>
-      <div>
-        <h2 class="form-title">Welcome!</h2>
-        <p class="form-sub-title">Signup or login to continue</p>
-        <div class="button-container mt-5">
-          <Button class="mb-4 auth-button login">Log In</Button>
-          <Button class="auth-button signup">Sign Up</Button>
-        </div>
-        <div class="or-container my-4">
-          <div class="line-through"></div>
-          <p class="or-text">Or</p>
-          <div class="line-through"></div>
-        </div>
-        <div class="button-container mb-4">
-          <Button class="mb-4 auth-button alternative">
-            <img src="~/assets/images/auth/apple.svg" alt="Apple" />
-            <span class="button-text">Continue with Apple</span>
-          </Button>
-          <Button class="mb-4 auth-button alternative">
-            <img src="~/assets/images/auth/google.svg" alt="Google" />
-            <span class="button-text">Continue with Google</span>
-          </Button>
-          <Button class="auth-button alternative">
-            <img src="~/assets/images/auth/facebook.svg" alt="Facebook" />
-            <span class="button-text">Continue with Facebook</span>
-          </Button>
-        </div>
-        <ul class="sign-content">
-          <li class="sign-text">
-            By signing up, you agree to our Terms of Use and to receive Jicson
-            emails & updates and acknowledge that you read our Privacy Policy.
-          </li>
-        </ul>
+      <div class="button-container">
+        <Button class="mb-4 auth-button login">Log In</Button>
+        <Button class="auth-button signup">Sign Up</Button>
       </div>
+      <div class="or-container my-4">
+        <div class="line-through"></div>
+        <p class="or-text">Or</p>
+        <div class="line-through"></div>
+      </div>
+      <div class="button-container mb-4">
+        <Button class="mb-4 auth-button alternative">
+          <img src="~/assets/images/auth/apple.svg" alt="Apple" />
+          <span class="button-text">Continue with Apple</span>
+        </Button>
+        <Button class="mb-4 auth-button alternative">
+          <img src="~/assets/images/auth/google.svg" alt="Google" />
+          <span class="button-text">Continue with Google</span>
+        </Button>
+        <Button class="auth-button alternative">
+          <img src="~/assets/images/auth/facebook.svg" alt="Facebook" />
+          <span class="button-text">Continue with Facebook</span>
+        </Button>
+      </div>
+      <ul class="sign-content">
+        <li class="sign-text">
+          By signing up, you agree to our Terms of Use and to receive Jicson
+          emails & updates and acknowledge that you read our Privacy Policy.
+        </li>
+      </ul>
     </template>
   </CommonAuthFormSection>
 </template>
@@ -45,21 +44,6 @@ definePageMeta({
 </script>
 
 <style scoped lang="scss">
-.form-title {
-  color: #363636;
-  font-size: 32px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  margin-bottom: 0.5rem;
-}
-.form-sub-title {
-  color: #808080;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-}
 .button-container {
   display: flex;
   flex-direction: column;
