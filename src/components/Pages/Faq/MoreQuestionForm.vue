@@ -62,11 +62,9 @@ const question: Ref<questions> = ref({
   name: "",
   email: "",
   questions: "",
-  check: false
+  check: false,
 });
 const submitQuestion = () => {
-  console.log("DOne");
-  alert("Done");
   question.value.name = "";
   question.value.email = "";
   question.value.questions = "";

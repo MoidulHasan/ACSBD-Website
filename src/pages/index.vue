@@ -36,7 +36,7 @@
 
 <script lang="ts" setup>
 useHead({
-  title: "AC Service BD"
+  title: "AC Service BD",
 });
 </script>
 
