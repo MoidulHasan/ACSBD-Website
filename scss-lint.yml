@@ -9,7 +9,7 @@ linters:
 
   Comment:
     enabled: true
-    allowed: '/*doc'
+    allowed: "/*doc"
 
   VendorPrefix:
     enabled: false
@@ -22,4 +22,4 @@ linters:
     ignore_parent_selectors: true
 
 exclude:
-  - '**/*.css'
+  - "**/*.css"
