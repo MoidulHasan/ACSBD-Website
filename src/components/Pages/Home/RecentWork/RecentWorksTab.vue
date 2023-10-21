@@ -26,13 +26,13 @@
 
     <TabView v-model:activeIndex="active">
       <TabPanel>
-        <PagesHomeRecentWorksAllWorks />
+        <PagesHomeRecentWorkAllWorks />
       </TabPanel>
       <TabPanel>
-        <PagesHomeRecentWorksResidentialWork />
+        <PagesHomeRecentWorkResidentialWork />
       </TabPanel>
       <TabPanel>
-        <PagesHomeRecentWorksCommercialWork />
+        <PagesHomeRecentWorkCommercialWork />
       </TabPanel>
     </TabView>
   </div>

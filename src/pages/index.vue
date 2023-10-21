@@ -25,7 +25,7 @@
     </div>
 
     <div class="section">
-      <PagesHomeRecentWorks />
+      <PagesHomeRecentWork />
     </div>
 
     <div class="container section">
