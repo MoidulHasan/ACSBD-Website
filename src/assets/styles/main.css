@@ -53,3 +53,23 @@
 
     --product-Front-color: #f9f9f9;
 }
+
+
+.faq-tab-header {
+    background: var(--primary-color-white);
+    color: var(--dark-gray-80);
+    font-size: 18px;
+    font-style: normal;
+    line-height: 24px;
+    height: 60px;
+    flex-shrink: 0;
+    border-radius: 4px;
+    background: #FFF;
+    padding: 18px 24px;
+}
+
+.faq-tab-header.active {
+    color: var(--primary-color-envitect-sam-blue);
+    font-weight: 700;
+}
+

@@ -2,15 +2,20 @@
   <div class="flex flex-column align-items-center">
     <div class="container">
       <PagesFaqTopTitle class="my-48px" />
-      <PagesFaqTabsSection
-        :active-tab-index="activeTabIndex"
-        :faq-tabs="faqTabData"
-        class="mb-48px py-5"
-        @on-active-tab-change="handleActiveTabChange"
-      />
     </div>
 
-    <PagesFaqTabComponent :faq-list="faqListOfSelectedTab" />
+    <PagesFaqTabsSection
+      :active-tab-index="activeTabIndex"
+      :faq-tabs="faqTabData"
+      :style="{ zIndex: 2 }"
+      class="mb-48px py-5"
+      @on-active-tab-change="handleActiveTabChange"
+    />
+
+    <div class="faq-container">
+      <PagesFaqTabComponent :faq-list="faqListOfSelectedTab" />
+    </div>
+
     <PagesFaqMoreQuestionForm />
   </div>
 </template>
@@ -46,3 +51,11 @@ const handleActiveTabChange = (index: number) => {
   activeTabIndex.value = index;
 };
 </script>
+
+<style lang="scss" scoped>
+.faq-container {
+  width: 100%;
+  position: relative;
+  top: -159px;
+}
+</style>
