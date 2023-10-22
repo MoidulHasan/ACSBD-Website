@@ -1,133 +1,105 @@
 <template>
-  <div class="tab-with-content relative">
-    <div class="container relative flex flex-column align-items-center mx-auto">
-      <div class="tabs pb-8">
-        <div
-          class="faq-topics container flex gap-4 lg:gap-7 align-items-center justify-content-center"
-        >
+  <div class="max-w-full flex flex-column align-items-center">
+    <div class="max-w-full">
+      <Carousel
+        :num-scroll="1"
+        :num-visible="4"
+        :responsive-options="responsiveOptions"
+        :show-indicators="false"
+        :show-navigators="showNavigator"
+        :value="faqTabs"
+      >
+        <template #item="slotProps">
           <div
-            class="services topic text-center"
-            @click="() => (selectedTopic = 'Services')"
+            class="flex justify-content-center align-items-center px-1 md:px-3"
           >
-            <div
-              class="image-container flex align-items-center justify-content-center"
-            >
-              <img
-                alt=""
-                class="faq-image"
-                src="@/assets/images/services.svg"
-              />
-            </div>
-            <h3 class="topic-title">Services?</h3>
+            <PagesFaqTabButton
+              :image="slotProps.data.image"
+              :is-active="slotProps.index === activeTab"
+              :title="slotProps.data.title"
+              @handle-state-change="
+                () => handleFaqSectionTabChange(slotProps.index)
+              "
+            />
           </div>
-          <div
-            class="ac-rent topic text-center"
-            @click="() => (selectedTopic = 'AC Rent')"
-          >
-            <div
-              class="image-container flex align-items-center justify-content-center"
-            >
-              <img alt="" class="faq-image" src="@/assets/images/ac_rent.svg" />
-            </div>
-            <h3 class="topic-title">AC Rent?</h3>
-          </div>
-          <div
-            class="products topic text-center hidden lg:block"
-            @click="() => (selectedTopic = 'Products')"
-          >
-            <div
-              class="image-container flex align-items-center justify-content-center"
-            >
-              <img
-                alt=""
-                class="faq-image"
-                src="@/assets/images/products.svg"
-              />
-            </div>
-            <h3 class="topic-title">Products?</h3>
-          </div>
-          <div
-            class="policy topic text-center hidden lg:block"
-            @click="() => (selectedTopic = 'Policy')"
-          >
-            <div
-              class="image-container flex align-items-center justify-content-center"
-            >
-              <img alt="" class="faq-image" src="@/assets/images/policy.svg" />
-            </div>
-            <h3 class="topic-title">Policy?</h3>
-          </div>
-        </div>
-      </div>
-      <div>
-        <PagesFaqTabComponent :faq-by-topic="faqsByTopic" />
-      </div>
+        </template>
+
+        <template #previousicon>
+          <i class="pi pi-arrow-left" />
+        </template>
+
+        <template #nexticon>
+          <i class="pi pi-arrow-right" />
+        </template>
+      </Carousel>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { getFAQData } from "~/app/api/getFAQData";
+import { useWindowSize } from "@vueuse/core";
+import type { FAQSection } from "~/contracts/api-contracts/faqData";
 
-const { data: faqsData } = await getFAQData();
+const { width } = useWindowSize();
 
-const selectedTopic = ref("Services");
+const props = defineProps<{
+  faqTabs: Omit<FAQSection, "tabs">[];
+  activeTabIndex?: number;
+}>();
 
-const faqsByTopic = computed(() => {
-  if (!faqsData?.value?.length) {
-    return [];
-  }
+const emits = defineEmits<{
+  (e: "onActiveTabChange", activeTabIndex: number): void;
+}>();
 
-  return faqsData.value.find((faq) => faq.title === selectedTopic.value);
+const activeTab = ref(props.activeTabIndex ?? null);
+
+const responsiveOptions = ref([
+  {
+    breakpoint: "845px",
+    numVisible: 3,
+    numScroll: 1,
+  },
+  {
+    breakpoint: "645px",
+    numVisible: 2,
+    numScroll: 2,
+  },
+]);
+
+const showNavigator = computed(() => {
+  return width ? width.value < 846 : true;
 });
+
+const handleFaqSectionTabChange = (activeTabIndex: number) => {
+  activeTab.value = activeTabIndex;
+  emits("onActiveTabChange", activeTabIndex);
+};
 </script>
 
 <style lang="scss" scoped>
-.tab-with-content {
-  background: var(--product-Front-color);
-  padding: 0 410px;
+::v-deep(.p-carousel-next) {
+  padding: 8px !important;
 
-  .tabs {
-    position: absolute;
-    top: -74px;
+  border-radius: 2px !important;
+  background: var(--primary-color-dark-gray) !important;
 
-    .faq-topics {
-      .topic {
-        padding: 21px 32px;
-        border-radius: 4px;
-        background: var(--primary-color-white);
-        box-shadow: 0px 4px 12px 1px rgba(164, 164, 164, 0.18);
-        text-decoration: none;
-        cursor: pointer;
-
-        .image-container {
-          margin-bottom: 12px;
-          width: 70px;
-          height: 70px;
-          background-color: var(--product-Front-color);
-          border-radius: 50%;
-        }
-
-        .topic-title {
-          font-size: 16px;
-          font-style: normal;
-          font-weight: 600;
-          line-height: 24px;
-          color: var(--primary-color-envitect-sam-blue);
-        }
-      }
-    }
-  }
+  color: var(--primary-color-white) !important;
 }
 
-@media (max-width: 900px) {
-  .tab-with-content {
-    padding: 0px 0px 30px 0px;
-  }
+::v-deep(.p-carousel-next:hover) {
+  background: var(--primary-color-envitect-sam-blue) !important;
 }
 
-:deep(.p-accordion-toggle-icon) {
-  position: absolute;
-  right: 1rem;
+::v-deep(.p-carousel-prev) {
+  padding: 8px !important;
+
+  border-radius: 2px !important;
+  background: var(--primary-color-dark-gray) !important;
+
+  color: var(--primary-color-white) !important;
+}
+
+::v-deep(.p-carousel-prev:hover) {
+  background: var(--primary-color-envitect-sam-blue) !important;
 }
 </style>
