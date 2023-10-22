@@ -1,0 +1,48 @@
+<template>
+  <div>
+    {{ productsPrice?.name }}
+  </div>
+</template>
+
+<script lang="ts" setup>
+import { getProductsPrice } from "~/app/api/getProductsPrice";
+const { data: productsPrice } = await getProductsPrice();
+</script>
+
+<style lang="scss" scoped></style>
+
+
+
+
+<style lang="scss" scoped>
+table {
+  tr {
+    th {
+      background: #f2f2f2;
+      padding: 3px 24px;
+      text-align: start;
+      border: 1px solid #f2f2f2;
+      color: #565656;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 600;
+
+      &:nth-child(2) {
+        width: 60%;
+      }
+      &:nth-child(4) {
+        width: 20%;
+      }
+    }
+    td {
+      border: 1px solid #f2f2f2;
+      padding: 3px 24px;
+      color: #565656;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 24px;
+    }
+  }
+}
+</style>

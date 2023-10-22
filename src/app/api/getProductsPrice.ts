@@ -5,7 +5,5 @@ export const getProductsPrice = async () => {
     "products-price",
     () => $fetch(runtimeConfig.apiUrl + "/data/products-price.json"),
   );
-  console.log(data);
-
   return { data, pending, error, refresh };
 };

@@ -2,26 +2,31 @@
         {
                 "id": 1,
                 "name": "Product A",
+                "unit": 242,
                 "price": 19.99
         },
         {
                 "id": 2,
                 "name": "Product B",
+                "unit": 442,
                 "price": 29.99
         },
         {
                 "id": 3,
                 "name": "Product C",
+                "unit": 42,
                 "price": 9.99
         },
         {
                 "id": 4,
                 "name": "Product D",
+                "unit": 43,
                 "price": 14.99
         },
         {
                 "id": 5,
                 "name": "Product E",
+                "unit": 452,
                 "price": 49.99
         }
 ]
