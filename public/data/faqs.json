@@ -1,6 +1,7 @@
 [
   {
     "title": "Services",
+    "image": "/images/faq/services.svg",
     "description": "We have a large team to service any kind of branded AC with the latest tools under Experienced engineer. Best AC servicing company in Bangladesh.",
     "tabs": [
       {
@@ -39,6 +40,7 @@
   },
   {
     "title": "AC Rent",
+    "image": "/images/faq/ac_rent.svg",
     "description": "We have a large team to service any kind of branded AC with the latest tools under Experienced engineer. Best AC servicing company in Bangladesh.",
     "tabs": [
       {
@@ -77,6 +79,7 @@
   },
   {
     "title": "Products",
+    "image": "/images/faq/products.svg",
     "description": "We have a large team to service any kind of branded AC with the latest tools under Experienced engineer. Best AC servicing company in Bangladesh.",
     "tabs": [
       {
@@ -115,6 +118,7 @@
   },
   {
     "title": "Policy",
+    "image": "/images/faq/policy.svg",
     "description": "We have a large team to service any kind of branded AC with the latest tools under Experienced engineer. Best AC servicing company in Bangladesh.",
     "tabs": [
       {
