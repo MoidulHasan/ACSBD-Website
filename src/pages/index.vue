@@ -35,8 +35,8 @@
 </template>
 
 <script lang="ts" setup>
-useHead({
-  title: "AC Service BD",
+definePageMeta({
+  title: "Home",
 });
 </script>
 
