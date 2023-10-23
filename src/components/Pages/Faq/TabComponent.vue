@@ -17,11 +17,11 @@
               }),
             }"
           >
-            <p>{{ tab.question }}</p>
+            <p class="text-regular-4">{{ tab.question }}</p>
           </AccordionTab>
         </Accordion>
         <div class="flex justify-content-center">
-          <Button class="view-all-tabs mb-1 lg:mb-6">
+          <Button class="view-all-tabs mb-5 md:mb-6">
             Load More Questions
           </Button>
         </div>
