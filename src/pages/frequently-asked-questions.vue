@@ -16,7 +16,9 @@
       <PagesFaqTabComponent :faq-list="faqListOfSelectedTab" />
     </div>
 
-    <PagesFaqMoreQuestionForm />
+    <div class="more-question-form-container mt-48px mb-80px">
+      <PagesFaqMoreQuestionForm class="w-full" />
+    </div>
   </div>
 </template>
 
@@ -42,7 +44,7 @@ const faqTabData = computed(() => {
   });
 });
 
-const faqListOfSelectedTab: Ref<FAQSection> = computed(() => {
+const faqListOfSelectedTab = computed(() => {
   return allFaqData.value?.length ? allFaqData.value[activeTabIndex.value] : [];
 });
 
@@ -57,5 +59,15 @@ const handleActiveTabChange = (index: number) => {
   width: 100%;
   position: relative;
   top: -159px;
+  margin-bottom: -159px;
+}
+
+.more-question-form-container {
+  width: 1100px;
+
+  @media (max-width: 1099px) {
+    width: 100%;
+    padding: 0 16px;
+  }
 }
 </style>
