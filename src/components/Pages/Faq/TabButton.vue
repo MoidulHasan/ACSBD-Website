@@ -42,7 +42,7 @@ const emits = defineEmits<{
 </script>
 
 <style lang="scss" scoped>
-@use "assets/styles/scss/base/mixins";
+@use "assets/styles/scss/base/mixins" as *;
 
 .tab {
   width: 150px;
@@ -60,7 +60,7 @@ const emits = defineEmits<{
     border: 1px solid var(--primary-color-envitect-sam-blue);
   }
 
-  @include mixins.media-query(sm) {
+  @include media-query(sm) {
     width: 120px;
     height: 118px;
     padding: 18px 10px;
@@ -78,7 +78,7 @@ const emits = defineEmits<{
 
     overflow: hidden;
 
-    @include mixins.media-query(sm) {
+    @include media-query(sm) {
       width: 50px;
       height: 50px;
       padding: 10px;
