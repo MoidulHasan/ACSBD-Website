@@ -16,16 +16,16 @@
 <script lang="ts" setup></script>
 
 <style lang="scss" scoped>
-@use "assets/styles/scss/base/mixins.scss";
+@use "assets/styles/scss/base/_mixins.scss" as *;
 
 .searchbar {
   width: 617px;
 
-  @include mixins.media-query(sm) {
+  @include media-query(sm) {
     max-width: 80vw;
   }
 
-  @include mixins.media-query(md) {
+  @include media-query(md) {
     max-width: 80vw;
   }
 }
