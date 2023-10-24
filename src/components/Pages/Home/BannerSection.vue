@@ -3,12 +3,12 @@
     <div
       v-for="(image, index) in images"
       :key="'banner-image-' + index"
-      class="col-12 md:col-4"
+      class="col-4"
     >
       <img
         :alt="image?.title"
         :src="image?.imageUrl"
-        :style="{ maxWidth: '100%', borderRadius: '4px' }"
+        :style="{ width: '100%', borderRadius: '4px' }"
       />
     </div>
   </div>
