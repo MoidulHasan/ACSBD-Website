@@ -12,9 +12,7 @@
             :key="tab.question"
             :header="tab.question"
             :pt="{
-              headerAction: ({ props, parent }) => ({
-                class: panelClass(props, parent, index),
-              }),
+              headerAction: ({ parent }) => handleHeaderAction(index, parent),
             }"
           >
             <p class="faq-tab-header text-regular-4 bg-primary-color-white">
@@ -33,18 +31,27 @@
 </template>
 
 <script lang="ts" setup>
+import type { AccordionPassThroughOptions } from "primevue/accordion";
 import type { FAQSection } from "~/contracts/api-contracts/faqData";
 
 defineProps<{
   faqList: FAQSection;
 }>();
 
-const panelClass = (props, parent, index) => {
-  return [
-    "faq-tab-header",
-    { active: parent.state.d_activeIndex === index },
-    { "shadow-none": parent.state.d_activeIndex !== index },
-  ];
+const handleHeaderAction = (
+  index: number,
+  parent: AccordionPassThroughOptions,
+) => {
+  const isActive = parent.state.d_activeIndex === index;
+  const hasShadow = !isActive;
+
+  return {
+    class: {
+      "faq-tab-header": true,
+      active: isActive,
+      "shadow-none": hasShadow,
+    },
+  };
 };
 </script>
 
