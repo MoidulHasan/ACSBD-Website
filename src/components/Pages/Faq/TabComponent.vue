@@ -17,7 +17,9 @@
               }),
             }"
           >
-            <p class="text-regular-4">{{ tab.question }}</p>
+            <p class="faq-tab-header text-regular-4 bg-primary-color-white">
+              {{ tab.question }}
+            </p>
           </AccordionTab>
         </Accordion>
         <div class="flex justify-content-center">
@@ -38,7 +40,11 @@ defineProps<{
 }>();
 
 const panelClass = (props, parent, index) => {
-  return ["faq-tab-header", { active: parent.state.d_activeIndex === index }];
+  return [
+    "faq-tab-header",
+    { active: parent.state.d_activeIndex === index },
+    { "shadow-none": parent.state.d_activeIndex !== index },
+  ];
 };
 </script>
 

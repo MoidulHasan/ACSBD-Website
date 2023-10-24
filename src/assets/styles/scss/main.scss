@@ -1,6 +1,8 @@
-@use "base/_all.scss" as *;
-@use "base/mixins" as *;
-@use "base/_variables" as *;
+@import "base/all";
+@import "utilities/colors";
+@import "utilities/fonts";
+@import "utilities/spacing";
+@import "utilities/common";
 
 .container {
   max-width: 1440px;

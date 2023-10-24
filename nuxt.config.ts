@@ -23,6 +23,7 @@ export default defineNuxtConfig({
     "primeflex/primeflex.css",
     "primeicons/primeicons.css",
     "~/assets/styles/main.css",
+    "~/assets/styles/scss/main.scss",
   ],
 
   build: {
@@ -82,15 +83,15 @@ export default defineNuxtConfig({
     },
   },
 
-  ssr: true,
+  // vite: {
+  //   css: {
+  //     preprocessorOptions: {
+  //       scss: {
+  //         additionalData: "@use '~/assets/styles/scss/base/all.scss' as *;",
+  //       },
+  //     },
+  //   },
+  // },
 
-  vite: {
-    css: {
-      preprocessorOptions: {
-        scss: {
-          additionalData: "@use '~/assets/styles/scss/main.scss' as *;",
-        },
-      },
-    },
-  },
+  ssr: true,
 });
