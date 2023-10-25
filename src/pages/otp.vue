@@ -20,6 +20,7 @@
           >
             Verify Code
           </Button>
+          {{otpValue}}
         </form>
       </template>
     </CommonAuthFormSection>
@@ -28,7 +29,7 @@
 
 <script setup lang="ts">
 definePageMeta({
-  title: "Sign In Via Email",
+  title: "OTP Via Email",
 });
 
 const otpValue = ref("");

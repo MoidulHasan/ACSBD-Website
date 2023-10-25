@@ -42,6 +42,7 @@ const handleKeyDown = (event, index) => {
   }
   if (event.key === "Backspace") {
     digits[index] = null;
+    emit("update:otp", digits.join(""));
     if (index !== 0) {
       otpContainer.value.children[index - 1].focus();
       return;
@@ -70,11 +71,12 @@ const handleKeyDown = (event, index) => {
 
   if (new RegExp("^([0-9])$").test(event.key)) {
     digits[index] = event.key;
-
     if (index !== props.digitCount - 1) {
       otpContainer.value.children[index + 1].focus();
     }
-    emit("update:otp", digits.join(""));
+    if (isDigitFull) {
+      emit("update:otp", digits.join(""));
+    }
   }
 };
 
@@ -124,7 +126,7 @@ const handleOnPaste = (event: any) => {
   padding: 13px;
   background-color: white;
   border-radius: 4px;
-  border: 1px solid #DCDAE8;
+  border: 1px solid #dcdae8;
   margin-right: 12px;
   text-align: center;
   color: #808080;
