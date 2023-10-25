@@ -1,7 +1,8 @@
 [
   {
     "title": "Services",
-    "description": "We have a large team to service any kind of branded AC with the latest tools under Experienced engineer. Best AC servicing company in Bangladesh.",
+    "image": "/images/faq/services.svg",
+    "description": "We have a large team to service any kind of branded AC with the latest tools under experienced engineer. Best AC servicing company in Bangladesh.",
     "tabs": [
       {
         "question": "What types of service do you provide?",
@@ -39,7 +40,8 @@
   },
   {
     "title": "AC Rent",
-    "description": "We have a large team to service any kind of branded AC with the latest tools under Experienced engineer. Best AC servicing company in Bangladesh.",
+    "image": "/images/faq/ac_rent.svg",
+    "description": "We have a large team to service any kind of branded AC with the latest tools under experienced engineer. Best AC servicing company in Bangladesh.",
     "tabs": [
       {
         "question": "What is the advantage of Inverter AC?",
@@ -77,7 +79,8 @@
   },
   {
     "title": "Products",
-    "description": "We have a large team to service any kind of branded AC with the latest tools under Experienced engineer. Best AC servicing company in Bangladesh.",
+    "image": "/images/faq/products.svg",
+    "description": "We have a large team to service any kind of branded AC with the latest tools under experienced engineer. Best AC servicing company in Bangladesh.",
     "tabs": [
       {
         "question": "Can I purchase from outside the Bangladesh?",
@@ -115,7 +118,8 @@
   },
   {
     "title": "Policy",
-    "description": "We have a large team to service any kind of branded AC with the latest tools under Experienced engineer. Best AC servicing company in Bangladesh.",
+    "image": "/images/faq/policy.svg",
+    "description": "We have a large team to service any kind of branded AC with the latest tools under experienced engineer. Best AC servicing company in Bangladesh.",
     "tabs": [
       {
         "question": "What is the advantage of Inverter AC?",

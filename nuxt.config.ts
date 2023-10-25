@@ -6,6 +6,7 @@ export default defineNuxtConfig({
   alias: {
     public: fileURLToPath(new URL("./public/", import.meta.url)),
     constants: fileURLToPath(new URL("./src/constants", import.meta.url)),
+    assets: fileURLToPath(new URL("./src/assets", import.meta.url)),
   },
 
   dir: {
@@ -14,7 +15,7 @@ export default defineNuxtConfig({
 
   devtools: { enabled: true },
 
-  modules: ["@nuxt/image", "@nuxtjs/eslint-module"],
+  modules: ["@nuxt/image", "@nuxtjs/eslint-module", "@vueuse/nuxt"],
 
   css: [
     "primevue/resources/themes/lara-light-blue/theme.css",
@@ -22,6 +23,7 @@ export default defineNuxtConfig({
     "primeflex/primeflex.css",
     "primeicons/primeicons.css",
     "~/assets/styles/main.css",
+    "~/assets/styles/scss/main.scss",
   ],
 
   build: {
@@ -80,6 +82,16 @@ export default defineNuxtConfig({
       baseURL: "",
     },
   },
+
+  // vite: {
+  //   css: {
+  //     preprocessorOptions: {
+  //       scss: {
+  //         additionalData: "@use '~/assets/styles/scss/base/all.scss' as *;",
+  //       },
+  //     },
+  //   },
+  // },
 
   ssr: true,
 });

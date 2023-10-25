@@ -1,0 +1,146 @@
+/* Remove margin and padding on most elements */
+html,
+body,
+div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+address,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+samp,
+small,
+strong,
+sub,
+sup,
+var,
+b,
+i,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+summary {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+/* Set block elements to display as block-level for consistent rendering */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+/* Reset focus styles for accessibility */
+a,
+button,
+input,
+select,
+textarea {
+  &:focus {
+    outline: 0;
+  }
+}
+
+/* Remove list styles (bullet points) */
+ol,
+ul {
+  list-style: none;
+}
+
+/* Remove default quotation marks for blockquote and q elements */
+blockquote,
+q {
+  quotes: none;
+}
+
+/* Remove content from the ::before and ::after pseudo-elements */
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: none;
+}
+
+/* Optional: Customize link styles as needed */
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+/* Set default font family, size, and line height */
+body {
+  font-size: 16px;
+  line-height: 1.5;
+  font-family: Poppins, serif;
+}
+
+/* Apply a default box-sizing model for more predictable layout */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
