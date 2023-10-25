@@ -1,31 +1,31 @@
 [
         {
                 "id": 1,
-                "name": "Product A",
+                "name": "Papaya",
                 "unit": 242,
                 "price": 19.99
         },
         {
                 "id": 2,
-                "name": "Product B",
+                "name": "Mango",
                 "unit": 442,
                 "price": 29.99
         },
         {
                 "id": 3,
-                "name": "Product C",
+                "name": "Orange",
                 "unit": 42,
                 "price": 9.99
         },
         {
                 "id": 4,
-                "name": "Product D",
+                "name": "Malta",
                 "unit": 43,
                 "price": 14.99
         },
         {
                 "id": 5,
-                "name": "Product E",
+                "name": "Banana",
                 "unit": 452,
                 "price": 49.99
         }

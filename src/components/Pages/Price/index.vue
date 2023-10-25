@@ -1,14 +1,16 @@
 <template>
-  <div
-    v-for="(productsPrice, index) in productsPrices"
-    :key="'Products Price-' + index"
+  <DataTable
+    :value="productsPrices"
+    show-gridlines
+    table-style="min-width: 50rem"
   >
-    <CommonProductPriceTable
-      :name="productsPrice.name"
-      :price="productsPrice.price"
-      :unit="productsPrice.unit"
+    <Column
+      v-for="col in columns"
+      :key="col.field"
+      :field="col.field"
+      :header="col.header"
     />
-  </div>
+  </DataTable>
 </template>
 
 <script lang="ts" setup>
@@ -19,4 +21,10 @@ definePageMeta({
 });
 
 const { data: productsPrices } = await getProductsPrice();
+
+const columns = ref([
+  { id: 1, key: "name", field: "name", header: "name" },
+  { id: 12, key: "price", field: "price", header: "price" },
+  { id: 11, key: "unit", field: "unit", header: "unit" },
+]);
 </script>
