@@ -54,7 +54,7 @@ const { remainingDay, remainingHour, remainingMinute, remainingSecond } =
   flex-shrink: 0;
 
   border-radius: 2px;
-  background: var(--envitect-sam-blue-100);
+  background: var(--primary-color-envitect-sam-blue);
 
   color: var(--White-Color, #fff);
 }

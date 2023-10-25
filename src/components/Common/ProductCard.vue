@@ -30,7 +30,17 @@
 </template>
 
 <script lang="ts" setup>
-import { Product } from "~/contracts/common";
+interface Product {
+  id: number;
+  name: string;
+  price: number;
+  discount_price: number;
+  discount_percentage: number;
+  rating: number;
+  total_review: number;
+  image: string;
+  offerEndsAt: string;
+}
 
 const props = defineProps<Product>();
 
@@ -107,7 +117,7 @@ const productRating = ref(props.rating);
       gap: 8px;
 
       .product-price {
-        color: var(--envitect-sam-blue-100);
+        color: var(--primary-color-envitect-sam-blue);
 
         font-size: 16px;
         font-style: normal;
