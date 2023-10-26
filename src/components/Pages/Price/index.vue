@@ -1,16 +1,14 @@
 <template>
-  <DataTable
-    :value="productsPrices"
-    show-gridlines
-    table-style="min-width: 50rem"
-  >
-    <Column
-      v-for="col in columns"
-      :key="col.field"
-      :field="col.field"
-      :header="col.header"
-    />
-  </DataTable>
+  <div>
+    <DataTable :value="productsPrices" show-gridlines>
+      <Column
+        v-for="col in columns"
+        :key="col.field"
+        :field="col.field"
+        :header="col.header"
+      />
+    </DataTable>
+  </div>
 </template>
 
 <script lang="ts" setup>
@@ -28,3 +26,5 @@ const columns = ref([
   { id: 11, key: "unit", field: "unit", header: "unit" },
 ]);
 </script>
+
+<style lang="scss" scoped></style>

@@ -1,0 +1,41 @@
+<template>
+  <div>
+    <DataTable :value="data">
+      <Column field="name" header="Name"></Column>
+      <Column field="age" header="Age"></Column>
+      <!-- Add more columns as needed -->
+    </DataTable>
+  </div>
+</template>
+
+<script lang="ts">
+import Vue from 'vue';
+import { Component } from 'vue-property-decorator';
+import axios from 'axios';
+
+@Component
+export default class YourComponent extends Vue {
+  data: any[] = [];
+
+  async created() {
+    await this.loadData();
+  }
+
+  async loadData() {
+    try {
+      const response = await axios.get('https://example.com/api/data');
+      this.data = response.data;
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  }
+}
+</script>
+
+<style lang="scss" scoped>
+.name-column {
+  background-color: red;
+  font-weight: bold;
+}
+</style>
+  
