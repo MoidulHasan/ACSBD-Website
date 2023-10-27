@@ -1,7 +1,19 @@
 <template>
   <div class="carousel-container">
-    <teleport v-if="teleportPrevButton" :to="teleportPrevButton">
-      <slot name="prevButton">
+    <ClientOnly>
+      <teleport v-if="teleportPrevButton" :to="teleportPrevButton">
+        <slot name="prevButton">
+          <button
+            :disabled="atHeadOfList"
+            class="button-primary"
+            @click="moveCarousel(-1)"
+          >
+            <i class="pi pi-chevron-left" />
+          </button>
+        </slot>
+      </teleport>
+
+      <slot v-else name="prevButton">
         <button
           :disabled="atHeadOfList"
           class="button-primary"
@@ -10,17 +22,7 @@
           <i class="pi pi-chevron-left" />
         </button>
       </slot>
-    </teleport>
-
-    <slot v-else name="prevButton">
-      <button
-        :disabled="atHeadOfList"
-        class="button-primary"
-        @click="moveCarousel(-1)"
-      >
-        <i class="pi pi-chevron-left" />
-      </button>
-    </slot>
+    </ClientOnly>
 
     <div ref="slideContainer" class="slider-container">
       <div
@@ -40,8 +42,20 @@
       </div>
     </div>
 
-    <teleport v-if="teleportNextButton" :to="teleportNextButton">
-      <slot name="nextButton">
+    <ClientOnly>
+      <teleport v-if="teleportNextButton" :to="teleportNextButton">
+        <slot name="nextButton">
+          <button
+            :disabled="atEndOfList"
+            class="button-primary"
+            @click="moveCarousel(1)"
+          >
+            <i class="pi pi-chevron-right" />
+          </button>
+        </slot>
+      </teleport>
+
+      <slot v-else name="nextButton">
         <button
           :disabled="atEndOfList"
           class="button-primary"
@@ -50,17 +64,7 @@
           <i class="pi pi-chevron-right" />
         </button>
       </slot>
-    </teleport>
-
-    <slot v-else name="nextButton">
-      <button
-        :disabled="atEndOfList"
-        class="button-primary"
-        @click="moveCarousel(1)"
-      >
-        <i class="pi pi-chevron-right" />
-      </button>
-    </slot>
+    </ClientOnly>
   </div>
 </template>
 
@@ -75,8 +79,8 @@ interface CarouselResponsiveOptions {
 
 interface CarouselProps {
   items: any;
-  visibleSlider: number;
-  numberOfScroll: number;
+  visibleSlider?: number;
+  numberOfScroll?: number;
   teleportPrevButton?: string;
   teleportNextButton?: string;
   carouselResponsiveOptions?: CarouselResponsiveOptions[];
@@ -163,6 +167,7 @@ onMounted(() => {
 });
 
 onUnmounted(() => {
+  const container = slideContainer.value;
   container?.removeEventListener("mousedown");
   container?.removeEventListener("touchstart");
 
