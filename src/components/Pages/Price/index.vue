@@ -1,9 +1,9 @@
 <template>
   <div>
-    <DataTable :value="productsPrices" show-gridlines>
+    <DataTable :value="productsPrices" expended show-gridlines>
       <Column
-        v-for="col in columns"
-        :key="col.field"
+        v-for="(col, index) in columns"
+        :key="index.field"
         :field="col.field"
         :header="col.header"
       />
@@ -21,9 +21,10 @@ definePageMeta({
 const { data: productsPrices } = await getProductsPrice();
 
 const columns = ref([
-  { id: 1, key: "name", field: "name", header: "name" },
-  { id: 12, key: "price", field: "price", header: "price" },
-  { id: 11, key: "unit", field: "unit", header: "unit" },
+  { key: "S.l", field: "S.l", header: "S.l" },
+  { key: "name", field: "name", header: "name" },
+  { key: "price", field: "price", header: "price" },
+  { key: "unit", field: "unit", header: "unit" },
 ]);
 </script>
 
