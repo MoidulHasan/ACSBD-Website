@@ -1,8 +1,8 @@
-export const getHomePageBannerImages = async () => {
+export const getProducts = async () => {
   const runtimeConfig = useRuntimeConfig();
 
   const { data, pending, error, refresh } = await useFetch(
-    runtimeConfig.public.apiUrl + "/data/home-page-banner-images.json",
+    runtimeConfig.public.apiUrl + "/data/products.json",
   );
 
   return { data, pending, error, refresh };
