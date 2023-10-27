@@ -5,7 +5,7 @@ export const getFAQData = async () => {
 
   const { data, pending, error, refresh } = await useAsyncData<FAQSection[]>(
     "faq-data",
-    () => $fetch(runtimeConfig.apiUrl + "/data/faqs.json"),
+    () => $fetch(runtimeConfig.public.apiUrl + "/data/faqs.json"),
   );
 
   return { data, pending, error, refresh };
