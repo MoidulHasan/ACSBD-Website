@@ -118,7 +118,7 @@ const { data: offerProducts } = await getOfferProducts();
 const { data: airConditioners } = await getAirConditioners();
 const { data: acSpareSparts } = await getACSpareSparts();
 
-const responsiveOptions = [
+const responsiveOptions = ref([
   {
     breakpoint: 1290,
     numVisible: 6,
@@ -144,9 +144,9 @@ const responsiveOptions = [
     numVisible: 1,
     numScroll: 1,
   },
-];
+]);
 
-const offerProductResponsiveOptions = [
+const offerProductResponsiveOptions = ref([
   {
     breakpoint: 1290,
     numVisible: 3,
@@ -172,7 +172,7 @@ const offerProductResponsiveOptions = [
     numVisible: 1,
     numScroll: 1,
   },
-];
+]);
 </script>
 
 <style lang="scss" scoped>
