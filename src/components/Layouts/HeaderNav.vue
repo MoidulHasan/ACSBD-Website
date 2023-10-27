@@ -1,9 +1,7 @@
 <template>
   <div class="headerContainer">
     <div class="first-row">
-      <div
-        class="grid container align-items-center justify-between pt-4 pb-10px"
-      >
+      <div class="grid container align-items-center justify-between py-4">
         <div
           class="col-12 lg:col-3 flex justify-content-center lg:justify-content-start"
         >
@@ -393,11 +391,11 @@ const checkNav = (path: string): void => {
 
 <style scoped>
 .first-row {
-  border-bottom: 0.1rem solid var(--primary-color-navy-blue-10);
+  border-bottom: 0.1rem solid var(--navy-blue-10);
 }
 
 .second-row {
-  border-bottom: 0.1rem solid var(--primary-color-navy-blue-10);
+  border-bottom: 0.1rem solid var(--navy-blue-10);
 }
 
 .search-button,

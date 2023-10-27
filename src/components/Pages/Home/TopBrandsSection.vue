@@ -1,11 +1,11 @@
 <template>
   <div class="brands-top-container">
-    <div class="container py-3 lg:py-6">
+    <div class="container py-3 md:py-6">
       <CommonSliderSection
-          :items="clients"
-          :number-of-scroll="1"
-          :visible-item="6"
-          slide-component="ClientCard"
+        :items="clients"
+        :number-of-scroll="1"
+        :visible-item="6"
+        slide-component="ClientCard"
       >
         <template #header>
           <CommonSectionHeader
@@ -26,7 +26,7 @@
 <script lang="ts" setup>
 import { getClients } from "~/app/api/clients";
 
-const { data: clients, pending, error, refresh } = await getClients();
+const { data: clients } = await getClients();
 </script>
 
 <style lang="scss" scoped>

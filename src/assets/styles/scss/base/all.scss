@@ -1,0 +1,11 @@
+// Import reset and global base styles
+@use "reset";
+@import "_variables.scss";
+@import "_mixins";
+@import "_functions.scss";
+
+// Import utilities for global styles
+//@use "../utilities/colors";
+//@use "../utilities/fonts";
+//@use "../utilities/spacing";
+//@use "../utilities/common";

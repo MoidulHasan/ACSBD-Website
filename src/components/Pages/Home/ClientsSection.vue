@@ -30,11 +30,11 @@
 <script lang="ts" setup>
 import { getClients } from "~/app/api/clients";
 
-const { data: clients, pending, error, refresh } = await getClients();
+const { data: clients } = await getClients();
 </script>
 
 <style lang="scss" scoped>
 .clients-top-container {
-  background: var(--primary-color-sam-blue-100);
+  background: var(--envitect-sam-blue-5);
 }
 </style>

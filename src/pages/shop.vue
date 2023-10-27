@@ -5,9 +5,7 @@
 </template>
 
 <script lang="ts" setup>
-useHead({
+definePageMeta({
   title: "Shop",
 });
 </script>
-
-<style scoped></style>

@@ -1,0 +1,66 @@
+@use "../base/_mixins" as *;
+@use "../base/variables";
+
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0;
+
+
+  @include media-query(sm) {
+    width: 100%;
+    padding: 0 16px;
+  }
+  @include media-query(md) {
+    width: 100%;
+    padding: 0 16px;
+  }
+  @include media-query(lg) {
+    width: 100%;
+    padding: 0 16px;
+  }
+  @include media-query(xl) {
+    width: 100%;
+    padding: 0 16px;
+  }
+  @include media-query(xxl) {
+    width: 100%;
+    padding: 0 16px;
+  }
+}
+
+.button-primary {
+  height: 28px;
+  border-radius: 2px;
+  cursor: pointer;
+  background: var(--primary-color-envitect-sam-blue);
+  color: var(--primary-color-white);
+  display: inline-flex;
+  padding: 2px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+
+  @include media-query(sm) {
+    height: 20px;
+  }
+}
+
+.button-primary[disabled] {
+  background: var(--dark-gray-20);
+}
+
+.card-carousel--nav__left,
+.card-carousel--nav__right {
+  padding: 8px;
+  border-radius: 2px;
+  cursor: pointer;
+  background: var(--primary-color-envitect-sam-blue);
+  color: var(--primary-color-white);
+}
+
+.card-carousel--nav__left[disabled],
+.card-carousel--nav__right[disabled] {
+  background: var(--dark-gray-20);
+}

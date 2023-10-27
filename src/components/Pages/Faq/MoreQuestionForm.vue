@@ -1,52 +1,48 @@
 <template>
-  <div class="contact">
-    <div class="container contact-form">
-      <form class="flex flex-column gap-3" @submit.prevent="submitQuestion">
-        <h2 class="question-title">Have more Questions?</h2>
-        <InputText
-          id="name"
-          v-model="question.name"
-          placeholder="Name"
-          type="text"
-          :class="{ questionInput: true }"
-          aria-describedby="text-error"
+  <div class="w-full">
+    <form class="flex flex-column gap-3" @submit="submitQuestion">
+      <h2 class="font-heading-3 text-primary-color-navy-blue">
+        Have more Questions?
+      </h2>
+      <InputText
+        v-model="question.name"
+        aria-describedby="text-error"
+        placeholder="Name"
+        required
+        type="text"
+      />
+      <InputText
+        id="email"
+        v-model="question.email"
+        aria-describedby="text-error"
+        placeholder="Email"
+        required
+        type="text"
+      />
+      <Textarea
+        v-model="question.questions"
+        aria-describedby="text-error"
+        auto-resize
+        placeholder="Questions?"
+        required
+        rows="5"
+      />
+      <div class="flex align-items-center mb-3">
+        <Checkbox
+          v-model="question.check"
+          :binary="true"
+          class="check-box"
+          input-id="aggrement"
+          name="aggrement"
           required
+          type="checkbox"
         />
-        <InputText
-          id="email"
-          v-model="question.email"
-          placeholder="Email"
-          type="text"
-          :class="{ questionInput: true }"
-          aria-describedby="text-error"
-          required
-        />
-        <Textarea
-          v-model="question.questions"
-          placeholder="Questions?"
-          auto-resize
-          rows="5"
-          :class="{ questionInput: true }"
-          aria-describedby="text-error"
-          required
-        />
-        <div class="flex align-items-center mb-3">
-          <Checkbox
-            v-model="question.check"
-            type="checkbox"
-            class="check-box"
-            input-id="aggrement"
-            name="aggrement"
-            :binary="true"
-            required
-          />
-          <label for="aggrement" class="checkbox-label ml-3">
-            I Accept the Terms of Service and Privacy Policy
-          </label>
-        </div>
-        <Button type="submit" label="Submit" />
-      </form>
-    </div>
+        <label class="text-semi-bold-1 text-dark-gray-80 ml-3" for="aggrement">
+          I Accept the Terms of Service and Privacy Policy
+        </label>
+      </div>
+      <Button class="button-style" label="Submit" type="submit" />
+    </form>
   </div>
 </template>
 
@@ -57,6 +53,7 @@ interface questions {
   message: string;
   check: boolean;
 }
+
 const question: Ref<questions> = ref({
   name: "",
   email: "",
@@ -64,8 +61,6 @@ const question: Ref<questions> = ref({
   check: false,
 });
 const submitQuestion = () => {
-  console.log("DOne");
-  alert("Done");
   question.value.name = "";
   question.value.email = "";
   question.value.questions = "";
@@ -74,26 +69,12 @@ const submitQuestion = () => {
 </script>
 
 <style lang="scss" scoped>
-.contact {
-  background: var(--primary-color-white);
-  padding: 60px 410px 100px;
-  .question-title {
-    font-size: 28px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 36px;
-    color: var(--primary-color-envitect-sam-blue);
-  }
-  .questionInput {
-    padding: 16px 24px 16px 24px;
-  }
-  .checkbox-label {
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 24px;
-    color: var(--primary-color-dark-gray-100);
-  }
+.checkbox-label {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px;
+  color: var(--primary-color-dark-gray);
 }
 
 :deep(.p-checkbox .p-checkbox-box) {
@@ -101,10 +82,10 @@ const submitQuestion = () => {
   width: 24px;
   border-radius: 5px !important;
   transition: 0.5s ease;
-  border: 1px solid var(--primary-color-navy-blue-50) !important;
+  border: 1px solid var(--navy-blue-80) !important;
 }
 
-:deep(.p-button) {
+.button-style {
   display: inline-flex;
   padding: 12px 48px;
   justify-content: center;
@@ -115,21 +96,32 @@ const submitQuestion = () => {
   max-width: 155px;
 }
 
-:deep(.p-button .p-button-label) {
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 24px;
-  color: var(--primary-color-white);
-}
-:deep(.p-button:focus) {
-  box-shadow: none;
-  background: var(--primary-color-envitect-sam-blue);
-}
+//:deep(.p-button) {
+//  display: inline-flex;
+//  padding: 12px 48px;
+//  justify-content: center;
+//  align-items: center;
+//  gap: 12px;
+//  background: var(--primary-color-envitect-sam-blue);
+//  border-radius: 6px;
+//  max-width: 155px;
+//}
 
-@media (max-width: 900px) {
-  .contact {
-    padding: 40px 0px;
-  }
+//:deep(.p-button .p-button-label) {
+//  font-size: 16px;
+//  font-style: normal;
+//  font-weight: 600;
+//  line-height: 24px;
+//  color: var(--primary-color-white);
+//}
+//
+//:deep(.p-button:focus) {
+//  box-shadow: none;
+//  background: var(--primary-color-envitect-sam-blue);
+//}
+
+:deep(.p-inputtext) {
+  padding: 16px 24px 16px 24px;
+  box-shadow: none;
 }
 </style>
