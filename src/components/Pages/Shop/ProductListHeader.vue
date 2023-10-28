@@ -136,11 +136,4 @@ const handleSortByOptionChange = () => {
     opacity: 0.5;
   }
 }
-
-//::v-deep(.p-button-icon) {
-//  width: 24px !important;
-//  height: 24px;
-//  flex-shrink: 0;
-//  padding: 0;
-//}
 </style>
