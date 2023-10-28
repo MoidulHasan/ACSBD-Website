@@ -41,6 +41,7 @@
 <script lang="ts" setup>
 definePageMeta({
   title: "Home",
+  layout: "default",
 });
 </script>
 
