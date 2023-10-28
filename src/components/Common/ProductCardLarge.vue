@@ -1,32 +1,38 @@
 <template>
   <div class="product-card">
-    <div class="flex justify-content-center relative">
-      <img :alt="name" :src="images[0]" class="product-image" />
-      <div v-if="price.discountPercentage" class="discount-percentage">
-        {{ price.discountPercentage }}% Off
+    <div class="w-full grid">
+      <div class="col-4">
+        <div class="h-full flex justify-content-center relative">
+          <img :alt="name" :src="images[0]" class="product-image" />
+          <div v-if="price.discountPercentage" class="discount-percentage">
+            {{ price.discountPercentage }}% Off
+          </div>
+        </div>
       </div>
-    </div>
 
-    <div class="product-info">
-      <Rating v-model="productRating" :cancel="false" readonly />
+      <div class="col-8">
+        <div class="product-info">
+          <h3 class="product-name">
+            {{ name }}
+          </h3>
 
-      <h3 class="product-name">
-        {{ name }}
-      </h3>
+          <Rating v-model="productRating" :cancel="false" readonly />
 
-      <p class="product-price-container">
-        <span v-if="price.discounted" class="product-price">
-          ৳ {{ price.discounted }}
-        </span>
-        <span
-          :class="[
-            { 'product-price': !price.discounted },
-            { 'initial-price': price.discounted },
-          ]"
-        >
-          {{ price.currency }} {{ price.regular }}
-        </span>
-      </p>
+          <p class="product-price-container">
+            <span v-if="price.discounted" class="product-price">
+              ৳ {{ price.discounted }}
+            </span>
+            <span
+              :class="[
+                { 'product-price': !price.discounted },
+                { 'initial-price': price.discounted },
+              ]"
+            >
+              {{ price.currency }} {{ price.regular }}
+            </span>
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -42,18 +48,15 @@ const productRating = ref(props.ratings.average);
 <style lang="scss" scoped>
 .product-card {
   width: 100%;
-  min-height: 377px;
 
   border-radius: 8px;
   background: var(--product-Front-color);
 
-  //transition: all 0.5s ease-in-out;
-  transition: all ease-in-out 0.6s;
+  transition: all 0.5s ease-in-out;
 
   cursor: pointer;
 
   .product-image {
-    height: 220px;
     max-width: 100%;
 
     vertical-align: bottom;
@@ -133,6 +136,6 @@ const productRating = ref(props.ratings.average);
 }
 
 .product-card:hover {
-  transform: scale(1.03);
+  transform: scale(1.005);
 }
 </style>
