@@ -10,6 +10,7 @@
   font-weight: 600;
   line-height: 24px;
   position: relative;
+  cursor:pointer;
   &::after {
     content: "";
     position: absolute;

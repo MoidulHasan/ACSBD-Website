@@ -13,8 +13,8 @@ $spacing-values: 4px,
 128px,
 160px,
 192px,
-240px,
-275px;
+235px,
+240px;
 
 @each $spacing in $spacing-values {
   .mt-#{$spacing} {

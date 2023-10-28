@@ -12,20 +12,20 @@
         class="all-works-tab flex align-items-center justify-content-center mb-32px"
       >
         <button
-          class="bg-primary border-none text-sm sm:text-base font-semibold px-4 sm:px-5 py-2 sm:py-3 cursor-pointer"
+          class="button-tab w-235px h-50px border-round-left-sm"
           @click="active = 0"
         >
           All Works
         </button>
 
         <button
-          class="border-none text-sm sm:text-base font-semibold px-4 sm:px-5 py-2 sm:py-3 cursor-pointer"
+          class="button-tab w-235px h-50px border-none"
           @click="active = 1"
         >
           Residential
         </button>
         <button
-          class="border-none text-sm sm:text-base font-semibold px-4 sm:px-5 py-2 sm:py-3 cursor-pointer"
+          class="button-tab w-235px h-50px border-round-right-sm"
           @click="active = 2"
         >
           commercial
