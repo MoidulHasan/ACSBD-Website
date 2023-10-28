@@ -1,4 +1,4 @@
-export const calculateRemainingTime = (endTime) => {
+export const calculateRemainingTime = (endTime: string | Date) => {
   const currentTime = new Date().getTime();
   const endTimeInMilliseconds = new Date(endTime).getTime();
 
