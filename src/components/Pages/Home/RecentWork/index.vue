@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <div class="container">
     <!-- header  -->
@@ -48,10 +49,5 @@
 <script lang="ts" setup>
 import { ref } from "vue";
 const active = ref(0);
-const options = ref([
-  { label: "Active works", value: "Left" },
-  { label: "Active works", value: "Right" },
-  { label: "Active works", value: "Center" },
-]);
 </script>
 <style lang="scss" scoped></style>
