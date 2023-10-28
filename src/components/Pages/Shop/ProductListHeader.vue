@@ -67,7 +67,7 @@
 import type { Ref } from "vue";
 import type { SortByOptionI } from "~/contracts/api-contracts/ProductsInterfaces";
 
-const props = defineProps<{
+defineProps<{
   totalProductsFound: number;
   category?: string;
 }>();
