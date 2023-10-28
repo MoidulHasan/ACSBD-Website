@@ -18,6 +18,7 @@ import { defineNuxtPlugin } from "#app";
 import Calendar from "primevue/calendar";
 import Card from "primevue/card";
 import Galleria from "primevue/galleria";
+import Password from "primevue/password"
 
 export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.use(PrimeVue, { ripple: true });

@@ -20,10 +20,17 @@
             class="utils-container flex align-items-center justify-content-between mb-4"
           >
             <div class="flex align-items-center">
-              <Checkbox id="chbx" v-model="checked" binary />
+              <Checkbox
+                id="chbx"
+                v-model="checked"
+                name="chbx"
+                :binary="true"
+              />
               <label class="ml-2 check-text" for="chbx">Remember</label>
             </div>
-            <h2 class="reset-text">Reset Password?</h2>
+            <NuxtLink to="/reset-password" class="reset-text"
+              >Reset Password?</NuxtLink
+            >
           </div>
           <Button type="submit" class="auth-button w-full">Log In</Button>
         </form>
@@ -40,7 +47,7 @@
 definePageMeta({
   title: "Sign In",
 });
-const checked = ref("false");
+const checked = ref(false);
 </script>
 
 <style scoped lang="scss">

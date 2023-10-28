@@ -1,22 +1,28 @@
+<script setup lang="ts">
+definePageMeta({
+  title: "Forgot Password",
+});
+
+const email = ref("");
+</script>
 <template>
   <div>
     <CommonAuthFormSection
-      form-title="Email or Phone?"
-      form-sub-title="We’ll check if you have an account"
+      form-title="Forget Password?"
+      form-sub-title="No Worries, We’ll send you reset instructions"
       form-icon
     >
       <template #innerContent>
         <form>
           <CommonAuthTextInput
-            class="mb-4"
-            type="text"
-            placeholder-text="Email or Phone"
-            @update:text="signInCredential = $event"
+            type="email"
+            class="mb-5"
+            placeholder-text="Enter your emial"
           />
           <Button
             type="submit"
             class="auth-button w-full"
-            :disabled="!signInCredential.length"
+            :disabled="!email.length"
           >
             Continue
           </Button>
@@ -25,15 +31,6 @@
     </CommonAuthFormSection>
   </div>
 </template>
-
-<script setup lang="ts">
-definePageMeta({
-  title: "Sign In Via Email",
-});
-
-const signInCredential = ref("");
-</script>
-
 <style scoped lang="scss">
 .auth-button {
   height: 50px;
