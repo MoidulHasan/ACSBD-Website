@@ -18,6 +18,7 @@ import Rating from "primevue/rating";
 import Calendar from "primevue/calendar";
 import Card from "primevue/card";
 import Galleria from "primevue/galleria";
+import Dropdown from "primevue/dropdown";
 import TabView from "primevue/tabview";
 import TabPanel from "primevue/tabpanel";
 import SelectButton from "primevue/selectbutton";
@@ -44,4 +45,5 @@ export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.component("TabView", TabView);
   nuxtApp.vueApp.component("TabPanel", TabPanel);
   nuxtApp.vueApp.component("SelectButton", SelectButton);
+  nuxtApp.vueApp.component("Dropdown", Dropdown);
 });
