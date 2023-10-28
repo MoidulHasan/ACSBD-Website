@@ -96,30 +96,6 @@ const submitQuestion = () => {
   max-width: 155px;
 }
 
-//:deep(.p-button) {
-//  display: inline-flex;
-//  padding: 12px 48px;
-//  justify-content: center;
-//  align-items: center;
-//  gap: 12px;
-//  background: var(--primary-color-envitect-sam-blue);
-//  border-radius: 6px;
-//  max-width: 155px;
-//}
-
-//:deep(.p-button .p-button-label) {
-//  font-size: 16px;
-//  font-style: normal;
-//  font-weight: 600;
-//  line-height: 24px;
-//  color: var(--primary-color-white);
-//}
-//
-//:deep(.p-button:focus) {
-//  box-shadow: none;
-//  background: var(--primary-color-envitect-sam-blue);
-//}
-
 :deep(.p-inputtext) {
   padding: 16px 24px 16px 24px;
   box-shadow: none;
