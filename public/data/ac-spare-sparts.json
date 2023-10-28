@@ -2,82 +2,581 @@
   {
     "id": 1,
     "name": "Black 1.5 Ton GMCC Rotary Compressor",
-    "image": "images/products/Black-1.5-Ton-GMCC-Rotary-Compressor.png",
-    "rating": 4.5,
-    "price": 59000,
-    "discount_price": 48000,
-    "discount_percentage": 30
+    "description": "A high-efficiency air conditioner from Samsung.",
+    "images": [
+      "images/products/Black-1.5-Ton-GMCC-Rotary-Compressor.png"
+    ],
+    "ratings": {
+      "average": 3.7,
+      "count": 180
+    },
+    "price": {
+      "regular": 75000,
+      "discounted": 64000,
+      "discountPercentage": 20,
+      "currency": "৳"
+    },
+    "category": {
+      "main": "Electronics",
+      "sub": "Air Conditioners"
+    },
+    "brand": "Samsung",
+    "type": "Inverter AC",
+    "model": "ABX 210",
+    "attributes": {
+      "BTU": "18000 BTU",
+      "capacity": "1.5 Ton",
+      "refrigerant": "R410a",
+      "material": "Metal",
+      "compressorType": "Inverter Compressors",
+      "color": "Silver",
+      "outdoorUnitModel": "OU-98765",
+      "acType": "Split AC"
+    },
+    "warranty": {
+      "electricalSpareParts": "3 Years",
+      "compressor": "5 Years",
+      "freeService": "2 Years"
+    },
+    "serviceInfo": {
+      "countryOfOrigin": "South Korea",
+      "countryOfAssemble": "India"
+    },
+    "stock": {
+      "quantity": 60,
+      "inStock": true
+    },
+    "reviews": [
+      {
+        "id": 1,
+        "userId": 123,
+        "rating": 4.9,
+        "text": "Outstanding performance, and it's energy-efficient.",
+        "timestamp": "2023-10-28T09:00:00Z"
+      }
+    ],
+    "timestamp": "2023-10-28T09:00:00Z"
   },
   {
     "id": 2,
     "name": "Black 1.5 Ton GMCC Rotary Compressor",
-    "image": "images/products/Power-factor-correction-capacitor.png",
-    "rating": 4.5,
-    "price": 59000,
-    "discount_price": 48000,
-    "discount_percentage": 30
+    "description": "A high-efficiency air conditioner from Samsung.",
+    "images": [
+      "images/products/Power-factor-correction-capacitor.png"
+    ],
+    "ratings": {
+      "average": 3.7,
+      "count": 180
+    },
+    "price": {
+      "regular": 75000,
+      "discounted": 64000,
+      "discountPercentage": 20,
+      "currency": "৳"
+    },
+    "category": {
+      "main": "Electronics",
+      "sub": "Air Conditioners"
+    },
+    "brand": "Samsung",
+    "type": "Inverter AC",
+    "model": "ABX 210",
+    "attributes": {
+      "BTU": "18000 BTU",
+      "capacity": "1.5 Ton",
+      "refrigerant": "R410a",
+      "material": "Metal",
+      "compressorType": "Inverter Compressors",
+      "color": "Silver",
+      "outdoorUnitModel": "OU-98765",
+      "acType": "Split AC"
+    },
+    "warranty": {
+      "electricalSpareParts": "3 Years",
+      "compressor": "5 Years",
+      "freeService": "2 Years"
+    },
+    "serviceInfo": {
+      "countryOfOrigin": "South Korea",
+      "countryOfAssemble": "India"
+    },
+    "stock": {
+      "quantity": 60,
+      "inStock": true
+    },
+    "reviews": [
+      {
+        "id": 1,
+        "userId": 123,
+        "rating": 4.9,
+        "text": "Outstanding performance, and it's energy-efficient.",
+        "timestamp": "2023-10-28T09:00:00Z"
+      }
+    ],
+    "timestamp": "2023-10-28T09:00:00Z"
   },
   {
     "id": 3,
     "name": "Whirlpool Supreme Cool Inverter 3S Corp INV 1 Ton",
-    "image": "images/products/Round-Copper-Pipes-Thickness-4mm.png",
-    "rating": 4.5,
-    "price": 59000,
-    "discount_price": 48000,
-    "discount_percentage": 30
+    "description": "A high-efficiency air conditioner from Samsung.",
+    "images": [
+      "images/products/Round-Copper-Pipes-Thickness-4mm.png"
+    ],
+    "ratings": {
+      "average": 3.7,
+      "count": 180
+    },
+    "price": {
+      "regular": 75000,
+      "discounted": 64000,
+      "discountPercentage": 20,
+      "currency": "৳"
+    },
+    "category": {
+      "main": "Electronics",
+      "sub": "Air Conditioners"
+    },
+    "brand": "Samsung",
+    "type": "Inverter AC",
+    "model": "ABX 210",
+    "attributes": {
+      "BTU": "18000 BTU",
+      "capacity": "1.5 Ton",
+      "refrigerant": "R410a",
+      "material": "Metal",
+      "compressorType": "Inverter Compressors",
+      "color": "Silver",
+      "outdoorUnitModel": "OU-98765",
+      "acType": "Split AC"
+    },
+    "warranty": {
+      "electricalSpareParts": "3 Years",
+      "compressor": "5 Years",
+      "freeService": "2 Years"
+    },
+    "serviceInfo": {
+      "countryOfOrigin": "South Korea",
+      "countryOfAssemble": "India"
+    },
+    "stock": {
+      "quantity": 60,
+      "inStock": true
+    },
+    "reviews": [
+      {
+        "id": 1,
+        "userId": 123,
+        "rating": 4.9,
+        "text": "Outstanding performance, and it's energy-efficient.",
+        "timestamp": "2023-10-28T09:00:00Z"
+      }
+    ],
+    "timestamp": "2023-10-28T09:00:00Z"
   },
   {
     "id": 4,
     "name": "Vacuum Rotary vane pump Air conditioning",
-    "image": "images/products/Vacuum-Rotary-vane-pump-Air-conditioning.png",
-    "rating": 4.5,
-    "price": 59000,
-    "discount_price": 48000,
-    "discount_percentage": 30
+    "description": "A high-efficiency air conditioner from Samsung.",
+    "images": [
+      "images/products/Vacuum-Rotary-vane-pump-Air-conditioning.png"
+    ],
+    "ratings": {
+      "average": 3.7,
+      "count": 180
+    },
+    "price": {
+      "regular": 75000,
+      "discounted": 64000,
+      "discountPercentage": 20,
+      "currency": "৳"
+    },
+    "category": {
+      "main": "Electronics",
+      "sub": "Air Conditioners"
+    },
+    "brand": "Samsung",
+    "type": "Inverter AC",
+    "model": "ABX 210",
+    "attributes": {
+      "BTU": "18000 BTU",
+      "capacity": "1.5 Ton",
+      "refrigerant": "R410a",
+      "material": "Metal",
+      "compressorType": "Inverter Compressors",
+      "color": "Silver",
+      "outdoorUnitModel": "OU-98765",
+      "acType": "Split AC"
+    },
+    "warranty": {
+      "electricalSpareParts": "3 Years",
+      "compressor": "5 Years",
+      "freeService": "2 Years"
+    },
+    "serviceInfo": {
+      "countryOfOrigin": "South Korea",
+      "countryOfAssemble": "India"
+    },
+    "stock": {
+      "quantity": 60,
+      "inStock": true
+    },
+    "reviews": [
+      {
+        "id": 1,
+        "userId": 123,
+        "rating": 4.9,
+        "text": "Outstanding performance, and it's energy-efficient.",
+        "timestamp": "2023-10-28T09:00:00Z"
+      }
+    ],
+    "timestamp": "2023-10-28T09:00:00Z"
   },
   {
     "id": 5,
     "name": "Midea 1.0 MS-12KBTU Ton Wall Type AC",
-    "image": "images/products/Vacuum-Rotary-vane-pump-Air-conditioning-1.png",
-    "rating": 4.5,
-    "price": 59000,
-    "discount_price": 48000,
-    "discount_percentage": 30
+    "description": "A high-efficiency air conditioner from Samsung.",
+    "images": [
+      "images/products/Vacuum-Rotary-vane-pump-Air-conditioning-1.png"
+    ],
+    "ratings": {
+      "average": 3.7,
+      "count": 180
+    },
+    "price": {
+      "regular": 75000,
+      "discounted": 64000,
+      "discountPercentage": 20,
+      "currency": "৳"
+    },
+    "category": {
+      "main": "Electronics",
+      "sub": "Air Conditioners"
+    },
+    "brand": "Samsung",
+    "type": "Inverter AC",
+    "model": "ABX 210",
+    "attributes": {
+      "BTU": "18000 BTU",
+      "capacity": "1.5 Ton",
+      "refrigerant": "R410a",
+      "material": "Metal",
+      "compressorType": "Inverter Compressors",
+      "color": "Silver",
+      "outdoorUnitModel": "OU-98765",
+      "acType": "Split AC"
+    },
+    "warranty": {
+      "electricalSpareParts": "3 Years",
+      "compressor": "5 Years",
+      "freeService": "2 Years"
+    },
+    "serviceInfo": {
+      "countryOfOrigin": "South Korea",
+      "countryOfAssemble": "India"
+    },
+    "stock": {
+      "quantity": 60,
+      "inStock": true
+    },
+    "reviews": [
+      {
+        "id": 1,
+        "userId": 123,
+        "rating": 4.9,
+        "text": "Outstanding performance, and it's energy-efficient.",
+        "timestamp": "2023-10-28T09:00:00Z"
+      }
+    ],
+    "timestamp": "2023-10-28T09:00:00Z"
   },
   {
     "id": 6,
     "name": "Round Copper Pipes, Thickness: 4 mm",
-    "image": "images/products/R-410A-AC-Refrigerant-Gas.png",
-    "rating": 4.5,
-    "price": 59000,
-    "discount_price": 48000,
-    "discount_percentage": 30
-  },
-  {
-    "id": 7,
-    "name": "Midea R410A DC VRF (VC pro Modular series)",
-    "image": "images/products/Gree-AC-1-ton-GS-12CT-1.png",
-    "rating": 4.5,
-    "price": 59000,
-    "discount_price": 48000,
-    "discount_percentage": 30
+    "description": "A high-efficiency air conditioner from Samsung.",
+    "images": [
+      "images/products/R-410A-AC-Refrigerant-Gas.png"
+    ],
+    "ratings": {
+      "average": 3.7,
+      "count": 180
+    },
+    "price": {
+      "regular": 75000,
+      "discounted": 64000,
+      "discountPercentage": 20,
+      "currency": "৳"
+    },
+    "category": {
+      "main": "Electronics",
+      "sub": "Air Conditioners"
+    },
+    "brand": "Samsung",
+    "type": "Inverter AC",
+    "model": "ABX 210",
+    "attributes": {
+      "BTU": "18000 BTU",
+      "capacity": "1.5 Ton",
+      "refrigerant": "R410a",
+      "material": "Metal",
+      "compressorType": "Inverter Compressors",
+      "color": "Silver",
+      "outdoorUnitModel": "OU-98765",
+      "acType": "Split AC"
+    },
+    "warranty": {
+      "electricalSpareParts": "3 Years",
+      "compressor": "5 Years",
+      "freeService": "2 Years"
+    },
+    "serviceInfo": {
+      "countryOfOrigin": "South Korea",
+      "countryOfAssemble": "India"
+    },
+    "stock": {
+      "quantity": 60,
+      "inStock": true
+    },
+    "reviews": [
+      {
+        "id": 1,
+        "userId": 123,
+        "rating": 4.9,
+        "text": "Outstanding performance, and it's energy-efficient.",
+        "timestamp": "2023-10-28T09:00:00Z"
+      }
+    ],
+    "timestamp": "2023-10-28T09:00:00Z"
   },
   {
     "id": 8,
     "name": "Round Copper Pipes, Thickness: 4 mm",
-    "image": "images/products/Gree-AC-1-ton-GS-12CT-1.png",
-    "rating": 4.5,
-    "price": 59000,
-    "discount_price": 48000,
-    "discount_percentage": 30
+    "description": "A high-efficiency air conditioner from Samsung.",
+    "images": [
+      "images/products/Gree-AC-1-ton-GS-12CT-1.png"
+    ],
+    "ratings": {
+      "average": 3.7,
+      "count": 180
+    },
+    "price": {
+      "regular": 75000,
+      "discounted": 64000,
+      "discountPercentage": 20,
+      "currency": "৳"
+    },
+    "category": {
+      "main": "Electronics",
+      "sub": "Air Conditioners"
+    },
+    "brand": "Samsung",
+    "type": "Inverter AC",
+    "model": "ABX 210",
+    "attributes": {
+      "BTU": "18000 BTU",
+      "capacity": "1.5 Ton",
+      "refrigerant": "R410a",
+      "material": "Metal",
+      "compressorType": "Inverter Compressors",
+      "color": "Silver",
+      "outdoorUnitModel": "OU-98765",
+      "acType": "Split AC"
+    },
+    "warranty": {
+      "electricalSpareParts": "3 Years",
+      "compressor": "5 Years",
+      "freeService": "2 Years"
+    },
+    "serviceInfo": {
+      "countryOfOrigin": "South Korea",
+      "countryOfAssemble": "India"
+    },
+    "stock": {
+      "quantity": 60,
+      "inStock": true
+    },
+    "reviews": [
+      {
+        "id": 1,
+        "userId": 123,
+        "rating": 4.9,
+        "text": "Outstanding performance, and it's energy-efficient.",
+        "timestamp": "2023-10-28T09:00:00Z"
+      }
+    ],
+    "timestamp": "2023-10-28T09:00:00Z"
+  },
+  {
+    "id": 7,
+    "name": "Midea R410A DC VRF (VC pro Modular series)",
+    "description": "A high-efficiency air conditioner from Samsung.",
+    "images": [
+      "images/products/Gree-AC-1-ton-GS-12CT-1.png"
+    ],
+    "ratings": {
+      "average": 3.7,
+      "count": 180
+    },
+    "price": {
+      "regular": 75000,
+      "discounted": 64000,
+      "discountPercentage": 20,
+      "currency": "৳"
+    },
+    "category": {
+      "main": "Electronics",
+      "sub": "Air Conditioners"
+    },
+    "brand": "Samsung",
+    "type": "Inverter AC",
+    "model": "ABX 210",
+    "attributes": {
+      "BTU": "18000 BTU",
+      "capacity": "1.5 Ton",
+      "refrigerant": "R410a",
+      "material": "Metal",
+      "compressorType": "Inverter Compressors",
+      "color": "Silver",
+      "outdoorUnitModel": "OU-98765",
+      "acType": "Split AC"
+    },
+    "warranty": {
+      "electricalSpareParts": "3 Years",
+      "compressor": "5 Years",
+      "freeService": "2 Years"
+    },
+    "serviceInfo": {
+      "countryOfOrigin": "South Korea",
+      "countryOfAssemble": "India"
+    },
+    "stock": {
+      "quantity": 60,
+      "inStock": true
+    },
+    "reviews": [
+      {
+        "id": 1,
+        "userId": 123,
+        "rating": 4.9,
+        "text": "Outstanding performance, and it's energy-efficient.",
+        "timestamp": "2023-10-28T09:00:00Z"
+      }
+    ],
+    "timestamp": "2023-10-28T09:00:00Z"
+  },
+  {
+    "id": 8,
+    "name": "Round Copper Pipes, Thickness: 4 mm",
+    "description": "A high-efficiency air conditioner from Samsung.",
+    "images": [
+      "images/products/Gree-AC-1-ton-GS-12CT-1.png"
+    ],
+    "ratings": {
+      "average": 3.7,
+      "count": 180
+    },
+    "price": {
+      "regular": 75000,
+      "discounted": 64000,
+      "discountPercentage": 20,
+      "currency": "৳"
+    },
+    "category": {
+      "main": "Electronics",
+      "sub": "Air Conditioners"
+    },
+    "brand": "Samsung",
+    "type": "Inverter AC",
+    "model": "ABX 210",
+    "attributes": {
+      "BTU": "18000 BTU",
+      "capacity": "1.5 Ton",
+      "refrigerant": "R410a",
+      "material": "Metal",
+      "compressorType": "Inverter Compressors",
+      "color": "Silver",
+      "outdoorUnitModel": "OU-98765",
+      "acType": "Split AC"
+    },
+    "warranty": {
+      "electricalSpareParts": "3 Years",
+      "compressor": "5 Years",
+      "freeService": "2 Years"
+    },
+    "serviceInfo": {
+      "countryOfOrigin": "South Korea",
+      "countryOfAssemble": "India"
+    },
+    "stock": {
+      "quantity": 60,
+      "inStock": true
+    },
+    "reviews": [
+      {
+        "id": 1,
+        "userId": 123,
+        "rating": 4.9,
+        "text": "Outstanding performance, and it's energy-efficient.",
+        "timestamp": "2023-10-28T09:00:00Z"
+      }
+    ],
+    "timestamp": "2023-10-28T09:00:00Z"
   },
   {
     "id": 9,
     "name": "Midea R410A DC VRF (VC pro Modular series)",
-    "image": "images/products/Gree-AC-1-ton-GS-12CT-1.png",
-    "rating": 4.5,
-    "price": 59000,
-    "discount_price": 48000,
-    "discount_percentage": 30
+    "description": "A high-efficiency air conditioner from Samsung.",
+    "images": [
+      "images/products/Gree-AC-1-ton-GS-12CT-1.png"
+    ],
+    "ratings": {
+      "average": 3.7,
+      "count": 180
+    },
+    "price": {
+      "regular": 75000,
+      "discounted": 64000,
+      "discountPercentage": 20,
+      "currency": "৳"
+    },
+    "category": {
+      "main": "Electronics",
+      "sub": "Air Conditioners"
+    },
+    "brand": "Samsung",
+    "type": "Inverter AC",
+    "model": "ABX 210",
+    "attributes": {
+      "BTU": "18000 BTU",
+      "capacity": "1.5 Ton",
+      "refrigerant": "R410a",
+      "material": "Metal",
+      "compressorType": "Inverter Compressors",
+      "color": "Silver",
+      "outdoorUnitModel": "OU-98765",
+      "acType": "Split AC"
+    },
+    "warranty": {
+      "electricalSpareParts": "3 Years",
+      "compressor": "5 Years",
+      "freeService": "2 Years"
+    },
+    "serviceInfo": {
+      "countryOfOrigin": "South Korea",
+      "countryOfAssemble": "India"
+    },
+    "stock": {
+      "quantity": 60,
+      "inStock": true
+    },
+    "reviews": [
+      {
+        "id": 1,
+        "userId": 123,
+        "rating": 4.9,
+        "text": "Outstanding performance, and it's energy-efficient.",
+        "timestamp": "2023-10-28T09:00:00Z"
+      }
+    ],
+    "timestamp": "2023-10-28T09:00:00Z"
   }
 ]

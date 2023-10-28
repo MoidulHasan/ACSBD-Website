@@ -18,6 +18,7 @@ import { defineNuxtPlugin } from "#app";
 import Calendar from "primevue/calendar";
 import Card from "primevue/card";
 import Galleria from "primevue/galleria";
+import Dropdown from "primevue/dropdown";
 
 export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.use(PrimeVue, { ripple: true });
@@ -40,4 +41,5 @@ export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.component("Checkbox", Checkbox);
   nuxtApp.vueApp.component("Galleria", Galleria);
   nuxtApp.vueApp.component("Card", Card);
+  nuxtApp.vueApp.component("Dropdown", Dropdown);
 });
