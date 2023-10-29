@@ -7,7 +7,7 @@
     >
       <template #innerContent>
         <form @submit.prevent="checkEmail">
-          <CommonAuthTextInput
+          <CommonAuthInputField
             class="mb-4"
             type="text"
             placeholder-text="Email or Phone"

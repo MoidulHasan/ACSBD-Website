@@ -19,12 +19,12 @@ const login = () => {
     >
       <template #innerContent>
         <form @submit.prevent="login">
-          <CommonAuthTextInput
+          <CommonAuthInputField
             class="mb-4"
             placeholder-text="Email or Phone"
             @update:text="email = $event"
           />
-          <CommonAuthTextInput
+          <CommonAuthInputField
             class="password-input"
             placeholder-text="Password"
             :password="true"

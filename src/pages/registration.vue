@@ -31,7 +31,7 @@ const registration = () => {
       <template #innerContent>
         <form class="registration-form" @submit.prevent="registration">
           <div class="mb-4">
-            <CommonAuthTextInput
+            <CommonAuthInputField
               type="email"
               placeholder-text="Enter Email"
               @update:text="email = $event"
@@ -43,7 +43,7 @@ const registration = () => {
               </p>
             </transition>
           </div>
-          <CommonAuthTextInput
+          <CommonAuthInputField
             class="mb-3"
             placeholder-text="Password"
             :password="true"

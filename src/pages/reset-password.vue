@@ -20,7 +20,7 @@ const resetPassword = () => {
     >
       <template #innerContent>
         <form class="reset-password-form" @submit.prevent="resetPassword">
-          <CommonAuthTextInput
+          <CommonAuthInputField
             placeholder-text="Password"
             class="mb-3"
             password
@@ -30,7 +30,7 @@ const resetPassword = () => {
             :password="password"
             @update-strength="strength = $event"
           />
-          <CommonAuthTextInput
+          <CommonAuthInputField
             placeholder-text="Password"
             class="mb-3"
             password

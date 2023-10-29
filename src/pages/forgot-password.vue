@@ -18,7 +18,7 @@ const forgotPassword = () => {
     >
       <template #innerContent>
         <form @submit.prevent="forgotPassword">
-          <CommonAuthTextInput
+          <CommonAuthInputField
             class="mb-5"
             placeholder-text="Enter your email"
             @update:text="email = $event"
