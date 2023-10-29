@@ -1,3 +1,16 @@
+<script setup lang="ts">
+definePageMeta({
+  title: "Sign In",
+});
+const checked = ref(false);
+const email = ref("");
+const passwordValue = ref("");
+
+const login = () => {
+  console.warn("email :", email.value);
+};
+</script>
+
 <template>
   <div>
     <CommonAuthFormSection
@@ -5,16 +18,17 @@
       form-sub-title="Login to your an account"
     >
       <template #innerContent>
-        <form>
-          <InputText
-            class="w-full basic-input mb-4"
-            type="email"
-            placeholder="Email or Phone"
+        <form @submit.prevent="login">
+          <CommonAuthTextInput
+            class="mb-4"
+            placeholder-text="Email or Phone"
+            @update:text="email = $event"
           />
-          <InputText
-            type="password"
-            class="w-full basic-input password"
-            placeholder="Password"
+          <CommonAuthTextInput
+            class="password-input"
+            placeholder-text="Password"
+            :password="true"
+            @update:text="passwordValue = $event"
           />
           <div
             class="utils-container flex align-items-center justify-content-between mb-4"
@@ -32,7 +46,12 @@
               >Reset Password?</NuxtLink
             >
           </div>
-          <Button type="submit" class="auth-button w-full">Log In</Button>
+          <Button
+            type="submit"
+            class="auth-button w-full"
+            :disabled="!(email && passwordValue)"
+            >Log In</Button
+          >
         </form>
         <h2 class="sign-up-text mt-5 text-center">
           Don’t have an account yet?
@@ -43,26 +62,8 @@
   </div>
 </template>
 
-<script setup lang="ts">
-definePageMeta({
-  title: "Sign In",
-});
-const checked = ref(false);
-</script>
-
 <style scoped lang="scss">
-.basic-input {
-  padding: 18px 16px;
-  border-radius: 4px;
-  border: 1px solid #dcdae8;
-  color: #808080;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  box-shadow: none !important;
-}
-.password {
+.password-input {
   margin-bottom: 26px;
 }
 
@@ -93,7 +94,7 @@ const checked = ref(false);
   padding: 14px 16px;
   justify-content: center;
   align-items: center;
-  box-shadow: none;
+  //box-shadow: none;
   gap: 12px;
   background: var(--primary-color-envitect-sam-blue);
   color: var(--primary-color-white);
