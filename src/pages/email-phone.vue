@@ -6,7 +6,7 @@
       form-icon
     >
       <template #innerContent>
-        <form>
+        <form @submit.prevent="checkEmail">
           <CommonAuthTextInput
             class="mb-4"
             type="text"
@@ -16,7 +16,7 @@
           <Button
             type="submit"
             class="auth-button w-full"
-            :disabled="!signInCredential.length"
+            :disabled="!signInCredential"
           >
             Continue
           </Button>
@@ -32,6 +32,10 @@ definePageMeta({
 });
 
 const signInCredential = ref("");
+
+const checkEmail = () => {
+  console.warn("Email", signInCredential.value);
+};
 </script>
 
 <style scoped lang="scss">

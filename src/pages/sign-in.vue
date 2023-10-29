@@ -94,7 +94,6 @@ const login = () => {
   padding: 14px 16px;
   justify-content: center;
   align-items: center;
-  //box-shadow: none;
   gap: 12px;
   background: var(--primary-color-envitect-sam-blue);
   color: var(--primary-color-white);

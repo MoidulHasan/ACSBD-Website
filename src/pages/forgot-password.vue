@@ -4,6 +4,10 @@ definePageMeta({
 });
 
 const email = ref("");
+
+const forgotPassword = () => {
+  console.log("Email:", email.value);
+};
 </script>
 <template>
   <div>
@@ -13,17 +17,13 @@ const email = ref("");
       form-icon
     >
       <template #innerContent>
-        <form>
+        <form @submit.prevent="forgotPassword">
           <CommonAuthTextInput
-            type="email"
             class="mb-5"
-            placeholder-text="Enter your emial"
+            placeholder-text="Enter your email"
+            @update:text="email = $event"
           />
-          <Button
-            type="submit"
-            class="auth-button w-full"
-            :disabled="!email.length"
-          >
+          <Button type="submit" class="auth-button w-full" :disabled="!email">
             Continue
           </Button>
         </form>

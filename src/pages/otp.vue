@@ -6,7 +6,7 @@
       form-icon
     >
       <template #innerContent>
-        <form>
+        <form @submit.prevent="submitOtp">
           <div class="mb-5 text-center">
             <PagesOtpInputBox
               :digit-count="4"
@@ -20,7 +20,6 @@
           >
             Verify Code
           </Button>
-          {{otpValue}}
         </form>
       </template>
     </CommonAuthFormSection>
@@ -34,6 +33,9 @@ definePageMeta({
 
 const otpValue = ref("");
 
+const submitOtp = () => {
+  console.log("OTPCODE: ", otpValue.value);
+};
 </script>
 
 <style scoped lang="scss">
@@ -60,7 +62,6 @@ const otpValue = ref("");
   padding: 14px 16px;
   justify-content: center;
   align-items: center;
-  box-shadow: none;
   gap: 12px;
   background: var(--primary-color-envitect-sam-blue);
   color: var(--primary-color-white);
