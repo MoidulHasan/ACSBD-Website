@@ -5,7 +5,7 @@
         <div
           class="col-12 lg:col-3 flex justify-content-center lg:justify-content-start"
         >
-          <NuxtLink external to="/">
+          <NuxtLink to="/">
             <img alt="ACBD" src="@/assets/images/header/logo_colored.svg" />
           </NuxtLink>
         </div>
@@ -18,7 +18,7 @@
         <div
           class="col-12 lg:col-4 md:align-items-center md:justify-content-center lg:justify-content-end float-right hidden md:flex"
         >
-          <NuxtLink external to="/services">
+          <NuxtLink to="/services">
             <img
               alt="service"
               class="mr-3"
@@ -66,7 +66,6 @@
               ref="menuToggle"
               :class="[{ 'lg:hidden menuToggle': true }]"
               class="flex flex-column align-items-center justify-content-center"
-              external
               @click="toggleMenu"
             >
               <img
@@ -78,7 +77,6 @@
             </NuxtLink>
             <NuxtLink
               class="flex flex-column align-items-center justify-content-center"
-              external
             >
               <img
                 alt="three dot"
@@ -89,7 +87,6 @@
             </NuxtLink>
             <NuxtLink
               class="flex flex-column align-items-center justify-content-center"
-              external
             >
               <div class="navbar-content-container flex justify-content-center">
                 <span class="navbar-items-count">2</span>
@@ -103,7 +100,6 @@
             </NuxtLink>
             <NuxtLink
               class="flex flex-column align-items-center justify-content-center"
-              external
             >
               <div class="navbar-content-container flex justify-content-center">
                 <span class="navbar-items-count">2</span>
@@ -118,7 +114,6 @@
 
             <NuxtLink
               class="flex flex-column align-items-center justify-content-center"
-              external
             >
               <img
                 alt="three dot"
@@ -138,7 +133,6 @@
                   active-class="active"
                   class="navLink flex"
                   exact-active-class="active"
-                  external
                   @click="checkNav(navItem.path)"
                 >
                   <span>{{ navItem.title }}</span>
@@ -156,7 +150,6 @@
                       :to="subNavItem.path"
                       active-class="active"
                       class="subMenuLink pb-2 flex gap-3 lg:justify-content-between"
-                      external
                       @click="checkNav(subNavItem.path)"
                     >
                       <span>{{ subNavItem.title }}</span>
@@ -175,7 +168,6 @@
                           :to="multiSubNavItem.path"
                           active-class="active"
                           class="subMenuLink"
-                          external
                           @click="checkNav(multiSubNavItem.path)"
                         >
                           {{ multiSubNavItem.title }}
@@ -190,7 +182,6 @@
                 <NuxtLink
                   active-class="active"
                   class="navLink flex align-items-center justify-content-center"
-                  external
                   to="/"
                 >
                   <div
@@ -210,7 +201,6 @@
                 <NuxtLink
                   active-class="active"
                   class="navLink flex align-items-center justify-content-center"
-                  external
                   to="/"
                 >
                   <div
@@ -231,7 +221,6 @@
                 <NuxtLink
                   active-class="active"
                   class="navLink flex align-items-center justify-content-center"
-                  external
                   to="/"
                 >
                   <img
