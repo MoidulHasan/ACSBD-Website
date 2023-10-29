@@ -19,6 +19,7 @@ import Calendar from "primevue/calendar";
 import Card from "primevue/card";
 import Galleria from "primevue/galleria";
 import Dropdown from "primevue/dropdown";
+import Divider from "primevue/divider";
 
 export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.use(PrimeVue, { ripple: true });
@@ -42,4 +43,5 @@ export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.component("Galleria", Galleria);
   nuxtApp.vueApp.component("Card", Card);
   nuxtApp.vueApp.component("Dropdown", Dropdown);
+  nuxtApp.vueApp.component("Divider", Divider);
 });
