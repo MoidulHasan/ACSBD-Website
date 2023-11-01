@@ -20,6 +20,8 @@ import Card from "primevue/card";
 import Galleria from "primevue/galleria";
 import Dropdown from "primevue/dropdown";
 import Divider from "primevue/divider";
+import DataTable from "primevue/datatable";
+import Column from "primevue/column";
 
 export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.use(PrimeVue, { ripple: true });
@@ -44,4 +46,6 @@ export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.component("Card", Card);
   nuxtApp.vueApp.component("Dropdown", Dropdown);
   nuxtApp.vueApp.component("Divider", Divider);
+  nuxtApp.vueApp.component("DataTable", DataTable);
+  nuxtApp.vueApp.component("Column", Column);
 });

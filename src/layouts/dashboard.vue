@@ -10,7 +10,7 @@
         <div class="col-12 lg:col-4">
           <LayoutsDashboard />
         </div>
-        <div class="col-12 lg:col-8">
+        <div class="col-12 lg:col-8 mb-80px">
           <slot />
         </div>
       </div>
@@ -22,8 +22,7 @@
   </main>
 </template>
 
-<script lang="ts" setup>
-</script>
+<script lang="ts" setup></script>
 
 <style scoped>
 .dashboard-title {

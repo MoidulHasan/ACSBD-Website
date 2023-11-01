@@ -3,29 +3,29 @@ import { getProfile } from "~/app/api/getProfile";
 const { data: profile } = await getProfile();
 
 const navLinks = [
-  { icon: "pi pi-user", title: "My Details", to: "account/my-details" },
-  { icon: "pi pi-shopping-cart", title: "My Orders", to: "account/my-orders" },
+  { icon: "pi pi-user", title: "My Details", to: "/account/my-details" },
+  { icon: "pi pi-shopping-cart", title: "My Orders", to: "/account/my-orders"},
   {
     icon: "pi pi-heart",
     title: "My Wishlist/Favourite",
-    to: "account/my-wishlist",
+    to: "/account/my-wishlist",
   },
   {
     icon: "pi pi-bell",
     title: "My Notifications",
-    to: "account/my-notification",
+    to: "/account/my-notification",
   },
   {
     icon: "pi pi-verified",
     title: "My Promo Code",
-    to: "account/my-promo-code",
+    to: "/account/my-promo-code",
   },
   {
     icon: "pi pi-cog",
     title: "Account Setting",
-    to: "account/account-settings",
+    to: "/account/account-settings",
   },
-  { icon: "pi pi-sign-out", title: "Logout", to: "account/logout" },
+  { icon: "pi pi-sign-out", title: "Logout", to: "/account/logout" },
 ];
 </script>
 
