@@ -67,11 +67,11 @@ section,
 summary {
   margin: 0;
   padding: 0;
-  border: 0;
-  outline: 0;
   font-size: 100%;
-  vertical-align: baseline;
-  background: transparent;
+}
+
+*:focus, :hover {
+  outline: none !important;
 }
 
 /* Set block elements to display as block-level for consistent rendering */
@@ -96,9 +96,10 @@ input,
 select,
 textarea {
   &:focus {
-    outline: 0;
+    outline: none;
   }
 }
+
 
 /* Remove list styles (bullet points) */
 ol,
@@ -138,9 +139,4 @@ body {
 *::before,
 *::after {
   box-sizing: border-box;
-}
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
 }
