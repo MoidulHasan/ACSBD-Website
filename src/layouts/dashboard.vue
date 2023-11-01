@@ -7,10 +7,10 @@
     <div class="container">
       <h1 class="py-5 pl-0 pr-5 font-heading-2 dashboard-title">My Account</h1>
       <div class="grid">
-        <div class="col-12 lg:col-4">
+        <div class="col-12 lg:col-3">
           <LayoutsDashboard />
         </div>
-        <div class="col-12 lg:col-8 mb-80px">
+        <div class="col-12 lg:col-9 mb-80px">
           <slot />
         </div>
       </div>

@@ -12,6 +12,7 @@
 
       <h3 class="product-name">
         {{ name }}
+        {{images[0]}}
       </h3>
 
       <p class="product-price-container">

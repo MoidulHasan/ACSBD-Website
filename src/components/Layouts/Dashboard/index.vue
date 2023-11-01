@@ -55,7 +55,7 @@ const navLinks = [
           <NuxtLink
             class="flex gap-3 align-items-center nav-item w-full font-heading-7 font-medium"
             active-class="active"
-            :to="link.to"
+            :to="link?.to"
           >
             <i :class="[link.icon, 'nav-icon']" />
             <span>{{ link.title }}</span>
