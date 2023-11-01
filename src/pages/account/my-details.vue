@@ -131,7 +131,7 @@ const repeatedCredential = ref("");
           <CommonAuthInputField
             placeholder-text="Password Here"
             password
-            :disabled="passwordEdit"
+            :disabled="!passwordEdit"
             @update:text="oldCredential = $event"
           />
         </div>
@@ -141,7 +141,7 @@ const repeatedCredential = ref("");
             placeholder-text="New Password Here"
             password
             @update:text="newCredential = $event"
-            :disabled="passwordEdit"
+            :disabled="!passwordEdit"
           />
         </div>
         <div class="flex flex-column gap-2 mb-5">
@@ -152,7 +152,7 @@ const repeatedCredential = ref("");
             placeholder-text="Confirm Your Password"
             password
             @update:text="repeatedCredential = $event"
-            :disabled="passwordEdit"
+            :disabled="!passwordEdit"
           />
         </div>
         <Button
@@ -206,9 +206,10 @@ const repeatedCredential = ref("");
   border-bottom: 1px solid #d1d5db !important;
   border-left: 1px solid #d1d5db !important;
 }
-//:deep(.p-calendar-w-btn .p-datepicker-trigger) {
-//  background-color: var(--primary-color-white);
-//  color: var(--dark-gray-80);
-//  border: 1px solid #d1d5db;
-//}
+:deep(.p-calendar-w-btn .p-datepicker-trigger) {
+  background-color: var(--primary-color-white);
+  color: var(--dark-gray-80);
+  border: 1px solid #d1d5db;
+  border-left: none;
+}
 </style>

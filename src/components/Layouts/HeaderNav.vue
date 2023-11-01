@@ -221,7 +221,7 @@
                 <NuxtLink
                   active-class="active"
                   class="navLink flex align-items-center justify-content-center"
-                  to="/"
+                  to="/account/my-details"
                 >
                   <img
                     alt="profile"

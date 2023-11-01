@@ -21,6 +21,7 @@ const toggleOpen = () => {
     <InputText
       v-model="text"
       class="w-full basic-input"
+      :class="{ ' cursor-not-allowed ': disabled }"
       :placeholder="placeholderText"
       :type="password ? (isOpen ? 'text' : 'password') : 'text'"
       @input="updateText"
@@ -51,6 +52,9 @@ const toggleOpen = () => {
     &:focus {
       color: #000;
     }
+  }
+  .cursor-not-allowed {
+    cursor: not-allowed;
   }
   .showIcon {
     width: 24px !important;
