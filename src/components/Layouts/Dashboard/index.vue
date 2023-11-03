@@ -108,8 +108,8 @@ const navLinks = [
       background-color: var(--primary-color-envitect-sam-blue);
       color: var(--primary-color-white);
     }
-    @include media-query(md) {
-      padding: 17px;
+    @include media-query(sm) {
+      padding: 10px 24px;
     }
     .nav-icon {
       width: 20px;
