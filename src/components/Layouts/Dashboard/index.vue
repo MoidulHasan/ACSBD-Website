@@ -23,12 +23,12 @@ const navLinks = [
   { icon: "pi pi-sign-out", title: "Logout" },
 ];
 
-const modalShow = ref(false);
+const visible = ref(false);
 const handleLogOut = (title: string) => {
   console.log("Title", title);
   if (title === "Logout") {
-    modalShow.value = true;
-    console.log(modalShow.value);
+    visible.value = true;
+    console.log(visible.value);
   }
 };
 </script>
@@ -70,13 +70,38 @@ const handleLogOut = (title: string) => {
               <i :class="[link.icon, 'nav-icon']" />
               <span>{{ link.title }}</span>
             </NuxtLink>
-            <Dialog v-model:modalShow="modalShow" modal>
-              <h1>This is to show for logout</h1>
-            </Dialog>
           </li>
         </ul>
       </div>
     </div>
+    <ClientOnly>
+      <Dialog
+        v-model:visible="visible"
+        class="logout-modal"
+        close-on-escape
+        modal
+      >
+        <template #container>
+          <div class="modal-items">
+            <p class="modal-text font-heading-7 font-semibold text-center">
+              Are sou sure, <br />
+              you want to logout?
+            </p>
+            <div class="flex align-items-center gap-3">
+              <Button
+                class="modal-button cancel font-heading-7 font-semibold"
+                @click="visible = false"
+              >
+                Cancel
+              </Button>
+              <Button class="modal-button logout font-heading-7 font-semibold">
+                Logout
+              </Button>
+            </div>
+          </div>
+        </template>
+      </Dialog>
+    </ClientOnly>
   </div>
 </template>
 
@@ -129,6 +154,38 @@ const handleLogOut = (title: string) => {
       width: 20px;
       height: 20px;
     }
+  }
+}
+
+.logout-modal {
+  .modal-items {
+    background-color: #fff;
+    border-radius: 6px;
+    padding: 61px 63px;
+    @include media-query(sm) {
+      padding: 61px 20px;
+      border-radius: 12px;
+    }
+  }
+  .modal-text {
+    color: var(--navy-blue-80);
+    margin-bottom: 40px;
+  }
+  .modal-button {
+    display: inline-flex;
+    padding: 12px 40px;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    border-radius: 6px;
+  }
+  .cancel {
+    background-color: var(--envitect-sam-blue-5);
+    color: var(--primary-color-envitect-sam-blue);
+  }
+  .logout {
+    color: var(--primary-color-white);
+    background-color: var(--primary-color-envitect-sam-blue);
   }
 }
 </style>
