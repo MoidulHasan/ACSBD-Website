@@ -1,4 +1,3 @@
-<!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <div class="container">
     <!-- header  -->
@@ -13,20 +12,23 @@
         class="all-works-tab flex align-items-center justify-content-center mb-32px"
       >
         <button
-          class="button-tab w-235px h-50px border-round-left-sm"
+          class="w-235px h-50px border-none"
+          :class="{'button-tab': active===0}"
           @click="active = 0"
         >
           All Works
         </button>
 
         <button
-          class="button-tab w-235px h-50px border-none"
+          class="w-235px h-50px border-none"
+          :class="{'button-tab': active===1}"
           @click="active = 1"
         >
           Residential
         </button>
         <button
-          class="button-tab w-235px h-50px border-round-right-sm"
+          class="w-235px h-50px border-round-right-sm"
+          :class="{'button-tab': active===2}"
           @click="active = 2"
         >
           commercial
@@ -47,7 +49,7 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { ref } from "vue";
+
 const active = ref(0);
 </script>
 <style lang="scss" scoped></style>
