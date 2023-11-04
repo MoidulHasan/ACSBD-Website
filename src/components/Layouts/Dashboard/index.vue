@@ -4,7 +4,7 @@ const { data: profile } = await getProfile();
 
 const navLinks = [
   { icon: "pi pi-user", title: "My Details", to: "/account/my-details" },
-  { icon: "pi pi-shopping-cart", title: "My Orders", to: "/account/my-orders"},
+  { icon: "pi pi-shopping-cart", title: "My Orders", to: "/account/my-orders" },
   {
     icon: "pi pi-heart",
     title: "My Wishlist/Favourite",
@@ -20,43 +20,62 @@ const navLinks = [
     title: "My Promo Code",
     to: "/account/my-promo-code",
   },
-  { icon: "pi pi-sign-out", title: "Logout", to: "/account/logout" },
+  { icon: "pi pi-sign-out", title: "Logout" },
 ];
+
+const modalShow = ref(false);
+const handleLogOut = (title: string) => {
+  console.log("Title", title);
+  if (title === "Logout") {
+    modalShow.value = true;
+    console.log(modalShow.value);
+  }
+};
 </script>
 
 <template>
-  <div class="dashboard py-5">
-    <div class="profile-info flex flex-column align-items-center">
-      <div class="profile-image-container relative mb-12px">
-        <img class="profile-image" :src="profile?.image" :alt="profile?.name" />
-        <div>
+  <div>
+    <div class="dashboard py-5">
+      <div class="profile-info flex flex-column align-items-center">
+        <div class="profile-image-container relative mb-12px">
           <img
-            class="edit-image"
-            src="~/assets/images/imgEditIcon.svg"
-            alt="change profile picture"
+            class="profile-image"
+            :src="profile?.image"
+            :alt="profile?.name"
           />
+          <div>
+            <img
+              class="edit-image"
+              src="~/assets/images/imgEditIcon.svg"
+              alt="change profile picture"
+            />
+          </div>
         </div>
+        <h2 class="profile-name font-heading-6 mb-4px">{{ profile?.name }}</h2>
+        <h3 class="profile-title font-heading-7">{{ profile?.title }}</h3>
       </div>
-      <h2 class="profile-name font-heading-6 mb-4px">{{ profile?.name }}</h2>
-      <h3 class="profile-title font-heading-7">{{ profile?.title }}</h3>
-    </div>
-    <div class="pages-link">
-      <ul>
-        <li
-          v-for="link in navLinks"
-          :key="link.title"
-          class="w-full text-center"
-        >
-          <NuxtLink
-            class="flex gap-3 align-items-center nav-item w-full font-heading-7 font-medium"
-            active-class="active"
-            :to="link?.to"
+      <div class="pages-link">
+        <ul>
+          <li
+            v-for="link in navLinks"
+            :key="link.title"
+            class="w-full text-center"
           >
-            <i :class="[link.icon, 'nav-icon']" />
-            <span>{{ link.title }}</span>
-          </NuxtLink>
-        </li>
-      </ul>
+            <NuxtLink
+              class="flex gap-3 align-items-center nav-item w-full font-heading-7 font-medium cursor-pointer"
+              active-class="active"
+              :to="link?.to"
+              @click="handleLogOut(link.title)"
+            >
+              <i :class="[link.icon, 'nav-icon']" />
+              <span>{{ link.title }}</span>
+            </NuxtLink>
+            <Dialog v-model:modalShow="modalShow" modal>
+              <h1>This is to show for logout</h1>
+            </Dialog>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </template>

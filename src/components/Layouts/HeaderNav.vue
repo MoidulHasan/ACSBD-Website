@@ -448,7 +448,7 @@ nav .menu {
   width: 25px;
   padding-left: 0.6rem;
   display: flex;
-  justify-contet: center;
+  justify-content: center;
   align-items: center;
   transition: 0.5s;
 }

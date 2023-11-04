@@ -22,6 +22,7 @@ import Dropdown from "primevue/dropdown";
 import Divider from "primevue/divider";
 import DataTable from "primevue/datatable";
 import Column from "primevue/column";
+import Dialog from "primevue/dialog";
 
 export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.use(PrimeVue, { ripple: true });
@@ -48,4 +49,5 @@ export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.component("Divider", Divider);
   nuxtApp.vueApp.component("DataTable", DataTable);
   nuxtApp.vueApp.component("Column", Column);
+  nuxtApp.vueApp.component("Dialog", Dialog);
 });

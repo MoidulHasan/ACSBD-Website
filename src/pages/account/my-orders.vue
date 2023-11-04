@@ -99,14 +99,21 @@ const showActionByClick = () => {
             </h2>
           </template>
         </Column>
-        <Column header="Action">
+        <Column header="Action" class="cursor-pointer">
           <template #body="slotProps">
-            <span class="cursor-pointer" @click="showActionByClick">
+            <p class="" @click="showActionByClick">
               <i
                 class="pi pi-ellipsis-h action-button"
                 style="font-size: 2rem"
               ></i>
-            </span>
+            </p>
+            <div class="other-actions">
+              <ul class="other-actions-list">
+                <li class="action font-heading-7 mb-2">Reorder</li>
+                <li class="action font-heading-7 mb-2">View Order</li>
+                <li class="action font-heading-7">Cancel Order</li>
+              </ul>
+            </div>
           </template>
         </Column>
       </DataTable>
@@ -149,12 +156,25 @@ const showActionByClick = () => {
             </li>
             <li class="flex align-items-center order-item-list">
               <p class="order-item-title heading-7 mr-12px">Action</p>
-              <p class="cursor-pointer" @click="showActionByClick">
-                <i
-                  class="pi pi-ellipsis-h action-button"
-                  style="font-size: 2rem"
-                ></i>
-              </p>
+              <div class="mobile-action-container">
+                <p
+                  class="cursor-pointer action-pointer"
+                  @click="showActionByClick"
+                >
+                  <i
+                    class="pi pi-ellipsis-h action-button"
+                    style="font-size: 2rem"
+                  ></i>
+                </p>
+                <div class="other-actions">
+                  <ul class="other-actions-list">
+                    <li class="action font-heading-7 mb-2">Reorder</li>
+                    <li class="action font-heading-7 mb-2">View Order</li>
+                    <li class="action font-heading-7">Cancel Order</li>
+                  </ul>
+                </div>
+              </div>
+
             </li>
           </ul>
         </div>
@@ -218,9 +238,55 @@ const showActionByClick = () => {
   .order-item-title {
     min-width: 86px;
   }
+
   .action-button {
-    width: 24px;
     color: #a5aec2 !important;
+  }
+
+  .other-actions {
+    display: none;
+    animation: fadeInOut 1s ease;
+    position: absolute;
+    right: 0;
+    background-color: var(--primary-color-white);
+    box-shadow: 0px -2px 12px rgba(202, 202, 202, 0.25);
+    padding: 16px;
+    @include media-query(sm) {
+      top: 40px;
+      left: -100px;
+      min-width: 145px;
+    }
+  }
+
+  .action {
+    color: var(--dark-gray-80);
+  }
+
+  .other-actions:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: -10px;
+    right: 0;
+    margin: 0 auto;
+    width: 0;
+    height: 0;
+    border-bottom: 10px solid var(--primary-color-white);
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+
+    @include media-query(sm) {
+      margin: 0 90px;
+    }
+  }
+
+  .mobile-action-container {
+    position: relative;
+  }
+  .cursor-pointer:hover + .other-actions {
+    display: block;
+    transition: 1s;
+    animation: fadeInOut 1s ease;
   }
 
   .mobile-divider {
@@ -261,5 +327,21 @@ const showActionByClick = () => {
   border-radius: 4px;
   border-top: 16px solid var(--product-Front-color);
   padding: 16px !important;
+}
+
+:deep(
+    .p-datatable
+      .p-datatable-tbody
+      > tr
+      > td.cursor-pointer:hover
+      .other-actions
+  ) {
+  display: block;
+  animation: fadeInOut 1s ease;
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translateY(10px); } // Initial state
+  100% { opacity: 1; transform: translateY(0); } // Final state
 }
 </style>
