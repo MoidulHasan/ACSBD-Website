@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <div class="grid w-full mt-3">
     <div class="grid col-12">
