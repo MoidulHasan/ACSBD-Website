@@ -20,11 +20,6 @@ const navLinks = [
     title: "My Promo Code",
     to: "/account/my-promo-code",
   },
-  {
-    icon: "pi pi-cog",
-    title: "Account Setting",
-    to: "/account/account-settings",
-  },
   { icon: "pi pi-sign-out", title: "Logout", to: "/account/logout" },
 ];
 </script>
