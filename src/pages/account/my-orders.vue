@@ -249,7 +249,9 @@ const showActionByClick = () => {
     right: 0;
     background-color: var(--primary-color-white);
     box-shadow: 0px -2px 12px rgba(202, 202, 202, 0.25);
+    border: 1px solid #F5F5F5;
     padding: 16px;
+    border-radius: 4px;
     @include media-query(sm) {
       top: 40px;
       left: -100px;
