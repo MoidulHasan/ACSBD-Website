@@ -1,6 +1,6 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
-  <div class="container bg-color-product-bg">
+  <div class="container">
     <div class="grid w-full mt-3">
       <div class="grid col-12 w-full">
         <div class="col-12 lg:col-6">
