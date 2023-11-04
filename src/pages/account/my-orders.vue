@@ -174,7 +174,6 @@ const showActionByClick = () => {
                   </ul>
                 </div>
               </div>
-
             </li>
           </ul>
         </div>
@@ -245,7 +244,7 @@ const showActionByClick = () => {
 
   .other-actions {
     display: none;
-    animation: fadeInOut 1s ease;
+    animation: fadeInOut 0.7s ease;
     position: absolute;
     right: 0;
     background-color: var(--primary-color-white);
@@ -272,8 +271,8 @@ const showActionByClick = () => {
     width: 0;
     height: 0;
     border-bottom: 10px solid var(--primary-color-white);
-    border-left: 20px solid transparent;
-    border-right: 20px solid transparent;
+    border-left: 18px solid transparent;
+    border-right: 18px solid transparent;
 
     @include media-query(sm) {
       margin: 0 90px;
@@ -285,8 +284,8 @@ const showActionByClick = () => {
   }
   .cursor-pointer:hover + .other-actions {
     display: block;
-    transition: 1s;
-    animation: fadeInOut 1s ease;
+    transition: 0.7s;
+    animation: fadeInOut 0.7s ease;
   }
 
   .mobile-divider {
@@ -337,11 +336,17 @@ const showActionByClick = () => {
       .other-actions
   ) {
   display: block;
-  animation: fadeInOut 1s ease;
+  animation: fadeInOut 0.7s ease;
 }
 
 @keyframes fadeInOut {
-  0% { opacity: 0; transform: translateY(10px); } // Initial state
-  100% { opacity: 1; transform: translateY(0); } // Final state
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  } // Initial state
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  } // Final state
 }
 </style>
