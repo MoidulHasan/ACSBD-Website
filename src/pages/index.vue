@@ -42,6 +42,7 @@
 definePageMeta({
   title: "Home",
   layout: "default",
+  name: "home-page",
 });
 </script>
 
