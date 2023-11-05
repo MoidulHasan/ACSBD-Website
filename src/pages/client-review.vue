@@ -31,6 +31,7 @@ import { getCoustomersReview } from "~/app/api/customers-review";
 
 definePageMeta({
   title: "Client Reviews",
+  name: "client-reviews",
 });
 
 const { data: clientReviews } = await getCoustomersReview();
