@@ -3,7 +3,7 @@
     <div class="first-row">
       <div
         ref="firstRowHeader"
-        class="flex flex-column lg:flex-row container align-items-center justify-content-between py-3 md:py-4 gap-3 md:gap-4"
+        class="flex flex-column md:flex-row container align-items-center justify-content-between py-3 md:py-4 gap-3 md:gap-4"
       >
         <!-- main logo-->
         <div
@@ -50,27 +50,30 @@
           <NuxtLink to="/services">
             <img
               alt="service"
-              class="mr-3 flex align-items-center"
+              class="mr-2 lg:mr-3 flex align-items-center service-image"
               src="@/assets/images/header/service.svg"
             />
           </NuxtLink>
           <div>
-            <p class="flex align-items-center">
+            <NuxtLink href="tel:09613755755" class="flex align-items-center">
               <img
                 alt="phone"
                 class="inline-block mr-1 contact-img"
                 src="@/assets/images/header/phoneIcon.svg"
               />
               <span class="contact-info">09613 755755</span>
-            </p>
-            <p class="flex align-items-center">
+            </NuxtLink>
+            <NuxtLink
+              href="mailto:info@acsevice.com"
+              class="flex align-items-center cursor-pointer"
+            >
               <img
                 alt="mail"
                 class="inline-block mr-1 contact-img"
                 src="@/assets/images/header/mail.svg"
               />
               <span class="contact-info">info@acsevice.com</span>
-            </p>
+            </NuxtLink>
           </div>
         </div>
       </div>
@@ -424,6 +427,15 @@ const toggleSeachShow = () => {
 .second-row {
   border-bottom: 0.1rem solid var(--navy-blue-10);
 }
+
+.home-logo {
+  max-width: 252px;
+
+  @include media-query(lg) {
+    max-width: 166.4px !important;
+  }
+}
+
 .headerSearchBar {
   max-width: 582px !important;
 }
@@ -431,18 +443,16 @@ const toggleSeachShow = () => {
   @include media-query(sm) {
     max-height: 32px;
   }
+  @include media-query(lg) {
+    max-height: 32px;
+  }
 }
 :deep(.p-inputgroup .p-button) {
   @include media-query(sm) {
     max-height: 32px;
   }
-}
-
-.home-logo {
-  max-width: 252px;
-
-  @include media-query(sm) {
-    max-width: 166.4px !important;
+  @include media-query(lg) {
+    max-height: 32px;
   }
 }
 
@@ -462,12 +472,32 @@ const toggleSeachShow = () => {
   padding: 14px 29px;
 }
 
+.service-image {
+  @include media-query(lg) {
+    max-height: 40px;
+    max-width: 100px;
+  }
+}
+
+.contact-img {
+  @include media-query(lg) {
+    max-height: 17px;
+  }
+}
+
 .contact-info {
   font-size: 16px;
   font-style: normal;
   font-weight: 600;
   line-height: 24px;
   color: var(--primary-color-dark-gray);
+
+  @include media-query(lg) {
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 16px;
+  }
 }
 
 ul {
