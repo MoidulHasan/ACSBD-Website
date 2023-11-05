@@ -15,7 +15,12 @@ export default defineNuxtConfig({
 
   devtools: { enabled: true },
 
-  modules: ["@nuxt/image", "@nuxtjs/eslint-module", "@vueuse/nuxt"],
+  modules: [
+    "@nuxt/image",
+    "@nuxtjs/eslint-module",
+    "@vueuse/nuxt",
+    "@pinia/nuxt",
+  ],
 
   css: [
     "primevue/resources/themes/lara-light-blue/theme.css",
