@@ -15,6 +15,7 @@ const { data: brands } = await getBrands();
     >
       <div
         v-for="brand in brands"
+        :key="brand.title"
         class="single-brand bg-envitect-sam-blue-5 border-envitect-sam-blue-20 text-center flex align-items-center justify-content-center flex-wrap"
       >
         <img :src="brand.img" :alt="brand.title" />
