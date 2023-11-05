@@ -67,3 +67,10 @@ $spacing-values: 4px, 8px, 12px, 13px, 16px, 18px, 20px, 24px, 32px, 40px, 48px,
     padding: #{$spacing};
   }
 }
+
+
+@each $spacing in $spacing-values {
+  .gap-#{$spacing} {
+    gap: #{$spacing};
+  }
+}
