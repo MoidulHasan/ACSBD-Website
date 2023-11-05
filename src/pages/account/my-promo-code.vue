@@ -3,6 +3,7 @@ definePageMeta({
   layout: "dashboard",
   title: "My Promo-codes",
 });
+const promoCode = ref(null);
 </script>
 
 <template>
@@ -19,8 +20,13 @@ definePageMeta({
       class="promo-code-list-container flex align-items-center justify-content-between flex-wrap flex-column md:flex-row"
     >
       <div class="flex align-items-center justify-content-center mb-5 md:mb-0">
-        <i class="pi pi-copy copy-icon" />
-        <h2 class="font-heading-3 promo-code ml-4">AC1258AP</h2>
+        <i class="pi pi-copy copy-icon cursor-pointer" />
+        <h2
+          ref="promoCode"
+          class="font-heading-3 promo-code ml-4"
+        >
+          AC1258AP
+        </h2>
       </div>
       <div class="social-medias flex align-items-center flex-wrap">
         <p class="font-header-7 font-semibold social-media-title">
