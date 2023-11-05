@@ -18,14 +18,17 @@
 </template>
 
 <script lang="ts" setup>
+const router = useRouter();
+const { breadcrumbs } = useBreadcrumbs();
 const { width } = useWindowSize();
 
-const { breadcrumbs } = useBreadcrumbs();
-
-const router = useRouter();
-
 const hideBreadCrumb = computed(() => {
-  return router.currentRoute.value.fullPath === "/" || width.value <= 768;
+  return (
+    router.currentRoute.value.fullPath === "/" ||
+    breadcrumbs.value.length === 1 ||
+    width.value <= 768 ||
+    !breadcrumbs.value[breadcrumbs.value.length - 1]?.title
+  );
 });
 </script>
 
