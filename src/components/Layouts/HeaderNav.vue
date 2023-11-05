@@ -282,7 +282,7 @@ const navMenues: Array<menus> = [
   },
   {
     title: "Products",
-    path: "",
+    path: "/products",
     submenu: [
       {
         title: "Air Conditioner",
