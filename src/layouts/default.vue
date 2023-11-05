@@ -27,7 +27,8 @@ const hideBreadCrumb = computed(() => {
     router.currentRoute.value.fullPath === "/" ||
     breadcrumbs.value.length === 1 ||
     width.value <= 768 ||
-    !breadcrumbs.value[breadcrumbs.value.length - 1]?.title
+    !breadcrumbs.value[breadcrumbs.value.length - 1]?.title ||
+    !router.currentRoute.value.name
   );
 });
 </script>
