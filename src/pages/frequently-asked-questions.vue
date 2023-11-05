@@ -28,6 +28,7 @@ import type { FAQSection } from "~/contracts/api-contracts/faqData";
 
 definePageMeta({
   title: "Frequently Asked Questions",
+  name: "frequently-asked-questions",
 });
 
 const { data: allFaqData } = await getFAQData();

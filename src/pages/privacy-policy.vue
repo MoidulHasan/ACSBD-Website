@@ -112,5 +112,6 @@
 <script lang="ts" setup>
 definePageMeta({
   title: "Privacy Policy",
+  name: "privacy-policy",
 });
 </script>
