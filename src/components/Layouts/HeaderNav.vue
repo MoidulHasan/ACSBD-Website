@@ -3,7 +3,7 @@
     <div class="first-row">
       <div
         ref="firstRowHeader"
-        class="grid container align-items-center justify-between py-4"
+        class="grid container align-items-center justify-between md:py-4"
       >
         <!-- main logo-->
         <div
@@ -27,8 +27,8 @@
           </div>
         </div>
         <!--        search bar -->
-        <div v-if="showSearchBar" class="col-12 md:col-12 lg:col-5">
-          <div class="p-inputgroup flex-1">
+        <div v-if="showSearchBar" class="col-12 md:col-12 lg:col-5 mb-3 md:mb-0">
+          <div class="p-inputgroup flex-1 flex-wrap">
             <InputText placeholder="Search Product" />
             <Button class="search-button" icon="pi pi-search" />
           </div>
@@ -40,7 +40,7 @@
           <NuxtLink to="/services">
             <img
               alt="service"
-              class="mr-3"
+              class="mr-3 flex align-items-center"
               src="@/assets/images/header/service.svg"
             />
           </NuxtLink>
@@ -66,21 +66,11 @@
       </div>
     </div>
     <div class="second-row">
-      <div class="navbar">
-        <nav :class="{ active: show }">
+      <div class="navbar px-0 md:px-3">
+        <nav :class="{ active: show }" class="">
           <div
-            class="mobileMenu flex justify-content-between container lg:hidden"
+            class="mobileMenu flex flex-wrap justify-content-between container md:hidden"
           >
-            <!--            <input id="check" type="checkbox" name="check" class="hidden" />-->
-            <!--            <label-->
-            <!--              ref="menuToggle"-->
-            <!--              :class="[{ 'lg:hidden menuToggle': true }]"-->
-            <!--              @click="toggleMenu"-->
-            <!--            >-->
-            <!--              <i v-html="menuSvg"></i>-->
-            <!--            </label>-->
-            <!--            <label class="lg:hidden"> <i v-html="callSvg"></i></label> -->
-
             <NuxtLink
               ref="menuToggle"
               :class="[{ 'lg:hidden menuToggle': true }]"
@@ -417,7 +407,8 @@ const toggleSeachShow = () => {
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+@use "assets/styles/scss/base/mixins" as *;
 .first-row {
   border-bottom: 0.1rem solid var(--navy-blue-10);
 }
@@ -486,6 +477,12 @@ nav .menu {
   display: block;
   text-transform: capitalize;
   padding: 0.625rem 3rem 0.625rem 0;
+  @include media-query(xxl) {
+    padding: 0.625rem 1.5rem 0.625rem 0;
+  }
+  @include media-query(xl) {
+    padding: 0.625rem 1.5rem 0.625rem 0;
+  }
 }
 
 .menu .navLink:hover,
@@ -512,10 +509,21 @@ nav .menu {
 nav ul li.right {
   float: right;
   margin-right: 0;
+  @include media-query(xl) {
+    float: right;
+    margin-right: 0;
+  }
 }
 
 nav ul li.right .navLink {
   padding: 0.625rem 0 0.625rem 3rem;
+  @include media-query(xxl) {
+    padding: 0.625rem 0 0.625rem 1.5rem;
+  }
+  @include media-query(xl) {
+    padding: 0.625rem 0 0.625rem 1.5rem;
+  }
+
 }
 
 .submenu {
@@ -665,7 +673,7 @@ nav ul li.right .navLink {
   }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 768px) {
   .headerContainer {
     position: relative;
   }
@@ -678,7 +686,7 @@ nav ul li.right .navLink {
     position: fixed;
     bottom: 0;
     width: 100%;
-    z-index: 1;
+    z-index: 11;
     /* for overlaping customer review */
   }
 
@@ -730,6 +738,7 @@ nav ul li.right .navLink {
     border-radius: 1.25rem 1.25rem 0 0;
     padding: 1rem 1rem 2rem 1rem;
     animation: slidedown 0.4s ease;
+
   }
 
   nav.active .menu-box {
