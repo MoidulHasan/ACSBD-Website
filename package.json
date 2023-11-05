@@ -31,6 +31,8 @@
     "typescript": "^5.2.2"
   },
   "dependencies": {
-    "@nuxt/image": "1.0.0"
+    "@nuxt/image": "1.0.0",
+    "@pinia/nuxt": "^0.5.1",
+    "pinia": "^2.1.7"
   }
 }
