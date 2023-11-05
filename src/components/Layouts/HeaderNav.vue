@@ -3,16 +3,20 @@
     <div class="first-row">
       <div
         ref="firstRowHeader"
-        class="grid container align-items-center justify-between md:py-4"
+        class="flex flex-column lg:flex-row container align-items-center justify-content-between py-3 md:py-4 gap-3 md:gap-4"
       >
         <!-- main logo-->
         <div
-          class="col-12 lg:col-3 flex align-items-center justify-content-between lg:justify-content-start"
+          class="flex align-items-center justify-content-between lg:justify-content-start w-full md:w-auto"
         >
-          <NuxtLink to="/">
-            <img alt="ACBD" src="@/assets/images/header/logo_colored.svg" />
+          <NuxtLink class="home-logo-link" to="/">
+            <img
+              class="home-logo"
+              alt="ACBD"
+              src="@/assets/images/header/logo_colored.svg"
+            />
           </NuxtLink>
-          <div class="block lg:hidden icons-holder">
+          <div class="block md:hidden icons-holder">
             <img
               v-if="!showSearchBar"
               src="@/assets/images/icons/search_icon_with_frame.svg"
@@ -27,15 +31,21 @@
           </div>
         </div>
         <!--        search bar -->
-        <div v-if="showSearchBar" class="col-12 md:col-12 lg:col-5 mb-3 md:mb-0">
-          <div class="p-inputgroup flex-1 flex-wrap">
-            <InputText placeholder="Search Product" />
-            <Button class="search-button" icon="pi pi-search" />
+        <transition name="searchFade">
+          <div
+            v-if="showSearchBar"
+            class="md:mb-0 flex-1 headerSearchBar w-full"
+          >
+            <div class="p-inputgroup flex-1 flex-wrap w-full">
+              <InputText placeholder="Search Product" />
+              <Button class="search-button" icon="pi pi-search" />
+            </div>
           </div>
-        </div>
+        </transition>
+
         <!--        contact info-->
         <div
-          class="col-12 lg:col-4 md:align-items-center md:justify-content-center lg:justify-content-end float-right hidden md:flex"
+          class="md:align-items-center md:justify-content-center lg:justify-content-end float-right hidden md:flex"
         >
           <NuxtLink to="/services">
             <img
@@ -66,7 +76,7 @@
       </div>
     </div>
     <div class="second-row">
-      <div class="navbar px-0 md:px-3">
+      <div class="navbar px-0 md:px-3 md:flex md:flex-wrap">
         <nav :class="{ active: show }" class="">
           <div
             class="mobileMenu flex flex-wrap justify-content-between container md:hidden"
@@ -133,7 +143,7 @@
             </NuxtLink>
           </div>
           <!--          here transition can be added  -->
-          <div class="relative menu-box">
+          <div class="relative menu-box lg:flex lg:flex-wrap">
             <div class="overlap" @click="toggleMenu"></div>
             <ul class="menu container lg:mx-auto">
               <li v-for="navItem in navMenues" :key="navItem.title">
@@ -390,12 +400,10 @@ const checkNav = (path: string): void => {
   }
 };
 
-
-
 watch(
   () => width.value,
   () => {
-    if (width.value <= 992) {
+    if (width.value <= 768) {
       showSearchBar.value = false;
       return;
     }
@@ -415,6 +423,27 @@ const toggleSeachShow = () => {
 
 .second-row {
   border-bottom: 0.1rem solid var(--navy-blue-10);
+}
+.headerSearchBar {
+  max-width: 582px !important;
+}
+:deep(.p-inputgroup .p-inputtext) {
+  @include media-query(sm) {
+    max-height: 32px;
+  }
+}
+:deep(.p-inputgroup .p-button) {
+  @include media-query(sm) {
+    max-height: 32px;
+  }
+}
+
+.home-logo {
+  max-width: 252px;
+
+  @include media-query(sm) {
+    max-width: 166.4px !important;
+  }
 }
 
 .cross-search {
@@ -481,7 +510,10 @@ nav .menu {
     padding: 0.625rem 1.5rem 0.625rem 0;
   }
   @include media-query(xl) {
-    padding: 0.625rem 1.5rem 0.625rem 0;
+    padding: 0.4rem 1.2rem 0.4rem 0;
+  }
+  @include media-query(lg) {
+    padding: 0 1.4rem;
   }
 }
 
@@ -521,9 +553,11 @@ nav ul li.right .navLink {
     padding: 0.625rem 0 0.625rem 1.5rem;
   }
   @include media-query(xl) {
-    padding: 0.625rem 0 0.625rem 1.5rem;
+    padding: 0.4rem 0.5rem 0.4rem 0;
   }
-
+  @include media-query(lg) {
+    padding: 0 1.4rem;
+  }
 }
 
 .submenu {
@@ -731,14 +765,13 @@ nav ul li.right .navLink {
     display: none;
     width: 100%;
     position: fixed;
-    height: calc(100vh - 10rem - 3.27375rem);
+    height: calc(100vh - 4rem);
     overflow-y: scroll;
     background: var(--primary-color-envitect-sam-blue) !important;
-    top: 10rem;
+    top: 4.5rem;
     border-radius: 1.25rem 1.25rem 0 0;
     padding: 1rem 1rem 2rem 1rem;
     animation: slidedown 0.4s ease;
-
   }
 
   nav.active .menu-box {
@@ -834,5 +867,15 @@ nav ul li.right .navLink {
   .submenu2 .subMenuLink {
     color: var(--primary-color-dark-gray);
   }
+}
+
+.searchFade-enter-active,
+.searchFade-leave-active {
+  transition: all 0.5s ease-in-out;
+}
+
+.searchFade-enter-from,
+.searchFade-leave-to {
+  opacity: 0;
 }
 </style>
