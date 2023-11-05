@@ -11,7 +11,7 @@
               ? 'text-primary-color-dark-gray'
               : 'text-primary-color-envitect-sam-blue',
           ]"
-          :to="breadcrumb.name ? { name: breadcrumb.name } : breadcrumb.path"
+          :to="breadcrumb.name ? { name: breadcrumb?.name } : breadcrumb.path"
         >
           <i v-if="index !== 0" class="pi pi-angle-double-right mx-8px" />
           <span>
