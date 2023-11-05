@@ -16,7 +16,7 @@
         <img
           alt="call"
           class="h-18px md:h-24px w-18px md:w-24px"
-          src="/images/call 1.png"
+          src="~/assets/images/icons/phone.png"
         />
       </div>
       <div
@@ -32,7 +32,7 @@
         <img
           alt="email"
           class="h-18px md:h-24px w-18px md:w-24px"
-          src="/images/email 1.png"
+          src="~/assets/images/icons/email.png"
         />
       </div>
       <div
@@ -48,7 +48,7 @@
         <img
           alt="email"
           class="h-18px md:h-24px w-18px md:w-24px"
-          src="/images/map.png"
+          src="~/assets/images/icons/map.png"
         />
       </div>
       <div
