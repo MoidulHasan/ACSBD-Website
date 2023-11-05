@@ -1,7 +1,7 @@
 <template>
   <div class="notfound">
     <img alt="" src="/images/404-Not-found.png" />
-    <h3 class="text-blue-800 text-2xl font-semibold">
+    <h3 class="font-heading-3">
       Opps! The page you requested not found!
     </h3>
     <NuxtLink class="back-button text-semi-bold-1" to="/">
