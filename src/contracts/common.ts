@@ -1,3 +1,9 @@
+export interface BreadCrumb {
+  path: string;
+  name?: string;
+  title?: string;
+}
+
 export interface Product {
   id: number;
   name: string;
