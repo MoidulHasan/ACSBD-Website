@@ -4,7 +4,9 @@
     <h3 class="text-blue-800 text-2xl font-semibold">
       Opps! The page you requested not found!
     </h3>
-    <NuxtLink class="back-button" to="/"> Back to home</NuxtLink>
+    <NuxtLink class="back-button text-semi-bold-1" to="/">
+      Back to home
+    </NuxtLink>
   </div>
 </template>
 <script lang="ts" setup></script>
@@ -22,6 +24,7 @@
 
   h3 {
     color: var(--primary-color-navy-blue);
+    margin-top: 40px;
   }
 
   .back-button {
