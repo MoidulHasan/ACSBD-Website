@@ -151,11 +151,17 @@
             <ul class="menu container lg:mx-auto">
               <li v-for="navItem in navMenues" :key="navItem.title">
                 <NuxtLink
-                  :to="navItem.path"
+                  :to="
+                    mobileScreen
+                      ? navItem.submenu
+                        ? ''
+                        : navItem.path
+                      : navItem.path
+                  "
                   active-class="active"
                   class="navLink flex"
                   exact-active-class="active"
-                  @click="checkNav(navItem.path)"
+                  @click="checkNav(navItem.path, navItem.submenu?.length > 0)"
                 >
                   <span>{{ navItem.title }}</span>
                   <i
@@ -390,15 +396,17 @@ const navMenues: Array<menus> = [
 const show = ref(false);
 const firstRowHeader = ref(null);
 const showSearchBar = ref(true);
+const mobileScreen = ref(false);
 
 const { width } = useWindowSize();
 
 const toggleMenu = () => {
   show.value = !show.value;
+  console.log(show.value, "menu toggled");
 };
 
-const checkNav = (path: string): void => {
-  if (path !== "") {
+const checkNav = (path: string, subMenu: boolean = false): void => {
+  if (path !== "" && !subMenu) {
     toggleMenu();
   }
 };
@@ -408,9 +416,11 @@ watch(
   () => {
     if (width.value <= 768) {
       showSearchBar.value = false;
+      mobileScreen.value = true;
       return;
     }
     showSearchBar.value = true;
+    mobileScreen.value = false;
   },
 );
 const toggleSeachShow = () => {
