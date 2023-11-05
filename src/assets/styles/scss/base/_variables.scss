@@ -52,7 +52,9 @@ $color-orange: #f2994a;
 $color-product-front:#f9f9f9;
 $color-product-bg:#f5f5f5;
 
-$breakpoints: (sm: "(max-width: 576px)",
+
+$breakpoints: (
+        sm: "(max-width: 576px)",
         md: "(min-width: 577px) and (max-width: 768px)",
         lg: "(min-width: 769px) and (max-width: 992px)",
         xl: "(min-width: 993px) and (max-width: 1200px)",

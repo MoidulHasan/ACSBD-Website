@@ -29,11 +29,10 @@
 <script lang="ts" setup>
 import { getCoustomersReview } from "~/app/api/customers-review";
 
-useHead({
+definePageMeta({
   title: "Client Reviews",
+  name: "client-reviews",
 });
 
 const { data: clientReviews } = await getCoustomersReview();
 </script>
-
-<style scoped></style>
