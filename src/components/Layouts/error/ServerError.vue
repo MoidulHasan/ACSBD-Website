@@ -3,7 +3,7 @@
 <template>
   <div class="internal-server-error-container">
     <img alt="error 500" src="@/assets/images/500_error.png" />
-    <h3 class="font-heading-3">Internal Server Error</h3>
+    <h3 class="font-heading-3 error-title">Internal Server Error</h3>
     <p class="font-heading-7 support-text mt-3">
       The server has been deserted for a while. please be patient or try again
       later.
@@ -34,7 +34,7 @@
     }
   }
 
-  h3 {
+  .error-title {
     color: var(--primary-color-navy-blue);
     margin-top: 40px;
   }

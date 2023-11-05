@@ -1,7 +1,7 @@
 <template>
   <div class="notfound">
     <img alt="" src="/images/404-Not-found.png" />
-    <h3 class="font-heading-3">
+    <h3 class="font-heading-3 error-title">
       Opps! The page you requested not found!
     </h3>
     <NuxtLink class="back-button text-semi-bold-1" to="/">
@@ -22,7 +22,7 @@
     width: auto;
   }
 
-  h3 {
+  .error-title {
     color: var(--primary-color-navy-blue);
     margin-top: 40px;
   }
