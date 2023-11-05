@@ -1,20 +1,39 @@
 <template>
   <div class="headerContainer">
     <div class="first-row">
-      <div class="grid container align-items-center justify-between py-4">
+      <div
+        ref="firstRowHeader"
+        class="grid container align-items-center justify-between py-4"
+      >
+        <!-- main logo-->
         <div
-          class="col-12 lg:col-3 flex justify-content-center lg:justify-content-start"
+          class="col-12 lg:col-3 flex align-items-center justify-content-between lg:justify-content-start"
         >
           <NuxtLink to="/">
             <img alt="ACBD" src="@/assets/images/header/logo_colored.svg" />
           </NuxtLink>
+          <div class="block lg:hidden icons-holder">
+            <img
+              v-if="!showSearchBar"
+              src="@/assets/images/icons/search_icon_with_frame.svg"
+              alt="search"
+              @click="toggleSeachShow"
+            />
+            <i
+              v-else
+              class="cross-search pi pi-times"
+              @click="toggleSeachShow"
+            />
+          </div>
         </div>
-        <div class="col-12 md:col-12 lg:col-5">
+        <!--        search bar -->
+        <div v-if="showSearchBar" class="col-12 md:col-12 lg:col-5">
           <div class="p-inputgroup flex-1">
             <InputText placeholder="Search Product" />
             <Button class="search-button" icon="pi pi-search" />
           </div>
         </div>
+        <!--        contact info-->
         <div
           class="col-12 lg:col-4 md:align-items-center md:justify-content-center lg:justify-content-end float-right hidden md:flex"
         >
@@ -366,6 +385,10 @@ const navMenues: Array<menus> = [
 ];
 
 const show = ref(false);
+const firstRowHeader = ref(null);
+const showSearchBar = ref(true);
+
+const { width } = useWindowSize();
 
 const toggleMenu = () => {
   show.value = !show.value;
@@ -376,6 +399,22 @@ const checkNav = (path: string): void => {
     toggleMenu();
   }
 };
+
+
+
+watch(
+  () => width.value,
+  () => {
+    if (width.value <= 992) {
+      showSearchBar.value = false;
+      return;
+    }
+    showSearchBar.value = true;
+  },
+);
+const toggleSeachShow = () => {
+  showSearchBar.value = !showSearchBar.value;
+};
 </script>
 
 <style scoped>
@@ -385,6 +424,16 @@ const checkNav = (path: string): void => {
 
 .second-row {
   border-bottom: 0.1rem solid var(--navy-blue-10);
+}
+
+.cross-search {
+  display: block;
+  color: #ff0000;
+  padding: 8px;
+  min-height: 16px;
+  min-width: 16px;
+  border-radius: 2px;
+  background: var(--envitect-sam-blue-5);
 }
 
 .search-button,
