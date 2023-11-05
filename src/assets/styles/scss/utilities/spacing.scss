@@ -1,5 +1,6 @@
-$spacing-values: 4px, 8px, 12px, 14px, 16px, 24px, 26px, 32px, 40px, 48px, 64px, 80px, 96px,
-  128px, 160px, 192px, 240px;
+$spacing-values: 4px, 8px, 12px, 13px, 14px, 16px, 18px, 20px, 24px, 26px, 32px, 40px, 48px,
+64px, 80px, 82px, 96px, 128px, 160px, 192px, 240px;
+
 
 @each $spacing in $spacing-values {
   .mt-#{$spacing} {
@@ -54,5 +55,22 @@ $spacing-values: 4px, 8px, 12px, 14px, 16px, 24px, 26px, 32px, 40px, 48px, 64px,
   .py-#{$spacing} {
     padding-top: #{$spacing};
     padding-bottom: #{$spacing};
+  }
+}
+
+@each $spacing in $spacing-values {
+  .m-#{$spacing} {
+    margin: #{$spacing};
+  }
+
+  .p-#{$spacing} {
+    padding: #{$spacing};
+  }
+}
+
+
+@each $spacing in $spacing-values {
+  .gap-#{$spacing} {
+    gap: #{$spacing};
   }
 }
