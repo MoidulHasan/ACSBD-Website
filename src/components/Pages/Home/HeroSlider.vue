@@ -58,4 +58,7 @@ const responsiveOptions = ref([
 :deep(.p-galleria-indicators) {
   background: transparent !important;
 }
+:deep(.p-galleria-indicators .p-galleria-indicator) {
+  margin-left: 7px !important;
+}
 </style>
