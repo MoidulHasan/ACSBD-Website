@@ -166,6 +166,8 @@ const repeatedCredential = ref("");
 </template>
 
 <style scoped lang="scss">
+@use "assets/styles/scss/base/mixins" as *;
+
 .details-container {
   padding: 32px 60px;
   border-radius: 8px;
@@ -191,6 +193,9 @@ const repeatedCredential = ref("");
   }
   .cursor-not-allowed {
     cursor: not-allowed;
+  }
+  @include media-query(sm) {
+    padding: 16px;
   }
 }
 
