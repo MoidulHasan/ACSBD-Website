@@ -13,22 +13,24 @@
         class="all-works-tab flex align-items-center justify-content-center mb-32px"
       >
         <button
-          class="w-235px h-50px font-border-round-right border-none border-round-left"
-          :class="{ 'button-tab': active === 0 }"
+          class="w-235px h-50px text-dark-gray-60 font-heading-5-semi-bold border-none cursor-pointer border-round-left"
+          :class="{
+            'button-tab': active === 0,
+          }"
           @click="active = 0"
         >
           All Works
         </button>
 
         <button
-          class="w-235px h-50px font-border-round-right border-none"
+          class="w-235px h-50px text-dark-gray-60 font-heading-5-semi-bold border-none cursor-pointer"
           :class="{ 'button-tab': active === 1 }"
           @click="active = 1"
         >
           Residential
         </button>
         <button
-          class="w-235px h-50px font-border-round-right border-none border-round-right"
+          class="w-235px h-50px text-dark-gray-60 font-heading-5-semi-bold border-none cursor-pointer border-round-right"
           :class="{ 'button-tab': active === 2 }"
           @click="active = 2"
         >

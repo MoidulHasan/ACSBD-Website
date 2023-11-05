@@ -1,16 +1,16 @@
 /* This is Danger button  */
 .button-tab {
   background: var(--primary-color-envitect-sam-blue);
-  color: var(--primary-color-white);
+  color: var(--primary-color-white) !important;
   border: none;
   flex-shrink: 0;
-  text-align: center;
+  /* text-align: center;
   font-family: Poppins;
   font-size: 16px;
   font-weight: 600;
-  line-height: 24px;
+  line-height: 24px; */
   position: relative;
-  cursor: pointer;  
+  cursor: pointer;
   &::after {
     content: "";
     position: absolute;
@@ -24,7 +24,4 @@
     border-right: 13px solid transparent;
     border-top: 13px solid var(--primary-color-envitect-sam-blue);
   }
-  
 }
-
- 
