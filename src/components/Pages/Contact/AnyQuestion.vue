@@ -1,6 +1,6 @@
 <template>
   <div
-    class="message-container text-dark-gray-80 bg-color-product-front border-round-md px-48px pt-48px pb-32px"
+    class="message-container text-dark-gray-80 bg-color-product-front border-round-md px-48px pt-48px h-full"
   >
     <div>
       <h1 class="font-heading-2 text-primary-color-navy-blue">Message Us</h1>
@@ -10,33 +10,36 @@
         below. And we will get back to you as soon as possible.
       </p>
     </div>
-    <form class="message-form text-base" action="">
+    <form action="" class="message-form text-base mb-32px">
       <div class="flex flex-column lg:flex-row">
         <InputText
           class="w-full mr-0 lg:mr-1 p-3 border-none"
-          type="text"
           placeholder="Name"
+          type="text"
         />
         <InputText
           class="w-full mt-16px lg:mt-0 ml-0 lg:ml-1 p-3 border-none"
-          type="number"
           placeholder="Number"
+          type="number"
         />
       </div>
       <InputText
         class="mt-16px w-full p-3 border-none"
-        type="email"
         placeholder="Enter your email"
+        type="email"
       />
       <Textarea
         class="mt-16px w-full p-3 border-none"
-        rows="5"
         cols="50"
         placeholder="Message"
+        rows="5"
       />
       <button
-        type="button"
+        :style="{
+          borderRadius: '4px',
+        }"
         class="bg-primary-color-envitect-sam-blue text-primary-color-white border-primary-color-envitect-sam-blue font-heading-5-semi-bold border-none cursor-pointer w-full px-48px py-12px mt-16px"
+        type="button"
       >
         Submit
       </button>

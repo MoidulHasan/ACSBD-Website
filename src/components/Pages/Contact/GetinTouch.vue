@@ -1,5 +1,7 @@
 <template>
-  <div class="border-round-md bg-color-product-front px-48px pt-48px pb-160px">
+  <div
+    class="border-round-md bg-color-product-front px-48px pt-48px pb-32px h-full"
+  >
     <div>
       <h3 class="font-heading-2 text-primary-color-navy-blue">Get in Touch</h3>
       <p class="text-dark-gray-80 font-regular-3 mt-16px mb-24px">
@@ -12,9 +14,9 @@
     <div class="contact-section flex align-items-center">
       <div class="border-round-xs bg-primary-color-white p-13px md:p-18px">
         <img
+          alt="call"
           class="h-18px md:h-24px w-18px md:w-24px"
           src="/images/call 1.png"
-          alt="call"
         />
       </div>
       <div
@@ -28,9 +30,9 @@
     <div class="email-section flex align-items-center my-12px md:my-24px">
       <div class="border-round-xs bg-color-product-bg p-13px md:p-18px">
         <img
+          alt="email"
           class="h-18px md:h-24px w-18px md:w-24px"
           src="/images/email 1.png"
-          alt="email"
         />
       </div>
       <div
@@ -44,9 +46,9 @@
     <div class="location-section flex align-items-center">
       <div class="border-round-xs bg-color-product-bg p-13px md:p-18px">
         <img
+          alt="email"
           class="h-18px md:h-24px w-18px md:w-24px"
           src="/images/map.png"
-          alt="email"
         />
       </div>
       <div
