@@ -36,7 +36,8 @@
 import { getProducts } from "~/app/api/getProducts";
 
 definePageMeta({
-  title: "Shop",
+  title: "Products",
+  name: "products",
 });
 
 const { data: productsData } = await getProducts();
