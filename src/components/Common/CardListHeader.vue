@@ -24,7 +24,6 @@ defineProps<{
 <style lang="scss" scoped>
 .header {
   width: 100%;
-  height: 48px;
   flex-shrink: 0;
   padding: 8px 16px;
 

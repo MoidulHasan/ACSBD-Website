@@ -18,8 +18,8 @@
 
         <h3 class="mt-8px text-primary-color-dark-gray text-regular-3">
           {{
-            name.slice(0, Math.min(name.length, 45)).trim() +
-            (name.length > 45 ? "..." : "")
+            name.slice(0, Math.min(name.length, 40)).trim() +
+            (name.length > 40 ? "..." : "")
           }}
         </h3>
       </div>
