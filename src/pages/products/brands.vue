@@ -18,7 +18,7 @@ const { data: brands } = await getBrands();
         :key="brand.title"
         class="single-brand bg-envitect-sam-blue-5 border-envitect-sam-blue-20 text-center flex align-items-center justify-content-center flex-wrap"
       >
-        <img :src="brand.img" :alt="brand.title" />
+        <img class="brand-image " :src="brand.img" :alt="brand.title" />
       </div>
     </div>
     <div class="text-center mb-3 lg:mb-8">
@@ -32,10 +32,15 @@ const { data: brands } = await getBrands();
 </template>
 
 <style lang="scss" scoped>
+@use 'assets/styles/scss/base/mixins' as *;
+
 .brand-container {
   min-height: 30rem;
   .brand-flex-container {
     gap: 15px;
+    @include media-query(sm) {
+      gap: 8px;
+    }
   }
   .single-brand {
     width: 227px;
@@ -43,6 +48,17 @@ const { data: brands } = await getBrands();
     border-radius: 4px;
     border-style: solid;
     border-width: 1px;
+    @include media-query(sm) {
+      border-radius: 2px;
+      width: 104px;
+      height: 56px;
+    }
+  }
+  .brand-image {
+    @include media-query(sm) {
+      max-width: 83.932px;
+      max-height: 38px;
+    }
   }
 
   .lode-more-button {
