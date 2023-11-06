@@ -16,7 +16,10 @@
         </template>
 
         <template #footer>
-          <CommonViewAllButton label="View All Brands" />
+          <NuxtLink to="/products/brands">
+            <CommonViewAllButton label="View All Brands" />
+          </NuxtLink>
+
         </template>
       </CommonSliderSection>
     </div>

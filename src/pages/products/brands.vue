@@ -11,7 +11,7 @@ const { data: brands } = await getBrands();
 <template>
   <div class="container brand-container">
     <div
-      class="brand-flex-container flex flex-wrap py-3 align-items-center justify-content-center lg:justify-content-start"
+      class="brand-flex-container flex flex-wrap pt-3 pb-4 md:pb-6 align-items-center justify-content-center xl:justify-content-start"
     >
       <div
         v-for="brand in brands"
@@ -20,6 +20,13 @@ const { data: brands } = await getBrands();
       >
         <img :src="brand.img" :alt="brand.title" />
       </div>
+    </div>
+    <div class="text-center mb-3 lg:mb-8">
+      <Button
+        class="lode-more-button border-primary-color-envitect-sam-blue bg-primary-color-white text-primary-color-envitect-sam-blue text-semi-bold-1"
+      >
+        Load More
+      </Button>
     </div>
   </div>
 </template>
@@ -36,6 +43,20 @@ const { data: brands } = await getBrands();
     border-radius: 4px;
     border-style: solid;
     border-width: 1px;
+  }
+
+  .lode-more-button {
+    display: inline-flex;
+    padding: 12px 48px;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    border-radius: 4px;
+    border-width: 1px;
+    border-style: solid;
+  }
+  *:focus {
+    box-shadow: none !important;
   }
 }
 </style>
