@@ -21,7 +21,7 @@ const { data: brands } = await getBrands();
         <img class="brand-image " :src="brand.img" :alt="brand.title" />
       </div>
     </div>
-    <div class="text-center mb-3 lg:mb-8">
+    <div class="text-center mb-5 lg:mb-8">
       <Button
         class="lode-more-button border-primary-color-envitect-sam-blue bg-primary-color-white text-primary-color-envitect-sam-blue text-semi-bold-1"
       >
