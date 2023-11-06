@@ -3,7 +3,8 @@
     <div class="first-row">
       <div
         ref="firstRowHeader"
-        class="flex flex-column md:flex-row container align-items-center justify-content-between py-3 md:py-4 gap-3 md:gap-4"
+        class="firstRowHeader flex flex-column md:flex-row container align-items-center justify-content-between py-3 md:py-4 gap-3 md:gap-4"
+        :class="{ showSearchBar: showSearchBar && mobileScreen }"
       >
         <!-- main logo-->
         <div
@@ -395,14 +396,13 @@ const navMenues: Array<menus> = [
 
 const show = ref(false);
 const firstRowHeader = ref(null);
-const showSearchBar = ref(true);
+const showSearchBar = ref(false);
 const mobileScreen = ref(false);
 
 const { width } = useWindowSize();
 
 const toggleMenu = () => {
   show.value = !show.value;
-  console.log(show.value, "menu toggled");
 };
 
 const checkNav = (path: string, subMenu: boolean = false): void => {
@@ -411,21 +411,30 @@ const checkNav = (path: string, subMenu: boolean = false): void => {
   }
 };
 
-watch(
-  () => width.value,
-  () => {
-    if (width.value <= 768) {
-      showSearchBar.value = false;
-      mobileScreen.value = true;
-      return;
-    }
-    showSearchBar.value = true;
-    mobileScreen.value = false;
-  },
-);
 const toggleSeachShow = () => {
   showSearchBar.value = !showSearchBar.value;
 };
+
+const checkWidth = () => {
+  if (width.value <= 768) {
+    showSearchBar.value = false;
+    mobileScreen.value = true;
+    return;
+  }
+  showSearchBar.value = true;
+  mobileScreen.value = false;
+};
+
+watch(
+  () => width.value,
+  () => {
+    checkWidth();
+  },
+);
+
+onMounted(() => {
+  checkWidth();
+});
 </script>
 
 <style scoped lang="scss">
@@ -442,6 +451,9 @@ const toggleSeachShow = () => {
   max-width: 252px;
 
   @include media-query(lg) {
+    max-width: 166.4px !important;
+  }
+  @include media-query(sm) {
     max-width: 166.4px !important;
   }
 }
@@ -750,6 +762,15 @@ nav ul li.right .navLink {
 @media (max-width: 768px) {
   .headerContainer {
     position: relative;
+  }
+
+  .firstRowHeader {
+    height: 71px;
+    transition: height 0.5s ease-in-out;
+
+    &.showSearchBar {
+      height: 118.69px;
+    }
   }
 
   .second-row {
