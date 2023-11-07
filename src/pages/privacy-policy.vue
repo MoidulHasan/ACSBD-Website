@@ -1,6 +1,6 @@
 <template>
   <div class="container my-4 md:my-5 md:pb-6">
-    <h1 class="font-heading-2 text-center text-color-primary-color-navy-blue">
+    <h1 class="font-heading-2 text-center text-color-primary-navy-blue">
       Privacy Policy
     </h1>
     <p class="text-regular-3 mt-3">
@@ -11,7 +11,7 @@
       customers.
     </p>
 
-    <h1 class="font-heading-3 text-color-primary-color-navy-blue mt-5 md:mt-6">
+    <h1 class="font-heading-3 text-color-primary-navy-blue mt-5 md:mt-6">
       Data that we collect
     </h1>
     <p class="text-regular-3 mt-3">
@@ -26,7 +26,7 @@
       us to process your orders swiftly.
     </p>
 
-    <h1 class="font-heading-3 text-color-primary-color-navy-blue mt-5 md:mt-6">
+    <h1 class="font-heading-3 text-color-primary-navy-blue mt-5 md:mt-6">
       Purposes for collection, Storage and/or use of personal data or
       information
     </h1>
@@ -48,7 +48,7 @@
       misleading and you must keep it up to date and inform us of changes.
     </p>
 
-    <h1 class="font-heading-3 text-color-primary-color-navy-blue mt-5 md:mt-6">
+    <h1 class="font-heading-3 text-color-primary-navy-blue mt-5 md:mt-6">
       Data that we collect
     </h1>
     <p class="text-regular-3 mt-3">
@@ -70,10 +70,10 @@
       website; carry out research on our users’ demographics.
     </p>
 
-    <h1 class="font-heading-3 text-color-primary-color-navy-blue mt-5 md:mt-6">
+    <h1 class="font-heading-3 text-color-primary-navy-blue mt-5 md:mt-6">
       Third parties and Links
     </h1>
-    <p class="mobile-subtitle subtitle lg:text-left xl:text-left pt-3">
+    <p class="text-regular-3 mt-3">
       We may pass your details to other companies in our group. We may also pass
       your details to our agents and subcontractors to help us with any of our
       uses of your data set out in our Privacy Policy. For example, we may use
@@ -82,10 +82,10 @@
       marketing or customer service assistance.
     </p>
 
-    <h1 class="font-heading-3 text-color-primary-color-navy-blue mt-5 md:mt-6">
+    <h1 class="font-heading-3 text-color-primary-navy-blue mt-5 md:mt-6">
       Security
     </h1>
-    <p class="mobile-subtitle subtitle lg:text-left xl:text-left pt-3">
+    <p class="text-regular-3 mt-3">
       We have in place appropriate technical and security measures to prevent
       unauthorized or unlawful access to or accidental loss of or destruction or
       damage to your information. When we collect data through the Site, we
@@ -96,10 +96,10 @@
       and to your computer.
     </p>
 
-    <h1 class="font-heading-3 text-color-primary-color-navy-blue mt-5 md:mt-6">
+    <h1 class="font-heading-3 text-color-primary-navy-blue mt-5 md:mt-6">
       Your Rights
     </h1>
-    <p class="mobile-subtitle subtitle lg:text-left xl:text-left pt-3">
+    <p class="text-regular-3 mt-3">
       If you are concerned about your data you have the right to request access
       to the personal data which we may hold or process about you. You have the
       right to require us to correct any inaccuracies in your data free of
