@@ -17,9 +17,7 @@ import Rating from "primevue/rating";
 import Calendar from "primevue/calendar";
 import Card from "primevue/card";
 import Galleria from "primevue/galleria";
-import TabView from "primevue/tabview";
-import TabPanel from "primevue/tabpanel";
-import { defineNuxtPlugin } from "#app";
+import Dropdown from "primevue/dropdown";
 
 export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.use(PrimeVue, { ripple: true });
@@ -40,6 +38,5 @@ export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.component("Checkbox", Checkbox);
   nuxtApp.vueApp.component("Galleria", Galleria);
   nuxtApp.vueApp.component("Card", Card);
-  nuxtApp.vueApp.component("TabView", TabView);
-  nuxtApp.vueApp.component("TabPanel", TabPanel);
+  nuxtApp.vueApp.component("Dropdown", Dropdown);
 });

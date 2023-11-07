@@ -40,7 +40,7 @@ $colors: (primary-color-envitect-sam-blue: variables.$primary-color-envitect-sam
   color-warning: variables.$color-warning,
   color-danger: variables.$color-danger,
   color-orange: variables.$color-orange,
-  product-front-color:variables.$product-front-color);
+);
 
 @each $color-name,
 $color-value in $colors {

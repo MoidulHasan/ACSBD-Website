@@ -1,28 +1,48 @@
 <template>
-  <div class="product-card">
+  <div class="product-card w-full bg-color-product-front">
     <div class="flex justify-content-center relative">
-      <img :alt="name" :src="image" class="product-image" />
-      <div class="discount-percentage">{{ discount_percentage }}% Off</div>
+      <img :alt="name" :src="images[0]" class="product-image" />
+      <div
+        v-if="price.discountPercentage"
+        class="discount-percentage text-center text-semi-bold-5 text-primary-color-white bg-navy-blue-80"
+      >
+        {{ price.discountPercentage }}% Off
+      </div>
     </div>
 
-    <div class="product-info">
-      <Rating v-model="productRating" :cancel="false" readonly />
+    <div
+      class="product-info flex flex-column justify-content-between px-12px pt-12px pb-16px"
+    >
+      <div>
+        <Rating v-model="productRating" :cancel="false" readonly />
 
-      <h3 class="product-name">
-        {{ name }}
-      </h3>
+        <h3 class="mt-8px text-primary-color-dark-gray text-regular-3">
+          {{
+            name.slice(0, Math.min(name.length, 45)).trim() +
+            (name.length > 45 ? "..." : "")
+          }}
+        </h3>
+      </div>
 
-      <p class="product-price-container">
-        <span v-if="discount_price" class="product-price">
-          ৳ {{ discount_price }}
+      <p class="mt-8px flex align-items-center gap-8px">
+        <span
+          v-if="price.discounted"
+          class="text-medium-2 text-primary-color-envitect-sam-blue"
+        >
+          ৳ {{ price.discounted }}
         </span>
         <span
           :class="[
-            { 'product-price': !discount_price },
-            { 'initial-price': discount_price },
+            {
+              'text-medium-2 text-primary-color-envitect-sam-blue':
+                !price.discounted,
+            },
+            {
+              'text-regular-4 text-dark-gray-40 line-through': price.discounted,
+            },
           ]"
         >
-          ৳ {{ price }}
+          {{ price.currency }} {{ price.regular }}
         </span>
       </p>
     </div>
@@ -30,36 +50,22 @@
 </template>
 
 <script lang="ts" setup>
-interface Product {
-  id: number;
-  name: string;
-  price: number;
-  discount_price: number;
-  discount_percentage: number;
-  rating: number;
-  total_review: number;
-  image: string;
-  offerEndsAt: string;
-}
+import type { ProductI } from "~/contracts/api-contracts/ProductsInterfaces";
 
-const props = defineProps<Product>();
+const props = defineProps<ProductI>();
 
-const productRating = ref(props.rating);
+const productRating = ref(props.ratings.average);
 </script>
 
 <style lang="scss" scoped>
 .product-card {
-  width: 100%;
-  min-height: 377px;
-
   border-radius: 8px;
-  background: var(--product-Front-color);
-
-  transition: all 0.5s ease-in-out;
+  transition: all ease-in-out 0.6s;
+  cursor: pointer;
 
   .product-image {
-    height: 220px;
     max-width: 100%;
+    min-height: 220px;
 
     vertical-align: bottom;
     border-top-left-radius: 4px;
@@ -74,19 +80,7 @@ const productRating = ref(props.rating);
     top: 12px;
 
     padding: 2px 12px;
-    align-items: flex-start;
-    gap: 8px;
-
     border-radius: 2px;
-    background: var(--navy-blue-80);
-
-    color: var(--primary-color-white);
-    text-align: center;
-
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 20px;
   }
 
   .product-image:hover {
@@ -94,45 +88,8 @@ const productRating = ref(props.rating);
   }
 
   .product-info {
-    padding: 12px;
-
     :deep(.p-rating-icon) {
-      color: #f2994a;
-    }
-
-    .product-name {
-      margin-top: 8px;
-      color: var(--dark-gray-100, #565656);
-
-      font-size: 16px;
-      font-style: normal;
-      font-weight: 400;
-      line-height: 24px; /* 150% */
-    }
-
-    .product-price-container {
-      margin-top: 10px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-
-      .product-price {
-        color: var(--primary-color-envitect-sam-blue);
-
-        font-size: 16px;
-        font-style: normal;
-        font-weight: 500;
-        line-height: 24px;
-      }
-
-      .initial-price {
-        color: var(--dark-gray-40);
-        font-size: 14px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 20px;
-        text-decoration-line: line-through;
-      }
+      color: var(--color-orange);
     }
   }
 }
