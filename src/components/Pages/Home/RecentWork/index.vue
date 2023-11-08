@@ -13,7 +13,7 @@
         :options="cities"
         option-label="name"
         placeholder="Select a City"
-        class="w-full md:w-14rem"
+        class="w-full text-primary-color-navy-blue px-16px py-12px bg-primary-50 mb-16px font-medium-2"
       />
     </div>
 
@@ -75,4 +75,5 @@ watch(
   },
 );
 </script>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+</style>
