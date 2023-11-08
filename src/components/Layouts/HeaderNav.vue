@@ -400,8 +400,6 @@ const checkNav = (path: string): void => {
   }
 };
 
-
-
 watch(
   () => width.value,
   () => {

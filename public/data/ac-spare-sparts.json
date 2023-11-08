@@ -3,9 +3,7 @@
     "id": 1,
     "name": "Black 1.5 Ton GMCC Rotary Compressor",
     "description": "A high-efficiency air conditioner from Samsung.",
-    "images": [
-      "images/products/Black-1.5-Ton-GMCC-Rotary-Compressor.png"
-    ],
+    "images": ["images/products/Black-1.5-Ton-GMCC-Rotary-Compressor.png"],
     "ratings": {
       "average": 3.7,
       "count": 180
@@ -61,9 +59,7 @@
     "id": 2,
     "name": "Black 1.5 Ton GMCC Rotary Compressor",
     "description": "A high-efficiency air conditioner from Samsung.",
-    "images": [
-      "images/products/Power-factor-correction-capacitor.png"
-    ],
+    "images": ["images/products/Power-factor-correction-capacitor.png"],
     "ratings": {
       "average": 3.7,
       "count": 180
@@ -119,9 +115,7 @@
     "id": 3,
     "name": "Whirlpool Supreme Cool Inverter 3S Corp INV 1 Ton",
     "description": "A high-efficiency air conditioner from Samsung.",
-    "images": [
-      "images/products/Round-Copper-Pipes-Thickness-4mm.png"
-    ],
+    "images": ["images/products/Round-Copper-Pipes-Thickness-4mm.png"],
     "ratings": {
       "average": 3.7,
       "count": 180
@@ -177,9 +171,7 @@
     "id": 4,
     "name": "Vacuum Rotary vane pump Air conditioning",
     "description": "A high-efficiency air conditioner from Samsung.",
-    "images": [
-      "images/products/Vacuum-Rotary-vane-pump-Air-conditioning.png"
-    ],
+    "images": ["images/products/Vacuum-Rotary-vane-pump-Air-conditioning.png"],
     "ratings": {
       "average": 3.7,
       "count": 180
@@ -293,9 +285,7 @@
     "id": 6,
     "name": "Round Copper Pipes, Thickness: 4 mm",
     "description": "A high-efficiency air conditioner from Samsung.",
-    "images": [
-      "images/products/R-410A-AC-Refrigerant-Gas.png"
-    ],
+    "images": ["images/products/R-410A-AC-Refrigerant-Gas.png"],
     "ratings": {
       "average": 3.7,
       "count": 180
@@ -351,9 +341,7 @@
     "id": 8,
     "name": "Round Copper Pipes, Thickness: 4 mm",
     "description": "A high-efficiency air conditioner from Samsung.",
-    "images": [
-      "images/products/Gree-AC-1-ton-GS-12CT-1.png"
-    ],
+    "images": ["images/products/Gree-AC-1-ton-GS-12CT-1.png"],
     "ratings": {
       "average": 3.7,
       "count": 180
@@ -409,9 +397,7 @@
     "id": 7,
     "name": "Midea R410A DC VRF (VC pro Modular series)",
     "description": "A high-efficiency air conditioner from Samsung.",
-    "images": [
-      "images/products/Gree-AC-1-ton-GS-12CT-1.png"
-    ],
+    "images": ["images/products/Gree-AC-1-ton-GS-12CT-1.png"],
     "ratings": {
       "average": 3.7,
       "count": 180
@@ -467,9 +453,7 @@
     "id": 8,
     "name": "Round Copper Pipes, Thickness: 4 mm",
     "description": "A high-efficiency air conditioner from Samsung.",
-    "images": [
-      "images/products/Gree-AC-1-ton-GS-12CT-1.png"
-    ],
+    "images": ["images/products/Gree-AC-1-ton-GS-12CT-1.png"],
     "ratings": {
       "average": 3.7,
       "count": 180
@@ -525,9 +509,7 @@
     "id": 9,
     "name": "Midea R410A DC VRF (VC pro Modular series)",
     "description": "A high-efficiency air conditioner from Samsung.",
-    "images": [
-      "images/products/Gree-AC-1-ton-GS-12CT-1.png"
-    ],
+    "images": ["images/products/Gree-AC-1-ton-GS-12CT-1.png"],
     "ratings": {
       "average": 3.7,
       "count": 180

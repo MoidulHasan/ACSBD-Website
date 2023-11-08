@@ -1,6 +1,7 @@
 @use "../base/_variables";
 
-$colors: (primary-color-envitect-sam-blue: variables.$primary-color-envitect-sam-blue,
+$colors: (
+  primary-color-envitect-sam-blue: variables.$primary-color-envitect-sam-blue,
   primary-color-navy-blue: variables.$primary-color-navy-blue,
   primary-color-dark-gray: variables.$primary-color-dark-gray,
   primary-color-white: variables.$primary-color-white,
@@ -42,8 +43,7 @@ $colors: (primary-color-envitect-sam-blue: variables.$primary-color-envitect-sam
   color-orange: variables.$color-orange,
 );
 
-@each $color-name,
-$color-value in $colors {
+@each $color-name, $color-value in $colors {
   .text-#{$color-name} {
     color: $color-value;
   }
