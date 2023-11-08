@@ -3,16 +3,20 @@
     <div class="first-row">
       <div
         ref="firstRowHeader"
-        class="grid container align-items-center justify-between py-4"
+        class="flex flex-column md:flex-row container align-items-center justify-content-between py-3 md:py-4 gap-3 md:gap-4"
       >
         <!-- main logo-->
         <div
-          class="col-12 lg:col-3 flex align-items-center justify-content-between lg:justify-content-start"
+          class="flex align-items-center justify-content-between lg:justify-content-start w-full md:w-auto"
         >
-          <NuxtLink to="/">
-            <img alt="ACBD" src="@/assets/images/header/logo_colored.svg" />
+          <NuxtLink class="home-logo-link" to="/">
+            <img
+              class="home-logo"
+              alt="ACBD"
+              src="@/assets/images/header/logo_colored.svg"
+            />
           </NuxtLink>
-          <div class="block lg:hidden icons-holder">
+          <div class="block md:hidden icons-holder">
             <img
               v-if="!showSearchBar"
               src="@/assets/images/icons/search_icon_with_frame.svg"
@@ -27,60 +31,59 @@
           </div>
         </div>
         <!--        search bar -->
-        <div v-if="showSearchBar" class="col-12 md:col-12 lg:col-5">
-          <div class="p-inputgroup flex-1">
-            <InputText placeholder="Search Product" />
-            <Button class="search-button" icon="pi pi-search" />
+        <transition name="searchFade">
+          <div
+            v-if="showSearchBar"
+            class="md:mb-0 flex-1 headerSearchBar w-full"
+          >
+            <div class="p-inputgroup flex-1 flex-wrap w-full">
+              <InputText placeholder="Search Product" />
+              <Button class="search-button" icon="pi pi-search" />
+            </div>
           </div>
-        </div>
+        </transition>
+
         <!--        contact info-->
         <div
-          class="col-12 lg:col-4 md:align-items-center md:justify-content-center lg:justify-content-end float-right hidden md:flex"
+          class="md:align-items-center md:justify-content-center lg:justify-content-end float-right hidden md:flex"
         >
           <NuxtLink to="/services">
             <img
               alt="service"
-              class="mr-3"
+              class="mr-2 lg:mr-3 flex align-items-center service-image"
               src="@/assets/images/header/service.svg"
             />
           </NuxtLink>
           <div>
-            <p class="flex align-items-center">
+            <NuxtLink href="tel:09613755755" class="flex align-items-center">
               <img
                 alt="phone"
                 class="inline-block mr-1 contact-img"
                 src="@/assets/images/header/phoneIcon.svg"
               />
               <span class="contact-info">09613 755755</span>
-            </p>
-            <p class="flex align-items-center">
+            </NuxtLink>
+            <NuxtLink
+              href="mailto:info@acsevice.com"
+              class="flex align-items-center cursor-pointer"
+            >
               <img
                 alt="mail"
                 class="inline-block mr-1 contact-img"
                 src="@/assets/images/header/mail.svg"
               />
               <span class="contact-info">info@acsevice.com</span>
-            </p>
+            </NuxtLink>
           </div>
         </div>
       </div>
     </div>
     <div class="second-row">
-      <div class="navbar">
-        <nav :class="{ active: show }">
+      <div class="navbar px-0 md:px-3 md:flex md:flex-wrap">
+        <nav :class="{ active: show }" class="">
           <div
-            class="mobileMenu flex justify-content-between container lg:hidden"
+            class="mobileMenu flex flex-wrap justify-content-between container md:hidden"
           >
-            <!--            <input id="check" type="checkbox" name="check" class="hidden" />-->
-            <!--            <label-->
-            <!--              ref="menuToggle"-->
-            <!--              :class="[{ 'lg:hidden menuToggle': true }]"-->
-            <!--              @click="toggleMenu"-->
-            <!--            >-->
-            <!--              <i v-html="menuSvg"></i>-->
-            <!--            </label>-->
-            <!--            <label class="lg:hidden"> <i v-html="callSvg"></i></label> -->
-
             <NuxtLink
               ref="menuToggle"
               :class="[{ 'lg:hidden menuToggle': true }]"
@@ -143,7 +146,7 @@
             </NuxtLink>
           </div>
           <!--          here transition can be added  -->
-          <div class="relative menu-box">
+          <div class="relative menu-box lg:flex lg:flex-wrap">
             <div class="overlap" @click="toggleMenu"></div>
             <ul class="menu container lg:mx-auto">
               <li v-for="navItem in navMenues" :key="navItem.title">
@@ -282,7 +285,7 @@ const navMenues: Array<menus> = [
   },
   {
     title: "Products",
-    path: "",
+    path: "/products",
     submenu: [
       {
         title: "Air Conditioner",
@@ -403,7 +406,7 @@ const checkNav = (path: string): void => {
 watch(
   () => width.value,
   () => {
-    if (width.value <= 992) {
+    if (width.value <= 768) {
       showSearchBar.value = false;
       return;
     }
@@ -415,13 +418,42 @@ const toggleSeachShow = () => {
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+@use "assets/styles/scss/base/mixins" as *;
 .first-row {
   border-bottom: 0.1rem solid var(--navy-blue-10);
 }
 
 .second-row {
   border-bottom: 0.1rem solid var(--navy-blue-10);
+}
+
+.home-logo {
+  max-width: 252px;
+
+  @include media-query(lg) {
+    max-width: 166.4px !important;
+  }
+}
+
+.headerSearchBar {
+  max-width: 582px !important;
+}
+:deep(.p-inputgroup .p-inputtext) {
+  @include media-query(sm) {
+    max-height: 32px;
+  }
+  @include media-query(lg) {
+    max-height: 32px;
+  }
+}
+:deep(.p-inputgroup .p-button) {
+  @include media-query(sm) {
+    max-height: 32px;
+  }
+  @include media-query(lg) {
+    max-height: 32px;
+  }
 }
 
 .cross-search {
@@ -440,12 +472,32 @@ const toggleSeachShow = () => {
   padding: 14px 29px;
 }
 
+.service-image {
+  @include media-query(lg) {
+    max-height: 40px;
+    max-width: 100px;
+  }
+}
+
+.contact-img {
+  @include media-query(lg) {
+    max-height: 17px;
+  }
+}
+
 .contact-info {
   font-size: 16px;
   font-style: normal;
   font-weight: 600;
   line-height: 24px;
   color: var(--primary-color-dark-gray);
+
+  @include media-query(lg) {
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 16px;
+  }
 }
 
 ul {
@@ -484,6 +536,15 @@ nav .menu {
   display: block;
   text-transform: capitalize;
   padding: 0.625rem 3rem 0.625rem 0;
+  @include media-query(xxl) {
+    padding: 0.625rem 1.5rem 0.625rem 0;
+  }
+  @include media-query(xl) {
+    padding: 0.4rem 1.2rem 0.4rem 0;
+  }
+  @include media-query(lg) {
+    padding: 0 1.4rem;
+  }
 }
 
 .menu .navLink:hover,
@@ -510,10 +571,23 @@ nav .menu {
 nav ul li.right {
   float: right;
   margin-right: 0;
+  @include media-query(xl) {
+    float: right;
+    margin-right: 0;
+  }
 }
 
 nav ul li.right .navLink {
   padding: 0.625rem 0 0.625rem 3rem;
+  @include media-query(xxl) {
+    padding: 0.625rem 0 0.625rem 1.5rem;
+  }
+  @include media-query(xl) {
+    padding: 0.4rem 0.5rem 0.4rem 0;
+  }
+  @include media-query(lg) {
+    padding: 0 1.4rem;
+  }
 }
 
 .submenu {
@@ -663,7 +737,7 @@ nav ul li.right .navLink {
   }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 768px) {
   .headerContainer {
     position: relative;
   }
@@ -676,7 +750,7 @@ nav ul li.right .navLink {
     position: fixed;
     bottom: 0;
     width: 100%;
-    z-index: 1;
+    z-index: 11;
     /* for overlaping customer review */
   }
 
@@ -721,10 +795,10 @@ nav ul li.right .navLink {
     display: none;
     width: 100%;
     position: fixed;
-    height: calc(100vh - 10rem - 3.27375rem);
+    height: calc(100vh - 4rem);
     overflow-y: scroll;
     background: var(--primary-color-envitect-sam-blue) !important;
-    top: 10rem;
+    top: 4.5rem;
     border-radius: 1.25rem 1.25rem 0 0;
     padding: 1rem 1rem 2rem 1rem;
     animation: slidedown 0.4s ease;
@@ -823,5 +897,15 @@ nav ul li.right .navLink {
   .submenu2 .subMenuLink {
     color: var(--primary-color-dark-gray);
   }
+}
+
+.searchFade-enter-active,
+.searchFade-leave-active {
+  transition: all 0.5s ease-in-out;
+}
+
+.searchFade-enter-from,
+.searchFade-leave-to {
+  opacity: 0;
 }
 </style>

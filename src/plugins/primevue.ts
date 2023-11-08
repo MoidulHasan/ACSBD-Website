@@ -14,19 +14,17 @@ import AccordionTab from "primevue/accordiontab";
 import Textarea from "primevue/textarea";
 import Checkbox from "primevue/checkbox";
 import Rating from "primevue/rating";
-// import { defineNuxtPlugin } from "#app";
 import Calendar from "primevue/calendar";
 import Card from "primevue/card";
 import Galleria from "primevue/galleria";
 import Dropdown from "primevue/dropdown";
-import TabView from "primevue/tabview";
-import TabPanel from "primevue/tabpanel";
-import SelectButton from "primevue/selectbutton";
 
 export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.use(PrimeVue, { ripple: true });
+
   nuxtApp.vueApp.use(ConfirmationService);
   nuxtApp.vueApp.use(ToastService);
+
   nuxtApp.vueApp.directive("tooltip", Tooltip);
   nuxtApp.vueApp.directive("ripple", Ripple);
   nuxtApp.vueApp.directive("badge", BadgeDirective);
@@ -42,8 +40,5 @@ export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.component("Checkbox", Checkbox);
   nuxtApp.vueApp.component("Galleria", Galleria);
   nuxtApp.vueApp.component("Card", Card);
-  nuxtApp.vueApp.component("TabView", TabView);
-  nuxtApp.vueApp.component("TabPanel", TabPanel);
-  nuxtApp.vueApp.component("SelectButton", SelectButton);
   nuxtApp.vueApp.component("Dropdown", Dropdown);
 });

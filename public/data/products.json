@@ -3,7 +3,9 @@
     "id": 1,
     "name": "Samsung Arctic Breeze AC ABX 210 1.5 Ton",
     "description": "A high-efficiency air conditioner from Samsung.",
-    "images": ["images/products/Gree-AC-1-ton-GS-12CT-1.png"],
+    "images": [
+      "images/products/Gree-AC-1-ton-GS-12CT-1.png"
+    ],
     "ratings": {
       "average": 3.7,
       "count": 180
@@ -59,7 +61,9 @@
     "id": 2,
     "name": "LG 5 Star Dual Inverter AC 1.5 Ton LS-Q19JNYX",
     "description": "A dual inverter air conditioner from LG with 5 star energy rating.",
-    "images": ["images/products/Gree-AC-1-ton-GS-12CT-1.png"],
+    "images": [
+      "images/products/Gree-AC-1-ton-GS-12CT-1.png"
+    ],
     "ratings": {
       "average": 4.9,
       "count": 150
@@ -115,7 +119,9 @@
     "id": 3,
     "name": "Whirlpool 3 Star Inverter AC 1.5 Ton W18S303PR",
     "description": "A 3 star inverter air conditioner from Whirlpool.",
-    "images": ["images/products/Gree-AC-1-ton-GS-12CT-1.png"],
+    "images": [
+      "images/products/Gree-AC-1-ton-GS-12CT-1.png"
+    ],
     "ratings": {
       "average": 4.5,
       "count": 120
@@ -171,7 +177,9 @@
     "id": 4,
     "name": "LG CoolWave AC CWX 130 1.0 Ton",
     "description": "An energy-efficient air conditioner from LG.",
-    "images": ["images/products/Gree-AC-1-ton-GS-12CT-1.png"],
+    "images": [
+      "images/products/Gree-AC-1-ton-GS-12CT-1.png"
+    ],
     "ratings": {
       "average": 4.5,
       "count": 160
@@ -227,7 +235,9 @@
     "id": 5,
     "name": "Gree GS-18CT 1.5 Ton Split Type AC",
     "description": "A high-quality split-type air conditioner from Gree, designed to provide efficient cooling.",
-    "images": ["images/products/Gree-AC-1-ton-GS-12CT-1.png"],
+    "images": [
+      "images/products/Gree-AC-1-ton-GS-12CT-1.png"
+    ],
     "ratings": {
       "average": 5,
       "count": 210
@@ -283,7 +293,9 @@
     "id": 6,
     "name": "Sharp AC Inverter AH XP13SHVE",
     "description": "A high-performance inverter air conditioner from Sharp, designed for efficient cooling and heating.",
-    "images": ["images/products/Gree-AC-1-ton-GS-12CT-1.png"],
+    "images": [
+      "images/products/Gree-AC-1-ton-GS-12CT-1.png"
+    ],
     "ratings": {
       "average": 3.1,
       "count": 150
@@ -338,7 +350,9 @@
     "id": 7,
     "name": "Samsung Arctic Breeze AC ABX 210 1.5 Ton",
     "description": "A high-efficiency air conditioner from Samsung.",
-    "images": ["images/products/Gree-AC-1-ton-GS-12CT-1.png"],
+    "images": [
+      "images/products/Gree-AC-1-ton-GS-12CT-1.png"
+    ],
     "ratings": {
       "average": 3.7,
       "count": 180
@@ -394,7 +408,9 @@
     "id": 8,
     "name": "Samsung Arctic Breeze AC ABX 210 1.5 Ton",
     "description": "A high-efficiency air conditioner from Samsung.",
-    "images": ["images/products/Gree-AC-1-ton-GS-12CT-1.png"],
+    "images": [
+      "images/products/Gree-AC-1-ton-GS-12CT-1.png"
+    ],
     "ratings": {
       "average": 3.7,
       "count": 180
@@ -450,7 +466,9 @@
     "id": 9,
     "name": "Samsung Arctic Breeze AC ABX 210 1.5 Ton",
     "description": "A high-efficiency air conditioner from Samsung.",
-    "images": ["images/products/Gree-AC-1-ton-GS-12CT-1.png"],
+    "images": [
+      "images/products/Gree-AC-1-ton-GS-12CT-1.png"
+    ],
     "ratings": {
       "average": 3.7,
       "count": 180
@@ -506,7 +524,9 @@
     "id": 10,
     "name": "Samsung Arctic Breeze AC ABX 210 1.5 Ton",
     "description": "A high-efficiency air conditioner from Samsung.",
-    "images": ["images/products/Gree-AC-1-ton-GS-12CT-1.png"],
+    "images": [
+      "images/products/Gree-AC-1-ton-GS-12CT-1.png"
+    ],
     "ratings": {
       "average": 3.7,
       "count": 180
@@ -562,7 +582,9 @@
     "id": 11,
     "name": "Samsung Arctic Breeze AC ABX 210 1.5 Ton",
     "description": "A high-efficiency air conditioner from Samsung.",
-    "images": ["images/products/Gree-AC-1-ton-GS-12CT-1.png"],
+    "images": [
+      "images/products/Gree-AC-1-ton-GS-12CT-1.png"
+    ],
     "ratings": {
       "average": 3.7,
       "count": 180
@@ -618,7 +640,9 @@
     "id": 12,
     "name": "Samsung Arctic Breeze AC ABX 210 1.5 Ton",
     "description": "A high-efficiency air conditioner from Samsung.",
-    "images": ["images/products/Gree-AC-1-ton-GS-12CT-1.png"],
+    "images": [
+      "images/products/Gree-AC-1-ton-GS-12CT-1.png"
+    ],
     "ratings": {
       "average": 3.7,
       "count": 180
@@ -674,7 +698,9 @@
     "id": 13,
     "name": "Samsung Arctic Breeze AC ABX 210 1.5 Ton",
     "description": "A high-efficiency air conditioner from Samsung.",
-    "images": ["images/products/Gree-AC-1-ton-GS-12CT-1.png"],
+    "images": [
+      "images/products/Gree-AC-1-ton-GS-12CT-1.png"
+    ],
     "ratings": {
       "average": 3.7,
       "count": 180
@@ -730,7 +756,9 @@
     "id": 14,
     "name": "Samsung Arctic Breeze AC ABX 210 1.5 Ton",
     "description": "A high-efficiency air conditioner from Samsung.",
-    "images": ["images/products/Gree-AC-1-ton-GS-12CT-1.png"],
+    "images": [
+      "images/products/Gree-AC-1-ton-GS-12CT-1.png"
+    ],
     "ratings": {
       "average": 3.7,
       "count": 180
@@ -786,7 +814,9 @@
     "id": 15,
     "name": "Samsung Arctic Breeze AC ABX 210 1.5 Ton",
     "description": "A high-efficiency air conditioner from Samsung.",
-    "images": ["images/products/Gree-AC-1-ton-GS-12CT-1.png"],
+    "images": [
+      "images/products/Gree-AC-1-ton-GS-12CT-1.png"
+    ],
     "ratings": {
       "average": 3.7,
       "count": 180
@@ -842,7 +872,9 @@
     "id": 16,
     "name": "Samsung Arctic Breeze AC ABX 210 1.5 Ton",
     "description": "A high-efficiency air conditioner from Samsung.",
-    "images": ["images/products/Gree-AC-1-ton-GS-12CT-1.png"],
+    "images": [
+      "images/products/Gree-AC-1-ton-GS-12CT-1.png"
+    ],
     "ratings": {
       "average": 3.7,
       "count": 180
@@ -898,7 +930,9 @@
     "id": 17,
     "name": "Samsung Arctic Breeze AC ABX 210 1.5 Ton",
     "description": "A high-efficiency air conditioner from Samsung.",
-    "images": ["images/products/Gree-AC-1-ton-GS-12CT-1.png"],
+    "images": [
+      "images/products/Gree-AC-1-ton-GS-12CT-1.png"
+    ],
     "ratings": {
       "average": 3.7,
       "count": 180
@@ -954,7 +988,9 @@
     "id": 18,
     "name": "Samsung Arctic Breeze AC ABX 210 1.5 Ton",
     "description": "A high-efficiency air conditioner from Samsung.",
-    "images": ["images/products/Gree-AC-1-ton-GS-12CT-1.png"],
+    "images": [
+      "images/products/Gree-AC-1-ton-GS-12CT-1.png"
+    ],
     "ratings": {
       "average": 3.7,
       "count": 180
@@ -1010,7 +1046,9 @@
     "id": 19,
     "name": "Samsung Arctic Breeze AC ABX 210 1.5 Ton",
     "description": "A high-efficiency air conditioner from Samsung.",
-    "images": ["images/products/Gree-AC-1-ton-GS-12CT-1.png"],
+    "images": [
+      "images/products/Gree-AC-1-ton-GS-12CT-1.png"
+    ],
     "ratings": {
       "average": 3.7,
       "count": 180
@@ -1066,7 +1104,9 @@
     "id": 20,
     "name": "Samsung Arctic Breeze AC ABX 210 1.5 Ton",
     "description": "A high-efficiency air conditioner from Samsung.",
-    "images": ["images/products/Gree-AC-1-ton-GS-12CT-1.png"],
+    "images": [
+      "images/products/Gree-AC-1-ton-GS-12CT-1.png"
+    ],
     "ratings": {
       "average": 3.7,
       "count": 180
@@ -1122,7 +1162,9 @@
     "id": 21,
     "name": "Samsung Arctic Breeze AC ABX 210 1.5 Ton",
     "description": "A high-efficiency air conditioner from Samsung.",
-    "images": ["images/products/Gree-AC-1-ton-GS-12CT-1.png"],
+    "images": [
+      "images/products/Gree-AC-1-ton-GS-12CT-1.png"
+    ],
     "ratings": {
       "average": 3.7,
       "count": 180
@@ -1178,7 +1220,9 @@
     "id": 22,
     "name": "Samsung Arctic Breeze AC ABX 210 1.5 Ton",
     "description": "A high-efficiency air conditioner from Samsung.",
-    "images": ["images/products/Gree-AC-1-ton-GS-12CT-1.png"],
+    "images": [
+      "images/products/Gree-AC-1-ton-GS-12CT-1.png"
+    ],
     "ratings": {
       "average": 3.7,
       "count": 180
