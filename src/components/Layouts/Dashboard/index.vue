@@ -29,6 +29,19 @@ const handleLogOut = (title: string) => {
     visible.value = true;
   }
 };
+
+const gotToHome = () => {
+  navigateTo("/");
+  // navigateTo("http://localhost:3000/", {
+  //   open: {
+  //     target: "_blank",
+  //     windowFeatures: {
+  //       width: 500,
+  //       height: 500,
+  //     },
+  //   },
+  // });
+};
 </script>
 
 <template>
@@ -92,7 +105,10 @@ const handleLogOut = (title: string) => {
               >
                 Cancel
               </Button>
-              <Button class="modal-button logout font-heading-7 font-semibold">
+              <Button
+                class="modal-button logout font-heading-7 font-semibold"
+                @click="gotToHome"
+              >
                 Logout
               </Button>
             </div>

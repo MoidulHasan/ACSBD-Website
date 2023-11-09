@@ -22,13 +22,6 @@ const selectedCategories = ref([]);
 onClickOutside(actionDiv, () => {
   emits("update:state", false);
 });
-
-watch(
-  () => props.orderIndex,
-  () => {
-    console.log(orderIndex, clickedIndex);
-  },
-);
 </script>
 
 <template>
