@@ -3,6 +3,9 @@
     <div>
       <LayoutsHeaderNav />
     </div>
+    <div v-if="!hideBreadCrumb">
+      <LayoutsBreadCrumb :breadcrumbs="breadcrumbs" />
+    </div>
 
     <div class="container">
       <h1 class="py-5 pl-0 pr-5 font-heading-2 dashboard-title">My Account</h1>
@@ -22,7 +25,21 @@
   </main>
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+const router = useRouter();
+const { breadcrumbs } = useBreadcrumbs();
+const { width } = useWindowSize();
+
+const hideBreadCrumb = computed(() => {
+  return (
+    router.currentRoute.value.fullPath === "/" ||
+    breadcrumbs.value.length === 1 ||
+    width.value <= 768 ||
+    !breadcrumbs.value[breadcrumbs.value.length - 1]?.title ||
+    !router.currentRoute.value.name
+  );
+});
+</script>
 
 <style scoped>
 .dashboard-title {
