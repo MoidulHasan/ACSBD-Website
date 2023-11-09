@@ -9,7 +9,7 @@ definePageMeta({
 
 const { data: orderData } = await getOrders();
 
-const orders: Ref<any[] | null> = ref(orderData);
+const orders = ref(orderData);
 
 const showActions = ref(false);
 const showActionByClick = () => {
