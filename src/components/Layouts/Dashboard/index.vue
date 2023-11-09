@@ -25,10 +25,8 @@ const navLinks = [
 
 const visible = ref(false);
 const handleLogOut = (title: string) => {
-  console.log("Title", title);
   if (title === "Logout") {
     visible.value = true;
-    console.log(visible.value);
   }
 };
 </script>
