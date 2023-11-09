@@ -8,11 +8,11 @@ definePageMeta({
 });
 
 const { data: orderData } = await getOrders();
-
 const orders = ref(orderData);
-
 const showActions = ref(false);
-const showActionByClick = () => {
+const clickedIndex = ref(-1);
+const showActionByClick = (i: number) => {
+  clickedIndex.value = i;
   showActions.value = true;
 };
 </script>
@@ -58,13 +58,13 @@ const showActionByClick = () => {
         </Column>
         <Column header="Action" class="cursor-pointer">
           <template #body="slotProps">
-            <p class="" @click="showActionByClick">
+            <p class="">
               <i
                 class="pi pi-ellipsis-h action-button"
                 style="font-size: 2rem"
               ></i>
             </p>
-            <LayoutsDashboardOtherOrderOptions />
+            <LayoutsDashboardMyOrdersOtherActions />
           </template>
         </Column>
       </DataTable>
@@ -73,9 +73,9 @@ const showActionByClick = () => {
       </div>
     </div>
     <!--    mobile content -->
-    <div class="order-table-mobile block md:hidden">
+    <div class="order-table-mobile block lg:hidden">
       <Divider class="mobile-divider mb-3" />
-      <div v-for="order in orders" :key="order.order_no">
+      <div v-for="(order, index) in orders" :key="order.order_no">
         <div class="product-container-mobile mb-4">
           <h2 class="heading-7 mb-3 font-medium product-title-text">Product</h2>
           <PagesAccountMyOrdersProductContainer :product="order" />
@@ -109,7 +109,7 @@ const showActionByClick = () => {
               <p class="order-item-title heading-7 mr-12px">Action</p>
               <div
                 class="mobile-action-container cursor-pointer"
-                @click="showActionByClick"
+                @click="showActionByClick(index)"
               >
                 <p class="action-pointer">
                   <i
@@ -117,7 +117,12 @@ const showActionByClick = () => {
                     style="font-size: 2rem"
                   ></i>
                 </p>
-                <LayoutsDashboardOtherOrderOptions />
+                <LayoutsDashboardMyOrdersOtherActions
+                  :show-actions="showActions"
+                  :order-index="index"
+                  :clicked-index="clickedIndex"
+                  @update:state="showActions = $event"
+                />
               </div>
             </li>
           </ul>
@@ -128,6 +133,7 @@ const showActionByClick = () => {
       </div>
     </div>
   </div>
+  <div></div>
 </template>
 
 <style scoped lang="scss">
