@@ -6,18 +6,35 @@
       sub-header="Dear customers, we have been selling AC service for 17 years in the Bangladesh market with reliability and honesty of global brands at reasonable prices. Apart from this, all types of spare parts for AC are sold wholesale and retail."
     />
 
-    <CommonCardListHeader class="mt-5 mb-3" label="Best Offer Products">
+    <CommonCardListHeader class="mt-5 mb-3">
+      <template #leftSideContent>
+        <div class="flex justify-content-between align-items-center">
+          <h3
+            class="font-heading-4 text-primary-color-navy-blue mr-1 md:mr-3 label"
+          >
+            Best Offer Products
+          </h3>
+
+          <div class="hidden md:block">
+            <CommonTimeCounter
+              :count-down-to-time="'2023-12-28T09:00:00Z'"
+              show-value-only
+            />
+          </div>
+        </div>
+      </template>
+
       <template #rightSideContent>
         <div class="button-container">
           <NuxtLink
             :to="{ name: 'products' }"
-            class="button-primary no-underline px-16px"
+            class="button-primary no-underline p-1 md:p-3 mr-2 md:mr-3"
           >
             View All
           </NuxtLink>
           <div
             id="offerProductSecPrevButton"
-            class="flex justify-content-center align-items-center"
+            class="flex justify-content-center align-items-center mr-1 md:mr-2"
           />
           <div
             id="offerProductSecNextButton"
@@ -27,7 +44,7 @@
       </template>
     </CommonCardListHeader>
 
-    <CommonCardCarosel
+    <CommonSwiperCardCarousel
       :carousel-responsive-options="offerProductResponsiveOptions"
       :items="offerProducts"
       :number-of-scroll="1"
@@ -36,24 +53,24 @@
       teleport-prev-button="#offerProductSecPrevButton"
     >
       <template #item="slotProps">
-        <div class="mr-3 md:mr-5">
-          <CommonOfferProductCard v-bind="{ ...slotProps.data }" />
+        <div>
+          <CommonProductCard v-bind="{ ...slotProps.data }" />
         </div>
       </template>
-    </CommonCardCarosel>
+    </CommonSwiperCardCarousel>
 
     <CommonCardListHeader class="mt-5 mb-3" label="Air Conditioner">
       <template #rightSideContent>
         <div class="button-container">
           <NuxtLink
             :to="{ name: 'products' }"
-            class="button-primary no-underline px-16px"
+            class="button-primary no-underline p-1 md:p-3 mr-2 md:mr-3"
           >
             View All
           </NuxtLink>
           <div
             id="acSecPrevButton"
-            class="flex justify-content-center align-items-center"
+            class="flex justify-content-center align-items-center mr-1 md:mr-2"
           />
           <div
             id="acSecNextButton"
@@ -63,7 +80,8 @@
       </template>
     </CommonCardListHeader>
 
-    <CommonCardCarosel
+    <CommonSwiperCardCarousel
+      ref="swiperContainer"
       :carousel-responsive-options="responsiveOptions"
       :items="airConditioners"
       :visible-slider="3"
@@ -71,11 +89,11 @@
       teleport-prev-button="#acSecPrevButton"
     >
       <template #item="slotProps">
-        <div class="mr-2 md:mr-3">
+        <div>
           <CommonProductCard v-bind="{ ...slotProps.data }" />
         </div>
       </template>
-    </CommonCardCarosel>
+    </CommonSwiperCardCarousel>
 
     <CommonCardListHeader
       class="mt-5 mb-3"
@@ -86,13 +104,13 @@
         <div class="button-container">
           <NuxtLink
             :to="{ name: 'products' }"
-            class="button-primary no-underline px-16px"
+            class="button-primary no-underline p-1 md:p-3 mr-2 md:mr-3"
           >
             View All
           </NuxtLink>
           <div
             id="acSparePartsPrevButton"
-            class="flex justify-content-center align-items-center"
+            class="flex justify-content-center align-items-center mr-1 md:mr-2"
           />
           <div
             id="acSparePartsNextButton"
@@ -102,19 +120,20 @@
       </template>
     </CommonCardListHeader>
 
-    <CommonCardCarosel
+    <CommonSwiperCardCarousel
+      ref="swiperContainer"
       :carousel-responsive-options="responsiveOptions"
       :items="acSpareSparts"
-      :visible-slider="6"
+      :visible-slider="3"
       teleport-next-button="#acSparePartsNextButton"
       teleport-prev-button="#acSparePartsPrevButton"
     >
       <template #item="slotProps">
-        <div class="mr-2 md:mr-3">
+        <div>
           <CommonProductCard v-bind="{ ...slotProps.data }" />
         </div>
       </template>
-    </CommonCardCarosel>
+    </CommonSwiperCardCarousel>
   </div>
 </template>
 
@@ -190,5 +209,17 @@ const offerProductResponsiveOptions = ref([
   justify-content: space-between;
   align-items: center;
   gap: 8px;
+}
+
+.label {
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .label {
+    font-size: 14px;
+  }
 }
 </style>

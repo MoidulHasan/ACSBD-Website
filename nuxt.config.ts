@@ -20,6 +20,7 @@ export default defineNuxtConfig({
     "@nuxtjs/eslint-module",
     "@vueuse/nuxt",
     "@pinia/nuxt",
+    "nuxt-swiper",
   ],
 
   css: [
