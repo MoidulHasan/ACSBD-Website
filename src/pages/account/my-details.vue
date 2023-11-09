@@ -2,7 +2,7 @@
 import { getProfile } from "~/app/api/getProfile";
 
 definePageMeta({
-  layout: "dashboard",
+  name: "my-details",
   title: "My Details",
 });
 const { data: profile } = await getProfile();
@@ -140,8 +140,8 @@ const repeatedCredential = ref("");
           <CommonAuthInputField
             placeholder-text="New Password Here"
             password
-            @update:text="newCredential = $event"
             :disabled="!passwordEdit"
+            @update:text="newCredential = $event"
           />
         </div>
         <div class="flex flex-column gap-2 mb-5">
@@ -151,8 +151,8 @@ const repeatedCredential = ref("");
           <CommonAuthInputField
             placeholder-text="Confirm Your Password"
             password
-            @update:text="repeatedCredential = $event"
             :disabled="!passwordEdit"
+            @update:text="repeatedCredential = $event"
           />
         </div>
         <Button

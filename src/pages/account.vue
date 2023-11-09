@@ -8,6 +8,8 @@
 definePageMeta({
   name: "my-account",
   title: "My Account",
+  redirect: "my-details",
+  layout: "dashboard",
 });
 </script>
 

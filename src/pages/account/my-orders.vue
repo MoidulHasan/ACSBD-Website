@@ -3,7 +3,6 @@ import { getOrders } from "~/app/api/getOrders";
 import { formatDate } from "~/utils/formatDate";
 
 definePageMeta({
-  layout: "dashboard",
   title: "My Orders",
   name: "my-order",
 });

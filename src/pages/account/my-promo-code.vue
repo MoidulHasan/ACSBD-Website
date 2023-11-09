@@ -1,6 +1,6 @@
 <script setup lang="ts">
 definePageMeta({
-  layout: "dashboard",
+  name: "my-promo",
   title: "My Promo-codes",
 });
 const promoCode = ref(null);
@@ -21,12 +21,7 @@ const promoCode = ref(null);
     >
       <div class="flex align-items-center justify-content-center mb-5 md:mb-0">
         <i class="pi pi-copy copy-icon cursor-pointer" />
-        <h2
-          ref="promoCode"
-          class="font-heading-3 promo-code ml-4"
-        >
-          AC1258AP
-        </h2>
+        <h2 ref="promoCode" class="font-heading-3 promo-code ml-4">AC1258AP</h2>
       </div>
       <div class="social-medias flex align-items-center flex-wrap">
         <p class="font-header-7 font-semibold social-media-title">

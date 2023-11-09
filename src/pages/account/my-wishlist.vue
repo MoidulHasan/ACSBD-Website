@@ -2,7 +2,7 @@
 import { getWishlist } from "~/app/api/getWishlist";
 
 definePageMeta({
-  layout: "dashboard",
+  name: "my-wishlist",
   title: "My Orders",
 });
 
