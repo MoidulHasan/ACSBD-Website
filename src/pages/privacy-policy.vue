@@ -113,7 +113,5 @@
 definePageMeta({
   title: "Privacy Policy",
   name: "privacy-policy",
-useHead({
-  title: "Privacy Policy"
 });
 </script>
