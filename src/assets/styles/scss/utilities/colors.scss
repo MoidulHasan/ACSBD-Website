@@ -41,6 +41,8 @@ $colors: (
         color-warning: variables.$color-warning,
         color-danger: variables.$color-danger,
         color-orange: variables.$color-orange,
+        color-product-front: variables.$color-product-front,
+        color-product-bg: variables.$color-product-bg,
 );
 
 @each $color-name, $color-value in $colors {

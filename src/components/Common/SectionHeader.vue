@@ -5,7 +5,9 @@
     >
       {{ header }}
     </h1>
-    <p class="subtitle text-regular-3 text-color-primary-dark-gray mx-auto">
+    <p
+      class="subtitle text-regular-3 text-primary-color-dark-gray mx-auto text-center"
+    >
       {{ subHeader }}
     </p>
   </div>

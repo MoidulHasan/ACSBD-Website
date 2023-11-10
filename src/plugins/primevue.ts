@@ -14,7 +14,6 @@ import AccordionTab from "primevue/accordiontab";
 import Textarea from "primevue/textarea";
 import Checkbox from "primevue/checkbox";
 import Rating from "primevue/rating";
-import { defineNuxtPlugin } from "#app";
 import Calendar from "primevue/calendar";
 import Card from "primevue/card";
 import Galleria from "primevue/galleria";
