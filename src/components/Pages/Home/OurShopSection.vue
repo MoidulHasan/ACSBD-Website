@@ -44,8 +44,8 @@
       </template>
     </CommonCardListHeader>
 
+    <!--    :carousel-responsive-options="offerProductResponsiveOptions"-->
     <CommonSwiperCardCarousel
-      :carousel-responsive-options="offerProductResponsiveOptions"
       :items="offerProducts"
       :number-of-scroll="1"
       :visible-slider="3"
@@ -82,7 +82,6 @@
 
     <CommonSwiperCardCarousel
       ref="swiperContainer"
-      :carousel-responsive-options="responsiveOptions"
       :items="airConditioners"
       :visible-slider="3"
       teleport-next-button="#acSecNextButton"
@@ -122,7 +121,6 @@
 
     <CommonSwiperCardCarousel
       ref="swiperContainer"
-      :carousel-responsive-options="responsiveOptions"
       :items="acSpareSparts"
       :visible-slider="3"
       teleport-next-button="#acSparePartsNextButton"
@@ -145,62 +143,6 @@ import { getOfferProducts } from "~/app/api/getOfferProducts";
 const { data: offerProducts } = await getOfferProducts();
 const { data: airConditioners } = await getAirConditioners();
 const { data: acSpareSparts } = await getACSpareSparts();
-
-const responsiveOptions = ref([
-  {
-    breakpoint: 1290,
-    numVisible: 6,
-    numScroll: 1,
-  },
-  {
-    breakpoint: 860,
-    numVisible: 4,
-    numScroll: 1,
-  },
-  {
-    breakpoint: 645,
-    numVisible: 3,
-    numScroll: 1,
-  },
-  {
-    breakpoint: 320,
-    numVisible: 2,
-    numScroll: 1,
-  },
-  {
-    breakpoint: 215,
-    numVisible: 1,
-    numScroll: 1,
-  },
-]);
-
-const offerProductResponsiveOptions = ref([
-  {
-    breakpoint: 1290,
-    numVisible: 3,
-    numScroll: 1,
-  },
-  {
-    breakpoint: 860,
-    numVisible: 2,
-    numScroll: 1,
-  },
-  {
-    breakpoint: 645,
-    numVisible: 1,
-    numScroll: 1,
-  },
-  {
-    breakpoint: 320,
-    numVisible: 1,
-    numScroll: 1,
-  },
-  {
-    breakpoint: 215,
-    numVisible: 1,
-    numScroll: 1,
-  },
-]);
 </script>
 
 <style lang="scss" scoped>

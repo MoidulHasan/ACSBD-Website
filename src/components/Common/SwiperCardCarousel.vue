@@ -1,11 +1,7 @@
 <script lang="ts" setup>
 import { Navigation } from "swiper/modules";
-
-interface CarouselResponsiveOptions {
-  breakpoint: number;
-  numVisible: number;
-  numScroll: number;
-}
+import { swiperSliderBreakpoints } from "constants/common";
+import type { SwiperSliderBreakpointsI } from "~/contracts/common";
 
 interface CarouselProps {
   items: any;
@@ -13,7 +9,7 @@ interface CarouselProps {
   numberOfScroll?: number;
   teleportPrevButton?: string;
   teleportNextButton?: string;
-  carouselResponsiveOptions?: CarouselResponsiveOptions[];
+  carouselResponsiveOptions?: SwiperSliderBreakpointsI;
 }
 
 const props = withDefaults(defineProps<CarouselProps>(), {
@@ -25,28 +21,9 @@ const props = withDefaults(defineProps<CarouselProps>(), {
   carouselResponsiveOptions: undefined,
 });
 
-const breakPoints = ref({
-  "360": {
-    slidesPerView: 2,
-    spaceBetween: 8,
-  },
-  "768": {
-    slidesPerView: 3,
-    spaceBetween: 8,
-  },
-  "992": {
-    slidesPerView: 4,
-    spaceBetween: 8,
-  },
-  "1200": {
-    slidesPerView: 5,
-    spaceBetween: 16,
-  },
-  "1440": {
-    slidesPerView: 6,
-    spaceBetween: 16,
-  },
-});
+const breakPoints = ref(
+  props.carouselResponsiveOptions ?? swiperSliderBreakpoints,
+);
 
 const swiperSliderContainer = ref(null);
 const nextButton = ref(null);
