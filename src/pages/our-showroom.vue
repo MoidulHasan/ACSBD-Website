@@ -31,17 +31,17 @@ const {
 <template>
   <div>
     <CommonSectionHeader
-      class="mb-5 mt-3"
+      class="mb-5 mt-3 container"
       header="Our Showroom and Service Center Locations"
       sub-header="Your visit to our Istanbul Showroom not only would do us great honour; but you would also have the privilige to have a closer look at our wide range of collection of beautiful fabrics. You can enjoy the beauties of Istanbul for the rest of the day!."
     />
-    <div class="container">
+    <div class="">
       <div
         class="search-container bg-product-BG-color px-3 py-2 flex flex-column md:flex-row align-items-center gap-3 md:gap-8 mb-3"
       >
         <div class="md:mb-0 locationSearchBar w-full">
           <div class="p-inputgroup flex-1 flex-wrap w-full">
-            <InputText placeholder="Search Product" />
+            <InputText placeholder="Search Locations" />
             <Button class="search-button" icon="pi pi-search" />
           </div>
         </div>
@@ -85,18 +85,18 @@ const {
 }
 :deep(.p-inputgroup .p-inputtext) {
   @include media-query(sm) {
-    max-height: 32px;
+    max-height: 42px;
   }
   @include media-query(lg) {
-    max-height: 32px;
+    max-height: 42px;
   }
 }
 :deep(.p-inputgroup .p-button) {
   @include media-query(sm) {
-    max-height: 32px;
+    max-height: 42px;
   }
   @include media-query(lg) {
-    max-height: 32px;
+    max-height: 42px;
   }
 }
 .search-button,
