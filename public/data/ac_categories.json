@@ -1,0 +1,32 @@
+[
+  {
+    "id": "01",
+    "title": "Cassette Type",
+    "img": "/images/ac_categories/cassette_type.png"
+  },
+  {
+    "id": "02",
+    "title": "Ceiling AC",
+    "img": "/images/ac_categories/ceiling_type_ac.png"
+  },
+  {
+    "id": "03",
+    "title": "Floor Stand AC",
+    "img": "/images/ac_categories/floor_stand_ac.png"
+  },
+  {
+    "id": "04",
+    "title": "Non Inverted AC",
+    "img": "/images/ac_categories/non_inverted_ac.png"
+  },
+  {
+    "id": "05",
+    "title": "Portable AC",
+    "img": "/images/ac_categories/portable_ac.png"
+  },
+  {
+    "id": "06",
+    "title": "Window AC",
+    "img": "/images/ac_categories/window_ac.png"
+  }
+]
