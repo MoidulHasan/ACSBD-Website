@@ -44,7 +44,6 @@
       </template>
     </CommonCardListHeader>
 
-    <!--    :carousel-responsive-options="offerProductResponsiveOptions"-->
     <CommonSwiperCardCarousel
       :items="offerProducts"
       :number-of-scroll="1"

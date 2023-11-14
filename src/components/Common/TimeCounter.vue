@@ -50,7 +50,6 @@ const { remainingDay, remainingHour, remainingMinute, remainingSecond } =
 
 <style lang="scss" scoped>
 .time-box {
-  //width: 100%;
   height: 32px;
   width: 28px;
   flex-shrink: 0;
