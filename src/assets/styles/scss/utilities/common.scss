@@ -31,7 +31,7 @@
 }
 
 .button-primary {
-  height: 28px;
+  height: 38px;
   border-radius: 2px;
   cursor: pointer;
   background: var(--primary-color-envitect-sam-blue);
@@ -41,9 +41,11 @@
   justify-content: center;
   align-items: center;
   gap: 12px;
+  border: 0;
+
 
   @include media-query(sm) {
-    height: 20px;
+    height: 24px;
   }
 }
 

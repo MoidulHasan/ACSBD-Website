@@ -64,6 +64,10 @@ summary {
   vertical-align: baseline;
 }
 
+*:focus {
+  box-shadow: none !important;
+}
+
 /* Set block elements to display as block-level for consistent rendering */
 article,
 aside,
