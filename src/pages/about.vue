@@ -23,7 +23,7 @@
 </template>
 <script lang="ts" setup>
 useHead({
-  title: "About Us",
+  title: "About",
 });
 </script>
 <style lang="scss" scoped>
