@@ -1,0 +1,196 @@
+@use "../base/_mixins" as *;
+
+// Define heading font map for regular screen
+$font-styles-map-regular-screen: (
+        heading-1: (
+                56px,
+                700,
+                68px,
+        ),
+        heading-1-semi-bold: (
+                56px,
+                600,
+                68px,
+        ),
+        heading-2: (
+                36px,
+                700,
+                44px,
+        ),
+        heading-2-semi-bold: (
+                36px,
+                600,
+                44px,
+        ),
+        heading-3: (
+                28px,
+                700,
+                36px,
+        ),
+        heading-3-semi-bold: (
+                28px,
+                600,
+                36px,
+        ),
+        heading-4: (
+                24px,
+                700,
+                32px,
+        ),
+        heading-4-semi-bold: (
+                24px,
+                600,
+                32px,
+        ),
+        heading-5: (
+                20px,
+                700,
+                28px,
+        ),
+        heading-5-semi-bold: (
+                20px,
+                600,
+                28px,
+        ),
+        heading-6: (
+                18px,
+                700,
+                26px,
+        ),
+        heading-6-semi-bold: (
+                18px,
+                600,
+                26px,
+        ),
+);
+
+// Define heading font map for smaller screen
+$font-styles-map-smaller-screen: (
+        heading-1: (
+                36px,
+                700,
+                44px,
+        ),
+        heading-1-semi-bold: (
+                36px,
+                600,
+                44px,
+        ),
+        heading-2: (
+                24px,
+                700,
+                32px,
+        ),
+        heading-2-semi-bold: (
+                24px,
+                600,
+                32px,
+        ),
+        heading-3: (
+                20px,
+                700,
+                28px,
+        ),
+        heading-3-semi-bold: (
+                20px,
+                600,
+                28px,
+        ),
+        heading-4: (
+                18px,
+                700,
+                26px,
+        ),
+        heading-4-semi-bold: (
+                18px,
+                600,
+                26px,
+        ),
+        heading-5: (
+                16px,
+                700,
+                24px,
+        ),
+        heading-5-semi-bold: (
+                16px,
+                600,
+                24px,
+        ),
+        heading-6: (
+                16px,
+                700,
+                16px,
+        ),
+        heading-6-semi-bold: (
+                16px,
+                600,
+                16px,
+        ),
+);
+
+// Define text font map for regular screen
+$text-styles-map: (
+        semi-bold-1: (
+                16px,
+                600,
+                24px,
+        ),
+        medium-2: (
+                16px,
+                500,
+                24px,
+        ),
+        regular-3: (
+                16px,
+                400,
+                24px,
+        ),
+        regular-4: (
+                14px,
+                400,
+                20px,
+        ),
+        semi-bold-5: (
+                14px,
+                600,
+                20px,
+        ),
+        small-bold: (
+                8px,
+                600,
+                12px,
+        )
+);
+
+// Generate font style classes
+@each $class, $config in $font-styles-map-regular-screen {
+  .font-#{$class} {
+    @include font-styles(nth($config, 1), nth($config, 2), nth($config, 3));
+  }
+}
+
+// Text Styles
+%text-styles {
+  font-style: normal;
+}
+
+// Generate text style classes
+@each $class, $config in $text-styles-map {
+  .text-#{$class} {
+    @include font-styles(nth($config, 1), nth($config, 2), nth($config, 3));
+    @extend %text-styles;
+  }
+}
+
+// Media Query for Smaller Screens
+@media screen and (max-width: 576px) {
+  @each $class, $config in $font-styles-map-smaller-screen {
+    .font-#{$class} {
+      @include font-styles(nth($config, 1), nth($config, 2), nth($config, 3));
+    }
+  }
+
+  .text-semi-bold-5 {
+    @include font-styles(14px, 400, 20px);
+  }
+}

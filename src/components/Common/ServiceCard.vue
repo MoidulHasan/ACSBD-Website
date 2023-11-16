@@ -11,7 +11,6 @@
       <div class="button-container">
         <NuxtLink
           class="contact-button flex align-items-center no-underline"
-          external
           to="services"
         >
           <span class="mr-2">Contact Us</span>

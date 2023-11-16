@@ -1,52 +1,48 @@
 <template>
-  <div class="contact">
-    <div class="container contact-form">
-      <form class="flex flex-column gap-3" @submit.prevent="submitQuestion">
-        <h2 class="question-title">Have more Questions?</h2>
-        <InputText
-          id="name"
-          v-model="question.name"
-          :class="{ questionInput: true }"
-          aria-describedby="text-error"
-          placeholder="Name"
+  <div class="w-full">
+    <form class="flex flex-column gap-3" @submit="submitQuestion">
+      <h2 class="font-heading-3 text-primary-color-navy-blue">
+        Have more Questions?
+      </h2>
+      <InputText
+        v-model="question.name"
+        aria-describedby="text-error"
+        placeholder="Name"
+        required
+        type="text"
+      />
+      <InputText
+        id="email"
+        v-model="question.email"
+        aria-describedby="text-error"
+        placeholder="Email"
+        required
+        type="text"
+      />
+      <Textarea
+        v-model="question.questions"
+        aria-describedby="text-error"
+        auto-resize
+        placeholder="Questions?"
+        required
+        rows="5"
+      />
+      <div class="flex align-items-center mb-3">
+        <Checkbox
+          v-model="question.check"
+          :binary="true"
+          class="check-box"
+          input-id="aggrement"
+          name="aggrement"
           required
-          type="text"
+          type="checkbox"
         />
-        <InputText
-          id="email"
-          v-model="question.email"
-          :class="{ questionInput: true }"
-          aria-describedby="text-error"
-          placeholder="Email"
-          required
-          type="text"
-        />
-        <Textarea
-          v-model="question.questions"
-          :class="{ questionInput: true }"
-          aria-describedby="text-error"
-          auto-resize
-          placeholder="Questions?"
-          required
-          rows="5"
-        />
-        <div class="flex align-items-center mb-3">
-          <Checkbox
-            v-model="question.check"
-            :binary="true"
-            class="check-box"
-            input-id="aggrement"
-            name="aggrement"
-            required
-            type="checkbox"
-          />
-          <label class="checkbox-label ml-3" for="aggrement">
-            I Accept the Terms of Service and Privacy Policy
-          </label>
-        </div>
-        <Button label="Submit" type="submit" />
-      </form>
-    </div>
+        <label class="text-semi-bold-1 text-dark-gray-80 ml-3" for="aggrement">
+          I Accept the Terms of Service and Privacy Policy
+        </label>
+      </div>
+      <Button class="button-style" label="Submit" type="submit" />
+    </form>
   </div>
 </template>
 
@@ -73,29 +69,12 @@ const submitQuestion = () => {
 </script>
 
 <style lang="scss" scoped>
-.contact {
-  background: var(--primary-color-white);
-  padding: 60px 410px 100px;
-
-  .question-title {
-    font-size: 28px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 36px;
-    color: var(--primary-color-envitect-sam-blue);
-  }
-
-  .questionInput {
-    padding: 16px 24px 16px 24px;
-  }
-
-  .checkbox-label {
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 24px;
-    color: var(--primary-color-dark-gray);
-  }
+.checkbox-label {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px;
+  color: var(--primary-color-dark-gray);
 }
 
 :deep(.p-checkbox .p-checkbox-box) {
@@ -106,7 +85,7 @@ const submitQuestion = () => {
   border: 1px solid var(--navy-blue-80) !important;
 }
 
-:deep(.p-button) {
+.button-style {
   display: inline-flex;
   padding: 12px 48px;
   justify-content: center;
@@ -117,22 +96,8 @@ const submitQuestion = () => {
   max-width: 155px;
 }
 
-:deep(.p-button .p-button-label) {
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 24px;
-  color: var(--primary-color-white);
-}
-
-:deep(.p-button:focus) {
+:deep(.p-inputtext) {
+  padding: 16px 24px 16px 24px;
   box-shadow: none;
-  background: var(--primary-color-envitect-sam-blue);
-}
-
-@media (max-width: 900px) {
-  .contact {
-    padding: 40px 0px;
-  }
 }
 </style>

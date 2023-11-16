@@ -6,21 +6,36 @@ export default defineNuxtConfig({
   alias: {
     public: fileURLToPath(new URL("./public/", import.meta.url)),
     constants: fileURLToPath(new URL("./src/constants", import.meta.url)),
+    assets: fileURLToPath(new URL("./src/assets", import.meta.url)),
   },
 
   dir: {
     public: "../public/",
   },
 
-  devtools: { enabled: true },
+  devtools: {
+    enabled: true,
 
-  modules: ["@nuxt/image", "@nuxtjs/eslint-module"],
+    timeline: {
+      enabled: true,
+    },
+  },
+
+  modules: [
+    "@nuxt/image",
+    "@nuxtjs/eslint-module",
+    "@vueuse/nuxt",
+    "@pinia/nuxt",
+    "nuxt-swiper",
+  ],
 
   css: [
     "primevue/resources/themes/lara-light-blue/theme.css",
     "primevue/resources/primevue.css",
     "primeflex/primeflex.css",
     "primeicons/primeicons.css",
+    "~/assets/styles/main.css",
+    "~/assets/styles/scss/main.scss",
   ],
 
   build: {
@@ -74,21 +89,25 @@ export default defineNuxtConfig({
   },
 
   runtimeConfig: {
-    apiUrl: "",
     public: {
       baseURL: "",
+      apiUrl: "",
     },
+  },
+
+  // vite: {
+  //   css: {
+  //     preprocessorOptions: {
+  //       scss: {
+  //         additionalData: "@use '~/assets/styles/scss/base/all.scss' as *;",
+  //       },
+  //     },
+  //   },
+  // },
+
+  nitro: {
+    preset: "vercel",
   },
 
   ssr: true,
-
-  vite: {
-    css: {
-      preprocessorOptions: {
-        scss: {
-          additionalData: "@use '~/assets/styles/scss/main.scss' as *;",
-        },
-      },
-    },
-  },
 });

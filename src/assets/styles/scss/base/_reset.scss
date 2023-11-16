@@ -44,14 +44,7 @@ fieldset,
 form,
 label,
 legend,
-table,
 caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
 article,
 aside,
 canvas,
@@ -67,11 +60,12 @@ section,
 summary {
   margin: 0;
   padding: 0;
-  border: 0;
-  outline: 0;
   font-size: 100%;
   vertical-align: baseline;
-  background: transparent;
+}
+
+*:focus {
+  box-shadow: none !important;
 }
 
 /* Set block elements to display as block-level for consistent rendering */
@@ -96,9 +90,10 @@ input,
 select,
 textarea {
   &:focus {
-    outline: 0;
+    outline: none;
   }
 }
+
 
 /* Remove list styles (bullet points) */
 ol,
@@ -120,10 +115,9 @@ q:after {
   content: none;
 }
 
-/* Optional: Customize link styles as needed */
+/* Removes Style from the anchor tags */
 a {
   text-decoration: none;
-  color: #000;
 }
 
 /* Set default font family, size, and line height */
@@ -138,9 +132,4 @@ body {
 *::before,
 *::after {
   box-sizing: border-box;
-}
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
 }

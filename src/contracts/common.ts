@@ -1,3 +1,9 @@
+export interface BreadCrumb {
+  path: string;
+  name?: string;
+  title?: string;
+}
+
 export interface Product {
   id: number;
   name: string;
@@ -8,4 +14,11 @@ export interface Product {
   total_review: number;
   image: string;
   offerEndsAt: string;
+}
+
+export interface SwiperSliderBreakpointsI {
+  [key: string]: {
+    slidesPerView: number;
+    spaceBetween: number;
+  };
 }

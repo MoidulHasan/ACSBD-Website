@@ -1,75 +1,72 @@
 <template>
-  <div class="tab">
-    <div class="tab-title-component text-center">
-      <h1 class="tab-title mb-3">{{ faqByTopic.title }}?</h1>
-      <p class="tab-description mb-2 lg:mb-5">
-        {{ faqByTopic.description }}
-      </p>
-    </div>
-    <div class="mt-3">
-      <Accordion :active-index="0" class="mb-6">
-        <AccordionTab
-          v-for="tab in faqByTopic?.tabs"
-          :key="tab.question"
-          :header="tab.question"
-          :pt="{
-            headerAction: ({ props, parent }) => ({
-              class: panelClass(props, parent, index),
-            }),
-          }"
-        >
-          <p>{{ tab.content }}</p>
-        </AccordionTab>
-      </Accordion>
-      <div class="flex justify-content-center">
-        <Button class="view-all-tabs mb-1 lg:mb-6">Load More Questions</Button>
+  <div class="faq-tabs-container">
+    <div class="faq-tabs-content">
+      <CommonSectionHeader
+        :header="faqList.title"
+        :sub-header="faqList.description"
+      />
+      <div class="mt-3 md:mt-5">
+        <Accordion :active-index="0" class="mb-6">
+          <AccordionTab
+            v-for="(tab, index) in faqList.tabs"
+            :key="tab.question"
+            :header="tab.question"
+            :pt="{
+              headerAction: ({ parent }) => handleHeaderAction(index, parent),
+            }"
+          >
+            <p class="faq-tab-header text-regular-4 bg-primary-color-white">
+              {{ tab.question }}
+            </p>
+          </AccordionTab>
+        </Accordion>
+        <div class="flex justify-content-center">
+          <Button class="view-all-tabs mb-5 md:mb-6">
+            Load More Questions
+          </Button>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
+import type { AccordionPassThroughOptions } from "primevue/accordion";
+import type { FAQSection } from "~/contracts/api-contracts/faqData";
+
 defineProps<{
-  faqByTopic: object;
+  faqList: FAQSection;
 }>();
 
-const panelClass = (props, parent, index) => {
-  return [
-    {
-      "active-title-color": parent.state.d_activeIndex === index,
+const handleHeaderAction = (
+  index: number,
+  parent: AccordionPassThroughOptions,
+) => {
+  const isActive = parent.state.d_activeIndex === index;
+  const hasShadow = !isActive;
+
+  return {
+    class: {
+      "faq-tab-header": true,
+      active: isActive,
+      "shadow-none": hasShadow,
     },
-  ];
+  };
 };
 </script>
 
 <style lang="scss" scoped>
-.tab {
+.faq-tabs-container {
+  width: 100%;
   padding-top: 134px;
+  background: var(--product-Front-color);
+}
 
-  .tab-title-component {
-    .tab-title {
-      color: var(--primary-color-envitect-sam-blue);
-      font-size: 36px;
-      font-style: normal;
-      font-weight: 700;
-      line-height: 44px;
-    }
-
-    .tab-description {
-      font-size: 16px;
-      font-style: normal;
-      font-weight: 400;
-      line-height: 24px;
-      color: var(--primary-color-dark-gray);
-    }
-  }
-
-  .accordion {
-    border-radius: 4px;
-    border: 1px solid #dbe5ec;
-    background: #fff;
-    box-shadow: 0px 3px 12px 0px rgba(189, 189, 189, 0.16);
-  }
+.faq-tabs-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding-left: 16px;
+  padding-right: 16px;
 
   .view-all-tabs {
     display: flex;
@@ -95,11 +92,12 @@ const panelClass = (props, parent, index) => {
   }
 }
 
-.active-title-color {
-  color: var(--primary-color-envitect-sam-blue);
-}
-
 :deep(.p-accordion-tab) {
   margin-bottom: 16px;
+}
+
+::v-deep(.p-accordion-toggle-icon) {
+  position: absolute !important;
+  right: 10px !important;
 }
 </style>

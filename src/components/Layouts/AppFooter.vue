@@ -37,53 +37,91 @@
           </div>
           <div class="col-12 md:col flex flex-column text-white">
             <h2 class="mt-1 mb-3 md:mb-5 font-semibold">Shopping With Us</h2>
-            <NuxtLink class="footer-point" external to="/our-showroom"
+            <NuxtLink
+              active-class="footer_active"
+              class="footer-point"
+              to="/our-showroom"
               >Our Showroom
             </NuxtLink>
-            <NuxtLink class="footer-point" external to="/about">
+            <NuxtLink
+              active-class="footer_active"
+              class="footer-point"
+              to="/about"
+            >
               Why Shop With Us
             </NuxtLink>
             <NuxtLink
+              active-class="footer_active"
               class="footer-point"
-              external
               to="/frequently-asked-questions"
             >
               Frequently Asked Questions
             </NuxtLink>
-            <NuxtLink class="footer-point" external to="/purchase-procedure"
+            <NuxtLink
+              active-class="footer_active"
+              class="footer-point"
+              to="/purchase-procedure"
               >Online Purchase Procedure
             </NuxtLink>
-            <NuxtLink class="footer-point" external to="/payment-methods"
+            <NuxtLink
+              active-class="footer_active"
+              class="footer-point"
+              to="/payment-methods"
               >Online Payment Methods
             </NuxtLink>
-            <NuxtLink class="footer-point" external to="/payment-security"
+            <NuxtLink
+              active-class="footer_active"
+              class="footer-point"
+              to="/payment-security"
               >Online Payment Security
             </NuxtLink>
           </div>
           <div class="col-12 md:col flex flex-column text-white">
             <h2 class="mt-1 mb-3 md:mb-5 font-semibold">Customer Service</h2>
-            <NuxtLink class="footer-point" external to="/contact-us">
+            <NuxtLink
+              active-class="footer_active"
+              class="footer-point"
+              to="/contact-us"
+            >
               Contact US
             </NuxtLink>
-            <NuxtLink class="footer-point" external to="/warranty-policy">
+            <NuxtLink
+              class="footer-point"
+              to="/warranty-policy"
+              active-class="footer_active"
+            >
               Warranty Policy
             </NuxtLink>
-            <NuxtLink class="footer-point" external to="/return-refund-policy">
+            <NuxtLink
+              class="footer-point"
+              to="/return-refund-policy"
+              active-class="footer_active"
+            >
               Return & Refund Policy
             </NuxtLink>
-            <NuxtLink class="footer-point" external to="/privacy-policy">
+            <NuxtLink
+              class="footer-point"
+              to="/privacy-policy"
+              active-class="footer_active"
+            >
               Privacy Policy
             </NuxtLink>
-            <NuxtLink class="footer-point" external to="/cookie-policy"
+            <NuxtLink
+              active-class="footer_active"
+              class="footer-point"
+              to="/cookie-policy"
               >Cookie Policy
             </NuxtLink>
-            <NuxtLink class="footer-point" external to="/terms-conditions"
+            <NuxtLink
+              active-class="footer_active"
+              class="footer-point"
+              to="/terms-conditions"
               >Terms & Conditions
             </NuxtLink>
           </div>
           <div class="col flex flex-column text-white">
             <h2 class="mt-1 mb-3 md:mb-5 font-semibold">Get Connected</h2>
-            <h4 class="footer-point mb-4">
+            <h4 class="mb-4 text-regular-4">
               AC SERVICE always posts AC related news & company news regularly.
               So connect with us our recently news.
             </h4>
@@ -94,19 +132,19 @@
             <div class="flex align-items-center">
               <text class="font-semibold mr-3">Follow Us:</text>
               <div class="flex gap-2 md:gap-3 align-items-center">
-                <NuxtLink class="" external to="https://www.facebook.com/">
+                <NuxtLink class="" to="https://www.facebook.com/">
                   <img alt="facebook" src="~/assets/images/facebook.svg" />
                 </NuxtLink>
-                <NuxtLink external to="https://www.facebook.com/">
+                <NuxtLink to="https://www.facebook.com/">
                   <img alt="linkedin" src="~/assets/images/link.svg" />
                 </NuxtLink>
-                <NuxtLink external to="https://www.facebook.com/">
+                <NuxtLink to="https://www.facebook.com/">
                   <img alt="tweeter" src="~/assets/images/tweet.svg" />
                 </NuxtLink>
-                <NuxtLink external to="https://www.facebook.com/">
+                <NuxtLink to="https://www.facebook.com/">
                   <img alt="pinterest" src="~/assets/images/pin.svg" />
                 </NuxtLink>
-                <NuxtLink external to="https://www.facebook.com/">
+                <NuxtLink to="https://www.facebook.com/">
                   <img alt="instagram" src="~/assets/images/ins.svg" />
                 </NuxtLink>
               </div>
@@ -146,8 +184,16 @@
   font-weight: 400;
   line-height: 20px;
   margin-bottom: 12px;
-  text-decoration: none;
+  transition: 0.5s ease;
   color: var(--primary-color-white);
+  &:hover {
+    text-decoration: underline;
+    text-underline-offset: 0.2rem;
+  }
+}
+.footer_active {
+  text-decoration: underline !important;
+  text-underline-offset: 0.2rem !important;
 }
 
 .subscription {

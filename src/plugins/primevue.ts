@@ -21,6 +21,7 @@ import DataTable from "primevue/datatable";
 import Column from "primevue/column";
 import Row from "primevue/row";
 import { defineNuxtPlugin } from "#app";
+import Dropdown from "primevue/dropdown";
 
 export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.use(PrimeVue, { ripple: true });
@@ -45,5 +46,6 @@ export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.component("Card", Card);
   nuxtApp.vueApp.component("DataTable", DataTable);
   nuxtApp.vueApp.component("Column", Column);
-  nuxtApp.vueApp.component("Row", Row); 
+  nuxtApp.vueApp.component("Row", Row);
+  nuxtApp.vueApp.component("Dropdown", Dropdown);
 });
