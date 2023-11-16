@@ -2,8 +2,7 @@
   <div>
     <DataTable :value="productsPrices" expended show-gridlines>
       <Column
-        v-for="(col, index) in columns"
-        :key="index.field"
+        v-for="col in columns"
         :field="col.field"
         :header="col.header"
       />
@@ -12,19 +11,19 @@
 </template>
 
 <script lang="ts" setup>
-import { getProductsPrice } from "~/app/api/getProductsPrice";
+// import { getProductsPrice } from "~/app/api/getProductsPrice";
 
 definePageMeta({
   title: "Products Price",
 });
 
-const { data: productsPrices } = await getProductsPrice();
+// const { data: productsPrices } = await getProductsPrice();
 
 const columns = ref([
-  { key: "S.l", field: "S.l", header: "S.l" },
-  { key: "name", field: "name", header: "name" },
-  { key: "price", field: "price", header: "price" },
-  { key: "unit", field: "unit", header: "unit" },
+  {  field: "S.l", header: "S.l" },
+  {  field: "name", header: "name" },
+  {  field: "price", header: "price" },
+  {  field: "unit", header: "unit" },
 ]);
 </script>
 
