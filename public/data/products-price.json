@@ -1,32 +1,32 @@
 [
         {
                 "id": 1,
-                "name": "Papaya",
-                "unit": 242,
-                "price": 19.99
+                "Descriptions": "Split Wall type Air Conditioner (1 ton to 2 ton)",
+                "Unit":"01 Set",
+                "Price (tk)": "2,000/-"
         },
         {
                 "id": 2,
-                "name": "Mango",
-                "unit": 442,
-                "price": 29.99
+                "Descriptions": "Split Cassette type, Ceiling type Air Conditioner (1.5 ton to 2 ton)",
+                "Unit":"01 Set",
+                "Price (tk)": "2,500/-"
         },
         {
                 "id": 3,
-                "name": "Orange",
-                "unit": 42,
-                "price": 9.99
+                "Descriptions": "Split Wall Type Air Conditioner (2.5 ton)",
+                "Unit": "01 Set",
+                "Price (tk)": "2,500/-"
         },
         {
                 "id": 4,
-                "name": "Malta",
-                "unit": 43,
-                "price": 14.99
+                "Descriptions": "Split Cassette type, Ceiling type Air Conditioner (2.5 ton)",
+                "Unit": "01 Set",
+                "Price (tk)": "3,000/-"
         },
         {
                 "id": 5,
-                "name": "Banana",
-                "unit": 452,
-                "price": 49.99
+                "Descriptions": "Split Wall Type, Cassette type, Ceiling type Air Conditioner(3 ton to 5 ton)",
+                "Unit": "01 Set",
+                "Price (tk)": "4,500/-"
         }
 ]
