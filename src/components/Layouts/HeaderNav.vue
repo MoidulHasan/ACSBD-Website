@@ -463,18 +463,18 @@ onMounted(() => {
 }
 :deep(.p-inputgroup .p-inputtext) {
   @include media-query(sm) {
-    max-height: 32px;
+    max-height: 38px;
   }
   @include media-query(lg) {
-    max-height: 32px;
+    max-height: 38px;
   }
 }
 :deep(.p-inputgroup .p-button) {
   @include media-query(sm) {
-    max-height: 32px;
+    max-height: 38px;
   }
   @include media-query(lg) {
-    max-height: 32px;
+    max-height: 38px;
   }
 }
 
@@ -769,7 +769,7 @@ nav ul li.right .navLink {
     transition: height 0.5s ease-in-out;
 
     &.showSearchBar {
-      height: 118.69px;
+      height: 124.69px;
     }
   }
 
