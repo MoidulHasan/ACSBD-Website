@@ -21,7 +21,20 @@ defineProps<{
 </script>
 
 <style lang="scss" scoped>
+@use "assets/styles/scss/base/mixins" as *;
 .subtitle {
   max-width: 1100px;
+  @include media-query(md) {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  @include media-query(sm) {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
 }
 </style>
