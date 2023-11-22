@@ -37,6 +37,10 @@ defineProps<{
 @use "assets/styles/scss/base/mixins" as *;
 .service-card-container {
   margin: 0px 15px 10px 15px;
+
+  @include media-query(sm) {
+    margin: 0;
+  }
 }
 
 .service-card {
@@ -58,6 +62,7 @@ defineProps<{
     }
     @include media-query(sm) {
       margin-bottom: 1.5rem;
+      padding: 0 1rem;
     }
   }
 
