@@ -66,6 +66,7 @@ const responsiveOptions = ref([
 </script>
 
 <style lang="scss" scoped>
+@use "assets/styles/scss/base/mixins" as *;
 .slider {
   margin-top: 32px;
   margin-bottom: 44px;
@@ -76,8 +77,12 @@ const responsiveOptions = ref([
 
   border-radius: 2px !important;
   background: var(--primary-color-dark-gray) !important;
-
   color: var(--primary-color-white) !important;
+  @include media-query(sm) {
+    position: absolute;
+    right: 8px;
+    background: var(--dark-gray-20) !important;
+  }
 }
 
 ::v-deep(.p-carousel-next:hover) {
@@ -86,11 +91,15 @@ const responsiveOptions = ref([
 
 ::v-deep(.p-carousel-prev) {
   padding: 8px !important;
-
   border-radius: 2px !important;
   background: var(--primary-color-dark-gray) !important;
-
   color: var(--primary-color-white) !important;
+  @include media-query(sm) {
+    position: absolute;
+    left: 8px;
+    z-index: 1;
+    background: var(--dark-gray-20) !important;
+  }
 }
 
 ::v-deep(.p-carousel-prev:hover) {
