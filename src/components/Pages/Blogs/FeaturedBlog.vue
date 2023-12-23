@@ -8,14 +8,36 @@
       />
     </div>
     <div class="blog-details col-12 lg:col-6">
-      <h2>{{ featured.tag }}</h2>
-      <h1>{{ featured.title }}</h1>
-      <p>{{ featured.content }}</p>
-      <Button />
-      <div class="meta-infos">
-        <p>{{ featured.published_date }}</p>
-        <p>{{ featured.views }}</p>
-        <p>{{ featured.comments }}</p>
+      <CommonBadge :label="featured.tag" class="mt-3 mb-4" />
+      <h1
+        class="font-heading-3 text-primary-color-dark-gray mb-3 feature-blog-heading"
+      >
+        {{ featured.title }}
+      </h1>
+      <p
+        class="feature-blog-content text-regular-3 text-primary-color-dark-gray mb-12px"
+      >
+        {{ featured.content }}
+      </p>
+      <p
+        class="text-semi-bold-1 text-primary-color-envitect-sam-blue flex align-items-center mt-12px mb-4"
+      >
+        <span>Explore More</span>
+        <i class="pi pi-arrow-right icon arrow-icon ml-2 mt-1" />
+      </p>
+      <div class="meta-infos flex gap-3">
+        <p class="meta-info text-regular-4 bg-envitect-sam-blue-5">
+          <i class="pi pi-arrow-right icon arrow-icon mr-3" />
+          <span>{{ featured.published_date }}</span>
+        </p>
+        <p class="meta-info text-regular-4 bg-envitect-sam-blue-5">
+          <i class="pi pi-arrow-right icon arrow-icon mr-3" />
+          <span>{{ featured.views }} views</span>
+        </p>
+        <p class="meta-info text-regular-4 bg-envitect-sam-blue-5">
+          <i class="pi pi-arrow-right icon arrow-icon mr-3" />
+          <span>{{ featured.comments }}+ Comments</span>
+        </p>
       </div>
     </div>
   </div>
@@ -42,6 +64,31 @@ defineProps<{
   .feature-blog-img {
     max-height: 351px;
     border-radius: 12px;
+  }
+  .feature-blog-heading {
+    max-width: 624px;
+  }
+  .feature-blog-content {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .arrow-icon {
+    height: 22px;
+    width: 22px;
+  }
+  .meta-info {
+    padding: 9px 22px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    i {
+      margin-top: 8px;
+    }
   }
 }
 </style>
