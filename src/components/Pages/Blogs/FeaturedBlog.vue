@@ -26,15 +26,21 @@
         <i class="pi pi-arrow-right icon arrow-icon ml-2 mt-1" />
       </p>
       <div class="meta-infos flex gap-3">
-        <p class="meta-info text-regular-4 bg-envitect-sam-blue-5">
+        <p
+          class="meta-info text-regular-4 bg-envitect-sam-blue-5 text-dark-gray-80"
+        >
           <i class="pi pi-arrow-right icon arrow-icon mr-3" />
           <span>{{ featured.published_date }}</span>
         </p>
-        <p class="meta-info text-regular-4 bg-envitect-sam-blue-5">
+        <p
+          class="meta-info text-regular-4 bg-envitect-sam-blue-5 text-dark-gray-80"
+        >
           <i class="pi pi-arrow-right icon arrow-icon mr-3" />
           <span>{{ featured.views }} views</span>
         </p>
-        <p class="meta-info text-regular-4 bg-envitect-sam-blue-5">
+        <p
+          class="meta-info text-regular-4 bg-envitect-sam-blue-5 text-dark-gray-80"
+        >
           <i class="pi pi-arrow-right icon arrow-icon mr-3" />
           <span>{{ featured.comments }}+ Comments</span>
         </p>
