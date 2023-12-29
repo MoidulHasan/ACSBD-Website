@@ -35,12 +35,9 @@ defineProps<{
       >
         {{ featured.content }}
       </p>
-      <p
-        class="text-semi-bold-1 text-primary-color-envitect-sam-blue flex align-items-center mt-12px mb-4"
-      >
-        <span>Explore More</span>
-        <i class="pi pi-arrow-right icon arrow-icon ml-2 mt-1" />
-      </p>
+      <NuxtLink>
+        <CommonExploreMoreButton />
+      </NuxtLink>
       <div class="meta-infos flex gap-3">
         <p
           class="meta-info text-regular-4 bg-envitect-sam-blue-5 text-dark-gray-80"
