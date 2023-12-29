@@ -8,7 +8,7 @@ defineProps<{
 <template>
   <div class="grid">
     <div v-for="blog in blogs" :key="blog.id" class="col-12 lg:col-4">
-      <div class="blog m-3 bg-color-product-front">
+      <div class="blog bg-color-product-front">
         <NuxtImg
           :src="blog.imageUrl"
           :alt="blog.title"
@@ -43,7 +43,7 @@ defineProps<{
 
 <style scoped lang="scss">
 .blog {
-  max-width: 348px;
+  //max-width: 348px;
   max-height: 524px;
   border-radius: 4px;
   .blog-img {

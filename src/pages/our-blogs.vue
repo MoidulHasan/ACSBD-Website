@@ -21,6 +21,9 @@ const { data: blogs } = await getBlog();
       <div class="blogs-section grid mt-6 mb-8">
         <div class="col-12 lg:col-9">
           <PagesBlogsBlogList :blogs="blogs" />
+          <div class="flex justify-content-center mt-6">
+            <CommonViewAllButton label="Load More" class="w-12rem" />
+          </div>
         </div>
         <div class="col-12 lg:col-3">
           <PagesBlogsBlogSideBarOptions />
