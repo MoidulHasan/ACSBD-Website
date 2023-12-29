@@ -1,23 +1,15 @@
 <script setup lang="ts">
-interface blog {
-  title: string;
-  views: number;
-  imageUrl: string;
-  content: string;
-  published_date: string;
-  comments: number;
-  tag: string;
-  id: string;
-}
+import type { Blog } from "~/contracts/api-contracts/BlogsInterfaces";
+
 defineProps<{
-  featured: blog;
+  featured: Blog;
 }>();
 </script>
 
 <template>
   <div class="blog-card grid w-full">
     <div class="blog-image-container col-12 lg:col-6">
-      <img
+      <NuxtImg
         class="w-full feature-blog-img"
         :src="featured.imageUrl"
         :alt="featured.title"
@@ -36,25 +28,25 @@ defineProps<{
         {{ featured.content }}
       </p>
       <NuxtLink>
-        <CommonExploreMoreButton />
+        <CommonExploreMoreButton class="mt-12px mb-4" />
       </NuxtLink>
       <div class="meta-infos flex gap-3">
         <p
           class="meta-info text-regular-4 bg-envitect-sam-blue-5 text-dark-gray-80"
         >
-          <i class="pi pi-arrow-right icon arrow-icon mr-3" />
+          <i class="pi pi-calendar-times icon arrow-icon mr-3" />
           <span>{{ featured.published_date }}</span>
         </p>
         <p
           class="meta-info text-regular-4 bg-envitect-sam-blue-5 text-dark-gray-80"
         >
-          <i class="pi pi-arrow-right icon arrow-icon mr-3" />
+          <i class="pi pi-eye icon arrow-icon mr-3" />
           <span>{{ featured.views }} views</span>
         </p>
         <p
           class="meta-info text-regular-4 bg-envitect-sam-blue-5 text-dark-gray-80"
         >
-          <i class="pi pi-arrow-right icon arrow-icon mr-3" />
+          <i class="pi pi-comments icon arrow-icon mr-3" />
           <span>{{ featured.comments }}+ Comments</span>
         </p>
       </div>
@@ -65,7 +57,7 @@ defineProps<{
 <style scoped lang="scss">
 .blog-card {
   .feature-blog-img {
-    max-height: 351px;
+    max-height: 382px;
     border-radius: 12px;
   }
   .feature-blog-heading {
@@ -78,8 +70,7 @@ defineProps<{
     overflow: hidden;
   }
   .arrow-icon {
-    height: 22px;
-    width: 22px;
+    font-size: 1.375rem;
   }
   .meta-info {
     padding: 9px 22px;
@@ -88,10 +79,6 @@ defineProps<{
     align-items: center;
     justify-content: center;
     cursor: pointer;
-
-    i {
-      margin-top: 8px;
-    }
   }
 }
 </style>

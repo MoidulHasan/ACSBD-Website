@@ -20,7 +20,7 @@ const { data: blogs } = await getBlog();
       </div>
       <div class="blogs-section grid mt-6 mb-8">
         <div class="col-12 lg:col-9">
-          <PagesBlogsBlogList />
+          <PagesBlogsBlogList :blogs="blogs" />
         </div>
         <div class="col-12 lg:col-3">
           <PagesBlogsBlogSideBarOptions />
