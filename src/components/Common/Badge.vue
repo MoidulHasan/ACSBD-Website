@@ -6,7 +6,7 @@ defineProps<{
 
 <template>
   <div
-    class="badge fony-heading-5-semi-bold text-dark-gray-85 bg-envitect-sam-blue-10"
+    class="badge font-heading-5-semi-bold text-dark-gray-85 bg-envitect-sam-blue-10"
   >
     {{ label }}
   </div>
