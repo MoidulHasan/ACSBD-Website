@@ -14,7 +14,12 @@ const categories = computed(() => {
   });
 });
 
+const selectedBlogs = computed(() => {
+  return blogs.value.slice(0, 4);
+});
+
 provide("blogCategoris", categories);
+provide("selectedBlogs", selectedBlogs);
 </script>
 <template>
   <div class="container">
@@ -34,7 +39,7 @@ provide("blogCategoris", categories);
           </div>
         </div>
         <div class="col-12 lg:col-3">
-          <PagesBlogsBlogSideBarOptions />
+          <PagesBlogsSideBarOptions />
         </div>
       </div>
     </div>

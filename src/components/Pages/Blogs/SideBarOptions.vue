@@ -12,6 +12,8 @@ const handleSearchResult = (value: string) => {
       @search="handleSearchResult"
     />
     <PagesBlogsBlogCategories />
+    <PagesBlogsRecentPosts class="mt-4" />
+    <PagesBlogsBlogTags class="mt-4" />
   </div>
 </template>
 
