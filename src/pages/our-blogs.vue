@@ -7,6 +7,14 @@ definePageMeta({
 });
 
 const { data: blogs } = await getBlog();
+
+const categories = computed(() => {
+  return blogs.value?.map((blog) => {
+    return blog.category;
+  });
+});
+
+provide("blogCategoris", categories);
 </script>
 <template>
   <div class="container">
