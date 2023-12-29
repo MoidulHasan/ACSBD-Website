@@ -18,6 +18,14 @@ const { data: blogs } = await getBlog();
       <div class="mt-28px mb-52px">
         <PagesBlogsFeaturedBlog :featured="blogs[0]" />
       </div>
+      <div class="blogs-section grid mt-6 mb-8">
+        <div class="col-12 lg:col-9">
+          <PagesBlogsBlogList />
+        </div>
+        <div class="col-12 lg:col-3">
+          <PagesBlogsBlogSideBarOptions />
+        </div>
+      </div>
     </div>
   </div>
 </template>
