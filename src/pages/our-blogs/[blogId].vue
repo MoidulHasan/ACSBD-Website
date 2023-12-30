@@ -30,7 +30,7 @@ definePageMeta({
 <template>
   <div class="container">
     <div class="mt-5 mb-80px">
-      <div class="blogs-section grid mt-6">
+      <div class="blogs-section grid mb-6 lg:mb-8">
         <div class="col-12 lg:col-9">
           <PagesBlogsBlogDetail :blog="selectedBlog" />
         </div>
@@ -38,6 +38,7 @@ definePageMeta({
           <PagesBlogsSideBarOptions />
         </div>
       </div>
+      <PagesHomeBlogSection blog-header="Related Blogs" />
     </div>
   </div>
 </template>
