@@ -147,6 +147,7 @@ defineProps<{
           </div>
         </div>
       </div>
+      <PagesBlogsBlogCommentForm class="mt-6 mb-5 lg:mb-8" />
     </div>
   </div>
 </template>
