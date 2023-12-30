@@ -27,7 +27,7 @@ defineProps<{
       >
         {{ featured.content }}
       </p>
-      <NuxtLink>
+      <NuxtLink :to="`our-blogs/${featured.id}`">
         <CommonExploreMoreButton class="mt-12px mb-4" />
       </NuxtLink>
       <div class="meta-infos flex gap-3 flex-wrap">
