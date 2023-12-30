@@ -30,26 +30,11 @@ defineProps<{
       <NuxtLink :to="`our-blogs/${featured.id}`">
         <CommonExploreMoreButton class="mt-12px mb-4" />
       </NuxtLink>
-      <div class="meta-infos flex gap-3 flex-wrap">
-        <p
-          class="meta-info text-regular-4 bg-envitect-sam-blue-5 text-dark-gray-80"
-        >
-          <i class="pi pi-calendar-times icon arrow-icon mr-3" />
-          <span>{{ featured.published_date }}</span>
-        </p>
-        <p
-          class="meta-info text-regular-4 bg-envitect-sam-blue-5 text-dark-gray-80"
-        >
-          <i class="pi pi-eye icon arrow-icon mr-3" />
-          <span>{{ featured.views }} views</span>
-        </p>
-        <p
-          class="meta-info text-regular-4 bg-envitect-sam-blue-5 text-dark-gray-80"
-        >
-          <i class="pi pi-comments icon arrow-icon mr-3" />
-          <span>{{ featured.comments }}+ Comments</span>
-        </p>
-      </div>
+      <PagesBlogsBlogMetaInfos
+        :time="featured.published_date"
+        :comments="featured.comments"
+        :views="featured.views"
+      />
     </div>
   </div>
 </template>
@@ -68,17 +53,6 @@ defineProps<{
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
     overflow: hidden;
-  }
-  .arrow-icon {
-    font-size: 1.375rem;
-  }
-  .meta-info {
-    padding: 9px 22px;
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
   }
 }
 </style>

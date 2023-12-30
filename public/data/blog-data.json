@@ -8,7 +8,11 @@
     "comments": 210,
     "tag": "Ac Services",
     "id": "AC123H",
-    "category": "Air Conditioner"
+    "category": "Air Conditioner",
+    "detailImage": [
+      "/images/blog/blogDetail1.png",
+      "/images/blog/blogDetail2.png"
+    ]
   },
   {
     "title": "How to Figure out What Size Air Conditioner Will Cool a Room?",
@@ -19,7 +23,11 @@
     "comments": 210,
     "tag": "Ac Services",
     "id": "AC234G",
-    "category": "Personal Care"
+    "category": "Personal Care",
+    "detailImage": [
+      "/images/blog/blogDetail1.png",
+      "/images/blog/blogDetail2.png"
+    ]
   },
   {
     "title": "How to Figure out What Size Air Conditioner Will Cool a Room?",
@@ -30,7 +38,11 @@
     "comments": 210,
     "tag": "Ac Services",
     "id": "AC563F",
-    "category": "Home Application"
+    "category": "Home Application",
+    "detailImage": [
+      "/images/blog/blogDetail1.png",
+      "/images/blog/blogDetail2.png"
+    ]
   },
   {
     "title": "How to Figure out What Size Air Conditioner Will Cool a Room?",
@@ -41,7 +53,11 @@
     "comments": 210,
     "tag": "Ac Services",
     "id": "AC12312E",
-    "category": "Men's Fashion"
+    "category": "Men's Fashion",
+    "detailImage": [
+      "/images/blog/blogDetail1.png",
+      "/images/blog/blogDetail2.png"
+    ]
   },
   {
     "title": "How to Figure out What Size Air Condition Will Cool a Room?",
@@ -52,7 +68,11 @@
     "comments": 210,
     "tag": "Ac Services",
     "id": "AC12312D",
-    "category": "Home Theater"
+    "category": "Home Theater",
+    "detailImage": [
+      "/images/blog/blogDetail1.png",
+      "/images/blog/blogDetail2.png"
+    ]
   },
   {
     "title": "We all need to follow to avoid Air Conditioner accidents.",
@@ -63,7 +83,11 @@
     "comments": 210,
     "tag": "Ac Services",
     "id": "AC12312C",
-    "category": "Personal Care"
+    "category": "Personal Care",
+    "detailImage": [
+      "/images/blog/blogDetail1.png",
+      "/images/blog/blogDetail2.png"
+    ]
   },
   {
     "title": "How to Clean the Filter on Your Air Conditioner?",
@@ -74,7 +98,11 @@
     "comments": 210,
     "tag": "Ac Services",
     "id": "AC12312B",
-    "category": "Personal Care"
+    "category": "Personal Care",
+    "detailImage": [
+      "/images/blog/blogDetail1.png",
+      "/images/blog/blogDetail2.png"
+    ]
   },
   {
     "title": "Best Air Conditioner Services anywhere at Dhaka in Bangladesh",
@@ -85,7 +113,11 @@
     "comments": 210,
     "tag": "Ac Services",
     "id": "AC12312A",
-    "category": "Air Conditioner"
+    "category": "Air Conditioner",
+    "detailImage": [
+      "/images/blog/blogDetail1.png",
+      "/images/blog/blogDetail2.png"
+    ]
   },
   {
     "title": "How to Figure out What Size Air Conditioner Will Cool a Room?",
@@ -96,6 +128,10 @@
     "comments": 210,
     "tag": "Ac Services",
     "id": "AC234Last",
-    "category": "Home Appliance"
+    "category": "Home Appliance",
+    "detailImage": [
+      "/images/blog/blogDetail1.png",
+      "/images/blog/blogDetail2.png"
+    ]
   }
 ]

@@ -32,7 +32,7 @@ definePageMeta({
     <div class="mt-5 mb-80px">
       <div class="blogs-section grid mt-6">
         <div class="col-12 lg:col-9">
-          {{ route.params.blogId }}
+          <PagesBlogsBlogDetail :blog="selectedBlog" />
         </div>
         <div class="col-12 lg:col-3">
           <PagesBlogsSideBarOptions />
