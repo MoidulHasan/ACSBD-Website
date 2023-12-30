@@ -34,7 +34,9 @@ defineProps<{
           <p class="blog-content text-semi-bold-6 text-dark-gray-80 mb-12px">
             {{ blog.content }}
           </p>
-          <CommonExploreMoreButton class="mb-2" text="text-semi-bold-5" />
+          <NuxtLink :to="`our-blogs/${blog.id}`">
+            <CommonExploreMoreButton class="mb-2" text="text-semi-bold-5" />
+          </NuxtLink>
         </div>
       </div>
     </div>

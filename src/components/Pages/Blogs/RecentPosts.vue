@@ -1,6 +1,5 @@
 <script setup lang="ts">
 const selectedBlogs = inject("selectedBlogs");
-console.log(selectedBlogs.value);
 </script>
 
 <template>
