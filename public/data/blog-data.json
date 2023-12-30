@@ -12,7 +12,9 @@
     "detailImage": [
       "/images/blog/blogDetail1.png",
       "/images/blog/blogDetail2.png"
-    ]
+    ],
+    "profile1": "/images/blog/profile.svg",
+    "profile2": "/images/blog/profile1.svg"
   },
   {
     "title": "How to Figure out What Size Air Conditioner Will Cool a Room?",
@@ -27,7 +29,9 @@
     "detailImage": [
       "/images/blog/blogDetail1.png",
       "/images/blog/blogDetail2.png"
-    ]
+    ],
+    "profile1": "/images/blog/profile.svg",
+    "profile2": "/images/blog/profile1.svg"
   },
   {
     "title": "How to Figure out What Size Air Conditioner Will Cool a Room?",
@@ -42,7 +46,9 @@
     "detailImage": [
       "/images/blog/blogDetail1.png",
       "/images/blog/blogDetail2.png"
-    ]
+    ],
+    "profile1": "/images/blog/profile.svg",
+    "profile2": "/images/blog/profile1.svg"
   },
   {
     "title": "How to Figure out What Size Air Conditioner Will Cool a Room?",
@@ -57,7 +63,9 @@
     "detailImage": [
       "/images/blog/blogDetail1.png",
       "/images/blog/blogDetail2.png"
-    ]
+    ],
+    "profile1": "/images/blog/profile.svg",
+    "profile2": "/images/blog/profile1.svg"
   },
   {
     "title": "How to Figure out What Size Air Condition Will Cool a Room?",
@@ -72,7 +80,9 @@
     "detailImage": [
       "/images/blog/blogDetail1.png",
       "/images/blog/blogDetail2.png"
-    ]
+    ],
+    "profile1": "/images/blog/profile.svg",
+    "profile2": "/images/blog/profile1.svg"
   },
   {
     "title": "We all need to follow to avoid Air Conditioner accidents.",
@@ -87,7 +97,9 @@
     "detailImage": [
       "/images/blog/blogDetail1.png",
       "/images/blog/blogDetail2.png"
-    ]
+    ],
+    "profile1": "/images/blog/profile.svg",
+    "profile2": "/images/blog/profile1.svg"
   },
   {
     "title": "How to Clean the Filter on Your Air Conditioner?",
@@ -102,7 +114,9 @@
     "detailImage": [
       "/images/blog/blogDetail1.png",
       "/images/blog/blogDetail2.png"
-    ]
+    ],
+    "profile1": "/images/blog/profile.svg",
+    "profile2": "/images/blog/profile1.svg"
   },
   {
     "title": "Best Air Conditioner Services anywhere at Dhaka in Bangladesh",
@@ -117,7 +131,9 @@
     "detailImage": [
       "/images/blog/blogDetail1.png",
       "/images/blog/blogDetail2.png"
-    ]
+    ],
+    "profile1": "/images/blog/profile.svg",
+    "profile2": "/images/blog/profile1.svg"
   },
   {
     "title": "How to Figure out What Size Air Conditioner Will Cool a Room?",
@@ -132,6 +148,8 @@
     "detailImage": [
       "/images/blog/blogDetail1.png",
       "/images/blog/blogDetail2.png"
-    ]
+    ],
+    "profile1": "/images/blog/profile.svg",
+    "profile2": "/images/blog/profile1.svg"
   }
 ]
