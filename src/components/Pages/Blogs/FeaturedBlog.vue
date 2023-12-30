@@ -30,7 +30,7 @@ defineProps<{
       <NuxtLink>
         <CommonExploreMoreButton class="mt-12px mb-4" />
       </NuxtLink>
-      <div class="meta-infos flex gap-3">
+      <div class="meta-infos flex gap-3 flex-wrap">
         <p
           class="meta-info text-regular-4 bg-envitect-sam-blue-5 text-dark-gray-80"
         >
