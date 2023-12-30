@@ -108,28 +108,41 @@ defineProps<{
           {{ blog.comments }} Comments
         </h2>
         <div class="comments">
-          <div class="comment">
-            <div class="flex justify-content-between single-comment">
-              <NuxtImg
-                :src="blog.profile1"
-                :alt="blog.tag"
-                class="profile-picture"
-              />
-              <div class="">
-                <p class="text-regular-3 text-primary-color-dark-gray mb-12px">
-                  The standard chunk of Lorem Ipsum used since the 1500s is
-                  reproduced below for those interested. Sections 1.10.32 and
-                  1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are
-                  also reproduced in their exact original form, accompanied by
-                  English versions from the 1914 translation
-                </p>
-                <p class="flex justify-content-between align-items-center">
-                  <span class="text-primary-color-dark-gray font-heading-6">
-                    Dulal Hossain
-                  </span>
-                  <CommonExploreMoreButton label="Reply" />
-                </p>
+          <!--          a single comment -->
+          <div class="flex justify-content-between single-comment">
+            <!--            commenter profile image -->
+            <NuxtImg
+              :src="blog.profile1"
+              :alt="blog.tag"
+              class="profile-picture"
+            />
+            <!--            comment -->
+            <div class="flex-grow-1">
+              <p class="text-regular-3 text-primary-color-dark-gray mb-12px">
+                The standard chunk of Lorem Ipsum used since the 1500s is
+                reproduced below for those interested. Sections 1.10.32 and
+                1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also
+                reproduced in their exact original form, accompanied by English
+                versions from the 1914 translation
+              </p>
+              <div
+                class="flex flex-wrap justify-content-between align-items-center"
+              >
+                <!--                commneter name -->
+                <PagesBlogsBlogCommentProfile
+                  profile="Dulal Hossain"
+                  :date="blog.published_date"
+                />
+                <CommonExploreMoreButton label="Reply" />
               </div>
+              <!--              reply section -->
+              <PagesBlogsBlogCommentReply
+                class="mt-22px"
+                profile="Dulal Hossain"
+                comment="The standard chunk of Lorem Ipsum used since the 1500s is reproduced below"
+                :date="blog.published_date"
+                :img="blog.profile2"
+              />
             </div>
           </div>
         </div>
@@ -166,6 +179,18 @@ defineProps<{
         height: 60px;
         width: 60px;
         border-radius: 50%;
+      }
+      .meta-info {
+        padding: 9px 22px;
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+
+        .arrow-icon {
+          font-size: 1.375rem;
+        }
       }
     }
   }
