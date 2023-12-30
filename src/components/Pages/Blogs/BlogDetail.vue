@@ -87,7 +87,18 @@ defineProps<{
       Conditioning partner, says. "A good rule of thumb is to not let any plants
       or other wildlife grow within a 2-foot radius of your air conditioner."
     </p>
-    <div class="share-content"></div>
+    <div
+      class="share-content flex align-items-center justify-content-between py-3 px-4 bg-color-product-front my-5"
+    >
+      <div class="social-medias flex align-items-center">
+        <p class="font-heading-4-semi-bold pr-2">Share it on -</p>
+        <i class="pi pi-facebook social-icon" />
+        <i class="pi pi-facebook social-icon" />
+        <i class="pi pi-facebook social-icon" />
+        <i class="pi pi-facebook social-icon" />
+      </div>
+      <CommonExploreMoreButton label="Next Page" />
+    </div>
   </div>
 </template>
 
@@ -104,6 +115,13 @@ defineProps<{
     border-radius: 4px;
   }
   .share-content {
+    color: var(--dark-gray-80);
+    border-radius: 4px;
+
+    .social-icon {
+      font-size: 30px;
+      margin-right: 12px;
+    }
   }
 }
 </style>
