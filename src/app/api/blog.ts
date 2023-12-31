@@ -1,8 +1,7 @@
-import type { Blog } from "~/contracts/api-contracts/BlogsInterfaces";
 export const getBlog = async () => {
   const runtimeConfig = useRuntimeConfig();
 
-  const { data, pending, error, refresh } = await useFetch<Blog[]>(
+  const { data, pending, error, refresh } = await useFetch(
     runtimeConfig.public.apiUrl + "/data/blog-data.json",
   );
 

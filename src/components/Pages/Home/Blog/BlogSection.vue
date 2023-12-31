@@ -8,7 +8,7 @@
     <template #header>
       <CommonSectionHeader
         class="mb-32px"
-        :header="blogHeader ?? 'Our Latest Blogs'"
+        header="Our Latest Blogs"
         sub-header="AC SERVICE always posts AC-related news and company news regularly. So stay connected with us to know about our latest news."
       />
     </template>
@@ -20,9 +20,6 @@
 
 <script lang="ts" setup>
 import { getBlog } from "~/app/api/blog";
-defineProps<{
-  blogHeader?: string;
-}>();
 
 const { data: blogData } = await getBlog();
 </script>
