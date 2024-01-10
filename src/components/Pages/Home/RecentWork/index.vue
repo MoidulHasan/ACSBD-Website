@@ -54,9 +54,16 @@
         <PagesHomeRecentWorkCommercialWork />
       </TabPanel>
     </TabView>
+    <div class="mt-5 flex justify-content-center">
+      <NuxtLink to="recent-works">
+        <ViewAllButton label="View Recent Works" />
+      </NuxtLink>
+    </div>
   </div>
 </template>
 <script lang="ts" setup>
+import ViewAllButton from "~/components/Common/ViewAllButton.vue";
+
 const active = ref(0);
 const selectedCity = ref();
 const cities = ref([
