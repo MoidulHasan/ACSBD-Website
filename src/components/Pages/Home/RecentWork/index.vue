@@ -40,7 +40,7 @@
         :class="{ 'button-tab': active === 2 }"
         @click="active = 2"
       >
-        commercial
+        Commercial
       </button>
     </div>
     <TabView v-model:activeIndex="active">
@@ -75,5 +75,4 @@ watch(
   },
 );
 </script>
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>
