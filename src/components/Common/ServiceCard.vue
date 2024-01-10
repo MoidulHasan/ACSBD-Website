@@ -4,8 +4,12 @@
       class="flex flex-column align-items-center justify-content-between service-card"
     >
       <img :alt="title" :src="imageUrl" class="service-image mb-3" />
-      <h2 class="service-title">{{ title }}</h2>
-      <p class="description">
+      <h2
+        class="service-title font-heading-4-semi-bold text-primary-color-navy-blue"
+      >
+        {{ title }}
+      </h2>
+      <p class="description text-regular-3 text-primary-color-dark-gray">
         {{ description }}
       </p>
       <div class="button-container">
@@ -30,8 +34,13 @@ defineProps<{
 </script>
 
 <style lang="scss" scoped>
+@use "assets/styles/scss/base/mixins" as *;
 .service-card-container {
   margin: 0px 15px 10px 15px;
+
+  @include media-query(sm) {
+    margin: 0;
+  }
 }
 
 .service-card {
@@ -42,22 +51,19 @@ defineProps<{
   min-height: 360px;
 
   .service-title {
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 32px;
-    color: var(--primary-color-navy-blue);
     margin-bottom: 9px;
   }
 
   .description {
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 24px;
-    color: var(--primary-color-dark-gray);
     margin-bottom: 24px;
     text-align: center;
+    @include media-query(md) {
+      margin-bottom: 2rem;
+    }
+    @include media-query(sm) {
+      margin-bottom: 1.5rem;
+      padding: 0 1rem;
+    }
   }
 
   .button-container {
@@ -77,9 +83,14 @@ defineProps<{
       color: var(--primary-color-envitect-sam-blue);
     }
   }
-
-  @media (max-width: 600px) {
-    padding: 1.25rem;
+  @include media-query(lg) {
+    padding: 1rem;
+  }
+  @include media-query(md) {
+    padding: 1rem;
+  }
+  @include media-query(sm) {
+    padding: 1rem;
   }
 }
 </style>

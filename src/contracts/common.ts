@@ -15,3 +15,10 @@ export interface Product {
   image: string;
   offerEndsAt: string;
 }
+
+export interface SwiperSliderBreakpointsI {
+  [key: string]: {
+    slidesPerView: number;
+    spaceBetween: number;
+  };
+}

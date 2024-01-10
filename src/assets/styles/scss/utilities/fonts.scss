@@ -130,31 +130,36 @@ $font-styles-map-smaller-screen: (
 
 // Define text font map for regular screen
 $text-styles-map: (
-  semi-bold-1: (
-    16px,
-    600,
-    24px,
-  ),
-  medium-2: (
-    16px,
-    500,
-    24px,
-  ),
-  regular-3: (
-    16px,
-    400,
-    24px,
-  ),
-  regular-4: (
-    14px,
-    400,
-    20px,
-  ),
-  semi-bold-5: (
-    14px,
-    600,
-    20px,
-  ),
+        semi-bold-1: (
+                16px,
+                600,
+                24px,
+        ),
+        medium-2: (
+                16px,
+                500,
+                24px,
+        ),
+        regular-3: (
+                16px,
+                400,
+                24px,
+        ),
+        regular-4: (
+                14px,
+                400,
+                20px,
+        ),
+        semi-bold-5: (
+                14px,
+                600,
+                20px,
+        ),
+        small-bold: (
+                8px,
+                600,
+                12px,
+        )
 );
 
 // Generate font style classes

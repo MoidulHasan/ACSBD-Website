@@ -3,7 +3,8 @@
     <div class="first-row">
       <div
         ref="firstRowHeader"
-        class="flex flex-column md:flex-row container align-items-center justify-content-between py-3 md:py-4 gap-3 md:gap-4"
+        class="firstRowHeader flex flex-column md:flex-row container align-items-center justify-content-between py-3 md:py-4 gap-3 md:gap-4"
+        :class="{ showSearchBar: showSearchBar && mobileScreen }"
       >
         <!-- main logo-->
         <div
@@ -151,11 +152,17 @@
             <ul class="menu container lg:mx-auto">
               <li v-for="navItem in navMenues" :key="navItem.title">
                 <NuxtLink
-                  :to="navItem.path"
+                  :to="
+                    mobileScreen
+                      ? navItem.submenu
+                        ? ''
+                        : navItem.path
+                      : navItem.path
+                  "
                   active-class="active"
                   class="navLink flex"
                   exact-active-class="active"
-                  @click="checkNav(navItem.path)"
+                  @click="checkNav(navItem.path, navItem.submenu?.length > 0)"
                 >
                   <span>{{ navItem.title }}</span>
                   <i
@@ -389,7 +396,8 @@ const navMenues: Array<menus> = [
 
 const show = ref(false);
 const firstRowHeader = ref(null);
-const showSearchBar = ref(true);
+const showSearchBar = ref(false);
+const mobileScreen = ref(false);
 
 const { width } = useWindowSize();
 
@@ -397,25 +405,36 @@ const toggleMenu = () => {
   show.value = !show.value;
 };
 
-const checkNav = (path: string): void => {
-  if (path !== "") {
+const checkNav = (path: string, subMenu: boolean = false): void => {
+  if (path !== "" && !subMenu) {
     toggleMenu();
   }
+};
+
+const toggleSeachShow = () => {
+  showSearchBar.value = !showSearchBar.value;
+};
+
+const checkWidth = () => {
+  if (width.value <= 768) {
+    showSearchBar.value = false;
+    mobileScreen.value = true;
+    return;
+  }
+  showSearchBar.value = true;
+  mobileScreen.value = false;
 };
 
 watch(
   () => width.value,
   () => {
-    if (width.value <= 768) {
-      showSearchBar.value = false;
-      return;
-    }
-    showSearchBar.value = true;
+    checkWidth();
   },
 );
-const toggleSeachShow = () => {
-  showSearchBar.value = !showSearchBar.value;
-};
+
+onMounted(() => {
+  checkWidth();
+});
 </script>
 
 <style scoped lang="scss">
@@ -434,6 +453,9 @@ const toggleSeachShow = () => {
   @include media-query(lg) {
     max-width: 166.4px !important;
   }
+  @include media-query(sm) {
+    max-width: 166.4px !important;
+  }
 }
 
 .headerSearchBar {
@@ -441,18 +463,18 @@ const toggleSeachShow = () => {
 }
 :deep(.p-inputgroup .p-inputtext) {
   @include media-query(sm) {
-    max-height: 32px;
+    max-height: 38px;
   }
   @include media-query(lg) {
-    max-height: 32px;
+    max-height: 38px;
   }
 }
 :deep(.p-inputgroup .p-button) {
   @include media-query(sm) {
-    max-height: 32px;
+    max-height: 38px;
   }
   @include media-query(lg) {
-    max-height: 32px;
+    max-height: 38px;
   }
 }
 
@@ -740,6 +762,15 @@ nav ul li.right .navLink {
 @media (max-width: 768px) {
   .headerContainer {
     position: relative;
+  }
+
+  .firstRowHeader {
+    height: 71px;
+    transition: height 0.5s ease-in-out;
+
+    &.showSearchBar {
+      height: 124.69px;
+    }
   }
 
   .second-row {
