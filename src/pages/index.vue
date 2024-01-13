@@ -22,6 +22,10 @@
       <PagesHomeAtaGlance />
     </div>
 
+    <div class="section">
+      <PagesHomeRecentWork />
+    </div>
+
     <div class="container section">
       <PagesHomeCustomerReviewSection />
     </div>
