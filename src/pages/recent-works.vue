@@ -6,8 +6,8 @@ definePageMeta({
 </script>
 
 <template>
-  <div>
-    <h1>Recent Works</h1>
+  <div class="container">
+    <CommonComingSoon />
   </div>
 </template>
 
