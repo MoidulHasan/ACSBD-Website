@@ -19,7 +19,7 @@ defineProps<{
       {{ work.type }}
     </span>
     <div class="work-detail py-3 px-4">
-      <h3 class="text-color-primary-dark-gray font-heading-5-semi-bold">
+      <h3 class="text-primary-color-dark-gray font-heading-5-semi-bold">
         {{ work.company }}
       </h3>
       <NuxtLink :to="`/recent-works/${work.id}`">
