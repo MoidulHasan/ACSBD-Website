@@ -17,7 +17,6 @@ const types = ref([
 
 const { data: recentWorks } = await getRecentWorks();
 const works = ref<RecentWork[]>([]);
-console.log(recentWorks.value);
 
 watch(
   () => selectedType.value,
@@ -112,7 +111,7 @@ onMounted(() => {
       </TabPanel>
     </TabView>
     <div class="mt-5 flex justify-content-center mb-8">
-      <NuxtLink to="recent-works">
+      <NuxtLink to="/recent-works">
         <Button
           class="lode-more-button border-primary-color-envitect-sam-blue bg-primary-color-white text-primary-color-envitect-sam-blue text-semi-bold-1"
         >
