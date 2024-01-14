@@ -11,68 +11,68 @@
       "images/image 12.png"
     ],
     "brief": "Projects Brief: AC SERVICE is a leading AC Installation, Servicing, Repair, Maintenance, AC Sales & AC Rent Service All over Bangladesh. We have already completed 25000+ projects and 20 projects are running. AC SERVICE has an expert team and well-known engineers. Our clients are Hospitals, groups of companies, Markets, banks, Shopping malls, Multinational organizations, etc.",
-    "start-date": "2023-10-28T09:00:00Z",
-    "end-date": "2023-11-01T09:00:00Z"
+    "startDate": "2023-10-28T09:00:00Z",
+    "endDate": "2023-11-01T09:00:00Z"
   },
   {
     "id": 2,
     "company": "Joy Villa",
     "type": "residential",
     "images": [
-      "images/recent-work01.png",
       "images/recent-work02.png",
+      "images/recent-work01.png",
       "images/image 10.png",
       "images/image 11.png",
       "images/image 12.png"
     ],
     "brief": "Projects Brief: AC SERVICE is a leading AC Installation, Servicing, Repair, Maintenance, AC Sales & AC Rent Service All over Bangladesh. We have already completed 25000+ projects and 20 projects are running. AC SERVICE has an expert team and well-known engineers. Our clients are Hospitals, groups of companies, Markets, banks, Shopping malls, Multinational organizations, etc.",
-    "start-date": "2023-10-28T09:00:00Z",
-    "end-date": "2023-11-01T09:00:00Z"
+    "startDate": "2023-10-28T09:00:00Z",
+    "endDate": "2023-11-01T09:00:00Z"
   },
   {
     "id": 3,
     "company": "BET Builders",
     "type": "residential",
     "images": [
+      "images/image 10.png",
       "images/recent-work01.png",
       "images/recent-work02.png",
-      "images/image 10.png",
       "images/image 11.png",
       "images/image 12.png"
     ],
     "brief": "Projects Brief: AC SERVICE is a leading AC Installation, Servicing, Repair, Maintenance, AC Sales & AC Rent Service All over Bangladesh. We have already completed 25000+ projects and 20 projects are running. AC SERVICE has an expert team and well-known engineers. Our clients are Hospitals, groups of companies, Markets, banks, Shopping malls, Multinational organizations, etc.",
-    "start-date": "2023-10-28T09:00:00Z",
-    "end-date": "2023-11-01T09:00:00Z"
+    "startDate": "2023-10-28T09:00:00Z",
+    "endDate": "2023-11-01T09:00:00Z"
   },
   {
     "id": 4,
     "company": "Akand Tower",
     "type": "commercial",
     "images": [
+      "images/image 11.png",
       "images/recent-work01.png",
       "images/recent-work02.png",
       "images/image 10.png",
-      "images/image 11.png",
       "images/image 12.png"
     ],
     "brief": "Projects Brief: AC SERVICE is a leading AC Installation, Servicing, Repair, Maintenance, AC Sales & AC Rent Service All over Bangladesh. We have already completed 25000+ projects and 20 projects are running. AC SERVICE has an expert team and well-known engineers. Our clients are Hospitals, groups of companies, Markets, banks, Shopping malls, Multinational organizations, etc.",
-    "start-date": "2023-10-28T09:00:00Z",
-    "end-date": "2023-11-01T09:00:00Z"
+    "startDate": "2023-10-28T09:00:00Z",
+    "endDate": "2023-11-01T09:00:00Z"
   },
   {
     "id": 5,
     "company": "Milestone College Hostel",
     "type": "residential",
     "images": [
+      "images/image 12.png",
       "images/recent-work01.png",
       "images/recent-work02.png",
       "images/image 10.png",
-      "images/image 11.png",
-      "images/image 12.png"
+      "images/image 11.png"
     ],
     "brief": "Projects Brief: AC SERVICE is a leading AC Installation, Servicing, Repair, Maintenance, AC Sales & AC Rent Service All over Bangladesh. We have already completed 25000+ projects and 20 projects are running. AC SERVICE has an expert team and well-known engineers. Our clients are Hospitals, groups of companies, Markets, banks, Shopping malls, Multinational organizations, etc.",
-    "start-date": "2023-10-28T09:00:00Z",
-    "end-date": "2023-11-01T09:00:00Z"
+    "startDate": "2023-10-28T09:00:00Z",
+    "endDate": "2023-11-01T09:00:00Z"
   },
   {
     "id": 6,
@@ -86,37 +86,37 @@
       "images/image 12.png"
     ],
     "brief": "Projects Brief: AC SERVICE is a leading AC Installation, Servicing, Repair, Maintenance, AC Sales & AC Rent Service All over Bangladesh. We have already completed 25000+ projects and 20 projects are running. AC SERVICE has an expert team and well-known engineers. Our clients are Hospitals, groups of companies, Markets, banks, Shopping malls, Multinational organizations, etc.",
-    "start-date": "2023-10-28T09:00:00Z",
-    "end-date": "2023-11-01T09:00:00Z"
+    "startDate": "2023-10-28T09:00:00Z",
+    "endDate": "2023-11-01T09:00:00Z"
   },
   {
     "id": 7,
     "company": "JJML Office",
     "type": "commercial",
     "images": [
-      "images/recent-work01.png",
       "images/recent-work02.png",
+      "images/recent-work01.png",
       "images/image 10.png",
       "images/image 11.png",
       "images/image 12.png"
     ],
     "brief": "Projects Brief: AC SERVICE is a leading AC Installation, Servicing, Repair, Maintenance, AC Sales & AC Rent Service All over Bangladesh. We have already completed 25000+ projects and 20 projects are running. AC SERVICE has an expert team and well-known engineers. Our clients are Hospitals, groups of companies, Markets, banks, Shopping malls, Multinational organizations, etc.",
-    "start-date": "2023-10-28T09:00:00Z",
-    "end-date": "2023-11-01T09:00:00Z"
+    "startDate": "2023-10-28T09:00:00Z",
+    "endDate": "2023-11-01T09:00:00Z"
   },
   {
     "id": 8,
     "company": "Home Sweet Home",
     "type": "residential",
     "images": [
+      "images/image 10.png",
       "images/recent-work01.png",
       "images/recent-work02.png",
-      "images/image 10.png",
       "images/image 11.png",
       "images/image 12.png"
     ],
     "brief": "Projects Brief: AC SERVICE is a leading AC Installation, Servicing, Repair, Maintenance, AC Sales & AC Rent Service All over Bangladesh. We have already completed 25000+ projects and 20 projects are running. AC SERVICE has an expert team and well-known engineers. Our clients are Hospitals, groups of companies, Markets, banks, Shopping malls, Multinational organizations, etc.",
-    "start-date": "2023-10-28T09:00:00Z",
-    "end-date": "2023-11-01T09:00:00Z"
+    "startDate": "2023-10-28T09:00:00Z",
+    "endDate": "2023-11-01T09:00:00Z"
   }
 ]

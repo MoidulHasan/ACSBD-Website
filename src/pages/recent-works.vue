@@ -1,5 +1,15 @@
 <script setup lang="ts">
-import ViewAllButton from "~/components/Common/ViewAllButton.vue";
+import { getRecentWorks } from "~/app/api/getRecentWorks";
+
+interface RecentWork {
+  id: number;
+  type: string;
+  company: string;
+  images: string[];
+  brief: string;
+  startDate: string;
+  endDate: string;
+}
 
 definePageMeta({
   title: "Recent Works",
@@ -7,22 +17,57 @@ definePageMeta({
 });
 
 const active = ref(0);
-const selectedCity = ref();
+const selectedType = ref();
 const types = ref([
   { name: "All Works" },
   { name: "Residential" },
   { name: "Commercial" },
 ]);
+
+const { data: recentWorks } = await getRecentWorks();
+const works = ref<RecentWork[]>([]);
+console.log(recentWorks.value);
+
 watch(
-  () => selectedCity.value,
+  () => selectedType.value,
   () => {
-    selectedCity.value.name === "Residential"
-      ? (active.value = 1)
-      : selectedCity.value.name === "Commercial"
-        ? (active.value = 2)
-        : (active.value = 0);
+    if (selectedType.value.name === "Residential") {
+      active.value = 1;
+      works.value = recentWorks.value.filter(
+        (work: RecentWork) => work.type === "residential",
+      );
+    } else if (selectedType.value.name === "Commercial") {
+      active.value = 2;
+      works.value = recentWorks.value.filter(
+        (work: RecentWork) => work.type === "commercial",
+      );
+    } else {
+      active.value = 0;
+      works.value = recentWorks.value;
+    }
   },
 );
+
+watch(
+  () => active.value,
+  () => {
+    if (active.value === 1) {
+      works.value = recentWorks.value.filter(
+        (work: RecentWork) => work.type === "residential",
+      );
+    } else if (active.value === 2) {
+      works.value = recentWorks.value.filter(
+        (work: RecentWork) => work.type === "commercial",
+      );
+    } else {
+      works.value = recentWorks.value;
+    }
+  },
+);
+
+onMounted(() => {
+  works.value = recentWorks.value;
+});
 </script>
 
 <template>
@@ -36,7 +81,7 @@ watch(
     <!-- TabView -->
     <div class="w-full block md:hidden flex justify-content-center">
       <Dropdown
-        v-model="selectedCity"
+        v-model="selectedType"
         :options="types"
         option-label="name"
         placeholder="Type of Work"
@@ -71,14 +116,8 @@ watch(
       </button>
     </div>
     <TabView v-model:activeIndex="active">
-      <TabPanel>
-        <PagesHomeRecentWorkAllWorks />
-      </TabPanel>
-      <TabPanel>
-        <PagesHomeRecentWorkResidentialWork />
-      </TabPanel>
-      <TabPanel>
-        <PagesHomeRecentWorkCommercialWork />
+      <TabPanel v-for="type in types" :key="type.name">
+        <PagesRecentWorksList :works="works" />
       </TabPanel>
     </TabView>
     <div class="mt-5 flex justify-content-center mb-8">
@@ -104,6 +143,7 @@ watch(
   border-width: 1px;
   border-style: solid;
 }
+
 *:focus {
   box-shadow: none !important;
 }
