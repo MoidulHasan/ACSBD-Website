@@ -1,15 +1,6 @@
 <script setup lang="ts">
 import { getRecentWorks } from "~/app/api/getRecentWorks";
-
-interface RecentWork {
-  id: number;
-  type: string;
-  company: string;
-  images: string[];
-  brief: string;
-  startDate: string;
-  endDate: string;
-}
+import type { RecentWork } from "~/contracts/api-contracts/recent-works";
 
 definePageMeta({
   title: "Recent Works",
@@ -115,7 +106,7 @@ onMounted(() => {
         Commercial
       </button>
     </div>
-    <TabView v-model:activeIndex="active">
+    <TabView v-model:activeIndex="active" class="work-details">
       <TabPanel v-for="type in types" :key="type.name">
         <PagesRecentWorksList :works="works" />
       </TabPanel>
@@ -133,6 +124,10 @@ onMounted(() => {
 </template>
 
 <style lang="scss" scoped>
+.work-details :deep(.p-tabview-nav-container) {
+  display: none;
+}
+
 .lode-more-button {
   display: inline-flex;
   padding: 12px 48px;
