@@ -29,11 +29,11 @@ const formattedDate = (date: string) => {
       :header="recentWork.company"
       :sub-header="recentWork.brief"
     />
-    <div class="work-summary mt-5 grid">
+    <div class="work-summary mt-5 grid mb-3">
       <div class="col-12 md:col-6 lg:col-8">
-        <div class="banner-image w-full">
+        <div class="banner-image w-full md:h-full">
           <NuxtImg
-            class="top-image w-full border-round-sm"
+            class="top-image w-full border-round-sm md:h-full"
             :src="recentWork.images[1]"
             :alt="recentWork.company"
           />
@@ -80,14 +80,16 @@ const formattedDate = (date: string) => {
         </div>
       </div>
     </div>
+    <p class="text-primary-color-dark-gray mb-6 text-justify">
+      <span class="font-semibold">Project's Brief: </span>
+      {{ recentWork.brief }}
+    </p>
+    <PagesRecentWorksProjectGallery :product-images="recentWork.images" />
+    <PagesRecentWorksRelatedWork :category="recentWork.type" />
   </div>
 </template>
 
 <style lang="scss" scoped>
 .work-detail {
-  .top-image {
-    //max-height: 514px;
-    //border-radius: 4px;
-  }
 }
 </style>

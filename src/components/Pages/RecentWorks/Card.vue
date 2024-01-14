@@ -1,28 +1,34 @@
 <script setup lang="ts">
 import type { RecentWork } from "~/contracts/api-contracts/recent-works";
 
+const route = useRoute();
+
+const slidePresent = ref(!!route.params.id);
+
 defineProps<{
-  work: RecentWork;
+  bannerImage: string;
+  company: string;
+  type: string;
+  id: number;
 }>();
 </script>
 
 <template>
-  <div class="bg-color-product-bg border-round-sm work-card relative">
-    <NuxtImg
-      class="work-banner w-full"
-      :src="work.images[0]"
-      :alt="work.company"
-    />
+  <div
+    class="bg-color-product-bg border-round-sm work-card relative"
+    :class="{ 'm-1': slidePresent }"
+  >
+    <NuxtImg class="work-banner w-full" :src="bannerImage" :alt="company" />
     <span
       class="absolute work-type text-regular-4 text-primary-color-envitect-sam-blue bg-envitect-sam-blue-10"
     >
-      {{ work.type }}
+      {{ type }}
     </span>
     <div class="work-detail py-3 px-4">
       <h3 class="text-primary-color-dark-gray font-heading-5-semi-bold">
-        {{ work.company }}
+        {{ company }}
       </h3>
-      <NuxtLink :to="`/recent-works/${work.id}`">
+      <NuxtLink :to="`/recent-works/${id}`">
         <a class="work-link text-semi-bold-5 text-envitect-sam-blue-80">
           See Project Details
         </a>

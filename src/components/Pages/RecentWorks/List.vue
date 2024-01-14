@@ -13,7 +13,12 @@ defineProps<{
       :key="work.id"
       class="col-12 md:col-6 lg:col-4 relative"
     >
-      <PagesRecentWorksCard :work="work" />
+      <PagesRecentWorksCard
+        :id="work.id"
+        :banner-image="work.images[0]"
+        :type="work.type"
+        :company="work.company"
+      />
     </div>
   </div>
 </template>
