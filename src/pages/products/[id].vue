@@ -5,13 +5,11 @@ import type { ProductI } from "~/contracts/api-contracts/ProductsInterfaces";
 const route = useRoute();
 
 const { data: productsData } = await getProducts();
-const singleProduct = ref({});
-singleProduct.value = productsData.value.find((product) => {
-  product.id === Number(route.params.id);
-});
 
-watch(singleProduct, () => {
-  console.log(singleProduct.value);
+const singleProductData = computed(() => {
+  return productsData.value.find((product) => {
+    return product.id === Number(route.params.id);
+  });
 });
 </script>
 
