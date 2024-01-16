@@ -1,39 +1,41 @@
 <template>
   <div class="product-card">
-    <div class="w-full grid">
-      <div class="col-4">
-        <div class="h-full flex justify-content-center relative">
-          <img :alt="name" :src="images[0]" class="product-image" />
-          <div v-if="price.discountPercentage" class="discount-percentage">
-            {{ price.discountPercentage }}% Off
+    <NuxtLink class="w-full" :to="`/products/${id}`">
+      <div class="w-full grid">
+        <div class="col-4">
+          <div class="h-full flex justify-content-center relative">
+            <img :alt="name" :src="images[0]" class="product-image" />
+            <div v-if="price.discountPercentage" class="discount-percentage">
+              {{ price.discountPercentage }}% Off
+            </div>
+          </div>
+        </div>
+
+        <div class="col-8">
+          <div class="product-info">
+            <h3 class="product-name">
+              {{ name }}
+            </h3>
+
+            <Rating v-model="productRating" :cancel="false" readonly />
+
+            <p class="product-price-container">
+              <span v-if="price.discounted" class="product-price">
+                ৳ {{ price.discounted }}
+              </span>
+              <span
+                :class="[
+                  { 'product-price': !price.discounted },
+                  { 'initial-price': price.discounted },
+                ]"
+              >
+                {{ price.currency }} {{ price.regular }}
+              </span>
+            </p>
           </div>
         </div>
       </div>
-
-      <div class="col-8">
-        <div class="product-info">
-          <h3 class="product-name">
-            {{ name }}
-          </h3>
-
-          <Rating v-model="productRating" :cancel="false" readonly />
-
-          <p class="product-price-container">
-            <span v-if="price.discounted" class="product-price">
-              ৳ {{ price.discounted }}
-            </span>
-            <span
-              :class="[
-                { 'product-price': !price.discounted },
-                { 'initial-price': price.discounted },
-              ]"
-            >
-              {{ price.currency }} {{ price.regular }}
-            </span>
-          </p>
-        </div>
-      </div>
-    </div>
+    </NuxtLink>
   </div>
 </template>
 
