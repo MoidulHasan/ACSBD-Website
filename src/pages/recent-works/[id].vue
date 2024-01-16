@@ -10,10 +10,10 @@ definePageMeta({
 });
 
 const { data: recentWorks } = await getRecentWorks();
-const recentWork = ref<RecentWork>({});
-recentWork.value = recentWorks.value?.find(
-  (work) => work.id === Number(route.params.id),
-);
+
+const recentWork = computed(() => {
+  return recentWorks.value?.find((work) => work.id === Number(route.params.id));
+});
 
 const formattedDate = (date: string) => {
   const dateString = new Date(date);
@@ -96,6 +96,10 @@ const formattedDate = (date: string) => {
 
 <style lang="scss" scoped>
 .work-detail {
+  .top-image {
+    max-height: 514px;
+  }
+
   .work-type {
     top: 1rem;
     right: 1rem;
