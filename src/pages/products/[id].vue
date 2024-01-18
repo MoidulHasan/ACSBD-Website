@@ -26,6 +26,11 @@ const isAvailableProduct = (isInStock: boolean) => {
 };
 
 const value = ref(10);
+const favorite = ref(false);
+
+const toggleFavorite = () => {
+  favorite.value = !favorite.value;
+};
 </script>
 
 <template>
@@ -117,26 +122,30 @@ const value = ref(10);
             </span>
           </p>
           <!--          quantity button -->
-          <div class="mb-5 flex align-items-center flex-wrap quantity-wrapper">
+          <div class="mb-4 flex align-items-center flex-wrap quantity-wrapper">
             <p class="text-medium-2 text-dark-gray-80 mr-4 lg:mr-6">
               Quantity:
             </p>
-            <!--            <InputNumber-->
-            <!--              v-model="value"-->
-            <!--              class="quantity-button-wrapper"-->
-            <!--              show-buttons-->
-            <!--              button-layout="horizontal"-->
-            <!--              decrement-button-class-name=""-->
-            <!--              increment-button-class-name="p-button-secondary"-->
-            <!--            >-->
-            <!--              <template #incrementbuttonicon>-->
-            <!--                <span class="pi pi-plus" />-->
-            <!--              </template>-->
-            <!--              <template #decrementbuttonicon>-->
-            <!--                <span class="pi pi-minus" />-->
-            <!--              </template>-->
-            <!--            </InputNumber> -->
             <CommonQuantityInput :stock="100" />
+          </div>
+          <div class="flex align-items-center flex-wrap gap-3">
+            <CommonButton
+              to="/"
+              title="Buy Now"
+              text-color="text-primary-color-envitect-sam-blue"
+              background="bg-primary-color-white"
+            />
+            <CommonButton title="Add to Card" />
+            <i
+              :class="[
+                'pi',
+                'text-6xl',
+                favorite
+                  ? 'pi-heart-fill text-color-danger'
+                  : 'pi-heart text-primary-color-dark-gray',
+              ]"
+              @click="toggleFavorite"
+            />
           </div>
         </div>
       </div>
