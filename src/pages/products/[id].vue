@@ -24,6 +24,8 @@ const showReviewNumbers = (count: number) => {
 const isAvailableProduct = (isInStock: boolean) => {
   return isInStock ? "In Stock" : "Out of Stock";
 };
+
+const value = ref(10);
 </script>
 
 <template>
@@ -65,7 +67,7 @@ const isAvailableProduct = (isInStock: boolean) => {
             </div>
           </div>
           <p
-            class="text-regular-3 text-primary-color-dark-gray flex flex-column meta-info"
+            class="text-regular-3 text-primary-color-dark-gray flex flex-column meta-info gap-1"
           >
             <span> Brand: {{ singleProductData.brand }} </span>
             <span> Model: {{ singleProductData.model }} </span>
@@ -91,9 +93,51 @@ const isAvailableProduct = (isInStock: boolean) => {
             </span>
             <span
               class="font-heading-3-thin product-previous-price text-dark-gray-60 line-through"
-              >৳{{ singleProductData.price.discounted }}</span
+              >৳{{ singleProductData.price.regular }}</span
             >
           </h1>
+          <p class="text-medium-2 text-dark-gray-80 my-4">
+            Promotions:
+            <span
+              v-if="singleProductData.price.discountPercentage"
+              class="discount-container text-primary-color-navy-blue ml-4 text-semi-bold-1"
+            >
+              Get upto {{ singleProductData.price.discountPercentage }} off
+            </span>
+          </p>
+          <p
+            class="text-medium-2 text-dark-gray-80 mb-3 flex align-items-center"
+          >
+            Installment:
+            <span
+              class="text-primary-color-navy-blue ml-4 flex align-items-center"
+            >
+              <i class="pi pi-calendar text-2xl mr-2" />
+              <span>Upto 12 months, 3000/- per month </span>
+            </span>
+          </p>
+          <!--          quantity button -->
+          <div class="mb-5 flex align-items-center flex-wrap quantity-wrapper">
+            <p class="text-medium-2 text-dark-gray-80 mr-4 lg:mr-6">
+              Quantity:
+            </p>
+            <!--            <InputNumber-->
+            <!--              v-model="value"-->
+            <!--              class="quantity-button-wrapper"-->
+            <!--              show-buttons-->
+            <!--              button-layout="horizontal"-->
+            <!--              decrement-button-class-name=""-->
+            <!--              increment-button-class-name="p-button-secondary"-->
+            <!--            >-->
+            <!--              <template #incrementbuttonicon>-->
+            <!--                <span class="pi pi-plus" />-->
+            <!--              </template>-->
+            <!--              <template #decrementbuttonicon>-->
+            <!--                <span class="pi pi-minus" />-->
+            <!--              </template>-->
+            <!--            </InputNumber> -->
+            <CommonQuantityInput :stock="100" />
+          </div>
         </div>
       </div>
     </div>
@@ -123,6 +167,24 @@ const isAvailableProduct = (isInStock: boolean) => {
 
   .product-previous-price {
     margin-left: 20px;
+  }
+
+  .discount-container {
+    border-radius: 4px;
+    border: 1px solid var(--envitect-sam-blue-5);
+    padding: 0.5rem 1.5rem;
+  }
+
+  .quantity-wrapper {
+    .quantity-button-wrapper {
+      :deep(.p-inputnumber-input) {
+        max-width: 4.187rem;
+      }
+
+      :deep(.p-inputnumber-button) {
+        width: 4.125rem;
+      }
+    }
   }
 }
 </style>
