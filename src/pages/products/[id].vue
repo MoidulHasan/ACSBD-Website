@@ -107,7 +107,7 @@ const toggleFavorite = () => {
               v-if="singleProductData.price.discountPercentage"
               class="discount-container text-primary-color-navy-blue ml-4 text-semi-bold-1"
             >
-              Get upto {{ singleProductData.price.discountPercentage }} off
+              Get upto {{ singleProductData.price.discountPercentage }}% off
             </span>
           </p>
           <p
@@ -128,7 +128,7 @@ const toggleFavorite = () => {
             </p>
             <CommonQuantityInput :stock="100" />
           </div>
-          <div class="flex align-items-center flex-wrap gap-3">
+          <div class="flex align-items-center flex-wrap gap-3 mb-3">
             <CommonButton
               to="/"
               title="Buy Now"
@@ -147,6 +147,12 @@ const toggleFavorite = () => {
               @click="toggleFavorite"
             />
           </div>
+          <p class="text-medium-2 text-dark-gray-80">
+            Product SKU:
+            <span class="text-semi-bold-1">
+              {{ singleProductData.model }}
+            </span>
+          </p>
         </div>
       </div>
     </div>
