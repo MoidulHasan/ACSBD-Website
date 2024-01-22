@@ -12,6 +12,9 @@ const singleProductData = computed<ProductI>(() => {
   });
 });
 
+useHead({
+  title: singleProductData.value.name,
+});
 const showReviewNumbers = (count: number) => {
   if (count >= 0) {
     if (count < 10) {
