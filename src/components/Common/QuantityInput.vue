@@ -80,6 +80,7 @@ const modifyInput = (event) => {
     background: transparent;
     border: 1px solid var(--dark-gray-20);
     padding: 12px 25px;
+    height: 46px;
 
     &:focus,
     &:hover {
@@ -101,7 +102,7 @@ const modifyInput = (event) => {
   }
 
   .quantity-input {
-    max-height: 62px;
+    height: 46px;
     border: 1px solid var(--dark-gray-20);
     border-left: none;
     border-right: none;
