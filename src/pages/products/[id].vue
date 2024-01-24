@@ -34,12 +34,16 @@ const favorite = ref(false);
 const toggleFavorite = () => {
   favorite.value = !favorite.value;
 };
+
+const quantity = ref(1);
 </script>
 
 <template>
   <div class="container single-product">
-    <div class="grid mt-3">
-      <div class="col-12 lg:col-5">Image Slider</div>
+    <div class="grid mt-3 mb-6">
+      <div class="col-12 lg:col-5">
+        <PagesProductImageGallerySlider :images="singleProductData.images" />
+      </div>
       <div class="col-12 lg:col-7">
         <div class="product-summary">
           <h1 class="product-title font-heading-4-semi-bold">
@@ -129,7 +133,7 @@ const toggleFavorite = () => {
             <p class="text-medium-2 text-dark-gray-80 mr-4 lg:mr-6">
               Quantity:
             </p>
-            <CommonQuantityInput :stock="100" />
+            <CommonQuantityInput v-model="quantity" :stock="100" />
           </div>
           <div class="flex align-items-center flex-wrap gap-3 mb-3">
             <CommonButton
@@ -156,8 +160,22 @@ const toggleFavorite = () => {
               {{ singleProductData.model }}
             </span>
           </p>
+          <div
+            class="social-medias text-dark-gray-80 bg-color-product-front border-round-md px-3 py-12px flex flex-wrap align-items-center gap-3 mt-3"
+          >
+            <p class="text-medium-2">Share:</p>
+            <div class="flex gap-3">
+              <NuxtLink><i class="pi pi-facebook text-2xl" /></NuxtLink>
+              <NuxtLink><i class="pi pi-twitter text-2xl" /></NuxtLink>
+              <NuxtLink><i class="pi pi-linkedin text-2xl" /></NuxtLink>
+              <NuxtLink><i class="pi pi-instagram text-2xl" /></NuxtLink>
+            </div>
+          </div>
         </div>
       </div>
+    </div>
+    <div>
+      <PagesProductDetailDescription :product="singleProductData" />
     </div>
   </div>
 </template>
@@ -203,6 +221,10 @@ const toggleFavorite = () => {
         width: 4.125rem;
       }
     }
+  }
+
+  .social-medias {
+    max-width: 379px;
   }
 }
 </style>

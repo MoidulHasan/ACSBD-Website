@@ -1,8 +1,20 @@
 <script setup lang="ts">
 const props = defineProps<{
   stock: number;
+  modelValue: number;
 }>();
-const inputValue = ref(10);
+const emits = defineEmits<{
+  (e: "update:modelValue", value: number): void;
+}>();
+
+const inputValue = computed({
+  get() {
+    return props.modelValue;
+  },
+  set(newValue) {
+    emits("update:modelValue", newValue);
+  },
+});
 
 const decreaseQuantity = () => {
   if (inputValue.value > 1) {
