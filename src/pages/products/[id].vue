@@ -164,7 +164,7 @@ const quantity = ref(1);
             class="social-medias text-dark-gray-80 bg-color-product-front border-round-md px-3 py-12px flex flex-wrap align-items-center gap-3 mt-3"
           >
             <p class="text-medium-2">Share:</p>
-            <div class="flex gap-3">
+            <div class="flex gap-3 mt-1">
               <NuxtLink><i class="pi pi-facebook text-2xl" /></NuxtLink>
               <NuxtLink><i class="pi pi-twitter text-2xl" /></NuxtLink>
               <NuxtLink><i class="pi pi-linkedin text-2xl" /></NuxtLink>
