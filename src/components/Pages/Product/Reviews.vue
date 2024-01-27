@@ -7,6 +7,7 @@ const props = defineProps<{
 const productRating = computed(() => {
   return Math.round(props.product.ratings.average);
 });
+const ratings = ref([5, 4, 3, 2, 1]);
 </script>
 
 <template>
@@ -28,7 +29,7 @@ const productRating = computed(() => {
       </p>
     </div>
     <div
-      class="rating-summary flex align-items-center justify-content-start gap-3"
+      class="rating-summary flex flex-column md:flex-row align-items-center justify-content-between lg:justify-content-start gap-5 lg:gap-7"
     >
       <div class="flex flex-column gap-3">
         <h2 class="font-heading-2">
@@ -38,7 +39,24 @@ const productRating = computed(() => {
           / 5
         </h2>
         <Rating v-model="productRating" :cancel="false" readonly />
+        <p class="text-dark-gray-80 text-heading-5-semi-bold">
+          {{ product.ratings.count }} Ratings
+        </p>
       </div>
+      <div class="rating-bar">
+        <PagesProductReviewRatingBar
+          v-for="rating in ratings"
+          :key="rating"
+          :rating="rating"
+          class="flex align-items-center gap-4 mb-3"
+        />
+      </div>
+    </div>
+    <div class="product-reviews mt-6">
+      <h1 class="font-heading-3 text-primary-color-navy-blue mb-12px">
+        Product Reviews
+      </h1>
+      <div class="customer-review"></div>
     </div>
   </div>
 </template>
