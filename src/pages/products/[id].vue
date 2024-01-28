@@ -177,6 +177,9 @@ const quantity = ref(1);
     <div>
       <PagesProductDetailDescription :product="singleProductData" />
     </div>
+    <div class="mt-5 lg:mt-8">
+      <PagesProductRelatedProducts />
+    </div>
   </div>
 </template>
 
