@@ -62,7 +62,12 @@
         "userId": 123,
         "rating": 4.9,
         "text": "Outstanding performance, and it's energy-efficient.",
-        "timestamp": "2023-10-28T09:00:00Z"
+        "timestamp": "2023-10-28T09:00:00Z",
+        "reviewImage": [
+          "/images/products/Gree-AC-1-ton-GS-12CT-1.png",
+          "/images/products/Gree-AC-1-ton-GS-12CT-1.png",
+          "/images/products/Gree-AC-1-ton-GS-12CT-1.png"
+        ]
       }
     ],
     "timestamp": "2023-10-28T09:00:00Z"

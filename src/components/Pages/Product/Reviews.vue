@@ -56,7 +56,9 @@ const ratings = ref([5, 4, 3, 2, 1]);
       <h1 class="font-heading-3 text-primary-color-navy-blue mb-12px">
         Product Reviews
       </h1>
-      <div class="customer-review"></div>
+      <div class="customer-review">
+        <PagesProductCustomerReview :reviews="product.reviews" />
+      </div>
     </div>
   </div>
 </template>
