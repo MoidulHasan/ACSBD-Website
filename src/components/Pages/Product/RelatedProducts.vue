@@ -28,7 +28,7 @@ const responsiveOptions = ref([
       :items="airConditioners"
       :responsive-options="responsiveOptions"
       :number-of-scroll="1"
-      :visible-item="4"
+      :visible-item="5"
       slide-component="ProductCard"
     >
       <template #header>
@@ -45,7 +45,7 @@ const responsiveOptions = ref([
 <style scoped lang="scss">
 .related-product-section {
   :deep(.p-carousel-item) {
-    padding: 12px;
+    padding: 8px;
   }
 }
 </style>
