@@ -48,8 +48,8 @@ const showActionByClick = (i: number) => {
                 slotProps.data.status.trim().toLowerCase() === 'cancelled'
                   ? 'cancelled'
                   : slotProps.data.status.trim().toLowerCase() === 'completed'
-                  ? 'completed'
-                  : '',
+                    ? 'completed'
+                    : '',
               ]"
             >
               {{ slotProps.data.status }}
@@ -69,7 +69,7 @@ const showActionByClick = (i: number) => {
         </Column>
       </DataTable>
       <div class="flex justify-content-center">
-        <Button class="load-more-button mt-5"> Load More </Button>
+        <Button class="load-more-button mt-5"> Load More</Button>
       </div>
     </div>
     <!--    mobile content -->
@@ -98,8 +98,8 @@ const showActionByClick = (i: number) => {
                   order.status.trim().toLowerCase() === 'cancelled'
                     ? 'cancelled'
                     : order.status.trim().toLowerCase() === 'completed'
-                    ? 'completed'
-                    : '',
+                      ? 'completed'
+                      : '',
                 ]"
               >
                 {{ order.status }}
@@ -129,11 +129,10 @@ const showActionByClick = (i: number) => {
         </div>
       </div>
       <div class="flex justify-content-center">
-        <Button class="load-more-button mt-2"> Load More </Button>
+        <Button class="load-more-button mt-2"> Load More</Button>
       </div>
     </div>
   </div>
-  <div></div>
 </template>
 
 <style scoped lang="scss">
@@ -151,6 +150,7 @@ const showActionByClick = (i: number) => {
   .container-title {
     color: var(--navy-blue-80);
   }
+
   .order_number {
     color: var(--primary-color-envitect-sam-blue);
     font-size: 14px;
@@ -161,6 +161,7 @@ const showActionByClick = (i: number) => {
     background-color: var(--envitect-sam-blue-5);
     max-width: 102px;
   }
+
   .status {
     color: var(--navy-blue-60);
     font-size: 14px;
@@ -172,19 +173,23 @@ const showActionByClick = (i: number) => {
     max-width: 102px;
     border-radius: 2px;
   }
+
   .cancelled {
     background-color: #ffefea;
     color: #f00;
   }
+
   .completed {
     background-color: #f4fff5;
     color: #27ae60;
   }
+
   .product-title-text,
   .date-text,
   .order-item-title {
     color: var(--dark-gray-80);
   }
+
   .order-item-title {
     min-width: 86px;
   }
@@ -196,6 +201,7 @@ const showActionByClick = (i: number) => {
   .mobile-action-container {
     position: relative;
   }
+
   .cursor-pointer:hover + .other-actions {
     display: block;
     transition: 0.7s;
@@ -205,6 +211,7 @@ const showActionByClick = (i: number) => {
   .mobile-divider {
     background-color: #e8ebf0;
   }
+
   .product-container-mobile {
     padding: 16px;
     border: 1px solid #f5f5f5;
@@ -257,10 +264,12 @@ const showActionByClick = (i: number) => {
   0% {
     opacity: 0;
     transform: translateY(10px);
-  } // Initial state
+  }
+  // Initial state
   100% {
     opacity: 1;
     transform: translateY(0);
-  } // Final state
+  }
+  // Final state
 }
 </style>
