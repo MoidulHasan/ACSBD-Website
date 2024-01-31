@@ -3,6 +3,8 @@ definePageMeta({
   title: "My Cart",
   name: "my-cart",
 });
+
+// const cart = ref([{}, {}, {}]);
 </script>
 
 <template>
@@ -13,27 +15,31 @@ definePageMeta({
       </h2>
       <div class="grid">
         <div class="col lg:col-8 cart">
-          <!--          <table class="cart-table">-->
-          <!--            <thead>-->
-          <!--              <tr class="bg-color-product-bg text-navy-blue-80">-->
-          <!--                <th class="px-4 py-20px font-heading-4-semi-light-bold">-->
-          <!--                  Product-->
-          <!--                </th>-->
-          <!--                <th class="px-4 py-20px font-heading-4-semi-light-bold">-->
-          <!--                  Price-->
-          <!--                </th>-->
-          <!--                <th class="px-4 py-20px font-heading-4-semi-light-bold">Qty</th>-->
-          <!--                <th class="px-4 py-20px font-heading-4-semi-light-bold">-->
-          <!--                  Subtotal-->
-          <!--                </th>-->
-          <!--              </tr>-->
-          <!--            </thead>-->
-          <!--            <tbody>-->
-          <!--              <tr>-->
-          <!--                <td></td>-->
-          <!--              </tr>-->
-          <!--            </tbody>-->
-          <!--          </table>-->
+          <!--          <div class="order-table hidden lg:block">-->
+          <!--            <DataTable :value="orders">-->
+          <!--              <Column header="Products">-->
+          <!--                <template #body="slotProps">-->
+          <!--                  &lt;!&ndash;                  <PagesAccountMyOrdersProductContainer :product="slotProps.data" />&ndash;&gt;-->
+          <!--                  {{ slotProps.data }}-->
+          <!--                </template>-->
+          <!--              </Column>-->
+          <!--              <Column header="Order No#">-->
+          <!--                <template #body="slotProps">-->
+          <!--                  <h2 class="order_number">{{ slotProps.data.order_no }}</h2>-->
+          <!--                </template>-->
+          <!--              </Column>-->
+          <!--              <Column header="Date:">-->
+          <!--                <template #body="slotProps">-->
+          <!--                  <h2 class="font-heading-7 date-text">-->
+          <!--                    {{ formatDate(slotProps.data.timestamp) }}-->
+          <!--                  </h2>-->
+          <!--                </template>-->
+          <!--              </Column>-->
+          <!--            </DataTable>-->
+          <!--            <div class="flex justify-content-center">-->
+          <!--              <Button class="load-more-button mt-5"> Load More</Button>-->
+          <!--            </div>-->
+          <!--          </div> -->
         </div>
         <div class="col lg:col-4"></div>
       </div>
