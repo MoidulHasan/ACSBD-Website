@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { getProducts } from "~/app/api/getProducts";
 import type { ProductI } from "~/contracts/api-contracts/ProductsInterfaces";
+import { useStore } from "~/stores/index.ts";
 
 const route = useRoute();
 
@@ -30,12 +31,37 @@ const isAvailableProduct = (isInStock: boolean) => {
 
 const value = ref(10);
 const favorite = ref(false);
+const store = useStore();
 
 const toggleFavorite = () => {
   favorite.value = !favorite.value;
 };
 
 const quantity = ref(1);
+
+interface CartedProduct {
+  id: number;
+  name: string;
+  image: string;
+  price: number;
+  brand: string;
+  capacity: string;
+  quantity: number;
+}
+
+const addToCart = (product: ProductI) => {
+  const { id, name, images, price, brand, attributes } = product;
+  const modifiedProduct: CartedProduct = {
+    id,
+    name,
+    image: images[0],
+    price: price.discounted ?? price.regular,
+    brand,
+    capacity: attributes.capacity,
+    quantity: quantity.value,
+  };
+  store.addToCart(modifiedProduct);
+};
 </script>
 
 <template>
@@ -142,7 +168,10 @@ const quantity = ref(1);
               text-color="text-primary-color-envitect-sam-blue"
               background="bg-primary-color-white"
             />
-            <CommonButton title="Add to Card" />
+            <CommonButton
+              title="Add to Card"
+              @click="addToCart(singleProductData)"
+            />
             <i
               :class="[
                 'pi',
