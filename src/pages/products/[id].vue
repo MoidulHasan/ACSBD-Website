@@ -168,10 +168,13 @@ const addToCart = (product: ProductI) => {
               text-color="text-primary-color-envitect-sam-blue"
               background="bg-primary-color-white"
             />
-            <CommonButton
-              title="Add to Card"
-              @click="addToCart(singleProductData)"
-            />
+            <ClientOnly>
+              <CommonButton
+                title="Add to Card"
+                @click="addToCart(singleProductData)"
+              />
+            </ClientOnly>
+
             <i
               :class="[
                 'pi',

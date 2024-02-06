@@ -6,7 +6,10 @@
   </div>
 </template>
 <script lang="ts" setup>
+import { useStore } from "~/stores";
+
 const route = useRoute();
+const store = useStore();
 
 useHead({
   title: computed(() => `${route.meta.title} | AC Service BD`),
@@ -18,5 +21,11 @@ useHead({
       ? `${titleChunk} - AC Service BD`
       : `${route.meta.title} | AC Service BD`;
   },
+});
+
+onBeforeMount(() => {
+  if (process.client) {
+    store.setCartFromLocalStorage();
+  }
 });
 </script>

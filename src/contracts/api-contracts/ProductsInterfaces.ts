@@ -55,7 +55,7 @@ export interface ProductI {
   name: string;
   description: string;
   images: string[];
-  descriptionImage: string[];
+  descriptionImage?: string[];
   ratings: ProductRattingI;
   price: ProductPriceI;
   category: ProductCategoryI;

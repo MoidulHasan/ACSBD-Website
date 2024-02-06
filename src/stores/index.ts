@@ -18,17 +18,26 @@ export const useStore = defineStore("store", () => {
   // actions
 
   function addToCart(product: CartedProduct) {
-    const existingProductIndx = cart.value.length
-      ? cart.value.findIndex((item) => item.id === product.id)
-      : -1;
-    if (existingProductIndx !== -1) {
-      if (cart.value[existingProductIndx].quantity !== product.quantity) {
-        cart.value[existingProductIndx].quantity = product.quantity;
+    if (process.client) {
+      const existingProductIndx = cart.value.length
+        ? cart.value.findIndex((item) => item.id === product.id)
+        : -1;
+      if (existingProductIndx !== -1) {
+        if (cart.value[existingProductIndx].quantity !== product.quantity) {
+          cart.value[existingProductIndx].quantity = product.quantity;
+        }
+      } else {
+        cart.value.push(product);
       }
-    } else {
-      cart.value.push(product);
+      localStorage.setItem("cart", JSON.stringify(cart.value));
     }
   }
 
-  return { count, name, doubleCount, increment, cart, addToCart };
+  function setCartFromLocalStorage() {
+    // @ts-ignore
+    const cartItems = JSON.parse(localStorage.getItem("cart"));
+    if (cartItems) cart.value = cartItems;
+  }
+
+  return { count, doubleCount, cart, addToCart, setCartFromLocalStorage };
 });
