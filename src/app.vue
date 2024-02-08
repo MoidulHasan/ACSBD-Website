@@ -26,6 +26,13 @@ useHead({
 onBeforeMount(() => {
   if (process.client) {
     store.setCartFromLocalStorage();
+    store.setFavoritesFromLocalStorage();
   }
 });
 </script>
+
+<style lang="scss">
+:deep(.p-dialog-top) {
+  top: 171px;
+}
+</style>

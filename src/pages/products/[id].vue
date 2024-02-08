@@ -3,6 +3,16 @@ import { getProducts } from "~/app/api/getProducts";
 import type { ProductI } from "~/contracts/api-contracts/ProductsInterfaces";
 import { useStore } from "~/stores/index.ts";
 
+interface CartedProduct {
+  id: number;
+  name: string;
+  image: string;
+  price: number;
+  brand: string;
+  capacity: string;
+  quantity: number;
+}
+
 const route = useRoute();
 
 const { data: productsData } = await getProducts();
@@ -33,21 +43,16 @@ const value = ref(10);
 const favorite = ref(false);
 const store = useStore();
 
-const toggleFavorite = () => {
+const toggleFavorite = (product: CartedProduct) => {
   favorite.value = !favorite.value;
+  if (favorite.value) {
+    addToFav(product);
+  } else {
+    store.deleteItemFromFav(product);
+  }
 };
 
 const quantity = ref(1);
-
-interface CartedProduct {
-  id: number;
-  name: string;
-  image: string;
-  price: number;
-  brand: string;
-  capacity: string;
-  quantity: number;
-}
 
 const addToCart = (product: ProductI) => {
   const { id, name, images, price, brand, attributes } = product;
@@ -62,6 +67,31 @@ const addToCart = (product: ProductI) => {
   };
   store.addToCart(modifiedProduct);
 };
+
+function addToFav(product: ProductI) {
+  const { id, name, images, price, brand, attributes } = product;
+  const modifiedProduct: CartedProduct = {
+    id,
+    name,
+    image: images[0],
+    price: price.discounted ?? price.regular,
+    brand,
+    capacity: attributes.capacity,
+    quantity: quantity.value,
+  };
+  store.addToFavorite(modifiedProduct);
+}
+
+onMounted(() => {
+  if (process.client) {
+    const favoriteProduct = store.favorites.find(
+      (product) => product.id === singleProductData.value.id,
+    );
+    if (favoriteProduct) {
+      favorite.value = !!favoriteProduct;
+    }
+  }
+});
 </script>
 
 <template>
@@ -183,7 +213,7 @@ const addToCart = (product: ProductI) => {
                   ? 'pi-heart-fill text-color-danger'
                   : 'pi-heart text-primary-color-dark-gray',
               ]"
-              @click="toggleFavorite"
+              @click="toggleFavorite(singleProductData)"
             />
           </div>
           <p class="text-medium-2 text-dark-gray-80">

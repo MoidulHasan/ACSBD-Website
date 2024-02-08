@@ -78,6 +78,41 @@
     color: var(--color-orange);
 }
 
+.p-dialog-top {
+    top: 171px !important;
+}
+
+.p-dialog-bottom {
+    /*bottom: 69px !important; */
+    align-items: center !important;
+    z-index: 10 !important;
+}
+
+@media screen and (min-width: 1048px) and (max-width: 1200px) {
+    .p-dialog-top {
+        top: 163.78px !important;
+    }
+}
+
+@media screen and (min-width: 994px) and (max-width: 1047px) {
+    .p-dialog-top {
+        top: 221.56px !important;
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 993px) {
+    .p-dialog-top {
+        top: 178.69px !important;
+    }
+}
+
+@media screen and  (max-width: 768px) {
+    .p-dialog-top {
+        top: 0 !important;
+        bottom: 69.38px !important;
+    }
+}
+
 @media screen and (max-width: 576px) {
     .faq-tab-header {
         font-size: 11px;

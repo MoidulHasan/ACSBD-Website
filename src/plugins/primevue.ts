@@ -21,6 +21,7 @@ import Dropdown from "primevue/dropdown";
 import TabPanel from "primevue/tabpanel";
 import TabView from "primevue/tabview";
 import InputNumber from "primevue/inputnumber";
+import Dialog from "primevue/dialog";
 
 export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.use(PrimeVue, { ripple: true });
@@ -47,4 +48,5 @@ export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.component("TabPanel", TabPanel);
   nuxtApp.vueApp.component("TabView", TabView);
   nuxtApp.vueApp.component("InputNumber", InputNumber);
+  nuxtApp.vueApp.component("Dialog", Dialog);
 });

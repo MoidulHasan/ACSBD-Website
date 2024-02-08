@@ -5,17 +5,49 @@ interface CartedProduct {
   price: number;
   brand: string;
   capacity: string;
-  quantity: number;
+  quantity?: number;
 }
 
 export const useStore = defineStore("store", () => {
   // state
+  const cartVisible = ref(false);
   const count = ref(0);
   const cart = ref<CartedProduct[]>([]);
+  const favorites = ref<CartedProduct[]>([]);
+  const headerHeight = ref(171);
   // getters
   const doubleCount = computed(() => count.value * 2);
 
   // actions
+  function addToFavorite(product: CartedProduct) {
+    if (process.client) {
+      const existingProductIndx = favorites.value.length
+        ? favorites.value.findIndex((item) => item.id === product.id)
+        : -1;
+      if (existingProductIndx !== -1) {
+        if (
+          favorites.value[existingProductIndx].quantity !== product.quantity
+        ) {
+          favorites.value[existingProductIndx].quantity = product.quantity;
+        }
+      } else {
+        favorites.value.push(product);
+      }
+      localStorage.setItem("favorites", JSON.stringify(favorites.value));
+    }
+  }
+
+  function deleteItemFromFav(product: CartedProduct) {
+    if (process.client) {
+      const existingProductIndx = favorites.value.length
+        ? favorites.value.findIndex((item) => item.id === product.id)
+        : -1;
+      if (existingProductIndx > -1) {
+        favorites.value.splice(existingProductIndx, 1);
+      }
+      localStorage.setItem("favorites", JSON.stringify(favorites.value));
+    }
+  }
 
   function addToCart(product: CartedProduct) {
     if (process.client) {
@@ -39,5 +71,23 @@ export const useStore = defineStore("store", () => {
     if (cartItems) cart.value = cartItems;
   }
 
-  return { count, doubleCount, cart, addToCart, setCartFromLocalStorage };
+  function setFavoritesFromLocalStorage() {
+    // @ts-ignore
+    const favItems = JSON.parse(localStorage.getItem("favorites"));
+    if (favItems) favorites.value = favItems;
+  }
+
+  return {
+    count,
+    headerHeight,
+    cartVisible,
+    doubleCount,
+    cart,
+    favorites,
+    addToCart,
+    setCartFromLocalStorage,
+    addToFavorite,
+    setFavoritesFromLocalStorage,
+    deleteItemFromFav,
+  };
 });

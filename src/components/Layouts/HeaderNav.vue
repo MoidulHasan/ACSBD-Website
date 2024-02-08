@@ -110,9 +110,15 @@
             </NuxtLink>
             <NuxtLink
               class="flex flex-column align-items-center justify-content-center"
+              @click="openModal"
             >
               <div class="navbar-content-container flex justify-content-center">
-                <span class="navbar-items-count">2</span>
+                <span
+                  v-if="store.cart.length"
+                  class="navbar-items-count flex justify-content-center"
+                >
+                  {{ store.cart.length }}
+                </span>
                 <img
                   alt="cart"
                   class="favoriteIcon navBarIcons"
@@ -125,7 +131,11 @@
               class="flex flex-column align-items-center justify-content-center"
             >
               <div class="navbar-content-container flex justify-content-center">
-                <span class="navbar-items-count">2</span>
+                <span
+                  v-if="store.favorites.length"
+                  class="navbar-items-count flex justify-content-center"
+                  >{{ store.favorites.length }}</span
+                >
                 <img
                   alt="favorite"
                   class="favoriteIcon navBarIcons"
@@ -209,14 +219,15 @@
 
               <li class="right">
                 <NuxtLink
-                  active-class="active"
                   class="navLink flex align-items-center justify-content-center"
-                  to="/"
+                  @click="openModal"
                 >
                   <div
                     class="header-item-container flex justify-content-center"
                   >
-                    <span class="header-item-count">2</span>
+                    <span v-if="store.cart.length" class="header-item-count">{{
+                      store.cart.length
+                    }}</span>
                     <img
                       alt="cart"
                       class="favoriteIcon navBarIcons"
@@ -235,7 +246,11 @@
                   <div
                     class="header-item-container flex justify-content-center"
                   >
-                    <span class="header-item-count">2</span>
+                    <span
+                      v-if="store.favorites.length"
+                      class="header-item-count"
+                      >{{ store.favorites.length }}</span
+                    >
                     <img
                       alt="favorite"
                       class="favoriteIcon navBarIcons"
@@ -265,6 +280,39 @@
         </nav>
       </div>
     </div>
+
+    <!--    Dialog for the Cart Component -->
+    <div class="cart-modal">
+      <Dialog
+        v-model:visible="visible"
+        header="Edit Profile"
+        :breakpoints="{ '1199px': '75vw', '575px': '90vw' }"
+        :position="position"
+        :modal="true"
+        :draggable="false"
+      >
+        <span class="p-text-secondary block mb-5"
+          >Update your information.</span
+        >
+        <div class="flex align-items-center gap-3 mb-3">
+          <label for="username" class="font-semibold w-6rem">Username</label>
+          <InputText id="username" class="flex-auto" autocomplete="off" />
+        </div>
+        <div class="flex align-items-center gap-3 mb-5">
+          <label for="email" class="font-semibold w-6rem">Email</label>
+          <InputText id="Email" class="flex-auto" autocomplete="off" />
+        </div>
+        <div class="flex justify-content-end gap-2">
+          <Button
+            type="button"
+            label="Cancel"
+            severity="secondary"
+            @click="closeModal"
+          ></Button>
+          <Button type="button" label="Save" @click="closeModal"></Button>
+        </div>
+      </Dialog>
+    </div>
   </div>
 </template>
 
@@ -280,6 +328,8 @@ interface menus {
   path: string;
   submenu?: Array<submenu>;
 }
+
+const store = useStore();
 
 const navMenues: Array<menus> = [
   {
@@ -419,10 +469,22 @@ const checkWidth = () => {
   if (width.value <= 768) {
     showSearchBar.value = false;
     mobileScreen.value = true;
+    position.value = "bottom";
     return;
   }
   showSearchBar.value = true;
   mobileScreen.value = false;
+  position.value = "top";
+};
+
+const visible = ref(false);
+const position = ref("top");
+const closeModal = () => {
+  visible.value = false;
+};
+
+const openModal = () => {
+  visible.value = true;
 };
 
 watch(
@@ -439,6 +501,7 @@ onMounted(() => {
 
 <style scoped lang="scss">
 @use "assets/styles/scss/base/mixins" as *;
+
 .first-row {
   border-bottom: 0.1rem solid var(--navy-blue-10);
 }
@@ -461,6 +524,7 @@ onMounted(() => {
 .headerSearchBar {
   max-width: 582px !important;
 }
+
 :deep(.p-inputgroup .p-inputtext) {
   @include media-query(sm) {
     max-height: 38px;
@@ -469,6 +533,7 @@ onMounted(() => {
     max-height: 38px;
   }
 }
+
 :deep(.p-inputgroup .p-button) {
   @include media-query(sm) {
     max-height: 38px;
@@ -720,11 +785,12 @@ nav ul li.right .navLink {
   font-weight: 600;
   background: var(--primary-color-navy-blue);
   color: var(--primary-color-white);
-  width: 1.125rem;
-  height: 1.125rem;
+  min-width: 1.125rem;
+  min-height: 1.125rem;
   padding: 1px 5px;
   line-height: normal;
   border-radius: 50%;
+  text-align: center;
 }
 
 /* animation */
