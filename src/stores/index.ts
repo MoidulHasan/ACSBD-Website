@@ -50,6 +50,18 @@ export const useStore = defineStore("store", () => {
     }
   }
 
+  function deleteItemFromCart(id: number) {
+    if (process.client) {
+      const existingProductIndex = cart.value.length
+        ? cart.value.findIndex((item) => item.id === id)
+        : -1;
+      if (existingProductIndex > -1) {
+        cart.value.splice(existingProductIndex, 1);
+      }
+      localStorage.setItem("cart", JSON.stringify(cart.value));
+    }
+  }
+
   function addToCart(product: CartedProduct) {
     if (process.client) {
       const existingProductIndx = cart.value.length
@@ -78,6 +90,13 @@ export const useStore = defineStore("store", () => {
     if (favItems) favorites.value = favItems;
   }
 
+  function getTotalCartPrice() {
+    const getTotalPrices = cart.value.reduce((sum, cartItem) => {
+      return sum + cartItem.price;
+    }, 0);
+    return getTotalPrices;
+  }
+
   return {
     count,
     headerHeight,
@@ -90,5 +109,7 @@ export const useStore = defineStore("store", () => {
     addToFavorite,
     setFavoritesFromLocalStorage,
     deleteItemFromFav,
+    deleteItemFromCart,
+    getTotalCartPrice,
   };
 });

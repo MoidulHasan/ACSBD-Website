@@ -322,7 +322,7 @@
             <div
               v-for="cartProduct in store.cart"
               :key="cartProduct.id"
-              class="product-in-cart flex gap-2 py-3"
+              class="product-in-cart flex gap-3 py-3"
             >
               <NuxtImg :src="cartProduct.image" class="cart-product-image" />
               <div class="cart-product-details flex-1">
@@ -335,7 +335,7 @@
                     {{ cartProduct.name }}
                   </h3>
                   <i
-                    class="pi pi-trash text-2xl ml-1 block cursor-pointer"
+                    class="pi pi-trash text-2xl ml-3 block cursor-pointer"
                     @click="deleteFromCart(cartProduct.id)"
                   />
                 </div>
@@ -362,7 +362,7 @@
             <h3
               class="font-heading-2-semi-bold text-primary-color-envitect-sam-blue"
             >
-              ৳ 23000
+              ৳ {{ store.getTotalCartPrice().toLocaleString("en-IN") }}
             </h3>
           </div>
           <div class="flex justify-content-between gap-2 pb-5 px-4 pt-3">
@@ -555,8 +555,8 @@ const openModal = () => {
   visible.value = true;
 };
 
-const deleteFromCart = (id) => {
-  console.log(id);
+const deleteFromCart = (id: number) => {
+  store.deleteItemFromCart(id);
 };
 
 watch(
