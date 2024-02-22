@@ -11,6 +11,7 @@ interface CartedProduct {
   brand: string;
   capacity: string;
   quantity: number;
+  stock: number;
 }
 
 const route = useRoute();
@@ -55,7 +56,7 @@ const toggleFavorite = (product: CartedProduct) => {
 const quantity = ref(1);
 
 const addToCart = (product: ProductI) => {
-  const { id, name, images, price, brand, attributes } = product;
+  const { id, name, images, price, brand, attributes, stock } = product;
   const modifiedProduct: CartedProduct = {
     id,
     name,
@@ -64,18 +65,20 @@ const addToCart = (product: ProductI) => {
     brand,
     capacity: attributes.capacity,
     quantity: quantity.value,
+    stock: stock.quantity,
   };
   store.addToCart(modifiedProduct);
 };
 
 function addToFav(product: ProductI) {
-  const { id, name, images, price, brand, attributes } = product;
+  const { id, name, images, price, brand, attributes, stock } = product;
   const modifiedProduct: CartedProduct = {
     id,
     name,
     image: images[0],
     price: price.discounted ?? price.regular,
     brand,
+    stock: stock.quantity,
     capacity: attributes.capacity,
     quantity: quantity.value,
   };
@@ -189,7 +192,10 @@ onMounted(() => {
             <p class="text-medium-2 text-dark-gray-80 mr-4 lg:mr-6">
               Quantity:
             </p>
-            <CommonQuantityInput v-model="quantity" :stock="100" />
+            <CommonQuantityInput
+              v-model="quantity"
+              :stock="singleProductData.stock.quantity"
+            />
           </div>
           <div class="flex align-items-center flex-wrap gap-3 mb-3">
             <CommonButton

@@ -285,31 +285,99 @@
     <div class="cart-modal">
       <Dialog
         v-model:visible="visible"
-        header="Edit Profile"
-        :breakpoints="{ '1199px': '75vw', '575px': '90vw' }"
+        :breakpoints="{ '1899px': '468px', '575px': '90vw' }"
         :position="position"
         :modal="true"
         :draggable="false"
+        :dismissable-mask="true"
+        :closable="false"
       >
-        <span class="p-text-secondary block mb-5"
-          >Update your information.</span
-        >
-        <div class="flex align-items-center gap-3 mb-3">
-          <label for="username" class="font-semibold w-6rem">Username</label>
-          <InputText id="username" class="flex-auto" autocomplete="off" />
+        <template #header>
+          <div
+            class="flex align-items-center justify-content-between cart-modal-header bg-color-product-bg py-3 px-4 w-full"
+          >
+            <div class="flex flex-wrap align-items-center">
+              <h2
+                class="pr-3 font-heading-5-semi-bold text-primary-color-dark-gray"
+              >
+                My Cart
+              </h2>
+              <h4
+                class="font-heading-6-semi-bold modal-cart-items text-primary-color-dark-gray flex align-items-center justify-content-center"
+              >
+                {{ store.cart.length }}
+              </h4>
+            </div>
+            <p
+              class="modal-close flex justify-content-center align-items-center bg-primary-color-white text-dark-gray-60 cursor-pointer"
+              @click="closeModal"
+            >
+              <i class="pi pi-times text-xl" />
+            </p>
+          </div>
+        </template>
+        <!--        cart body -->
+        <div class="product-cart-body px-4">
+          <div class="cart-product-list">
+            <div
+              v-for="cartProduct in store.cart"
+              :key="cartProduct.id"
+              class="product-in-cart flex gap-2 py-3"
+            >
+              <NuxtImg :src="cartProduct.image" class="cart-product-image" />
+              <div class="cart-product-details flex-1">
+                <div
+                  class="flex align-items-center justify-content-between mb-2"
+                >
+                  <h3
+                    class="cart-product-name text-semi-bold-1 text-primary-color-dark-gray"
+                  >
+                    {{ cartProduct.name }}
+                  </h3>
+                  <i
+                    class="pi pi-trash text-2xl ml-1 block cursor-pointer"
+                    @click="deleteFromCart(cartProduct.id)"
+                  />
+                </div>
+                <h4 class="text-regular-4 text-dark-gray-80 pb-2">
+                  Brand: {{ cartProduct.brand }}
+                </h4>
+                <h4 class="text-regular-4 text-dark-gray-80 pb-2">
+                  Capacity: {{ cartProduct.capacity }}
+                </h4>
+                <CommonQuantityInput
+                  v-model="cartProduct.quantity"
+                  :stock="cartProduct.stock"
+                  size="small"
+                />
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="flex align-items-center gap-3 mb-5">
-          <label for="email" class="font-semibold w-6rem">Email</label>
-          <InputText id="Email" class="flex-auto" autocomplete="off" />
-        </div>
-        <div class="flex justify-content-end gap-2">
-          <Button
-            type="button"
-            label="Cancel"
-            severity="secondary"
-            @click="closeModal"
-          ></Button>
-          <Button type="button" label="Save" @click="closeModal"></Button>
+        <div class="modal-footer bg-color-product-front pt-3">
+          <div class="flex align-items-center justify-content-between px-4">
+            <h3 class="font-heading-4-semi-bold text-color-raddish-black">
+              Subtotal
+            </h3>
+            <h3
+              class="font-heading-2-semi-bold text-primary-color-envitect-sam-blue"
+            >
+              ৳ 23000
+            </h3>
+          </div>
+          <div class="flex justify-content-between gap-2 pb-5 px-4 pt-3">
+            <NuxtLink>
+              <CommonButton
+                text-color="primary-color-white"
+                title="View Cart"
+                background="bg-primary-color-navy-blue"
+                @click="closeModal"
+              />
+            </NuxtLink>
+            <NuxtLink>
+              <CommonButton title="Checkout" @click="closeModal" />
+            </NuxtLink>
+          </div>
         </div>
       </Dialog>
     </div>
@@ -474,17 +542,21 @@ const checkWidth = () => {
   }
   showSearchBar.value = true;
   mobileScreen.value = false;
-  position.value = "top";
+  position.value = "topright";
 };
 
 const visible = ref(false);
-const position = ref("top");
+const position = ref("topright");
 const closeModal = () => {
   visible.value = false;
 };
 
 const openModal = () => {
   visible.value = true;
+};
+
+const deleteFromCart = (id) => {
+  console.log(id);
 };
 
 watch(
@@ -496,6 +568,10 @@ watch(
 
 onMounted(() => {
   checkWidth();
+});
+
+watchEffect(() => {
+  console.log(store.cart);
 });
 </script>
 
@@ -1004,5 +1080,46 @@ nav ul li.right .navLink {
 .searchFade-enter-from,
 .searchFade-leave-to {
   opacity: 0;
+}
+
+.cart-modal-header {
+  height: 60px;
+}
+
+.modal-cart-items {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: white;
+}
+
+.modal-close {
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+}
+
+.product-in-cart {
+  border-bottom: 2px solid var(--dark-gray-10);
+
+  &:last-child {
+    border: none;
+  }
+
+  .cart-product-image {
+    height: 100px;
+    width: 100px;
+    border-radius: 4px;
+    border: 0.5px solid #ededed;
+    background: #fdfdfd;
+  }
+
+  .cart-product-name {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1; /* start showing ellipsis when 3rd line is reached */
+    //white-space: pre-wrap;
+  }
 }
 </style>

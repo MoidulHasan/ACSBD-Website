@@ -78,7 +78,7 @@
     color: var(--color-orange);
 }
 
-.p-dialog-top {
+.p-dialog-topright {
     top: 171px !important;
 }
 
@@ -88,26 +88,39 @@
     z-index: 10 !important;
 }
 
+@media screen and (min-width: 1441px) {
+    .p-dialog-topright {
+        padding-right: calc(calc(100% - 1440px) / 2 - 32px);
+    }
+}
+
+@media screen and (max-width: 1440px) {
+    .p-dialog-topright {
+        padding-right: 16px;
+    }
+}
+
 @media screen and (min-width: 1048px) and (max-width: 1200px) {
-    .p-dialog-top {
+    .p-dialog-topright {
         top: 163.78px !important;
+        padding-right: 16px !important;
     }
 }
 
 @media screen and (min-width: 994px) and (max-width: 1047px) {
-    .p-dialog-top {
+    .p-dialog-topright {
         top: 221.56px !important;
     }
 }
 
 @media screen and (min-width: 769px) and (max-width: 993px) {
-    .p-dialog-top {
+    .p-dialog-topright {
         top: 178.69px !important;
     }
 }
 
 @media screen and  (max-width: 768px) {
-    .p-dialog-top {
+    .p-dialog-topright {
         top: 0 !important;
         bottom: 69.38px !important;
     }

@@ -6,6 +6,7 @@ interface CartedProduct {
   brand: string;
   capacity: string;
   quantity?: number;
+  stock: number;
 }
 
 export const useStore = defineStore("store", () => {
