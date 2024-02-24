@@ -43,6 +43,7 @@ $colors: (
         color-orange: variables.$color-orange,
         color-product-front: variables.$color-product-front,
         color-product-bg: variables.$color-product-bg,
+        color-raddish-black: variables.$color-reddish-black,
 );
 
 @each $color-name, $color-value in $colors {
