@@ -6,6 +6,7 @@ const props = defineProps<{
 }>();
 const emits = defineEmits<{
   (e: "update:modelValue", value: number): void;
+  (e: "valueChanged"): void;
 }>();
 
 const inputValue = computed({
@@ -14,6 +15,7 @@ const inputValue = computed({
   },
   set(newValue) {
     emits("update:modelValue", newValue);
+    emits("valueChanged");
   },
 });
 

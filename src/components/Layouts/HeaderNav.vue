@@ -349,6 +349,9 @@
                   v-model="cartProduct.quantity"
                   :stock="cartProduct.stock"
                   size="small"
+                  @value-changed="
+                    modifyCartItems(cartProduct.id, cartProduct.quantity)
+                  "
                 />
               </div>
             </div>
@@ -557,6 +560,10 @@ const openModal = () => {
 
 const deleteFromCart = (id: number) => {
   store.deleteItemFromCart(id);
+};
+
+const modifyCartItems = (id: number, quantity: number) => {
+  store.modifyCartItems(id, quantity);
 };
 
 watch(

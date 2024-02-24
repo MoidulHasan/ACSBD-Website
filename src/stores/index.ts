@@ -78,6 +78,18 @@ export const useStore = defineStore("store", () => {
     }
   }
 
+  function modifyCartItems(id: number, quantity: number) {
+    if (process.client) {
+      const existingProductIndx = cart.value.length
+        ? cart.value.findIndex((item) => item.id === id)
+        : -1;
+      if (existingProductIndx !== -1) {
+        cart.value[existingProductIndx].quantity = quantity;
+      }
+      localStorage.setItem("cart", JSON.stringify(cart.value));
+    }
+  }
+
   function setCartFromLocalStorage() {
     // @ts-ignore
     const cartItems = JSON.parse(localStorage.getItem("cart"));
@@ -111,5 +123,6 @@ export const useStore = defineStore("store", () => {
     deleteItemFromFav,
     deleteItemFromCart,
     getTotalCartPrice,
+    modifyCartItems,
   };
 });
