@@ -55,9 +55,9 @@ const modifyCartProductQuantity = (id: number, quantity: number) => {
                   <template #body="slotProps">
                     <CommonQuantityInput
                       v-model="slotProps.data.quantity"
-                      size="small"
+                      small
                       :stock="slotProps.data.stock"
-                      @value-changed="
+                      @update:model-value="
                         modifyCartProductQuantity(
                           slotProps.data.id,
                           slotProps.data.quantity,
@@ -127,13 +127,13 @@ const modifyCartProductQuantity = (id: number, quantity: number) => {
                       Capacity: {{ item.capacity }}
                     </h4>
                     <div
-                      class="quantity-container flex align-items-center justify-content-between"
+                      class="quantity-container flex flex-wrap align-items-center justify-content-between"
                     >
                       <CommonQuantityInput
                         v-model="item.quantity"
                         :stock="item.stock"
-                        size="small"
-                        @value-changed="
+                        small
+                        @update:model-value="
                           store.modifyCartItems(item.id, item.quantity)
                         "
                       />
@@ -191,7 +191,7 @@ const modifyCartProductQuantity = (id: number, quantity: number) => {
                   </div>
                 </div>
                 <h4
-                  class="flex align-items-center justify-content-between font-heading-6-light-semi-bold pb-3 total-amount"
+                  class="flex align-items-center justify-content-between font-heading-6-light-semi-bold pb-4 total-amount"
                 >
                   <span class="text-dark-gray-80">Total Payments</span>
                   <span
@@ -203,6 +203,9 @@ const modifyCartProductQuantity = (id: number, quantity: number) => {
                     }}</span
                   >
                 </h4>
+                <NuxtLink to="/products/checkout">
+                  <CommonButton title="Proceed To Checkout" full-width />
+                </NuxtLink>
               </div>
             </div>
           </div>
@@ -217,6 +220,7 @@ const modifyCartProductQuantity = (id: number, quantity: number) => {
 
 .order-table {
   border-radius: 4px;
+  overflow: hidden;
 
   :deep(.p-row-even) {
     background-color: var(--product-Front-color);
@@ -236,7 +240,7 @@ const modifyCartProductQuantity = (id: number, quantity: number) => {
 }
 
 .cart-summary {
-  border-radius: 4px;
+  overflow: hidden;
 }
 
 .subtotal-text {

@@ -357,14 +357,23 @@
                 <h4 class="text-regular-4 text-dark-gray-80 pb-2">
                   Capacity: {{ cartProduct.capacity }}
                 </h4>
-                <CommonQuantityInput
-                  v-model="cartProduct.quantity"
-                  :stock="cartProduct.stock"
-                  size="small"
-                  @value-changed="
-                    modifyCartItems(cartProduct.id, cartProduct.quantity)
-                  "
-                />
+                <div
+                  class="flex flex-wrap align-items-center justify-content-between"
+                >
+                  <CommonQuantityInput
+                    v-model="cartProduct.quantity"
+                    :stock="cartProduct.stock"
+                    small
+                    @update:model-value="
+                      modifyCartItems(cartProduct.id, cartProduct.quantity)
+                    "
+                  />
+                  <h4
+                    class="text-semi-bold-1 text-primary-color-envitect-sam-blue"
+                  >
+                    ৳ {{ cartProduct.price * cartProduct.quantity }}
+                  </h4>
+                </div>
               </div>
             </div>
           </div>
