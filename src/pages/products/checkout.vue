@@ -10,6 +10,10 @@ let cartedProduct;
 if (process.client) {
   cartedProduct = store.cart;
 }
+
+const toggleEditOption = () => {
+  console.warn("HRE");
+};
 </script>
 
 <template>
@@ -28,6 +32,14 @@ if (process.client) {
                 >
                   Shipping Address
                 </h3>
+                <Button class="edit-button" @click="toggleEditOption">
+                  <img
+                    class="mr-2"
+                    alt="Edit"
+                    src="@/assets/images/carbon_edit.svg"
+                  />
+                  <span>Edit Here</span>
+                </Button>
               </div>
             </div>
           </div>
@@ -135,5 +147,16 @@ if (process.client) {
   @include media-query(sm) {
     padding: 14px 16px;
   }
+}
+
+.edit-button {
+  display: inline-flex;
+  padding: 4px 16px;
+  align-items: flex-start;
+  gap: 8px;
+  background-color: var(--primary-color-white);
+  color: var(--navy-blue-80);
+  border-radius: 2px;
+  border: none !important;
 }
 </style>
