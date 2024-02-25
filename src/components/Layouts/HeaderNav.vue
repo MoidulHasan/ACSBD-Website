@@ -1133,7 +1133,7 @@ nav ul li.right .navLink {
     overflow: hidden;
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 1; /* start showing ellipsis when 3rd line is reached */
+    -webkit-line-clamp: 1; /* start showing ellipsis when 1rd line is reached */
     //white-space: pre-wrap;
   }
 }

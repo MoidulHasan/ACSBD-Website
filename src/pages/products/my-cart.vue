@@ -24,7 +24,7 @@ const modifyCartProductQuantity = (id: number, quantity: number) => {
       </h2>
       <div class="grid">
         <ClientOnly>
-          <div class="col lg:col-8 cart">
+          <div class="col-12 lg:col-8 cart">
             <div class="order-table hidden lg:block">
               <p v-if="!cartedProduct.length" class="text-center">
                 Your Cart Is Empty
@@ -90,8 +90,65 @@ const modifyCartProductQuantity = (id: number, quantity: number) => {
                 </Column>
               </DataTable>
             </div>
+            <div class="order-table-small blog lg:hidden">
+              <p v-if="!cartedProduct.length" class="text-center">
+                Your Cart Is Empty
+              </p>
+              <div v-else>
+                <div
+                  v-for="item in cartedProduct"
+                  :key="item.id"
+                  class="small-cart-item mb-3 p-3 flex justify-content-between gap-3"
+                >
+                  <NuxtImg
+                    :src="item.image"
+                    :alt="item.name"
+                    class="small-cart-image"
+                  />
+                  <div class="small-product-detail flex-1">
+                    <h3 class="flex justify-content-between">
+                      <span
+                        class="product-name mr-2 text-semi-bold-5 text-primary-color-dark-gray"
+                        >{{ item.name }}</span
+                      >
+                      <span
+                        class="product-delete-icon text-center bg-color-product-bg"
+                      >
+                        <i
+                          class="pi pi-trash delete-icon cursor-pointer text-dark-gray-60"
+                          @click="store.deleteItemFromCart(item.id)"
+                        />
+                      </span>
+                    </h3>
+                    <h4 class="text-dark-gray-80 text-semi-bold-6">
+                      Brand: {{ item.brand }}
+                    </h4>
+                    <h4 class="text-dark-gray-80 text-semi-bold-6 pb-2">
+                      Capacity: {{ item.capacity }}
+                    </h4>
+                    <div
+                      class="quantity-container flex align-items-center justify-content-between"
+                    >
+                      <CommonQuantityInput
+                        v-model="item.quantity"
+                        :stock="item.stock"
+                        size="small"
+                        @value-changed="
+                          store.modifyCartItems(item.id, item.quantity)
+                        "
+                      />
+                      <h4
+                        class="text-semi-bold-1 text-primary-color-envitect-sam-blue"
+                      >
+                        ৳ {{ item.price * item.quantity }}
+                      </h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="col lg:col-4">
+          <div class="col-12 lg:col-4">
             <div class="cart-summary border-round-sm">
               <h3
                 class="text-heading-4-semi-light-bold text-primary-color-envitect-sam-blue bg-color-product-bg p-3"
@@ -104,7 +161,7 @@ const modifyCartProductQuantity = (id: number, quantity: number) => {
                 >
                   <span class="text-dark-gray-80">Products</span>
                   <span class="text-primary-color-dark-gray"
-                    >{{ cartedProduct.length }} Pcs</span
+                    >{{ store.getTotalCartProducts() }} Pcs</span
                   >
                 </h4>
                 <h4
@@ -161,6 +218,14 @@ const modifyCartProductQuantity = (id: number, quantity: number) => {
 .order-table {
   border-radius: 4px;
 
+  :deep(.p-row-even) {
+    background-color: var(--product-Front-color);
+  }
+
+  :deep(.p-row-odd) {
+    background-color: var(--product-Front-color);
+  }
+
   .carted-prod-image {
     height: 100px;
     width: 100px;
@@ -200,5 +265,42 @@ const modifyCartProductQuantity = (id: number, quantity: number) => {
 .search-button:hover {
   background-color: var(--primary-color-envitect-sam-blue);
   padding: 14px 32px;
+
+  @include media-query(sm) {
+    padding: 14px 16px;
+  }
+}
+
+.order-table-small {
+  .small-cart-item {
+    border-radius: 4px;
+    border: 1px solid var(--dark-gray-10);
+
+    .small-cart-image {
+      height: 100px;
+      width: 100px;
+      border-radius: 4px;
+      background-color: #fdfdfd;
+      border: 0.5px solid #ededed;
+    }
+
+    .product-name {
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 1;
+    }
+
+    .product-delete-icon {
+      height: 24px !important;
+      width: 24px !important;
+      border-radius: 2px;
+
+      .delete-icon {
+        font-size: 14px;
+        padding: 5px 5px;
+      }
+    }
+  }
 }
 </style>

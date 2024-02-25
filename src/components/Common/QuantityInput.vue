@@ -85,7 +85,8 @@ const controlledInputPadding = computed(() => {
       min="1"
       :max="stock"
       type="number"
-      class="quantity-input font-heading-5 text-primary-color-dark-gray flex align-items-center justify-content-center"
+      class="quantity-input text-primary-color-dark-gray flex align-items-center justify-content-center"
+      :class="size === 'small' ? 'text-semi-bold-5' : 'font-heading-5'"
       @input="modifyInput"
     />
     <button
@@ -143,6 +144,7 @@ const controlledInputPadding = computed(() => {
     border-radius: 0;
     max-width: v-bind(numberInputWidth);
     padding: v-bind(controlledInputPadding);
+    background: transparent;
     //padding: 18.5px 24px;
 
     &:focus {
