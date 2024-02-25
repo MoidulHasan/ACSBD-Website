@@ -72,6 +72,11 @@ $font-styles-map-regular-screen: (
                 600,
                 26px,
         ),
+        heading-6-light-semi-bold: (
+                18px,
+                500,
+                26px,
+        )
 );
 
 // Define heading font map for smaller screen
@@ -146,6 +151,11 @@ $font-styles-map-smaller-screen: (
                 600,
                 16px,
         ),
+        heading-6-light-semi-bold: (
+                16px,
+                500,
+                16px,
+        )
 );
 
 // Define text font map for regular screen
