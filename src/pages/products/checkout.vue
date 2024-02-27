@@ -14,6 +14,13 @@ if (process.client) {
 const toggleEditOption = () => {
   console.warn("HRE");
 };
+
+const selectedPaymentMethod = ref("cod");
+const checked = ref(false);
+
+const toggleDeliveryOptions = (option: string) => {
+  selectedPaymentMethod.value = option;
+};
 </script>
 
 <template>
@@ -48,7 +55,7 @@ const toggleEditOption = () => {
               <h3
                 class="text-heading-4-semi-light-bold text-primary-color-envitect-sam-blue bg-color-product-bg p-3"
               >
-                Cart Item Summary
+                Order Summary
               </h3>
               <div class="cart-detail p-3 bg-color-product-front">
                 <h4
@@ -60,7 +67,7 @@ const toggleEditOption = () => {
                   >
                 </h4>
                 <h4
-                  class="flex align-items-center justify-content-between text-regular-3 pb-3 subtotal-text"
+                  class="flex align-items-center justify-content-between text-regular-3 pb-3"
                 >
                   <span class="text-dark-gray-80">Subtotals</span>
                   <span
@@ -72,18 +79,102 @@ const toggleEditOption = () => {
                     }}</span
                   >
                 </h4>
-                <div class="promo-code-container mb-4">
-                  <h4 class="font-heading-6 pt-3 pb-3 text-dark-gray-80">
-                    Promo Code (If)
-                  </h4>
-                  <div class="flex-1 promoSearchBar w-full">
-                    <div class="p-inputgroup flex-1 flex-wrap w-full">
-                      <InputText
-                        placeholder="Enter Promo Code ( If Applicable )"
-                      />
-                      <Button class="search-button" label="Submit" />
+                <h4
+                  class="flex align-items-center justify-content-between text-regular-3 pb-3"
+                >
+                  <span class="text-dark-gray-80">Delivery Charge</span>
+                  <span
+                    class="text-primary-color-envitect-sam-blue text-semi-bold-1"
+                  >
+                    ৳ 500
+                  </span>
+                </h4>
+                <h4
+                  v-if="true"
+                  class="flex align-items-center justify-content-between text-regular-3 pb-3 subtotal-text"
+                >
+                  <span class="text-dark-gray-80"
+                    >Promo Code:
+                    <span
+                      v-if="true"
+                      class="text-primary-color-envitect-sam-blue"
+                    >
+                      AC1258AP</span
+                    ></span
+                  >
+                  <span
+                    class="text-primary-color-envitect-sam-blue text-semi-bold-1"
+                  >
+                    -৳ 500
+                  </span>
+                </h4>
+                <div class="delivery-options-container mb-4 mt-3">
+                  <div
+                    class="flex align-items-center gap-3 delivery-option p-3 mb-3 border-round-sm"
+                    :class="{
+                      'bg-primary-color-white': selectedPaymentMethod !== 'cod',
+                    }"
+                    @click="toggleDeliveryOptions('cod')"
+                  >
+                    <i
+                      class="block pi text-xl text-navy-blue-80"
+                      :class="[
+                        selectedPaymentMethod === 'cod'
+                          ? 'text-primary-color-envitect-sam-blue pi-check-circle'
+                          : 'text-navy-blue-80 pi-circle',
+                      ]"
+                    />
+                    <div>
+                      <h4
+                        class="text-semi-bold-1"
+                        :class="[
+                          selectedPaymentMethod === 'cod'
+                            ? 'text-primary-color-envitect-sam-blue'
+                            : 'text-dark-gray-80',
+                        ]"
+                      >
+                        Cash on Delivery
+                      </h4>
+                      <p class="semi-bold-5-light text-dark-gray-80">
+                        Pay with cash upon delivery
+                      </p>
                     </div>
                   </div>
+                  <div
+                    class="flex align-items-center gap-3 delivery-option p-3 mb-3 border-round-sm"
+                    :class="{
+                      'bg-primary-color-white':
+                        selectedPaymentMethod !== 'online',
+                    }"
+                    @click="toggleDeliveryOptions('online')"
+                  >
+                    <i
+                      class="block pi text-xl text-navy-blue-80"
+                      :class="[
+                        selectedPaymentMethod === 'online'
+                          ? 'text-primary-color-envitect-sam-blue pi-check-circle'
+                          : 'text-navy-blue-80 pi-circle',
+                      ]"
+                    />
+                    <div>
+                      <h4
+                        class="text-semi-bold-1"
+                        :class="[
+                          selectedPaymentMethod === 'online'
+                            ? 'text-primary-color-envitect-sam-blue'
+                            : 'text-dark-gray-80',
+                        ]"
+                      >
+                        Online Payment
+                      </h4>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex mb-3">
+                  <Checkbox v-model="checked" :binary="true" />
+                  <label class="ml-2 semi-bold-5-light text-dark-gray-80">
+                    I have read and agree to the website terms & conditions
+                  </label>
                 </div>
                 <h4
                   class="flex align-items-center justify-content-between font-heading-6-light-semi-bold pb-4 total-amount"
@@ -98,8 +189,12 @@ const toggleEditOption = () => {
                     }}</span
                   >
                 </h4>
-                <NuxtLink to="/products/checkout">
-                  <CommonButton title="Proceed To Checkout" full-width />
+                <NuxtLink :to="checked ? '/products/checkout' : ''">
+                  <CommonButton
+                    title="Proceed To Checkout"
+                    full-width
+                    :disabled="!checked"
+                  />
                 </NuxtLink>
               </div>
             </div>
@@ -158,5 +253,10 @@ const toggleEditOption = () => {
   color: var(--navy-blue-80);
   border-radius: 2px;
   border: none !important;
+}
+
+.delivery-option {
+  border: 1.3px solid var(--dark-gray-30);
+  min-height: 80px;
 }
 </style>

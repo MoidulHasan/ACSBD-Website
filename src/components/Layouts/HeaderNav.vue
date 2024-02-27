@@ -398,7 +398,7 @@
                 @click="closeModal"
               />
             </NuxtLink>
-            <NuxtLink>
+            <NuxtLink to="/products/checkout">
               <CommonButton title="Checkout" @click="closeModal" />
             </NuxtLink>
           </div>
