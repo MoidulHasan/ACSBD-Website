@@ -11,15 +11,18 @@ if (process.client) {
   cartedProduct = store.cart;
 }
 
-const toggleEditOption = () => {
-  console.warn("HRE");
-};
-
 const selectedPaymentMethod = ref("cod");
 const checked = ref(false);
 
 const toggleDeliveryOptions = (option: string) => {
   selectedPaymentMethod.value = option;
+};
+
+const edit = ref(false);
+const date = ref(null);
+
+const toggleEditOption = () => {
+  edit.value = !edit.value;
 };
 </script>
 
@@ -47,6 +50,81 @@ const toggleDeliveryOptions = (option: string) => {
                   />
                   <span>Edit Here</span>
                 </Button>
+              </div>
+              <div class="personal-info-container bg-color-product-front p-6">
+                <form @submit.prevent="">
+                  <div class="details grid">
+                    <div class="col-12">
+                      <InputText
+                        class="w-full text-input mb-2 font-heading-7 font-semibold"
+                        placeholder="Dulal Hossain"
+                        :disabled="!edit"
+                        :class="{ ' cursor-not-allowed ': !edit }"
+                      />
+                    </div>
+                    <div class="col-12">
+                      <div class="p-inputgroup w-full mb-2">
+                        <span class="p-inputgroup-addon">
+                          <i class="pi pi-phone"></i>
+                        </span>
+                        <InputText
+                          type="number"
+                          class="text-input font-heading-7 font-semibold"
+                          placeholder="014545454545454"
+                          :disabled="!edit"
+                          :class="{ ' cursor-not-allowed ': !edit }"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <InputText
+                        class="w-full text-input mb-2 font-heading-7 font-semibold"
+                        placeholder="Occation"
+                        :disabled="!edit"
+                        :class="{ ' cursor-not-allowed ': !edit }"
+                      />
+                    </div>
+                    <div class="col-12">
+                      <InputText
+                        class="w-full text-input mb-2 font-heading-7 font-semibold"
+                        placeholder="House 765"
+                        :disabled="!edit"
+                        :class="{ ' cursor-not-allowed ': !edit }"
+                      />
+                    </div>
+                    <div class="col-12">
+                      <InputText
+                        class="w-full text-input mb-2 font-heading-7 font-semibold"
+                        placeholder="District"
+                        :disabled="!edit"
+                        :class="{ ' cursor-not-allowed ': !edit }"
+                      />
+                    </div>
+                    <div class="col-12 lg:col-6">
+                      <InputText
+                        class="w-full text-input font-heading-7 font-semibold"
+                        placeholder="Area"
+                        :disabled="!edit"
+                        :class="{ ' cursor-not-allowed ': !edit }"
+                      />
+                    </div>
+                    <div class="col-12 lg:col-6">
+                      <InputText
+                        class="w-full text-input font-heading-7 font-semibold"
+                        placeholder="PostCode"
+                        :disabled="!edit"
+                        :class="{ ' cursor-not-allowed ': !edit }"
+                      />
+                    </div>
+                    <div class="col-12 mt-4">
+                      <Button
+                        type="submit"
+                        class="submit-button font-heading-7 font-semibold"
+                        label="Submit"
+                      />
+                    </div>
+                  </div>
+                </form>
               </div>
             </div>
           </div>
@@ -258,5 +336,14 @@ const toggleDeliveryOptions = (option: string) => {
 .delivery-option {
   border: 1.3px solid var(--dark-gray-30);
   min-height: 80px;
+}
+
+.personal-info-container {
+  .details {
+    .text-input {
+      padding: 12px 16px;
+      color: var(--primary-color-dark-gray);
+    }
+  }
 }
 </style>
