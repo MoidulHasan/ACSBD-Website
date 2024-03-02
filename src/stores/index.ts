@@ -79,7 +79,7 @@ export const useStore = defineStore("store", () => {
   }
 
   function modifyCartItems(id: number, quantity: number) {
-    if (process.client) {
+    if (process.client && quantity) {
       const existingProductIndx = cart.value.length
         ? cart.value.findIndex((item) => item.id === id)
         : -1;
@@ -87,6 +87,8 @@ export const useStore = defineStore("store", () => {
         cart.value[existingProductIndx].quantity = quantity;
       }
       localStorage.setItem("cart", JSON.stringify(cart.value));
+      // getTotalCartPrice();
+      // getTotalCartProducts();
     }
   }
 
@@ -104,9 +106,16 @@ export const useStore = defineStore("store", () => {
 
   function getTotalCartPrice() {
     const getTotalPrices = cart.value.reduce((sum, cartItem) => {
-      return sum + cartItem.price;
+      return sum + cartItem.price * (cartItem.quantity ?? 1);
     }, 0);
     return getTotalPrices;
+  }
+
+  function getTotalCartProducts() {
+    const getTotalProducts = cart.value.reduce((totalCount, cartItem) => {
+      return totalCount + (cartItem.quantity ?? 1);
+    }, 0);
+    return getTotalProducts;
   }
 
   return {
@@ -124,5 +133,6 @@ export const useStore = defineStore("store", () => {
     deleteItemFromCart,
     getTotalCartPrice,
     modifyCartItems,
+    getTotalCartProducts,
   };
 });

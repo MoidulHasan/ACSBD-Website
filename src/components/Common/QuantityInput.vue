@@ -2,11 +2,10 @@
 const props = defineProps<{
   stock: number;
   modelValue: number;
-  size?: string;
+  small?: boolean;
 }>();
 const emits = defineEmits<{
   (e: "update:modelValue", value: number): void;
-  (e: "valueChanged"): void;
 }>();
 
 const inputValue = computed({
@@ -15,7 +14,6 @@ const inputValue = computed({
   },
   set(newValue) {
     emits("update:modelValue", newValue);
-    emits("valueChanged");
   },
 });
 
@@ -33,7 +31,7 @@ const incrementQuality = () => {
 
 const numberInputWidth = computed(() => {
   const quantityInput = Math.abs(inputValue.value).toString().length;
-  return props.size === "small"
+  return props.small
     ? quantityInput < 2
       ? "48px"
       : `${48 + 8 * (quantityInput - 1)}px`
@@ -52,25 +50,25 @@ const modifyInput = (event) => {
 };
 
 const controlledHeight = computed(() => {
-  return props.size === "small" ? "2rem" : "2.875rem";
+  return props.small ? "2rem" : "2.875rem";
 });
 
 const controlledButtonStyle = computed(() => {
   return {
-    padding: props.size === "small" ? "0 10px" : "12px 25px",
-    height: props.size === "small" ? "32px" : "46px",
+    padding: props.small ? "0 10px" : "12px 25px",
+    height: props.small ? "32px" : "46px",
   };
 });
 
 const controlledInputPadding = computed(() => {
-  return props.size === "small" ? "0 1rem" : "18.5px 24px";
+  return props.small ? "0 1rem" : "18.5px 24px";
 });
 </script>
 
 <template>
   <div
     class="flex align-items-center quantity-input-wrapper"
-    :class="{ 'small-width': props.size === 'small' }"
+    :class="{ 'small-width': props.small }"
   >
     <button
       class="quanity-button quantity-button-down"
@@ -85,7 +83,8 @@ const controlledInputPadding = computed(() => {
       min="1"
       :max="stock"
       type="number"
-      class="quantity-input font-heading-5 text-primary-color-dark-gray flex align-items-center justify-content-center"
+      class="quantity-input text-primary-color-dark-gray flex align-items-center justify-content-center"
+      :class="props.small ? 'text-semi-bold-5' : 'font-heading-5'"
       @input="modifyInput"
     />
     <button
@@ -143,6 +142,7 @@ const controlledInputPadding = computed(() => {
     border-radius: 0;
     max-width: v-bind(numberInputWidth);
     padding: v-bind(controlledInputPadding);
+    background: transparent;
     //padding: 18.5px 24px;
 
     &:focus {

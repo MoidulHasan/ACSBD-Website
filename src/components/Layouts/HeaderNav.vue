@@ -113,12 +113,15 @@
               @click="openModal"
             >
               <div class="navbar-content-container flex justify-content-center">
-                <span
-                  v-if="store.cart.length"
-                  class="navbar-items-count flex justify-content-center"
-                >
-                  {{ store.cart.length }}
-                </span>
+                <ClientOnly>
+                  <span
+                    v-if="store.cart.length"
+                    class="navbar-items-count flex justify-content-center"
+                  >
+                    {{ store.cart.length }}
+                  </span>
+                </ClientOnly>
+
                 <img
                   alt="cart"
                   class="favoriteIcon navBarIcons"
@@ -131,11 +134,14 @@
               class="flex flex-column align-items-center justify-content-center"
             >
               <div class="navbar-content-container flex justify-content-center">
-                <span
-                  v-if="store.favorites.length"
-                  class="navbar-items-count flex justify-content-center"
-                  >{{ store.favorites.length }}</span
-                >
+                <ClientOnly>
+                  <span
+                    v-if="store.favorites.length"
+                    class="navbar-items-count flex justify-content-center"
+                    >{{ store.favorites.length }}</span
+                  >
+                </ClientOnly>
+
                 <img
                   alt="favorite"
                   class="favoriteIcon navBarIcons"
@@ -225,9 +231,13 @@
                   <div
                     class="header-item-container flex justify-content-center"
                   >
-                    <span v-if="store.cart.length" class="header-item-count">{{
-                      store.cart.length
-                    }}</span>
+                    <ClientOnly>
+                      <span
+                        v-if="store.cart.length"
+                        class="header-item-count"
+                        >{{ store.cart.length }}</span
+                      >
+                    </ClientOnly>
                     <img
                       alt="cart"
                       class="favoriteIcon navBarIcons"
@@ -246,11 +256,13 @@
                   <div
                     class="header-item-container flex justify-content-center"
                   >
-                    <span
-                      v-if="store.favorites.length"
-                      class="header-item-count"
-                      >{{ store.favorites.length }}</span
-                    >
+                    <ClientOnly>
+                      <span
+                        v-if="store.favorites.length"
+                        class="header-item-count"
+                        >{{ store.favorites.length }}</span
+                      >
+                    </ClientOnly>
                     <img
                       alt="favorite"
                       class="favoriteIcon navBarIcons"
@@ -345,14 +357,23 @@
                 <h4 class="text-regular-4 text-dark-gray-80 pb-2">
                   Capacity: {{ cartProduct.capacity }}
                 </h4>
-                <CommonQuantityInput
-                  v-model="cartProduct.quantity"
-                  :stock="cartProduct.stock"
-                  size="small"
-                  @value-changed="
-                    modifyCartItems(cartProduct.id, cartProduct.quantity)
-                  "
-                />
+                <div
+                  class="flex flex-wrap align-items-center justify-content-between"
+                >
+                  <CommonQuantityInput
+                    v-model="cartProduct.quantity"
+                    :stock="cartProduct.stock"
+                    small
+                    @update:model-value="
+                      modifyCartItems(cartProduct.id, cartProduct.quantity)
+                    "
+                  />
+                  <h4
+                    class="text-semi-bold-1 text-primary-color-envitect-sam-blue"
+                  >
+                    ৳ {{ cartProduct.price * cartProduct.quantity }}
+                  </h4>
+                </div>
               </div>
             </div>
           </div>
@@ -369,7 +390,7 @@
             </h3>
           </div>
           <div class="flex justify-content-between gap-2 pb-5 px-4 pt-3">
-            <NuxtLink>
+            <NuxtLink to="/products/my-cart">
               <CommonButton
                 text-color="primary-color-white"
                 title="View Cart"
@@ -377,7 +398,7 @@
                 @click="closeModal"
               />
             </NuxtLink>
-            <NuxtLink>
+            <NuxtLink to="/products/checkout">
               <CommonButton title="Checkout" @click="closeModal" />
             </NuxtLink>
           </div>
@@ -575,10 +596,6 @@ watch(
 
 onMounted(() => {
   checkWidth();
-});
-
-watchEffect(() => {
-  console.log(store.cart);
 });
 </script>
 
@@ -1125,7 +1142,7 @@ nav ul li.right .navLink {
     overflow: hidden;
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 1; /* start showing ellipsis when 3rd line is reached */
+    -webkit-line-clamp: 1; /* start showing ellipsis when 1rd line is reached */
     //white-space: pre-wrap;
   }
 }
