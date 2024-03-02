@@ -267,7 +267,9 @@ const toggleEditOption = () => {
                     }}</span
                   >
                 </h4>
-                <NuxtLink :to="checked ? '/products/checkout' : ''">
+                <NuxtLink
+                  :to="checked ? '/products/checkout/complete-order' : ''"
+                >
                   <CommonButton
                     title="Proceed To Checkout"
                     full-width
