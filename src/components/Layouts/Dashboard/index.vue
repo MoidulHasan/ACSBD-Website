@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { getProfile } from "~/app/api/getProfile";
+
 const { data: profile } = await getProfile();
 
 const navLinks = [
@@ -126,6 +127,7 @@ const gotToHome = () => {
   background-color: var(--product-Front-color);
   border-radius: 8px;
   text-align: center;
+
   .profile-info {
     margin-bottom: 45px;
 
@@ -135,6 +137,7 @@ const gotToHome = () => {
         height: 110px;
         border-radius: 110px;
       }
+
       .edit-image {
         width: 24px;
         height: 24px;
@@ -144,9 +147,11 @@ const gotToHome = () => {
         bottom: 11px;
       }
     }
+
     .profile-name {
       color: var(--primary-color-navy-blue);
     }
+
     .profile-title {
       color: var(--dark-gray-80);
     }
@@ -156,14 +161,17 @@ const gotToHome = () => {
     padding: 17px 13px 13px 58px;
     color: var(--dark-gray-80);
     transition: 0.6s;
+
     &:hover,
     &.active {
       background-color: var(--primary-color-envitect-sam-blue);
       color: var(--primary-color-white);
     }
+
     @include media-query(sm) {
       padding: 10px 24px;
     }
+
     .nav-icon {
       width: 20px;
       height: 20px;
@@ -181,10 +189,12 @@ const gotToHome = () => {
       border-radius: 12px;
     }
   }
+
   .modal-text {
     color: var(--navy-blue-80);
     margin-bottom: 40px;
   }
+
   .modal-button {
     display: inline-flex;
     padding: 12px 40px;
@@ -193,10 +203,12 @@ const gotToHome = () => {
     gap: 12px;
     border-radius: 6px;
   }
+
   .cancel {
     background-color: var(--envitect-sam-blue-5);
     color: var(--primary-color-envitect-sam-blue);
   }
+
   .logout {
     color: var(--primary-color-white);
     background-color: var(--primary-color-envitect-sam-blue);
