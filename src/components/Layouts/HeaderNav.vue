@@ -251,7 +251,7 @@
                 <NuxtLink
                   active-class="active"
                   class="navLink flex align-items-center justify-content-center"
-                  to="/"
+                  to="/account/my-wishlist"
                 >
                   <div
                     class="header-item-container flex justify-content-center"

@@ -94,6 +94,14 @@
     z-index: 10 !important;
 }
 
+.p-toast-message {
+    padding: 1rem 1rem;
+}
+
+.p-toast-message-content {
+    gap: 10px;
+}
+
 @media screen and (min-width: 1441px) {
     .p-dialog-topright {
         padding-right: calc(calc(100% - 1440px) / 2 - 32px);

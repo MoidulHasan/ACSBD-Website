@@ -12,6 +12,7 @@ interface CartedProduct {
   capacity: string;
   quantity: number;
   stock: number;
+  timeStamp: string;
 }
 
 const route = useRoute();
@@ -54,6 +55,7 @@ const toggleFavorite = (product: CartedProduct) => {
 };
 
 const quantity = ref(1);
+const currentTime = new Date().toISOString();
 
 const addToCart = (product: ProductI) => {
   const { id, name, images, price, brand, attributes, stock } = product;
@@ -66,6 +68,7 @@ const addToCart = (product: ProductI) => {
     capacity: attributes.capacity,
     quantity: quantity.value,
     stock: stock.quantity,
+    timeStamp: currentTime,
   };
   store.addToCart(modifiedProduct);
 };
@@ -81,6 +84,7 @@ function addToFav(product: ProductI) {
     stock: stock.quantity,
     capacity: attributes.capacity,
     quantity: quantity.value,
+    timeStamp: currentTime,
   };
   store.addToFavorite(modifiedProduct);
 }

@@ -7,6 +7,7 @@ interface CartedProduct {
   capacity: string;
   quantity?: number;
   stock: number;
+  timeStamp: string;
 }
 
 export const useStore = defineStore("store", () => {

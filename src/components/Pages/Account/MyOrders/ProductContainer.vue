@@ -5,6 +5,7 @@ interface Price {
   discountPercentage: number;
   currency: string;
 }
+
 interface Product {
   id: number;
   name: string;
@@ -27,7 +28,7 @@ defineProps<{
     <div
       class="image-container flex-1 flex align-items-center justify-content-center"
     >
-      <img class="product-image" :alt="product.name" :src="product.images[0]" />
+      <img class="product-image" :alt="product.name" :src="product.image" />
     </div>
     <div
       class="product-detail flex flex-column justify-content-between flex-wrap flex-1"
@@ -40,7 +41,7 @@ defineProps<{
           Qty: {{ product.quantity }}
         </span>
         <span class="font-heading-7 font-semibold price-text">
-          TK. {{ product.price.discounted }}
+          TK. {{ product.price }}
         </span>
       </h2>
     </div>
@@ -50,26 +51,32 @@ defineProps<{
 <style lang="scss" scoped>
 .product-container {
   gap: 12px;
+
   .image-container {
     max-height: 80px;
     max-width: 80px;
     border-radius: 4px;
     background-color: #f5f5f5;
+
     .product-image {
       width: 68px;
       height: 69.333px;
     }
   }
+
   .product-detail {
     max-width: 226px !important;
+
     .product-title {
       color: var(--primary-color-dark-gray);
       max-width: 226px !important;
     }
+
     .quantity-text {
       color: var(--primary-color-dark-gray);
       margin-right: 19px;
     }
+
     .price-text {
       color: var(--primary-color-envitect-sam-blue);
     }
