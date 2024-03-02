@@ -1,12 +1,10 @@
 @use "../base/_mixins" as *;
 @use "../base/variables";
 
-
 .container {
   max-width: 1440px;
   margin: 0 auto;
   padding: 0;
-
 
   @include media-query(sm) {
     width: 100%;
@@ -65,4 +63,16 @@
 .card-carousel--nav__left[disabled],
 .card-carousel--nav__right[disabled] {
   background: var(--dark-gray-20);
+}
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
 }

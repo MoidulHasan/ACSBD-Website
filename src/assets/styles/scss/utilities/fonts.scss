@@ -32,6 +32,11 @@ $font-styles-map-regular-screen: (
                 600,
                 36px,
         ),
+        heading-3-thin: (
+                28px,
+                500,
+                36px,
+        ),
         heading-4: (
                 24px,
                 700,
@@ -40,6 +45,11 @@ $font-styles-map-regular-screen: (
         heading-4-semi-bold: (
                 24px,
                 600,
+                32px,
+        ),
+        heading-4-semi-light-bold: (
+                24px,
+                500,
                 32px,
         ),
         heading-5: (
@@ -60,6 +70,11 @@ $font-styles-map-regular-screen: (
         heading-6-semi-bold: (
                 18px,
                 600,
+                26px,
+        ),
+        heading-6-light-semi-bold: (
+                18px,
+                500,
                 26px,
         ),
         heading-7: (
@@ -106,6 +121,11 @@ $font-styles-map-smaller-screen: (
                 600,
                 28px,
         ),
+        heading-3-thin: (
+                20px,
+                400,
+                28px,
+        ),
         heading-4: (
                 18px,
                 700,
@@ -114,6 +134,11 @@ $font-styles-map-smaller-screen: (
         heading-4-semi-bold: (
                 18px,
                 600,
+                26px,
+        ),
+        heading-4-semi-light-bold: (
+                18px,
+                500,
                 26px,
         ),
         heading-5: (
@@ -136,6 +161,11 @@ $font-styles-map-smaller-screen: (
                 600,
                 16px,
         ),
+        heading-6-light-semi-bold: (
+                16px,
+                500,
+                16px,
+        )
 );
 
 // Define text font map for regular screen
@@ -165,6 +195,21 @@ $text-styles-map: (
                 600,
                 20px,
         ),
+        semi-bold-5-light: (
+                13px,
+                400,
+                20px
+        ),
+        semi-bold-6: (
+                12px,
+                400,
+                18px
+        ),
+        small-bold: (
+                8px,
+                600,
+                12px,
+        )
 );
 
 // Generate font style classes

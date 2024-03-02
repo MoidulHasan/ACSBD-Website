@@ -3,7 +3,8 @@
     <div class="first-row">
       <div
         ref="firstRowHeader"
-        class="flex flex-column md:flex-row container align-items-center justify-content-between py-3 md:py-4 gap-3 md:gap-4"
+        class="firstRowHeader flex flex-column md:flex-row container align-items-center justify-content-between py-3 md:py-4 gap-3 md:gap-4"
+        :class="{ showSearchBar: showSearchBar && mobileScreen }"
       >
         <!-- main logo-->
         <div
@@ -109,9 +110,18 @@
             </NuxtLink>
             <NuxtLink
               class="flex flex-column align-items-center justify-content-center"
+              @click="openModal"
             >
               <div class="navbar-content-container flex justify-content-center">
-                <span class="navbar-items-count">2</span>
+                <ClientOnly>
+                  <span
+                    v-if="store.cart.length"
+                    class="navbar-items-count flex justify-content-center"
+                  >
+                    {{ store.cart.length }}
+                  </span>
+                </ClientOnly>
+
                 <img
                   alt="cart"
                   class="favoriteIcon navBarIcons"
@@ -124,7 +134,14 @@
               class="flex flex-column align-items-center justify-content-center"
             >
               <div class="navbar-content-container flex justify-content-center">
-                <span class="navbar-items-count">2</span>
+                <ClientOnly>
+                  <span
+                    v-if="store.favorites.length"
+                    class="navbar-items-count flex justify-content-center"
+                    >{{ store.favorites.length }}</span
+                  >
+                </ClientOnly>
+
                 <img
                   alt="favorite"
                   class="favoriteIcon navBarIcons"
@@ -151,11 +168,17 @@
             <ul class="menu container lg:mx-auto">
               <li v-for="navItem in navMenues" :key="navItem.title">
                 <NuxtLink
-                  :to="navItem.path"
+                  :to="
+                    mobileScreen
+                      ? navItem.submenu
+                        ? ''
+                        : navItem.path
+                      : navItem.path
+                  "
                   active-class="active"
                   class="navLink flex"
                   exact-active-class="active"
-                  @click="checkNav(navItem.path)"
+                  @click="checkNav(navItem.path, navItem.submenu?.length > 0)"
                 >
                   <span>{{ navItem.title }}</span>
                   <i
@@ -202,14 +225,19 @@
 
               <li class="right">
                 <NuxtLink
-                  active-class="active"
                   class="navLink flex align-items-center justify-content-center"
-                  to="/"
+                  @click="openModal"
                 >
                   <div
                     class="header-item-container flex justify-content-center"
                   >
-                    <span class="header-item-count">2</span>
+                    <ClientOnly>
+                      <span
+                        v-if="store.cart.length"
+                        class="header-item-count"
+                        >{{ store.cart.length }}</span
+                      >
+                    </ClientOnly>
                     <img
                       alt="cart"
                       class="favoriteIcon navBarIcons"
@@ -228,7 +256,13 @@
                   <div
                     class="header-item-container flex justify-content-center"
                   >
-                    <span class="header-item-count">2</span>
+                    <ClientOnly>
+                      <span
+                        v-if="store.favorites.length"
+                        class="header-item-count"
+                        >{{ store.favorites.length }}</span
+                      >
+                    </ClientOnly>
                     <img
                       alt="favorite"
                       class="favoriteIcon navBarIcons"
@@ -258,6 +292,119 @@
         </nav>
       </div>
     </div>
+
+    <!--    Dialog for the Cart Component -->
+    <div class="cart-modal">
+      <Dialog
+        v-model:visible="visible"
+        :breakpoints="{ '1899px': '468px', '575px': '90vw' }"
+        :position="position"
+        :modal="true"
+        :draggable="false"
+        :dismissable-mask="true"
+        :closable="false"
+      >
+        <template #header>
+          <div
+            class="flex align-items-center justify-content-between cart-modal-header bg-color-product-bg py-3 px-4 w-full"
+          >
+            <div class="flex flex-wrap align-items-center">
+              <h2
+                class="pr-3 font-heading-5-semi-bold text-primary-color-dark-gray"
+              >
+                My Cart
+              </h2>
+              <h4
+                class="font-heading-6-semi-bold modal-cart-items text-primary-color-dark-gray flex align-items-center justify-content-center"
+              >
+                {{ store.cart.length }}
+              </h4>
+            </div>
+            <p
+              class="modal-close flex justify-content-center align-items-center bg-primary-color-white text-dark-gray-60 cursor-pointer"
+              @click="closeModal"
+            >
+              <i class="pi pi-times text-xl" />
+            </p>
+          </div>
+        </template>
+        <!--        cart body -->
+        <div class="product-cart-body px-4">
+          <div class="cart-product-list">
+            <div
+              v-for="cartProduct in store.cart"
+              :key="cartProduct.id"
+              class="product-in-cart flex gap-3 py-3"
+            >
+              <NuxtImg :src="cartProduct.image" class="cart-product-image" />
+              <div class="cart-product-details flex-1">
+                <div
+                  class="flex align-items-center justify-content-between mb-2"
+                >
+                  <h3
+                    class="cart-product-name text-semi-bold-1 text-primary-color-dark-gray"
+                  >
+                    {{ cartProduct.name }}
+                  </h3>
+                  <i
+                    class="pi pi-trash text-2xl ml-3 block cursor-pointer"
+                    @click="deleteFromCart(cartProduct.id)"
+                  />
+                </div>
+                <h4 class="text-regular-4 text-dark-gray-80 pb-2">
+                  Brand: {{ cartProduct.brand }}
+                </h4>
+                <h4 class="text-regular-4 text-dark-gray-80 pb-2">
+                  Capacity: {{ cartProduct.capacity }}
+                </h4>
+                <div
+                  class="flex flex-wrap align-items-center justify-content-between"
+                >
+                  <CommonQuantityInput
+                    v-model="cartProduct.quantity"
+                    :stock="cartProduct.stock"
+                    small
+                    @update:model-value="
+                      modifyCartItems(cartProduct.id, cartProduct.quantity)
+                    "
+                  />
+                  <h4
+                    class="text-semi-bold-1 text-primary-color-envitect-sam-blue"
+                  >
+                    ৳ {{ cartProduct.price * cartProduct.quantity }}
+                  </h4>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer bg-color-product-front pt-3">
+          <div class="flex align-items-center justify-content-between px-4">
+            <h3 class="font-heading-4-semi-bold text-color-raddish-black">
+              Subtotal
+            </h3>
+            <h3
+              class="font-heading-2-semi-bold text-primary-color-envitect-sam-blue"
+            >
+              ৳ {{ store.getTotalCartPrice().toLocaleString("en-IN") }}
+            </h3>
+          </div>
+          <div class="flex justify-content-between gap-2 pb-5 px-4 pt-3">
+            <NuxtLink to="/products/my-cart">
+              <CommonButton
+                text-color="primary-color-white"
+                title="View Cart"
+                background="bg-primary-color-navy-blue"
+                @click="closeModal"
+              />
+            </NuxtLink>
+            <NuxtLink to="/products/checkout">
+              <CommonButton title="Checkout" @click="closeModal" />
+            </NuxtLink>
+          </div>
+        </div>
+      </Dialog>
+    </div>
   </div>
 </template>
 
@@ -273,6 +420,8 @@ interface menus {
   path: string;
   submenu?: Array<submenu>;
 }
+
+const store = useStore();
 
 const navMenues: Array<menus> = [
   {
@@ -389,7 +538,8 @@ const navMenues: Array<menus> = [
 
 const show = ref(false);
 const firstRowHeader = ref(null);
-const showSearchBar = ref(true);
+const showSearchBar = ref(false);
+const mobileScreen = ref(false);
 
 const { width } = useWindowSize();
 
@@ -397,29 +547,61 @@ const toggleMenu = () => {
   show.value = !show.value;
 };
 
-const checkNav = (path: string): void => {
-  if (path !== "") {
+const checkNav = (path: string, subMenu: boolean = false): void => {
+  if (path !== "" && !subMenu) {
     toggleMenu();
   }
+};
+
+const toggleSeachShow = () => {
+  showSearchBar.value = !showSearchBar.value;
+};
+
+const checkWidth = () => {
+  if (width.value <= 768) {
+    showSearchBar.value = false;
+    mobileScreen.value = true;
+    position.value = "bottom";
+    return;
+  }
+  showSearchBar.value = true;
+  mobileScreen.value = false;
+  position.value = "topright";
+};
+
+const visible = ref(false);
+const position = ref("topright");
+const closeModal = () => {
+  visible.value = false;
+};
+
+const openModal = () => {
+  visible.value = true;
+};
+
+const deleteFromCart = (id: number) => {
+  store.deleteItemFromCart(id);
+};
+
+const modifyCartItems = (id: number, quantity: number) => {
+  store.modifyCartItems(id, quantity);
 };
 
 watch(
   () => width.value,
   () => {
-    if (width.value <= 768) {
-      showSearchBar.value = false;
-      return;
-    }
-    showSearchBar.value = true;
+    checkWidth();
   },
 );
-const toggleSeachShow = () => {
-  showSearchBar.value = !showSearchBar.value;
-};
+
+onMounted(() => {
+  checkWidth();
+});
 </script>
 
 <style scoped lang="scss">
 @use "assets/styles/scss/base/mixins" as *;
+
 .first-row {
   border-bottom: 0.1rem solid var(--navy-blue-10);
 }
@@ -434,25 +616,30 @@ const toggleSeachShow = () => {
   @include media-query(lg) {
     max-width: 166.4px !important;
   }
+  @include media-query(sm) {
+    max-width: 166.4px !important;
+  }
 }
 
 .headerSearchBar {
   max-width: 582px !important;
 }
+
 :deep(.p-inputgroup .p-inputtext) {
   @include media-query(sm) {
-    max-height: 32px;
+    max-height: 38px;
   }
   @include media-query(lg) {
-    max-height: 32px;
+    max-height: 38px;
   }
 }
+
 :deep(.p-inputgroup .p-button) {
   @include media-query(sm) {
-    max-height: 32px;
+    max-height: 38px;
   }
   @include media-query(lg) {
-    max-height: 32px;
+    max-height: 38px;
   }
 }
 
@@ -698,11 +885,12 @@ nav ul li.right .navLink {
   font-weight: 600;
   background: var(--primary-color-navy-blue);
   color: var(--primary-color-white);
-  width: 1.125rem;
-  height: 1.125rem;
+  min-width: 1.125rem;
+  min-height: 1.125rem;
   padding: 1px 5px;
   line-height: normal;
   border-radius: 50%;
+  text-align: center;
 }
 
 /* animation */
@@ -740,6 +928,15 @@ nav ul li.right .navLink {
 @media (max-width: 768px) {
   .headerContainer {
     position: relative;
+  }
+
+  .firstRowHeader {
+    height: 71px;
+    transition: height 0.5s ease-in-out;
+
+    &.showSearchBar {
+      height: 124.69px;
+    }
   }
 
   .second-row {
@@ -907,5 +1104,46 @@ nav ul li.right .navLink {
 .searchFade-enter-from,
 .searchFade-leave-to {
   opacity: 0;
+}
+
+.cart-modal-header {
+  height: 60px;
+}
+
+.modal-cart-items {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: white;
+}
+
+.modal-close {
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+}
+
+.product-in-cart {
+  border-bottom: 2px solid var(--dark-gray-10);
+
+  &:last-child {
+    border: none;
+  }
+
+  .cart-product-image {
+    height: 100px;
+    width: 100px;
+    border-radius: 4px;
+    border: 0.5px solid #ededed;
+    background: #fdfdfd;
+  }
+
+  .cart-product-name {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1; /* start showing ellipsis when 1rd line is reached */
+    //white-space: pre-wrap;
+  }
 }
 </style>

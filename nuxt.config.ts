@@ -13,13 +13,20 @@ export default defineNuxtConfig({
     public: "../public/",
   },
 
-  devtools: { enabled: true },
+  devtools: {
+    enabled: true,
+
+    timeline: {
+      enabled: true,
+    },
+  },
 
   modules: [
     "@nuxt/image",
     "@nuxtjs/eslint-module",
     "@vueuse/nuxt",
     "@pinia/nuxt",
+    "nuxt-swiper",
   ],
 
   css: [
@@ -97,6 +104,10 @@ export default defineNuxtConfig({
   //     },
   //   },
   // },
+
+  nitro: {
+    preset: "vercel",
+  },
 
   ssr: true,
 });

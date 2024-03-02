@@ -1,3 +1,5 @@
+import type { SwiperSliderBreakpointsI } from "~/contracts/common";
+
 export const responsiveOptions = [
   {
     breakpoint: 1199,
@@ -15,6 +17,29 @@ export const responsiveOptions = [
     numScroll: 1,
   },
 ];
+
+export const swiperSliderBreakpoints: SwiperSliderBreakpointsI = {
+  "360": {
+    slidesPerView: 2,
+    spaceBetween: 8,
+  },
+  "768": {
+    slidesPerView: 3,
+    spaceBetween: 8,
+  },
+  "992": {
+    slidesPerView: 4,
+    spaceBetween: 8,
+  },
+  "1200": {
+    slidesPerView: 5,
+    spaceBetween: 16,
+  },
+  "1440": {
+    slidesPerView: 6,
+    spaceBetween: 16,
+  },
+};
 
 export const monthNames = [
   "Jan",

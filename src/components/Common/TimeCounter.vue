@@ -6,7 +6,7 @@
       >
         {{ remainingDay }}
       </div>
-      <p class="time-label text-semi-bold-5">Days</p>
+      <p v-if="!showValueOnly" class="time-label text-semi-bold-5">Days</p>
     </div>
 
     <div class="flex flex-column w-fit">
@@ -15,7 +15,7 @@
       >
         {{ remainingHour }}
       </div>
-      <p class="time-label text-semi-bold-5">Hours</p>
+      <p v-if="!showValueOnly" class="time-label text-semi-bold-5">Hours</p>
     </div>
 
     <div class="flex flex-column w-fit">
@@ -24,7 +24,7 @@
       >
         {{ remainingMinute }}
       </div>
-      <p class="time-label text-semi-bold-5">Mins</p>
+      <p v-if="!showValueOnly" class="time-label text-semi-bold-5">Mins</p>
     </div>
 
     <div class="flex flex-column w-fit">
@@ -33,7 +33,7 @@
       >
         {{ remainingSecond }}
       </div>
-      <p class="time-label text-semi-bold-5">Secs</p>
+      <p v-if="!showValueOnly" class="time-label text-semi-bold-5">Secs</p>
     </div>
   </div>
 </template>
@@ -41,6 +41,7 @@
 <script lang="ts" setup>
 const props = defineProps<{
   countDownToTime: string | Date;
+  showValueOnly?: boolean;
 }>();
 
 const { remainingDay, remainingHour, remainingMinute, remainingSecond } =
@@ -49,8 +50,8 @@ const { remainingDay, remainingHour, remainingMinute, remainingSecond } =
 
 <style lang="scss" scoped>
 .time-box {
-  width: 100%;
   height: 32px;
+  width: 28px;
   flex-shrink: 0;
 
   border-radius: 2px;

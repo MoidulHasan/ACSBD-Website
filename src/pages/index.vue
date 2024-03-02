@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="home-page">
     <PagesHomeHeroSlider />
     <div class="container mt-2 md:mt-4">
       <PagesHomeBannerSection />
@@ -20,6 +20,10 @@
 
     <div class="section">
       <PagesHomeAtaGlance />
+    </div>
+
+    <div class="section">
+      <PagesHomeRecentWork />
     </div>
 
     <div class="container section">
