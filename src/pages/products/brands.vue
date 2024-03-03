@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { getBrands } from "~/app/api/getBrands";
+
 definePageMeta({
   title: "Brands",
   name: "brands",
@@ -10,15 +11,16 @@ const { data: brands } = await getBrands();
 
 <template>
   <div class="container brand-container">
+    {{ brands }}
     <div
       class="brand-flex-container flex flex-wrap pt-3 pb-4 md:pb-6 align-items-center justify-content-center xl:justify-content-start"
     >
       <div
-        v-for="brand in brands"
-        :key="brand.title"
+        v-for="brand in brands.data"
+        :key="brand.name"
         class="single-brand bg-envitect-sam-blue-5 border-envitect-sam-blue-20 text-center flex align-items-center justify-content-center flex-wrap"
       >
-        <img class="brand-image " :src="brand.img" :alt="brand.title" />
+        <img class="brand-image" :src="brand.image_url" :alt="brand.name" />
       </div>
     </div>
     <div class="text-center mb-5 lg:mb-8">
@@ -32,16 +34,18 @@ const { data: brands } = await getBrands();
 </template>
 
 <style lang="scss" scoped>
-@use 'assets/styles/scss/base/mixins' as *;
+@use "assets/styles/scss/base/mixins" as *;
 
 .brand-container {
   min-height: 30rem;
+
   .brand-flex-container {
     gap: 15px;
     @include media-query(sm) {
       gap: 8px;
     }
   }
+
   .single-brand {
     width: 227px;
     height: 100px;
@@ -54,6 +58,7 @@ const { data: brands } = await getBrands();
       height: 56px;
     }
   }
+
   .brand-image {
     @include media-query(sm) {
       max-width: 83.932px;
@@ -71,6 +76,7 @@ const { data: brands } = await getBrands();
     border-width: 1px;
     border-style: solid;
   }
+
   *:focus {
     box-shadow: none !important;
   }
