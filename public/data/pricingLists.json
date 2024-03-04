@@ -233,6 +233,12 @@
       {
         "id": 3,
         "name": "AC Repairing",
+        "notes": [
+          "If you need an extra copper pipe after 10 feet of copper pipe, then the customer is required to pay an additional 350tk (three hundred and fifty) taka fer running feet copper pipe.",
+          "Advance money will be paid at the time of AC return.",
+          "If you rent one year, one month is free.",
+          "This Price is without VAT & TAX."
+        ],
         "header": {
           "title": "AC Repairing",
           "subtitle": "At Acservice.com.bd you can hire expert AC technician for AC Installation service in dhaka city and Outsite of Dhaka City. Our Expert AC technician will give you the best AC Installation service and our AC Installation Pricing is lowest in Dhaka city. You can compare AC Installation Pricing from other. In the below AC Repairing Pricing chart, you can see the details."
@@ -280,6 +286,1411 @@
               {
                 "id": "nitro01",
                 "name": "Nitrogen Wash",
+                "works": [
+                  {
+                    "id": 1,
+                    "Descriptions": "Split Wall type Air Conditioner (1 ton to 2 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,000/-"
+                  },
+                  {
+                    "id": 2,
+                    "Descriptions": "Split Cassette type, Ceiling type Air Conditioner (1.5 ton to 2 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,500/-"
+                  },
+                  {
+                    "id": 3,
+                    "Descriptions": "Split Wall Type Air Conditioner (2.5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,500/-"
+                  },
+                  {
+                    "id": 4,
+                    "Descriptions": "Split Cassette type, Ceiling type Air Conditioner (2.5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "3,000/-"
+                  },
+                  {
+                    "id": 5,
+                    "Descriptions": "Split Wall Type, Cassette type, Ceiling type Air Conditioner(3 ton to 5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "4,500/-"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "name": "Split Wall Mount & Portable AC Rent Pricing",
+        "notes": [
+          "If you need an extra copper pipe after 10 feet of copper pipe, then the customer is required to pay an additional 350tk (three hundred and fifty) taka fer running feet copper pipe.",
+          "(Outside Dhaka city) AC and AC Technician's side Going and coming car rental, food & accommodation costs will be borne entirely by the customer.",
+          "(Outside Dhaka city) If there is a problem during AC, technicians come and go to solve the",
+          "Technician's side Going and coming car rental",
+          "Food & accommodation costs will be borne entirely by the customer.",
+          "Advance money will be paid at the time of AC return.",
+          "If you rent one year, one month is free.",
+          "This Price is without VAT & TAX."
+        ],
+        "header": {
+          "title": "Split Wall Mount & Portable AC Rent Pricing",
+          "subtitle": "AC Service BD You can rent split wall type, cassette type, ceiling type, floor-standing type or portable air conditioners at reasonable prices in Dhaka city. In Dhaka city and outside Dhaka. Our expert AC technicians will provide you with the best AC services. We are Dhaka's first AC rental company. We rent AC for homes, offices, hospitals, factories, various programs and also provide good quality AC at any location."
+        },
+        "types": [
+          {
+            "name": "Split wall type 1 to 2 Ton AC (In Dhaka City)",
+            "services": [
+              {
+                "id": "leak01",
+                "name": "1 Month to 3 Months Package (In Dhaka City)",
+                "works": [
+                  {
+                    "id": 1,
+                    "Descriptions": "Split Wall type Air Conditioner (1 ton to 2 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,000/-"
+                  },
+                  {
+                    "id": 2,
+                    "Descriptions": "Split Cassette type, Ceiling type Air Conditioner (1.5 ton to 2 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,500/-"
+                  },
+                  {
+                    "id": 3,
+                    "Descriptions": "Split Wall Type Air Conditioner (2.5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,500/-"
+                  },
+                  {
+                    "id": 4,
+                    "Descriptions": "Split Cassette type, Ceiling type Air Conditioner (2.5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "3,000/-"
+                  },
+                  {
+                    "id": 5,
+                    "Descriptions": "Split Wall Type, Cassette type, Ceiling type Air Conditioner(3 ton to 5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "4,500/-"
+                  }
+                ]
+              },
+              {
+                "id": "nitro01",
+                "name": "6 Months to 1 Year (In Dhaka City)",
+                "works": [
+                  {
+                    "id": 1,
+                    "Descriptions": "Split Wall type Air Conditioner (1 ton to 2 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,000/-"
+                  },
+                  {
+                    "id": 2,
+                    "Descriptions": "Split Cassette type, Ceiling type Air Conditioner (1.5 ton to 2 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,500/-"
+                  },
+                  {
+                    "id": 3,
+                    "Descriptions": "Split Wall Type Air Conditioner (2.5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,500/-"
+                  },
+                  {
+                    "id": 4,
+                    "Descriptions": "Split Cassette type, Ceiling type Air Conditioner (2.5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "3,000/-"
+                  },
+                  {
+                    "id": 5,
+                    "Descriptions": "Split Wall Type, Cassette type, Ceiling type Air Conditioner(3 ton to 5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "4,500/-"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Split wall type 1 Ton to 2 Ton AC (Outside Dhaka city)",
+            "services": [
+              {
+                "id": "leak01",
+                "name": "1 Month to 3 Months Package (Outside Dhaka City)",
+                "works": [
+                  {
+                    "id": 1,
+                    "Descriptions": "Split Wall type Air Conditioner (1 ton to 2 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,000/-"
+                  },
+                  {
+                    "id": 2,
+                    "Descriptions": "Split Cassette type, Ceiling type Air Conditioner (1.5 ton to 2 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,500/-"
+                  },
+                  {
+                    "id": 3,
+                    "Descriptions": "Split Wall Type Air Conditioner (2.5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,500/-"
+                  },
+                  {
+                    "id": 4,
+                    "Descriptions": "Split Cassette type, Ceiling type Air Conditioner (2.5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "3,000/-"
+                  },
+                  {
+                    "id": 5,
+                    "Descriptions": "Split Wall Type, Cassette type, Ceiling type Air Conditioner(3 ton to 5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "4,500/-"
+                  }
+                ]
+              },
+              {
+                "id": "nitro01",
+                "name": "6 Months to 1 Year (Outside Dhaka City)",
+                "works": [
+                  {
+                    "id": 1,
+                    "Descriptions": "Split Wall type Air Conditioner (1 ton to 2 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,000/-"
+                  },
+                  {
+                    "id": 2,
+                    "Descriptions": "Split Cassette type, Ceiling type Air Conditioner (1.5 ton to 2 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,500/-"
+                  },
+                  {
+                    "id": 3,
+                    "Descriptions": "Split Wall Type Air Conditioner (2.5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,500/-"
+                  },
+                  {
+                    "id": 4,
+                    "Descriptions": "Split Cassette type, Ceiling type Air Conditioner (2.5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "3,000/-"
+                  },
+                  {
+                    "id": 5,
+                    "Descriptions": "Split Wall Type, Cassette type, Ceiling type Air Conditioner(3 ton to 5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "4,500/-"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Portable AC 1 Ton (In Dhaka City)",
+            "services": [
+              {
+                "id": "leak01",
+                "name": "1 Month to 3 Months Package ",
+                "works": [
+                  {
+                    "id": 1,
+                    "Descriptions": "Split Wall type Air Conditioner (1 ton to 2 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,000/-"
+                  },
+                  {
+                    "id": 2,
+                    "Descriptions": "Split Cassette type, Ceiling type Air Conditioner (1.5 ton to 2 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,500/-"
+                  },
+                  {
+                    "id": 3,
+                    "Descriptions": "Split Wall Type Air Conditioner (2.5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,500/-"
+                  },
+                  {
+                    "id": 4,
+                    "Descriptions": "Split Cassette type, Ceiling type Air Conditioner (2.5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "3,000/-"
+                  },
+                  {
+                    "id": 5,
+                    "Descriptions": "Split Wall Type, Cassette type, Ceiling type Air Conditioner(3 ton to 5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "4,500/-"
+                  }
+                ]
+              },
+              {
+                "id": "nitro01",
+                "name": "3 Month to 6 Months Package (Out Side) ",
+                "works": [
+                  {
+                    "id": 1,
+                    "Descriptions": "Split Wall type Air Conditioner (1 ton to 2 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,000/-"
+                  },
+                  {
+                    "id": 2,
+                    "Descriptions": "Split Cassette type, Ceiling type Air Conditioner (1.5 ton to 2 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,500/-"
+                  },
+                  {
+                    "id": 3,
+                    "Descriptions": "Split Wall Type Air Conditioner (2.5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,500/-"
+                  },
+                  {
+                    "id": 4,
+                    "Descriptions": "Split Cassette type, Ceiling type Air Conditioner (2.5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "3,000/-"
+                  },
+                  {
+                    "id": 5,
+                    "Descriptions": "Split Wall Type, Cassette type, Ceiling type Air Conditioner(3 ton to 5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "4,500/-"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "VRF AC",
+    "content": [
+      {
+        "id": 1,
+        "name": "AC Installation & Dismantling",
+        "header": {
+          "title": "AC Installation & Dismantling",
+          "subtitle": "AC Service BD you can hire expert AC technician for AC Installation service in Dhaka city and Outsite of Dhaka City. Our Expert AC technician will give you the best AC Installation service and our AC Installation Pricing is lowest in Dhaka city. You can compare AC Installation Pricing from other."
+        },
+        "types": [
+          {
+            "name": "Split Air Conditioner",
+            "services": [
+              {
+                "id": "install01",
+                "name": "AC Installation",
+                "works": [
+                  {
+                    "id": 1,
+                    "Descriptions": "Split Wall type Air Conditioner (1 ton to 2 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,000/-"
+                  },
+                  {
+                    "id": 2,
+                    "Descriptions": "Split Cassette type, Ceiling type Air Conditioner (1.5 ton to 2 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,500/-"
+                  },
+                  {
+                    "id": 3,
+                    "Descriptions": "Split Wall Type Air Conditioner (2.5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,500/-"
+                  },
+                  {
+                    "id": 4,
+                    "Descriptions": "Split Cassette type, Ceiling type Air Conditioner (2.5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "3,000/-"
+                  },
+                  {
+                    "id": 5,
+                    "Descriptions": "Split Wall Type, Cassette type, Ceiling type Air Conditioner(3 ton to 5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "4,500/-"
+                  }
+                ]
+              },
+              {
+                "id": "dis01",
+                "name": "AC Dismantling",
+                "works": [
+                  {
+                    "id": 1,
+                    "Descriptions": "Split Wall Type, Cassette type, Ceiling type Air Conditioner(1 ton to 2 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,000/-"
+                  },
+                  {
+                    "id": 2,
+                    "Descriptions": "Split Wall Type, Cassette type, Ceiling type Air Conditioner (2.5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,500/-"
+                  },
+                  {
+                    "id": 3,
+                    "Descriptions": "Split Wall Type, Cassette type, Ceiling type Air Conditioner(3 ton to 5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,500/-"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Window Air Conditioner",
+            "services": [
+              {
+                "id": "install01",
+                "name": "AC Installation",
+                "works": [
+                  {
+                    "id": 1,
+                    "Descriptions": "Split Wall type Air Conditioner (1 ton to 2 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,000/-"
+                  },
+                  {
+                    "id": 2,
+                    "Descriptions": "Split Cassette type, Ceiling type Air Conditioner (1.5 ton to 2 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,500/-"
+                  },
+                  {
+                    "id": 3,
+                    "Descriptions": "Split Wall Type Air Conditioner (2.5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,500/-"
+                  },
+                  {
+                    "id": 4,
+                    "Descriptions": "Split Cassette type, Ceiling type Air Conditioner (2.5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "3,000/-"
+                  },
+                  {
+                    "id": 5,
+                    "Descriptions": "Split Wall Type, Cassette type, Ceiling type Air Conditioner(3 ton to 5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "4,500/-"
+                  }
+                ]
+              },
+              {
+                "id": "dis01",
+                "name": "AC Dismantling",
+                "works": [
+                  {
+                    "id": 1,
+                    "Descriptions": "Split Wall Type, Cassette type, Ceiling type Air Conditioner(1 ton to 2 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,000/-"
+                  },
+                  {
+                    "id": 2,
+                    "Descriptions": "Split Wall Type, Cassette type, Ceiling type Air Conditioner (2.5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,500/-"
+                  },
+                  {
+                    "id": 3,
+                    "Descriptions": "Split Wall Type, Cassette type, Ceiling type Air Conditioner(3 ton to 5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,500/-"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": "AC Servicing",
+        "header": {
+          "title": "AC Servicing",
+          "subtitle": "At Acservice.com.bd you can hire expert AC technician for AC Installation service in dhaka city and Outsite of Dhaka City. Our Expert AC technician will give you the best AC Installation service and our AC Installation Pricing is lowest in Dhaka city. You can compare AC Installation Pricing from other. In the below AC Servicing Pricing chart, you can see the details of pricing."
+        },
+        "types": [
+          {
+            "name": "Split Air Conditioner",
+            "services": [
+              {
+                "id": "leak01",
+                "name": "Leak Test and Repairing",
+                "works": [
+                  {
+                    "id": 1,
+                    "Descriptions": "Split Wall type Air Conditioner (1 ton to 2 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,000/-"
+                  },
+                  {
+                    "id": 2,
+                    "Descriptions": "Split Cassette type, Ceiling type Air Conditioner (1.5 ton to 2 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,500/-"
+                  },
+                  {
+                    "id": 3,
+                    "Descriptions": "Split Wall Type Air Conditioner (2.5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,500/-"
+                  },
+                  {
+                    "id": 4,
+                    "Descriptions": "Split Cassette type, Ceiling type Air Conditioner (2.5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "3,000/-"
+                  },
+                  {
+                    "id": 5,
+                    "Descriptions": "Split Wall Type, Cassette type, Ceiling type Air Conditioner(3 ton to 5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "4,500/-"
+                  }
+                ]
+              },
+              {
+                "id": "nitro01",
+                "name": "Nitrogen Wash",
+                "works": [
+                  {
+                    "id": 1,
+                    "Descriptions": "Split Wall type Air Conditioner (1 ton to 2 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,000/-"
+                  },
+                  {
+                    "id": 2,
+                    "Descriptions": "Split Cassette type, Ceiling type Air Conditioner (1.5 ton to 2 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,500/-"
+                  },
+                  {
+                    "id": 3,
+                    "Descriptions": "Split Wall Type Air Conditioner (2.5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,500/-"
+                  },
+                  {
+                    "id": 4,
+                    "Descriptions": "Split Cassette type, Ceiling type Air Conditioner (2.5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "3,000/-"
+                  },
+                  {
+                    "id": 5,
+                    "Descriptions": "Split Wall Type, Cassette type, Ceiling type Air Conditioner(3 ton to 5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "4,500/-"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "name": "AC Repairing",
+        "notes": [
+          "If you need an extra copper pipe after 10 feet of copper pipe, then the customer is required to pay an additional 350tk (three hundred and fifty) taka fer running feet copper pipe.",
+          "Advance money will be paid at the time of AC return.",
+          "If you rent one year, one month is free.",
+          "This Price is without VAT & TAX."
+        ],
+        "header": {
+          "title": "AC Repairing",
+          "subtitle": "At Acservice.com.bd you can hire expert AC technician for AC Installation service in dhaka city and Outsite of Dhaka City. Our Expert AC technician will give you the best AC Installation service and our AC Installation Pricing is lowest in Dhaka city. You can compare AC Installation Pricing from other. In the below AC Repairing Pricing chart, you can see the details."
+        },
+        "types": [
+          {
+            "name": "Split Air Conditioner",
+            "services": [
+              {
+                "id": "leak01",
+                "name": "Leak Test and Repairing",
+                "works": [
+                  {
+                    "id": 1,
+                    "Descriptions": "Split Wall type Air Conditioner (1 ton to 2 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,000/-"
+                  },
+                  {
+                    "id": 2,
+                    "Descriptions": "Split Cassette type, Ceiling type Air Conditioner (1.5 ton to 2 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,500/-"
+                  },
+                  {
+                    "id": 3,
+                    "Descriptions": "Split Wall Type Air Conditioner (2.5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,500/-"
+                  },
+                  {
+                    "id": 4,
+                    "Descriptions": "Split Cassette type, Ceiling type Air Conditioner (2.5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "3,000/-"
+                  },
+                  {
+                    "id": 5,
+                    "Descriptions": "Split Wall Type, Cassette type, Ceiling type Air Conditioner(3 ton to 5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "4,500/-"
+                  }
+                ]
+              },
+              {
+                "id": "nitro01",
+                "name": "Nitrogen Wash",
+                "works": [
+                  {
+                    "id": 1,
+                    "Descriptions": "Split Wall type Air Conditioner (1 ton to 2 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,000/-"
+                  },
+                  {
+                    "id": 2,
+                    "Descriptions": "Split Cassette type, Ceiling type Air Conditioner (1.5 ton to 2 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,500/-"
+                  },
+                  {
+                    "id": 3,
+                    "Descriptions": "Split Wall Type Air Conditioner (2.5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,500/-"
+                  },
+                  {
+                    "id": 4,
+                    "Descriptions": "Split Cassette type, Ceiling type Air Conditioner (2.5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "3,000/-"
+                  },
+                  {
+                    "id": 5,
+                    "Descriptions": "Split Wall Type, Cassette type, Ceiling type Air Conditioner(3 ton to 5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "4,500/-"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "name": "Split Wall Mount & Portable AC Rent Pricing",
+        "notes": [
+          "If you need an extra copper pipe after 10 feet of copper pipe, then the customer is required to pay an additional 350tk (three hundred and fifty) taka fer running feet copper pipe.",
+          "(Outside Dhaka city) AC and AC Technician's side Going and coming car rental, food & accommodation costs will be borne entirely by the customer.",
+          "(Outside Dhaka city) If there is a problem during AC, technicians come and go to solve the",
+          "Technician's side Going and coming car rental",
+          "Food & accommodation costs will be borne entirely by the customer.",
+          "Advance money will be paid at the time of AC return.",
+          "If you rent one year, one month is free.",
+          "This Price is without VAT & TAX."
+        ],
+        "header": {
+          "title": "Split Wall Mount & Portable AC Rent Pricing",
+          "subtitle": "AC Service BD You can rent split wall type, cassette type, ceiling type, floor-standing type or portable air conditioners at reasonable prices in Dhaka city. In Dhaka city and outside Dhaka. Our expert AC technicians will provide you with the best AC services. We are Dhaka's first AC rental company. We rent AC for homes, offices, hospitals, factories, various programs and also provide good quality AC at any location."
+        },
+        "types": [
+          {
+            "name": "Split wall type 1 to 2 Ton AC (In Dhaka City)",
+            "services": [
+              {
+                "id": "leak01",
+                "name": "1 Month to 3 Months Package (In Dhaka City)",
+                "works": [
+                  {
+                    "id": 1,
+                    "Descriptions": "Split Wall type Air Conditioner (1 ton to 2 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,000/-"
+                  },
+                  {
+                    "id": 2,
+                    "Descriptions": "Split Cassette type, Ceiling type Air Conditioner (1.5 ton to 2 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,500/-"
+                  },
+                  {
+                    "id": 3,
+                    "Descriptions": "Split Wall Type Air Conditioner (2.5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,500/-"
+                  },
+                  {
+                    "id": 4,
+                    "Descriptions": "Split Cassette type, Ceiling type Air Conditioner (2.5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "3,000/-"
+                  },
+                  {
+                    "id": 5,
+                    "Descriptions": "Split Wall Type, Cassette type, Ceiling type Air Conditioner(3 ton to 5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "4,500/-"
+                  }
+                ]
+              },
+              {
+                "id": "nitro01",
+                "name": "6 Months to 1 Year (In Dhaka City)",
+                "works": [
+                  {
+                    "id": 1,
+                    "Descriptions": "Split Wall type Air Conditioner (1 ton to 2 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,000/-"
+                  },
+                  {
+                    "id": 2,
+                    "Descriptions": "Split Cassette type, Ceiling type Air Conditioner (1.5 ton to 2 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,500/-"
+                  },
+                  {
+                    "id": 3,
+                    "Descriptions": "Split Wall Type Air Conditioner (2.5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,500/-"
+                  },
+                  {
+                    "id": 4,
+                    "Descriptions": "Split Cassette type, Ceiling type Air Conditioner (2.5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "3,000/-"
+                  },
+                  {
+                    "id": 5,
+                    "Descriptions": "Split Wall Type, Cassette type, Ceiling type Air Conditioner(3 ton to 5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "4,500/-"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Split wall type 1 Ton to 2 Ton AC (Outside Dhaka city)",
+            "services": [
+              {
+                "id": "leak01",
+                "name": "1 Month to 3 Months Package (Outside Dhaka City)",
+                "works": [
+                  {
+                    "id": 1,
+                    "Descriptions": "Split Wall type Air Conditioner (1 ton to 2 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,000/-"
+                  },
+                  {
+                    "id": 2,
+                    "Descriptions": "Split Cassette type, Ceiling type Air Conditioner (1.5 ton to 2 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,500/-"
+                  },
+                  {
+                    "id": 3,
+                    "Descriptions": "Split Wall Type Air Conditioner (2.5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,500/-"
+                  },
+                  {
+                    "id": 4,
+                    "Descriptions": "Split Cassette type, Ceiling type Air Conditioner (2.5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "3,000/-"
+                  },
+                  {
+                    "id": 5,
+                    "Descriptions": "Split Wall Type, Cassette type, Ceiling type Air Conditioner(3 ton to 5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "4,500/-"
+                  }
+                ]
+              },
+              {
+                "id": "nitro01",
+                "name": "6 Months to 1 Year (Outside Dhaka City)",
+                "works": [
+                  {
+                    "id": 1,
+                    "Descriptions": "Split Wall type Air Conditioner (1 ton to 2 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,000/-"
+                  },
+                  {
+                    "id": 2,
+                    "Descriptions": "Split Cassette type, Ceiling type Air Conditioner (1.5 ton to 2 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,500/-"
+                  },
+                  {
+                    "id": 3,
+                    "Descriptions": "Split Wall Type Air Conditioner (2.5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,500/-"
+                  },
+                  {
+                    "id": 4,
+                    "Descriptions": "Split Cassette type, Ceiling type Air Conditioner (2.5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "3,000/-"
+                  },
+                  {
+                    "id": 5,
+                    "Descriptions": "Split Wall Type, Cassette type, Ceiling type Air Conditioner(3 ton to 5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "4,500/-"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Portable AC 1 Ton (In Dhaka City)",
+            "services": [
+              {
+                "id": "leak01",
+                "name": "1 Month to 3 Months Package ",
+                "works": [
+                  {
+                    "id": 1,
+                    "Descriptions": "Split Wall type Air Conditioner (1 ton to 2 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,000/-"
+                  },
+                  {
+                    "id": 2,
+                    "Descriptions": "Split Cassette type, Ceiling type Air Conditioner (1.5 ton to 2 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,500/-"
+                  },
+                  {
+                    "id": 3,
+                    "Descriptions": "Split Wall Type Air Conditioner (2.5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,500/-"
+                  },
+                  {
+                    "id": 4,
+                    "Descriptions": "Split Cassette type, Ceiling type Air Conditioner (2.5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "3,000/-"
+                  },
+                  {
+                    "id": 5,
+                    "Descriptions": "Split Wall Type, Cassette type, Ceiling type Air Conditioner(3 ton to 5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "4,500/-"
+                  }
+                ]
+              },
+              {
+                "id": "nitro01",
+                "name": "3 Month to 6 Months Package (Out Side) ",
+                "works": [
+                  {
+                    "id": 1,
+                    "Descriptions": "Split Wall type Air Conditioner (1 ton to 2 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,000/-"
+                  },
+                  {
+                    "id": 2,
+                    "Descriptions": "Split Cassette type, Ceiling type Air Conditioner (1.5 ton to 2 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,500/-"
+                  },
+                  {
+                    "id": 3,
+                    "Descriptions": "Split Wall Type Air Conditioner (2.5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,500/-"
+                  },
+                  {
+                    "id": 4,
+                    "Descriptions": "Split Cassette type, Ceiling type Air Conditioner (2.5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "3,000/-"
+                  },
+                  {
+                    "id": 5,
+                    "Descriptions": "Split Wall Type, Cassette type, Ceiling type Air Conditioner(3 ton to 5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "4,500/-"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Chiller AC",
+    "content": [
+      {
+        "id": 1,
+        "name": "AC Installation & Dismantling",
+        "header": {
+          "title": "AC Installation & Dismantling",
+          "subtitle": "AC Service BD you can hire expert AC technician for AC Installation service in Dhaka city and Outsite of Dhaka City. Our Expert AC technician will give you the best AC Installation service and our AC Installation Pricing is lowest in Dhaka city. You can compare AC Installation Pricing from other."
+        },
+        "types": [
+          {
+            "name": "Split Air Conditioner",
+            "services": [
+              {
+                "id": "install01",
+                "name": "AC Installation",
+                "works": [
+                  {
+                    "id": 1,
+                    "Descriptions": "Split Wall type Air Conditioner (1 ton to 2 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,000/-"
+                  },
+                  {
+                    "id": 2,
+                    "Descriptions": "Split Cassette type, Ceiling type Air Conditioner (1.5 ton to 2 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,500/-"
+                  },
+                  {
+                    "id": 3,
+                    "Descriptions": "Split Wall Type Air Conditioner (2.5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,500/-"
+                  },
+                  {
+                    "id": 4,
+                    "Descriptions": "Split Cassette type, Ceiling type Air Conditioner (2.5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "3,000/-"
+                  },
+                  {
+                    "id": 5,
+                    "Descriptions": "Split Wall Type, Cassette type, Ceiling type Air Conditioner(3 ton to 5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "4,500/-"
+                  }
+                ]
+              },
+              {
+                "id": "dis01",
+                "name": "AC Dismantling",
+                "works": [
+                  {
+                    "id": 1,
+                    "Descriptions": "Split Wall Type, Cassette type, Ceiling type Air Conditioner(1 ton to 2 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,000/-"
+                  },
+                  {
+                    "id": 2,
+                    "Descriptions": "Split Wall Type, Cassette type, Ceiling type Air Conditioner (2.5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,500/-"
+                  },
+                  {
+                    "id": 3,
+                    "Descriptions": "Split Wall Type, Cassette type, Ceiling type Air Conditioner(3 ton to 5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,500/-"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Window Air Conditioner",
+            "services": [
+              {
+                "id": "install01",
+                "name": "AC Installation",
+                "works": [
+                  {
+                    "id": 1,
+                    "Descriptions": "Split Wall type Air Conditioner (1 ton to 2 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,000/-"
+                  },
+                  {
+                    "id": 2,
+                    "Descriptions": "Split Cassette type, Ceiling type Air Conditioner (1.5 ton to 2 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,500/-"
+                  },
+                  {
+                    "id": 3,
+                    "Descriptions": "Split Wall Type Air Conditioner (2.5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,500/-"
+                  },
+                  {
+                    "id": 4,
+                    "Descriptions": "Split Cassette type, Ceiling type Air Conditioner (2.5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "3,000/-"
+                  },
+                  {
+                    "id": 5,
+                    "Descriptions": "Split Wall Type, Cassette type, Ceiling type Air Conditioner(3 ton to 5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "4,500/-"
+                  }
+                ]
+              },
+              {
+                "id": "dis01",
+                "name": "AC Dismantling",
+                "works": [
+                  {
+                    "id": 1,
+                    "Descriptions": "Split Wall Type, Cassette type, Ceiling type Air Conditioner(1 ton to 2 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,000/-"
+                  },
+                  {
+                    "id": 2,
+                    "Descriptions": "Split Wall Type, Cassette type, Ceiling type Air Conditioner (2.5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,500/-"
+                  },
+                  {
+                    "id": 3,
+                    "Descriptions": "Split Wall Type, Cassette type, Ceiling type Air Conditioner(3 ton to 5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,500/-"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": "AC Servicing",
+        "header": {
+          "title": "AC Servicing",
+          "subtitle": "At Acservice.com.bd you can hire expert AC technician for AC Installation service in dhaka city and Outsite of Dhaka City. Our Expert AC technician will give you the best AC Installation service and our AC Installation Pricing is lowest in Dhaka city. You can compare AC Installation Pricing from other. In the below AC Servicing Pricing chart, you can see the details of pricing."
+        },
+        "types": [
+          {
+            "name": "Split Air Conditioner",
+            "services": [
+              {
+                "id": "leak01",
+                "name": "Leak Test and Repairing",
+                "works": [
+                  {
+                    "id": 1,
+                    "Descriptions": "Split Wall type Air Conditioner (1 ton to 2 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,000/-"
+                  },
+                  {
+                    "id": 2,
+                    "Descriptions": "Split Cassette type, Ceiling type Air Conditioner (1.5 ton to 2 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,500/-"
+                  },
+                  {
+                    "id": 3,
+                    "Descriptions": "Split Wall Type Air Conditioner (2.5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,500/-"
+                  },
+                  {
+                    "id": 4,
+                    "Descriptions": "Split Cassette type, Ceiling type Air Conditioner (2.5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "3,000/-"
+                  },
+                  {
+                    "id": 5,
+                    "Descriptions": "Split Wall Type, Cassette type, Ceiling type Air Conditioner(3 ton to 5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "4,500/-"
+                  }
+                ]
+              },
+              {
+                "id": "nitro01",
+                "name": "Nitrogen Wash",
+                "works": [
+                  {
+                    "id": 1,
+                    "Descriptions": "Split Wall type Air Conditioner (1 ton to 2 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,000/-"
+                  },
+                  {
+                    "id": 2,
+                    "Descriptions": "Split Cassette type, Ceiling type Air Conditioner (1.5 ton to 2 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,500/-"
+                  },
+                  {
+                    "id": 3,
+                    "Descriptions": "Split Wall Type Air Conditioner (2.5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,500/-"
+                  },
+                  {
+                    "id": 4,
+                    "Descriptions": "Split Cassette type, Ceiling type Air Conditioner (2.5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "3,000/-"
+                  },
+                  {
+                    "id": 5,
+                    "Descriptions": "Split Wall Type, Cassette type, Ceiling type Air Conditioner(3 ton to 5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "4,500/-"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "name": "AC Repairing",
+        "notes": [
+          "If you need an extra copper pipe after 10 feet of copper pipe, then the customer is required to pay an additional 350tk (three hundred and fifty) taka fer running feet copper pipe.",
+          "Advance money will be paid at the time of AC return.",
+          "If you rent one year, one month is free.",
+          "This Price is without VAT & TAX."
+        ],
+        "header": {
+          "title": "AC Repairing",
+          "subtitle": "At Acservice.com.bd you can hire expert AC technician for AC Installation service in dhaka city and Outsite of Dhaka City. Our Expert AC technician will give you the best AC Installation service and our AC Installation Pricing is lowest in Dhaka city. You can compare AC Installation Pricing from other. In the below AC Repairing Pricing chart, you can see the details."
+        },
+        "types": [
+          {
+            "name": "Split Air Conditioner",
+            "services": [
+              {
+                "id": "leak01",
+                "name": "Leak Test and Repairing",
+                "works": [
+                  {
+                    "id": 1,
+                    "Descriptions": "Split Wall type Air Conditioner (1 ton to 2 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,000/-"
+                  },
+                  {
+                    "id": 2,
+                    "Descriptions": "Split Cassette type, Ceiling type Air Conditioner (1.5 ton to 2 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,500/-"
+                  },
+                  {
+                    "id": 3,
+                    "Descriptions": "Split Wall Type Air Conditioner (2.5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,500/-"
+                  },
+                  {
+                    "id": 4,
+                    "Descriptions": "Split Cassette type, Ceiling type Air Conditioner (2.5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "3,000/-"
+                  },
+                  {
+                    "id": 5,
+                    "Descriptions": "Split Wall Type, Cassette type, Ceiling type Air Conditioner(3 ton to 5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "4,500/-"
+                  }
+                ]
+              },
+              {
+                "id": "nitro01",
+                "name": "Nitrogen Wash",
+                "works": [
+                  {
+                    "id": 1,
+                    "Descriptions": "Split Wall type Air Conditioner (1 ton to 2 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,000/-"
+                  },
+                  {
+                    "id": 2,
+                    "Descriptions": "Split Cassette type, Ceiling type Air Conditioner (1.5 ton to 2 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,500/-"
+                  },
+                  {
+                    "id": 3,
+                    "Descriptions": "Split Wall Type Air Conditioner (2.5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,500/-"
+                  },
+                  {
+                    "id": 4,
+                    "Descriptions": "Split Cassette type, Ceiling type Air Conditioner (2.5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "3,000/-"
+                  },
+                  {
+                    "id": 5,
+                    "Descriptions": "Split Wall Type, Cassette type, Ceiling type Air Conditioner(3 ton to 5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "4,500/-"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "name": "Split Wall Mount & Portable AC Rent Pricing",
+        "notes": [
+          "If you need an extra copper pipe after 10 feet of copper pipe, then the customer is required to pay an additional 350tk (three hundred and fifty) taka fer running feet copper pipe.",
+          "(Outside Dhaka city) AC and AC Technician's side Going and coming car rental, food & accommodation costs will be borne entirely by the customer.",
+          "(Outside Dhaka city) If there is a problem during AC, technicians come and go to solve the",
+          "Technician's side Going and coming car rental",
+          "Food & accommodation costs will be borne entirely by the customer.",
+          "Advance money will be paid at the time of AC return.",
+          "If you rent one year, one month is free.",
+          "This Price is without VAT & TAX."
+        ],
+        "header": {
+          "title": "Split Wall Mount & Portable AC Rent Pricing",
+          "subtitle": "AC Service BD You can rent split wall type, cassette type, ceiling type, floor-standing type or portable air conditioners at reasonable prices in Dhaka city. In Dhaka city and outside Dhaka. Our expert AC technicians will provide you with the best AC services. We are Dhaka's first AC rental company. We rent AC for homes, offices, hospitals, factories, various programs and also provide good quality AC at any location."
+        },
+        "types": [
+          {
+            "name": "Split wall type 1 to 2 Ton AC (In Dhaka City)",
+            "services": [
+              {
+                "id": "leak01",
+                "name": "1 Month to 3 Months Package (In Dhaka City)",
+                "works": [
+                  {
+                    "id": 1,
+                    "Descriptions": "Split Wall type Air Conditioner (1 ton to 2 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,000/-"
+                  },
+                  {
+                    "id": 2,
+                    "Descriptions": "Split Cassette type, Ceiling type Air Conditioner (1.5 ton to 2 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,500/-"
+                  },
+                  {
+                    "id": 3,
+                    "Descriptions": "Split Wall Type Air Conditioner (2.5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,500/-"
+                  },
+                  {
+                    "id": 4,
+                    "Descriptions": "Split Cassette type, Ceiling type Air Conditioner (2.5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "3,000/-"
+                  },
+                  {
+                    "id": 5,
+                    "Descriptions": "Split Wall Type, Cassette type, Ceiling type Air Conditioner(3 ton to 5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "4,500/-"
+                  }
+                ]
+              },
+              {
+                "id": "nitro01",
+                "name": "6 Months to 1 Year (In Dhaka City)",
+                "works": [
+                  {
+                    "id": 1,
+                    "Descriptions": "Split Wall type Air Conditioner (1 ton to 2 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,000/-"
+                  },
+                  {
+                    "id": 2,
+                    "Descriptions": "Split Cassette type, Ceiling type Air Conditioner (1.5 ton to 2 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,500/-"
+                  },
+                  {
+                    "id": 3,
+                    "Descriptions": "Split Wall Type Air Conditioner (2.5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,500/-"
+                  },
+                  {
+                    "id": 4,
+                    "Descriptions": "Split Cassette type, Ceiling type Air Conditioner (2.5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "3,000/-"
+                  },
+                  {
+                    "id": 5,
+                    "Descriptions": "Split Wall Type, Cassette type, Ceiling type Air Conditioner(3 ton to 5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "4,500/-"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Split wall type 1 Ton to 2 Ton AC (Outside Dhaka city)",
+            "services": [
+              {
+                "id": "leak01",
+                "name": "1 Month to 3 Months Package (Outside Dhaka City)",
+                "works": [
+                  {
+                    "id": 1,
+                    "Descriptions": "Split Wall type Air Conditioner (1 ton to 2 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,000/-"
+                  },
+                  {
+                    "id": 2,
+                    "Descriptions": "Split Cassette type, Ceiling type Air Conditioner (1.5 ton to 2 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,500/-"
+                  },
+                  {
+                    "id": 3,
+                    "Descriptions": "Split Wall Type Air Conditioner (2.5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,500/-"
+                  },
+                  {
+                    "id": 4,
+                    "Descriptions": "Split Cassette type, Ceiling type Air Conditioner (2.5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "3,000/-"
+                  },
+                  {
+                    "id": 5,
+                    "Descriptions": "Split Wall Type, Cassette type, Ceiling type Air Conditioner(3 ton to 5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "4,500/-"
+                  }
+                ]
+              },
+              {
+                "id": "nitro01",
+                "name": "6 Months to 1 Year (Outside Dhaka City)",
+                "works": [
+                  {
+                    "id": 1,
+                    "Descriptions": "Split Wall type Air Conditioner (1 ton to 2 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,000/-"
+                  },
+                  {
+                    "id": 2,
+                    "Descriptions": "Split Cassette type, Ceiling type Air Conditioner (1.5 ton to 2 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,500/-"
+                  },
+                  {
+                    "id": 3,
+                    "Descriptions": "Split Wall Type Air Conditioner (2.5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,500/-"
+                  },
+                  {
+                    "id": 4,
+                    "Descriptions": "Split Cassette type, Ceiling type Air Conditioner (2.5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "3,000/-"
+                  },
+                  {
+                    "id": 5,
+                    "Descriptions": "Split Wall Type, Cassette type, Ceiling type Air Conditioner(3 ton to 5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "4,500/-"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Portable AC 1 Ton (In Dhaka City)",
+            "services": [
+              {
+                "id": "leak01",
+                "name": "1 Month to 3 Months Package ",
+                "works": [
+                  {
+                    "id": 1,
+                    "Descriptions": "Split Wall type Air Conditioner (1 ton to 2 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,000/-"
+                  },
+                  {
+                    "id": 2,
+                    "Descriptions": "Split Cassette type, Ceiling type Air Conditioner (1.5 ton to 2 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,500/-"
+                  },
+                  {
+                    "id": 3,
+                    "Descriptions": "Split Wall Type Air Conditioner (2.5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "2,500/-"
+                  },
+                  {
+                    "id": 4,
+                    "Descriptions": "Split Cassette type, Ceiling type Air Conditioner (2.5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "3,000/-"
+                  },
+                  {
+                    "id": 5,
+                    "Descriptions": "Split Wall Type, Cassette type, Ceiling type Air Conditioner(3 ton to 5 ton)",
+                    "Unit": "01 Set",
+                    "Price (tk)": "4,500/-"
+                  }
+                ]
+              },
+              {
+                "id": "nitro01",
+                "name": "3 Month to 6 Months Package (Out Side) ",
                 "works": [
                   {
                     "id": 1,
