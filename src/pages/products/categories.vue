@@ -18,9 +18,13 @@ const { data: categories } = await getAcCategories();
         v-for="category in categories"
         class="single-category bg-color-product-bg text-center flex flex-column justify-content-around flex-wrap"
       >
-        <img class="category-image" :src="category.img" :alt="category.title" />
+        <img
+          class="category-image"
+          :src="category.image_url"
+          :alt="category.name"
+        />
         <h3 class="category-title text-semi-bold-5 text-dark-gray-80 mt-10px">
-          {{ category.title }}
+          {{ category.name }}
         </h3>
       </div>
     </div>
@@ -29,6 +33,7 @@ const { data: categories } = await getAcCategories();
 
 <style lang="scss" scoped>
 @use "assets/styles/scss/base/mixins" as *;
+
 .category-container {
   min-height: 30rem;
   @include media-query(md) {
@@ -37,6 +42,7 @@ const { data: categories } = await getAcCategories();
   @include media-query(sm) {
     min-height: 11rem;
   }
+
   .category-flex-container {
     gap: 15px;
 
@@ -44,6 +50,7 @@ const { data: categories } = await getAcCategories();
       gap: 8px;
     }
   }
+
   .single-category {
     width: 227px;
     height: 140px;
@@ -52,16 +59,16 @@ const { data: categories } = await getAcCategories();
       border-radius: 2px;
       width: 104px;
       height: 64px;
-
-
     }
   }
+
   .category-image {
     @include media-query(sm) {
       max-width: 84.789px;
       max-height: 39.2px;
     }
   }
+
   .category-title {
     @include media-query(sm) {
       text-align: center;

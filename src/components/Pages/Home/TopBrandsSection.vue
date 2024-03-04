@@ -2,7 +2,7 @@
   <div class="brands-top-container">
     <div class="container py-3 md:py-6">
       <CommonSliderSection
-        :items="clients"
+        :items="brands"
         :number-of-scroll="1"
         :visible-item="6"
         slide-component="ClientCard"
@@ -19,7 +19,6 @@
           <NuxtLink to="/products/brands">
             <CommonViewAllButton label="View All Brands" />
           </NuxtLink>
-
         </template>
       </CommonSliderSection>
     </div>
@@ -27,9 +26,9 @@
 </template>
 
 <script lang="ts" setup>
-import { getClients } from "~/app/api/clients";
+import { getBrands } from "~/app/api/getBrands";
 
-const { data: clients } = await getClients();
+const { data: brands } = await getBrands();
 </script>
 
 <style lang="scss" scoped>

@@ -16,7 +16,7 @@ const { data: brands } = await getBrands();
       class="brand-flex-container flex flex-wrap pt-3 pb-4 md:pb-6 align-items-center justify-content-center xl:justify-content-start"
     >
       <div
-        v-for="brand in brands.data"
+        v-for="brand in brands"
         :key="brand.name"
         class="single-brand bg-envitect-sam-blue-5 border-envitect-sam-blue-20 text-center flex align-items-center justify-content-center flex-wrap"
       >
