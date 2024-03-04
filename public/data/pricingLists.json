@@ -589,7 +589,7 @@
         },
         "types": [
           {
-            "name": "Split Air Conditioner",
+            "name": "VRF Air Conditioner Installation",
             "services": [
               {
                 "id": "install01",
@@ -654,7 +654,7 @@
             ]
           },
           {
-            "name": "Window Air Conditioner",
+            "name": "VRF AC Installation (Package)",
             "services": [
               {
                 "id": "install01",
@@ -1166,7 +1166,7 @@
         },
         "types": [
           {
-            "name": "Split Air Conditioner",
+            "name": "Chiller Air Conditioner",
             "services": [
               {
                 "id": "install01",
@@ -1231,7 +1231,7 @@
             ]
           },
           {
-            "name": "Window Air Conditioner",
+            "name": "Chiller Air Conditioner Replay",
             "services": [
               {
                 "id": "install01",
