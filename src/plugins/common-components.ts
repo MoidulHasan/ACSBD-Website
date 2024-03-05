@@ -5,6 +5,7 @@ import ServiceCard from "~/components/Common/ServiceCard.vue";
 import ClientCard from "~/components/Common/ClientCard.vue";
 import ProjectImageCard from "~/components/Common/ProjectImageCard.vue";
 import ProjectCard from "~/components/Pages/RecentWorks/Card.vue";
+import ProductCard from "~/components/Common/ProductCard.vue";
 
 export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.component("ClientReviewCard", ClientReviewCard);
@@ -13,4 +14,5 @@ export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.component("SingleBlogCard", SingleBlogCard);
   nuxtApp.vueApp.component("ProjectImageCard", ProjectImageCard);
   nuxtApp.vueApp.component("ProjectCard", ProjectCard);
+  nuxtApp.vueApp.component("ProductCard", ProductCard);
 });

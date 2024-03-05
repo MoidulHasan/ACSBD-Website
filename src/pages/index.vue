@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="home-page">
     <PagesHomeHeroSlider />
     <div class="container mt-2 md:mt-4">
       <PagesHomeBannerSection />
