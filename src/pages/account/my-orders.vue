@@ -4,7 +4,7 @@ import { formatDate } from "~/utils/formatDate";
 
 definePageMeta({
   title: "My Orders",
-  name: "my-order",
+  name: "my-orders",
 });
 
 const { data: orderData } = await getOrders();

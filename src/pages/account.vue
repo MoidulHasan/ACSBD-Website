@@ -1,7 +1,11 @@
 <template>
   <div>
     <ClientOnly>
-      <NuxtPage />
+      <div>
+        <NuxtLayout name="dashboard">
+          <NuxtPage />
+        </NuxtLayout>
+      </div>
     </ClientOnly>
   </div>
 </template>
@@ -11,7 +15,7 @@ definePageMeta({
   name: "my-account",
   title: "My Account",
   redirect: "my-details",
-  layout: "dashboard",
+  layout: false,
 });
 </script>
 

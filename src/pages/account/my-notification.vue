@@ -1,7 +1,9 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div></div>
+  <div>
+    <h2>Hello Notifications</h2>
+  </div>
 </template>
 
 <style lang="scss" scoped></style>
