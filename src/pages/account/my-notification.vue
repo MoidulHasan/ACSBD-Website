@@ -1,4 +1,9 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+definePageMeta({
+  name: "my-notification",
+  title: "My Notification",
+});
+</script>
 
 <template>
   <div>

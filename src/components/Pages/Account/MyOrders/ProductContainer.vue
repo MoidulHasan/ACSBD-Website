@@ -28,7 +28,7 @@ defineProps<{
     <div
       class="image-container flex-1 flex align-items-center justify-content-center"
     >
-      <img class="product-image" :alt="product.name" :src="product.images[0]" />
+      <img class="product-image" :alt="product.name" :src="product.image" />
     </div>
     <div
       class="product-detail flex flex-column justify-content-between flex-wrap flex-1"
@@ -41,7 +41,7 @@ defineProps<{
           Qty: {{ product.quantity }}
         </span>
         <span class="font-heading-7 font-semibold price-text">
-          TK. {{ product.price.discounted }}
+          TK. {{ product.price }}
         </span>
       </h2>
     </div>

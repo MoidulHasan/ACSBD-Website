@@ -1,6 +1,6 @@
 <script setup lang="ts">
 definePageMeta({
-  name: "my-promo",
+  name: "my-promo-code",
   title: "My Promo-codes",
 });
 const promoCode = ref(null);
@@ -60,6 +60,7 @@ const promoCode = ref(null);
   .container-title {
     color: var(--navy-blue-80);
   }
+
   .promo-sub-title {
     color: var(--dark-gray-80);
   }
@@ -76,6 +77,7 @@ const promoCode = ref(null);
       min-width: 16px;
       color: var(--dark-gray-80);
     }
+
     .promo-code {
       color: var(--primary-color-envitect-sam-blue);
       letter-spacing: 2.8px;

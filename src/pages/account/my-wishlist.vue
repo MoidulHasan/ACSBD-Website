@@ -7,7 +7,7 @@ const toast = useToast();
 
 definePageMeta({
   name: "my-wishlist",
-  title: "My Orders",
+  title: "My Wishlist",
 });
 const store = useStore();
 const { data: wishData } = await getWishlist();
@@ -31,27 +31,43 @@ interface FavProduct {
 }
 
 const addProductsToCart = (product: FavProduct) => {
-  store.addToCart(product);
+  if (process.client) {
+    const isAlreadyExists = store.cart.findIndex(
+      (cartedItem) => cartedItem.id === product.id,
+    );
+    if (isAlreadyExists === -1) {
+      store.addToCart(product);
+      store.deleteItemFromFav(product, true);
+    } else {
+      toast.add({
+        severity: "info",
+        summary: `${store.cart[isAlreadyExists]?.name} is already exists in you Cart`,
+        life: 3000,
+      });
+    }
+  }
+};
+
+const deleteProductFromWishlist = (product) => {
   store.deleteItemFromFav(product);
-  toast.add({
-    severity: "success",
-    summary: `${product.name} is added to Cart`,
-    life: 3000,
-  });
 };
 </script>
 
 <template>
-  <div class="order-table-container">
+  <div
+    class="order-table-container"
+    :class="{ 'flex flex-column': !store.favorites.length }"
+  >
     <h2 class="container-title font-heading-3 mb-3 md:mb-5">
       My Wishlist / Favourite
     </h2>
 
     <div
       v-if="!store.favorites.length"
-      class="flex align-items-center justify-content-center"
+      class="empty-container flex-1 flex flex-column gap-4 align-items-center justify-content-center"
     >
-      <h3 class="font-heading-4 text-dark-gray-90">
+      <CommonSvgEmptyBox height="200" width="240" />
+      <h3 class="font-heading-4-semi-light-bold text-dark-gray-90">
         No Product added to your Wishlist!
       </h3>
     </div>
@@ -111,7 +127,7 @@ const addProductsToCart = (product: FavProduct) => {
                 </span>
                 <span
                   class="action-button-box"
-                  @click="store.deleteItemFromFav(slotProps.data)"
+                  @click="deleteProductFromWishlist(slotProps.data)"
                 >
                   <i
                     class="pi pi-trash action-button cursor-pointer"
@@ -178,7 +194,7 @@ const addProductsToCart = (product: FavProduct) => {
                   </span>
                   <span
                     class="action-button-box"
-                    @click="store.deleteItemFromFav(favorite)"
+                    @click="deleteProductFromWishlist(favorite)"
                   >
                     <i
                       class="pi pi-trash action-button cursor-pointer"
@@ -202,6 +218,7 @@ const addProductsToCart = (product: FavProduct) => {
 @use "assets/styles/scss/base/mixins" as *;
 
 .order-table-container {
+  min-height: 616px;
   padding: 32px 60px;
   border-radius: 8px;
   background-color: var(--product-Front-color);
@@ -286,5 +303,9 @@ const addProductsToCart = (product: FavProduct) => {
   border-radius: 4px;
   border-top: 16px solid var(--product-Front-color);
   padding: 16px !important;
+}
+
+.empty-container {
+  place-items: center;
 }
 </style>

@@ -10,7 +10,7 @@ const { data: profile } = await getProfile();
 const edit = ref(false);
 const passwordEdit = ref(false);
 
-const date = ref(profile?.value.birthday);
+const date = ref(profile?.value?.birthday);
 
 const oldCredential = ref("");
 const newCredential = ref("");
@@ -172,6 +172,7 @@ const repeatedCredential = ref("");
   padding: 32px 60px;
   border-radius: 8px;
   background-color: var(--product-Front-color);
+
   .personal-info-container {
     .details {
       .text-input {
@@ -180,20 +181,24 @@ const repeatedCredential = ref("");
       }
     }
   }
+
   .account-setting {
     .form-label {
       color: var(--dark-gray-80);
     }
   }
+
   .submit-button {
     padding: 12px 24px;
     background-color: var(--primary-color-envitect-sam-blue);
     border-radius: 6px;
     color: var(--primary-color-white);
   }
+
   .cursor-not-allowed {
     cursor: not-allowed;
   }
+
   @include media-query(sm) {
     padding: 16px;
   }
@@ -203,14 +208,17 @@ const repeatedCredential = ref("");
 .col-6 {
   padding: 0 0.5rem !important;
 }
+
 :deep(.p-component:disabled) {
   opacity: 1 !important;
 }
+
 :deep(.p-inputgroup-addon:first-child) {
   border-top: 1px solid #d1d5db !important;
   border-bottom: 1px solid #d1d5db !important;
   border-left: 1px solid #d1d5db !important;
 }
+
 :deep(.p-calendar-w-btn .p-datepicker-trigger) {
   background-color: var(--primary-color-white);
   color: var(--dark-gray-80);
