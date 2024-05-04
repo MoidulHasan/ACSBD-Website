@@ -1,0 +1,14 @@
+{
+    "name": "Md Dulal Hossain",
+    "title": "UI/UX Designer",
+    "image": "/images/dulal.svg",
+    "number": "01716230231",
+    "gender": "Male",
+    "birthday": "05-07-1995",
+    "address": {
+        "house": "House # 29, Road # 12, Sector # 11, Uttara, Dhaka - 1230",
+        "district": "Dhaka",
+        "area": "Uttara",
+        "postalCode": "1230"
+    }
+}

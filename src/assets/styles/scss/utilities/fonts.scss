@@ -76,6 +76,16 @@ $font-styles-map-regular-screen: (
                 18px,
                 500,
                 26px,
+        ),
+        heading-7: (
+                16px,
+                400,
+                24px,
+        ),
+        heading-8: (
+                14px,
+                600,
+                20px
         )
 );
 
@@ -199,6 +209,16 @@ $text-styles-map: (
                 8px,
                 600,
                 12px,
+        ),
+        small-meta: (
+                13px,
+                400,
+                20px,
+        ),
+        small-meta-title: (
+                11.688px,
+                700,
+                17.532px,
         )
 );
 

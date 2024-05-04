@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useToast } from "primevue/usetoast";
 import { getProducts } from "~/app/api/getProducts";
 import type { ProductI } from "~/contracts/api-contracts/ProductsInterfaces";
 import { useStore } from "~/stores/index.ts";
@@ -12,9 +13,11 @@ interface CartedProduct {
   capacity: string;
   quantity: number;
   stock: number;
+  timeStamp: string;
 }
 
 const route = useRoute();
+const toast = useToast();
 
 const { data: productsData } = await getProducts();
 
@@ -54,20 +57,33 @@ const toggleFavorite = (product: CartedProduct) => {
 };
 
 const quantity = ref(1);
+const currentTime = new Date().toISOString();
 
 const addToCart = (product: ProductI) => {
   const { id, name, images, price, brand, attributes, stock } = product;
-  const modifiedProduct: CartedProduct = {
-    id,
-    name,
-    image: images[0],
-    price: price.discounted ?? price.regular,
-    brand,
-    capacity: attributes.capacity,
-    quantity: quantity.value,
-    stock: stock.quantity,
-  };
-  store.addToCart(modifiedProduct);
+  const isAlreadyInCart = store.cart.find(
+    (cartedProduct) => cartedProduct.id === id,
+  );
+  if (!isAlreadyInCart) {
+    const modifiedProduct: CartedProduct = {
+      id,
+      name,
+      image: images[0],
+      price: price.discounted ?? price.regular,
+      brand,
+      capacity: attributes.capacity,
+      quantity: quantity.value,
+      stock: stock.quantity,
+      timeStamp: currentTime,
+    };
+    store.addToCart(modifiedProduct);
+  } else {
+    toast.add({
+      severity: "error",
+      summary: `${product.name} is already in your Cart.`,
+      life: 3000,
+    });
+  }
 };
 
 function addToFav(product: ProductI) {
@@ -81,6 +97,7 @@ function addToFav(product: ProductI) {
     stock: stock.quantity,
     capacity: attributes.capacity,
     quantity: quantity.value,
+    timeStamp: currentTime,
   };
   store.addToFavorite(modifiedProduct);
 }

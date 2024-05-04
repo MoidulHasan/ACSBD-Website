@@ -1,13 +1,13 @@
 <script setup lang="ts">
 definePageMeta({
-  title: "Recent Works",
-  name: "recent-works",
+  name: "my-notification",
+  title: "My Notification",
 });
 </script>
 
 <template>
-  <div class="container">
-    <CommonComingSoon />
+  <div>
+    <h2>Hello Notifications</h2>
   </div>
 </template>
 

@@ -80,7 +80,7 @@
   </div>
 </template>
 <script lang="ts" setup></script>
-<style lang="scss">
+<style lang="scss" scoped>
 .core-container {
   .core-header-mobile {
     h3 {
