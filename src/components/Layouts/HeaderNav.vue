@@ -524,7 +524,7 @@ const navMenues: Array<menus> = [
   },
   {
     title: "Blog",
-    path: "/blog",
+    path: "/our-blogs",
   },
   {
     title: "About Us",
