@@ -34,10 +34,8 @@ import Toast from "primevue/toast";
 
 export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.use(PrimeVue, { ripple: true });
-
   nuxtApp.vueApp.use(ConfirmationService);
   nuxtApp.vueApp.use(ToastService);
-
   nuxtApp.vueApp.directive("tooltip", Tooltip);
   nuxtApp.vueApp.directive("ripple", Ripple);
   nuxtApp.vueApp.directive("badge", BadgeDirective);
