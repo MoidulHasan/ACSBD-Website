@@ -12,6 +12,7 @@ const isOpen = ref(false);
 const updateText = () => {
   emit("update:text", text.value);
 };
+
 const toggleOpen = () => {
   isOpen.value = !isOpen.value;
 };

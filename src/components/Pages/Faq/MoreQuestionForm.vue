@@ -20,7 +20,7 @@
         type="text"
       />
       <Textarea
-        v-model="question.questions"
+        v-model="question.message"
         aria-describedby="text-error"
         auto-resize
         placeholder="Questions?"
@@ -57,14 +57,14 @@ interface questions {
 const question: Ref<questions> = ref({
   name: "",
   email: "",
-  questions: "",
+  message: "",
   check: false,
 });
 const submitQuestion = () => {
   question.value.name = "";
   question.value.email = "";
-  question.value.questions = "";
-  question.value.check = false;
+  question.value.message = "";
+  question.value.check = true;
 };
 </script>
 
