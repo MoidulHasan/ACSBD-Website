@@ -3,7 +3,12 @@
     <div
       class="flex align-items-center justify-content-center client-image-container"
     >
-      <img :alt="name" :src="image_url" class="client-image" :title="name" />
+      <img
+        :alt="name"
+        :src="image_url ?? image"
+        class="client-image"
+        :title="name"
+      />
     </div>
   </div>
 </template>
@@ -11,7 +16,8 @@
 <script lang="ts" setup>
 defineProps<{
   name: string;
-  image_url: string;
+  image_url?: string;
+  image?: string;
 }>();
 </script>
 

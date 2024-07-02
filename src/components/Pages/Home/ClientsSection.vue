@@ -2,7 +2,7 @@
   <div class="clients-top-container">
     <div class="container py-3 lg:py-6">
       <CommonSliderSection
-        :items="brands.data"
+        :items="clients?.data"
         :number-of-scroll="1"
         :visible-item="6"
         slide-component="ClientCard"
@@ -20,7 +20,10 @@
         </template>
 
         <template #footer>
-          <CommonViewAllButton label="View All Clients" />
+          <CommonViewAllButton
+            label="View All Clients"
+            redirect-page-url="/products/our-clients"
+          />
         </template>
       </CommonSliderSection>
     </div>
@@ -28,9 +31,9 @@
 </template>
 
 <script lang="ts" setup>
-import { getBrands } from "~/app/api/getBrands";
+import { getClients } from "~/app/api/getClients";
 
-const { data: brands } = await getBrands();
+const { data: clients } = await getClients();
 </script>
 
 <style lang="scss" scoped>
