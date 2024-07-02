@@ -3,15 +3,15 @@
     <div
       class="flex align-items-center justify-content-center client-image-container"
     >
-      <img :alt="title" :src="imageUrl" class="client-image" />
+      <img :alt="name" :src="image_url" class="client-image" :title="name" />
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
 defineProps<{
-  title: string;
-  imageUrl: string;
+  name: string;
+  image_url: string;
 }>();
 </script>
 
@@ -29,6 +29,7 @@ defineProps<{
   @include media-query(sm) {
     margin: 0;
   }
+
   .client-image-container {
     //width: 215px ;
     height: 100px;
@@ -36,6 +37,7 @@ defineProps<{
     border-radius: 8px;
     border: 1px solid var(--primary-color-envitect-sam-blue);
     background: var(--envitect-sam-blue-2);
+
     .client-image {
       @include media-query(lg) {
         height: 42.48px;

@@ -2,7 +2,7 @@
   <div class="clients-top-container">
     <div class="container py-3 lg:py-6">
       <CommonSliderSection
-        :items="clients"
+        :items="brands.data"
         :number-of-scroll="1"
         :visible-item="6"
         slide-component="ClientCard"
@@ -28,9 +28,9 @@
 </template>
 
 <script lang="ts" setup>
-import { getClients } from "~/app/api/clients";
+import { getBrands } from "~/app/api/getBrands";
 
-const { data: clients } = await getClients();
+const { data: brands } = await getBrands();
 </script>
 
 <style lang="scss" scoped>

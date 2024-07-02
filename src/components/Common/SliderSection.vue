@@ -67,6 +67,7 @@ const responsiveOptions = ref([
 
 <style lang="scss" scoped>
 @use "assets/styles/scss/base/mixins" as *;
+
 .slider {
   margin-top: 32px;
   margin-bottom: 44px;

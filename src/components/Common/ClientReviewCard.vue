@@ -1,31 +1,62 @@
+<script lang="ts" setup>
+const props = defineProps<{
+  reviewer_name: string;
+  reviewer_title: string;
+  reviewer_image: string;
+  review: string;
+  star: number;
+}>();
+
+const showDetailedReview = ref(false);
+const showReviewModal = () => {
+  showDetailedReview.value = true;
+  console.log(props.reviewer_image);
+};
+</script>
+
 <template>
   <div class="review-card flex flex-column align-items-center">
     <div class="image-container">
-      <img :src="imageUrl" alt="" />
+      <img :src="reviewer_image" alt="" />
     </div>
 
-    <h4 class="name mb-0">{{ name }}</h4>
-    <h5 class="title mt-0">{{ title }}</h5>
+    <h4 class="name mb-0">{{ reviewer_name }}</h4>
+    <h5 class="title mt-0">{{ reviewer_title }}</h5>
     <p class="review">
       {{ review.length > 177 ? `"${review.slice(0, 177)}...` : `"${review}"` }}
     </p>
 
     <div v-if="review.length > 175" class="p-0 m-0 text-center mt-[4px]">
-      <NuxtLink class="read-more-button" to="client-review">
+      <NuxtLink
+        class="read-more-button cursor-pointer"
+        @click="showReviewModal"
+      >
         Read More
       </NuxtLink>
     </div>
   </div>
+  <ClientOnly>
+    <Dialog
+      v-model:visible="showDetailedReview"
+      modal
+      :style="{ width: '50rem' }"
+      :breakpoints="{ '1199px': '75vw', '575px': '90vw' }"
+      dismissable-mask
+      close-on-escape
+      :pt="{
+        header: 'flex justify-content-end pt-3 px-3',
+      }"
+    >
+      <PagesProductTestimonialData
+        :name="reviewer_name"
+        :title="reviewer_title"
+        :image="reviewer_image"
+        :review="review"
+        :stars="star"
+      />
+    </Dialog>
+  </ClientOnly>
 </template>
-
-<script lang="ts" setup>
-defineProps<{
-  name: string;
-  title: string;
-  imageUrl: string;
-  review: string;
-}>();
-</script>
 
 <style lang="scss" scoped>
 .review-card {
@@ -90,7 +121,7 @@ defineProps<{
   .review {
     color: var(--primary-color-dark-gray);
     text-align: center;
-
+    min-height: 144px;
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
@@ -107,5 +138,9 @@ defineProps<{
     font-weight: 400;
     line-height: 24px;
   }
+}
+
+:deep(.p-dialog-header) {
+  justify-content: end;
 }
 </style>

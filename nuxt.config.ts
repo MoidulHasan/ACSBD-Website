@@ -2,6 +2,7 @@ import { fileURLToPath } from "url";
 
 export default defineNuxtConfig({
   srcDir: "src/",
+  serverDir: "server/",
 
   alias: {
     public: fileURLToPath(new URL("./public/", import.meta.url)),
@@ -89,6 +90,7 @@ export default defineNuxtConfig({
   },
 
   runtimeConfig: {
+    apiBase: "",
     public: {
       baseURL: "",
       apiUrl: "",

@@ -1,6 +1,6 @@
 <template>
   <CommonSliderSection
-    :items="clientReviews"
+    :items="testimonials?.data"
     :number-of-scroll="1"
     :visible-item="4"
     slide-component="ClientReviewCard"
@@ -26,7 +26,7 @@
 </template>
 
 <script lang="ts" setup>
-import { getCoustomersReview } from "~/app/api/customers-review";
+import { getTestimonials } from "~/app/api/getTestimonials";
 
-const { data: clientReviews } = await getCoustomersReview();
+const { data: testimonials } = await getTestimonials();
 </script>
