@@ -2,13 +2,13 @@
   <div
     class="w-full flex justify-content-between align-items-center header-container"
   >
-    <p class="text-medium-2 text-color-primary-dark-gray">
+    <p class="text-medium-2 text-primary-color-dark-gray">
       {{ totalProductsFound }} items found
       <span v-if="category">for "{{ category }}"</span>
     </p>
     <div class="flex align-items-center">
       <div class="flex align-items-center">
-        <p class="text-medium-2 text-color-primary-dark-gray mr-8px">
+        <p class="text-medium-2 text-primary-color-dark-gray mr-8px">
           Sort By:
         </p>
         <Dropdown
@@ -30,7 +30,7 @@
       </div>
 
       <div class="ml-24px flex align-items-center">
-        <p class="text-medium-2 text-color-primary-dark-gray mr-8px">View:</p>
+        <p class="text-medium-2 text-primary-color-dark-gray mr-8px">View:</p>
 
         <button
           :class="[
