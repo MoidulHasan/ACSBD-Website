@@ -16,6 +16,17 @@ export interface Product {
   offerEndsAt: string;
 }
 
+export interface Blog {
+  title: string;
+  views: number;
+  imageUrl: string;
+  content: string;
+  published_date: string;
+  comments: number;
+  tag: string;
+  id: string;
+}
+
 export interface SwiperSliderBreakpointsI {
   [key: string]: {
     slidesPerView: number;
