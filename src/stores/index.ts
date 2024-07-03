@@ -1,3 +1,5 @@
+import { useToast } from "primevue/usetoast";
+
 interface CartedProduct {
   id: number;
   name: string;
@@ -7,9 +9,11 @@ interface CartedProduct {
   capacity: string;
   quantity?: number;
   stock: number;
+  timeStamp: string;
 }
 
 export const useStore = defineStore("store", () => {
+  const toast = useToast();
   // state
   const cartVisible = ref(false);
   const count = ref(0);
@@ -35,10 +39,15 @@ export const useStore = defineStore("store", () => {
         favorites.value.push(product);
       }
       localStorage.setItem("favorites", JSON.stringify(favorites.value));
+      toast.add({
+        severity: "success",
+        summary: `${product.name} is added to your Wishlist.`,
+        life: 3000,
+      });
     }
   }
 
-  function deleteItemFromFav(product: CartedProduct) {
+  function deleteItemFromFav(product: CartedProduct, secondTime = false) {
     if (process.client) {
       const existingProductIndx = favorites.value.length
         ? favorites.value.findIndex((item) => item.id === product.id)
@@ -47,6 +56,13 @@ export const useStore = defineStore("store", () => {
         favorites.value.splice(existingProductIndx, 1);
       }
       localStorage.setItem("favorites", JSON.stringify(favorites.value));
+      if (!secondTime) {
+        toast.add({
+          severity: "info",
+          summary: `${product.name} is removed from your Wishlist.`,
+          life: 3000,
+        });
+      }
     }
   }
 
@@ -55,10 +71,17 @@ export const useStore = defineStore("store", () => {
       const existingProductIndex = cart.value.length
         ? cart.value.findIndex((item) => item.id === id)
         : -1;
+      let deletedProductName: string;
       if (existingProductIndex > -1) {
+        deletedProductName = cart.value[existingProductIndex]?.name;
         cart.value.splice(existingProductIndex, 1);
+        localStorage.setItem("cart", JSON.stringify(cart.value));
+        toast.add({
+          severity: "info",
+          summary: `${deletedProductName} is removed from your cart.`,
+          life: 3000,
+        });
       }
-      localStorage.setItem("cart", JSON.stringify(cart.value));
     }
   }
 
@@ -70,11 +93,18 @@ export const useStore = defineStore("store", () => {
       if (existingProductIndx !== -1) {
         if (cart.value[existingProductIndx].quantity !== product.quantity) {
           cart.value[existingProductIndx].quantity = product.quantity;
+        } else {
+          return;
         }
       } else {
         cart.value.push(product);
       }
       localStorage.setItem("cart", JSON.stringify(cart.value));
+      toast.add({
+        severity: "success",
+        summary: `${product.name} is added to Cart`,
+        life: 3000,
+      });
     }
   }
 

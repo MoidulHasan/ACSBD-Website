@@ -3,7 +3,12 @@
     <div
       class="flex align-items-center justify-content-center client-image-container"
     >
-      <img :alt="name" :src="image_url" class="client-image" />
+      <img
+        :alt="name"
+        :src="image_url ?? image"
+        class="client-image"
+        :title="name"
+      />
     </div>
   </div>
 </template>
@@ -11,7 +16,8 @@
 <script lang="ts" setup>
 defineProps<{
   name: string;
-  image_url: string;
+  image_url?: string;
+  image?: string;
 }>();
 </script>
 
@@ -37,9 +43,6 @@ defineProps<{
     border-radius: 8px;
     border: 1px solid var(--primary-color-envitect-sam-blue);
     background: var(--envitect-sam-blue-2);
-    @media (min-width: 1210px) {
-      max-width: 210px !important;
-    }
 
     .client-image {
       @include media-query(lg) {

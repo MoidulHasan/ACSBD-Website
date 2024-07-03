@@ -2,7 +2,7 @@
   <div class="brands-top-container">
     <div class="container py-3 md:py-6">
       <CommonSliderSection
-        :items="brands"
+        :items="brands?.data"
         :number-of-scroll="1"
         :visible-item="6"
         slide-component="ClientCard"

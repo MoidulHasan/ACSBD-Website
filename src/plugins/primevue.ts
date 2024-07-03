@@ -17,6 +17,10 @@ import Rating from "primevue/rating";
 import Calendar from "primevue/calendar";
 import Card from "primevue/card";
 import Galleria from "primevue/galleria";
+import DataTable from "primevue/datatable";
+import Column from "primevue/column";
+import Row from "primevue/row";
+import { defineNuxtPlugin } from "#app";
 import Dropdown from "primevue/dropdown";
 import TabPanel from "primevue/tabpanel";
 import TabView from "primevue/tabview";
@@ -25,13 +29,13 @@ import Dialog from "primevue/dialog";
 import DataTable from "primevue/datatable";
 import Column from "primevue/column";
 import RadioButton from "primevue/radiobutton";
+import Divider from "primevue/divider";
+import Toast from "primevue/toast";
 
 export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.use(PrimeVue, { ripple: true });
-
   nuxtApp.vueApp.use(ConfirmationService);
   nuxtApp.vueApp.use(ToastService);
-
   nuxtApp.vueApp.directive("tooltip", Tooltip);
   nuxtApp.vueApp.directive("ripple", Ripple);
   nuxtApp.vueApp.directive("badge", BadgeDirective);
@@ -47,6 +51,9 @@ export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.component("Checkbox", Checkbox);
   nuxtApp.vueApp.component("Galleria", Galleria);
   nuxtApp.vueApp.component("Card", Card);
+  nuxtApp.vueApp.component("DataTable", DataTable);
+  nuxtApp.vueApp.component("Column", Column);
+  nuxtApp.vueApp.component("Row", Row);
   nuxtApp.vueApp.component("Dropdown", Dropdown);
   nuxtApp.vueApp.component("TabPanel", TabPanel);
   nuxtApp.vueApp.component("TabView", TabView);
@@ -55,4 +62,6 @@ export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.component("DataTable", DataTable);
   nuxtApp.vueApp.component("Column", Column);
   nuxtApp.vueApp.component("RadioButton", RadioButton);
+  nuxtApp.vueApp.component("Divider", Divider);
+  nuxtApp.vueApp.component("Toast", Toast);
 });

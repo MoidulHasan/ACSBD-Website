@@ -1,15 +1,15 @@
-import type { Brands } from "~/contracts/api-contracts/brands";
-
 export const getBrands = async () => {
-  const runtimeConfig = useRuntimeConfig();
-
-  const { data, pending, error, refresh } = await useFetch<Brands>(
-    "http://localhost:9000/api/admin/brands",
+  const { data, pending, refresh, error } = await useFetch(
+    () => `/api/proxy/admin/brands`,
     {
-      transform(data) {
-        return data.data;
+      transform: (data) => {
+        const length = data.data.length;
+        return {
+          data: data.data,
+          length,
+        };
       },
     },
   );
-  return { data, pending, error, refresh };
+  return { data, pending, refresh, error };
 };

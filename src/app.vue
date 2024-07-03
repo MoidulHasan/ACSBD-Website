@@ -2,6 +2,9 @@
   <div>
     <NuxtLayout>
       <NuxtPage />
+      <ClientOnly>
+        <Toast />
+      </ClientOnly>
     </NuxtLayout>
   </div>
 </template>

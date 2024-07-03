@@ -6,26 +6,42 @@ definePageMeta({
   name: "brands",
 });
 
-const { data: brands } = await getBrands();
+const { data: brandsData } = await getBrands();
+const initialLength = ref(18);
+const brandsToShow = computed(() => {
+  return brandsData.value?.data.slice(0, initialLength.value);
+});
+
+const showMoreBrands = () => {
+  if (initialLength.value <= brandsData.value?.length) {
+    initialLength.value += 18;
+  }
+};
 </script>
 
 <template>
   <div class="container brand-container">
-    {{ brands }}
     <div
       class="brand-flex-container flex flex-wrap pt-3 pb-4 md:pb-6 align-items-center justify-content-center xl:justify-content-start"
     >
       <div
-        v-for="brand in brands"
-        :key="brand.name"
+        v-for="brand in brandsToShow"
+        :key="brand.slug"
         class="single-brand bg-envitect-sam-blue-5 border-envitect-sam-blue-20 text-center flex align-items-center justify-content-center flex-wrap"
       >
-        <img class="brand-image" :src="brand.image_url" :alt="brand.name" />
+        <img
+          class="brand-image"
+          :src="brand.image_url"
+          :alt="brand.name"
+          :title="brand.name"
+        />
       </div>
     </div>
     <div class="text-center mb-5 lg:mb-8">
       <Button
+        v-if="brandsToShow.length !== brandsData?.length"
         class="lode-more-button border-primary-color-envitect-sam-blue bg-primary-color-white text-primary-color-envitect-sam-blue text-semi-bold-1"
+        @click="showMoreBrands"
       >
         Load More
       </Button>
