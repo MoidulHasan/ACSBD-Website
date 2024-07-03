@@ -251,7 +251,7 @@
                 <NuxtLink
                   active-class="active"
                   class="navLink flex align-items-center justify-content-center"
-                  to="/"
+                  to="/account/my-wishlist"
                 >
                   <div
                     class="header-item-container flex justify-content-center"
@@ -277,7 +277,7 @@
                 <NuxtLink
                   active-class="active"
                   class="navLink flex align-items-center justify-content-center"
-                  to="/"
+                  to="/account/my-details"
                 >
                   <img
                     alt="profile"
@@ -743,7 +743,7 @@ nav .menu {
   width: 25px;
   padding-left: 0.6rem;
   display: flex;
-  justify-contet: center;
+  justify-content: center;
   align-items: center;
   transition: 0.5s;
 }

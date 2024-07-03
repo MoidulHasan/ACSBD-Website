@@ -25,6 +25,8 @@ import Dialog from "primevue/dialog";
 import DataTable from "primevue/datatable";
 import Column from "primevue/column";
 import RadioButton from "primevue/radiobutton";
+import Divider from "primevue/divider";
+import Toast from "primevue/toast";
 
 export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.use(PrimeVue, { ripple: true });
@@ -55,4 +57,6 @@ export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.component("DataTable", DataTable);
   nuxtApp.vueApp.component("Column", Column);
   nuxtApp.vueApp.component("RadioButton", RadioButton);
+  nuxtApp.vueApp.component("Divider", Divider);
+  nuxtApp.vueApp.component("Toast", Toast);
 });
