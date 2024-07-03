@@ -1,6 +1,6 @@
-export const getBrands = async () => {
+export const getTestimonials = async () => {
   const { data, pending, refresh, error } = await useFetch(
-    () => `/api/proxy/admin/brands`,
+    () => `/api/proxy/admin/testimonials`,
     {
       transform: (data) => {
         const length = data.data.length;

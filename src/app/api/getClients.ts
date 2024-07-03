@@ -1,6 +1,6 @@
-export const getBrands = async () => {
+export const getClients = async () => {
   const { data, pending, refresh, error } = await useFetch(
-    () => `/api/proxy/admin/brands`,
+    () => `/api/proxy/our-clients`,
     {
       transform: (data) => {
         const length = data.data.length;

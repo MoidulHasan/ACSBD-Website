@@ -1,47 +1,47 @@
 <script setup lang="ts">
-import { getBrands } from "~/app/api/getBrands";
+import { getClients } from "~/app/api/getClients";
 
 definePageMeta({
-  title: "Brands",
-  name: "brands",
+  title: "Clients",
+  name: "our-clients",
 });
 
-const { data: brandsData } = await getBrands();
+const { data: clientsData } = await getClients();
 const initialLength = ref(18);
-const brandsToShow = computed(() => {
-  return brandsData.value?.data.slice(0, initialLength.value);
+const clientsToShow = computed(() => {
+  return clientsData.value?.data.slice(0, initialLength.value);
 });
 
-const showMoreBrands = () => {
-  if (initialLength.value <= brandsData.value?.length) {
+const showMoreClients = () => {
+  if (initialLength.value <= clientsData.value?.length) {
     initialLength.value += 18;
   }
 };
 </script>
 
 <template>
-  <div class="container brand-container">
+  <div class="container client-container">
     <div
-      class="brand-flex-container flex flex-wrap pt-3 pb-4 md:pb-6 align-items-center justify-content-center xl:justify-content-start"
+      class="client-flex-container flex flex-wrap pt-3 pb-4 md:pb-6 align-items-center justify-content-center xl:justify-content-start"
     >
       <div
-        v-for="brand in brandsToShow"
-        :key="brand.slug"
-        class="single-brand bg-envitect-sam-blue-5 border-envitect-sam-blue-20 text-center flex align-items-center justify-content-center flex-wrap"
+        v-for="client in clientsToShow"
+        :key="client.id"
+        class="single-client bg-envitect-sam-blue-5 border-envitect-sam-blue-20 text-center flex align-items-center justify-content-center flex-wrap"
       >
         <img
-          class="brand-image"
-          :src="brand.image_url"
-          :alt="brand.name"
-          :title="brand.name"
+          class="client-image"
+          :src="client.image"
+          :alt="client.name"
+          :title="client.name"
         />
       </div>
     </div>
     <div class="text-center mb-5 lg:mb-8">
       <Button
-        v-if="brandsToShow.length !== brandsData?.length"
+        v-if="clientsToShow.length !== clientsData?.length"
         class="lode-more-button border-primary-color-envitect-sam-blue bg-primary-color-white text-primary-color-envitect-sam-blue text-semi-bold-1"
-        @click="showMoreBrands"
+        @click="showMoreClients"
       >
         Load More
       </Button>
@@ -52,17 +52,17 @@ const showMoreBrands = () => {
 <style lang="scss" scoped>
 @use "assets/styles/scss/base/mixins" as *;
 
-.brand-container {
+.client-container {
   min-height: 30rem;
 
-  .brand-flex-container {
+  .client-flex-container {
     gap: 15px;
     @include media-query(sm) {
       gap: 8px;
     }
   }
 
-  .single-brand {
+  .single-client {
     width: 227px;
     height: 100px;
     border-radius: 4px;
@@ -75,7 +75,7 @@ const showMoreBrands = () => {
     }
   }
 
-  .brand-image {
+  .client-image {
     @include media-query(sm) {
       max-width: 83.932px;
       max-height: 38px;
