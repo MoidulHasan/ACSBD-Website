@@ -74,6 +74,12 @@
     font-weight: 700;
 }
 
+.p-dialog {
+    max-width: 90%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
 .p-rating-icon {
     color: var(--color-orange);
 }
@@ -86,6 +92,14 @@
     /*bottom: 69px !important; */
     align-items: center !important;
     z-index: 10 !important;
+}
+
+.p-toast-message {
+    padding: 1rem 1rem;
+}
+
+.p-toast-message-content {
+    gap: 10px;
 }
 
 @media screen and (min-width: 1441px) {

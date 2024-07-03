@@ -50,7 +50,7 @@
 
 <script lang="ts" setup></script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .at-a-glance {
   color: var(--primary-color-white);
   background-image: url("/images/at-a-glance.png");

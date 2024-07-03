@@ -2,19 +2,16 @@
 defineProps<{
   placeholderText: string;
   password?: boolean;
+  disabled?: boolean;
 }>();
-
 const emit = defineEmits<{
   (e: "update:text", value: string): void;
 }>();
-
 const text = ref("");
 const isOpen = ref(false);
-
 const updateText = () => {
   emit("update:text", text.value);
 };
-
 const toggleOpen = () => {
   isOpen.value = !isOpen.value;
 };
@@ -24,9 +21,11 @@ const toggleOpen = () => {
     <InputText
       v-model="text"
       class="w-full basic-input"
+      :class="{ ' cursor-not-allowed ': disabled }"
       :placeholder="placeholderText"
       :type="password ? (isOpen ? 'text' : 'password') : 'text'"
       @input="updateText"
+      :disabled="disabled"
     />
     <i
       v-if="password"
@@ -54,6 +53,9 @@ const toggleOpen = () => {
     &:focus {
       color: #000;
     }
+  }
+  .cursor-not-allowed {
+    cursor: not-allowed;
   }
   .showIcon {
     width: 24px !important;
