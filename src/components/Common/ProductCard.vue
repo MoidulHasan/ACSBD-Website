@@ -1,52 +1,55 @@
 <template>
-  <div class="product-card w-full bg-color-product-front">
-    <div class="flex justify-content-center relative">
-      <img :alt="name" :src="images[0]" class="product-image" />
+  <NuxtLink :to="`/products/${id}`">
+    <div class="product-card w-full bg-color-product-front">
+      <div class="flex justify-content-center relative">
+        <img :alt="name" :src="images[0]" class="product-image" />
+        <div
+          v-if="price.discountPercentage"
+          class="discount-percentage text-center text-semi-bold-5 text-primary-color-white bg-navy-blue-80"
+        >
+          {{ price.discountPercentage }}% Off
+        </div>
+      </div>
+
       <div
-        v-if="price.discountPercentage"
-        class="discount-percentage text-center text-semi-bold-5 text-primary-color-white bg-navy-blue-80"
+        class="product-info flex flex-column justify-content-between px-12px pt-12px pb-16px"
       >
-        {{ price.discountPercentage }}% Off
+        <div>
+          <Rating v-model="productRating" :cancel="false" readonly />
+
+          <h3 class="mt-8px text-primary-color-dark-gray text-regular-3">
+            {{
+              name.slice(0, Math.min(name.length, 33)).trim() +
+              (name.length > 33 ? "..." : "")
+            }}
+          </h3>
+        </div>
+
+        <p class="mt-8px flex align-items-center gap-8px">
+          <span
+            v-if="price.discounted"
+            class="text-medium-2 text-primary-color-envitect-sam-blue"
+          >
+            ৳ {{ price.discounted }}
+          </span>
+          <span
+            :class="[
+              {
+                'text-medium-2 text-primary-color-envitect-sam-blue':
+                  !price.discounted,
+              },
+              {
+                'text-regular-4 text-dark-gray-40 line-through':
+                  price.discounted,
+              },
+            ]"
+          >
+            {{ price.currency }} {{ price.regular }}
+          </span>
+        </p>
       </div>
     </div>
-
-    <div
-      class="product-info flex flex-column justify-content-between px-12px pt-12px pb-16px"
-    >
-      <div>
-        <Rating v-model="productRating" :cancel="false" readonly />
-
-        <h3 class="mt-8px text-primary-color-dark-gray text-regular-3">
-          {{
-            name.slice(0, Math.min(name.length, 40)).trim() +
-            (name.length > 40 ? "..." : "")
-          }}
-        </h3>
-      </div>
-
-      <p class="mt-8px flex align-items-center gap-8px">
-        <span
-          v-if="price.discounted"
-          class="text-medium-2 text-primary-color-envitect-sam-blue"
-        >
-          ৳ {{ price.discounted }}
-        </span>
-        <span
-          :class="[
-            {
-              'text-medium-2 text-primary-color-envitect-sam-blue':
-                !price.discounted,
-            },
-            {
-              'text-regular-4 text-dark-gray-40 line-through': price.discounted,
-            },
-          ]"
-        >
-          {{ price.currency }} {{ price.regular }}
-        </span>
-      </p>
-    </div>
-  </div>
+  </NuxtLink>
 </template>
 
 <script lang="ts" setup>
@@ -55,6 +58,8 @@ import type { ProductI } from "~/contracts/api-contracts/ProductsInterfaces";
 const props = defineProps<ProductI>();
 
 const productRating = ref(props.ratings.average);
+
+const titleContainer = ref(null);
 </script>
 
 <style lang="scss" scoped>
@@ -62,6 +67,7 @@ const productRating = ref(props.ratings.average);
   border-radius: 8px;
   transition: all ease-in-out 0.6s;
   cursor: pointer;
+  height: 368px;
 
   .product-image {
     max-width: 100%;

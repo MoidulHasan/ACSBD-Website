@@ -18,6 +18,13 @@ import Calendar from "primevue/calendar";
 import Card from "primevue/card";
 import Galleria from "primevue/galleria";
 import Dropdown from "primevue/dropdown";
+import TabPanel from "primevue/tabpanel";
+import TabView from "primevue/tabview";
+import InputNumber from "primevue/inputnumber";
+import Dialog from "primevue/dialog";
+import DataTable from "primevue/datatable";
+import Column from "primevue/column";
+import RadioButton from "primevue/radiobutton";
 
 export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.use(PrimeVue, { ripple: true });
@@ -41,4 +48,11 @@ export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.component("Galleria", Galleria);
   nuxtApp.vueApp.component("Card", Card);
   nuxtApp.vueApp.component("Dropdown", Dropdown);
+  nuxtApp.vueApp.component("TabPanel", TabPanel);
+  nuxtApp.vueApp.component("TabView", TabView);
+  nuxtApp.vueApp.component("InputNumber", InputNumber);
+  nuxtApp.vueApp.component("Dialog", Dialog);
+  nuxtApp.vueApp.component("DataTable", DataTable);
+  nuxtApp.vueApp.component("Column", Column);
+  nuxtApp.vueApp.component("RadioButton", RadioButton);
 });
