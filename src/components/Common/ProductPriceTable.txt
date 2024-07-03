@@ -1,0 +1,27 @@
+<template>
+  <div class="container">
+    <table>
+      <thead>
+        <tr>
+          <th @click="sort('name')">Name</th>
+          <th @click="sort('age')">Age</th>
+          <th @click="sort('email')">Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{ name }}</td>
+          <td>{{ age }}</td>
+          <td>{{ email }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</template>
+<script lang="ts" setup>
+defineProps<{
+  name: string;
+  price: number;
+  unit: number;
+}>();
+</script>
