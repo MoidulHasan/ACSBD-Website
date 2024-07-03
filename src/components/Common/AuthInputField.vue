@@ -40,6 +40,7 @@ const toggleOpen = () => {
   display: flex;
   align-items: center;
   justify-content: center;
+
   .basic-input {
     padding: 18px 16px;
     border-radius: 4px;
