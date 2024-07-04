@@ -16,6 +16,13 @@ export interface Product {
   offerEndsAt: string;
 }
 
+export interface IContactMessage {
+  name: string;
+  phone: string;
+  email: string;
+  message: string;
+}
+
 export interface Blog {
   title: string;
   views: number;
