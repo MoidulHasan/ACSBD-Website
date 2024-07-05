@@ -1,11 +1,32 @@
 <script lang="ts" setup>
-const runtimeConfig = useRuntimeConfig();
+import { getLocations } from "~/app/api/getLocations";
+import type { ILocation } from "~/contracts/common";
+
 definePageMeta({
   title: "Our Showroom",
   name: "our-showroom",
 });
+
 const showroom = ref(true);
 const service = ref(false);
+const searchedText = ref("");
+
+const { data: locationData } = await getLocations<ILocation[]>();
+
+const filteredLocation = computed(() => {
+  return locationData.value.data.filter((location: ILocation) => {
+    const matchesType = showroom.value
+      ? location.location_type === "Showroom"
+      : location.location_type === "Service Center";
+    const matchesSearch =
+      location.title.toLowerCase().includes(searchedText.value.toLowerCase()) ||
+      location.subtitle
+        .toLowerCase()
+        .includes(searchedText.value.toLowerCase()) ||
+      location.address.toLowerCase().includes(searchedText.value.toLowerCase());
+    return matchesType && matchesSearch;
+  });
+});
 
 watch(
   () => showroom.value,
@@ -13,19 +34,13 @@ watch(
     showroom.value === true ? (service.value = false) : (service.value = true);
   },
 );
+
 watch(
   () => service.value,
   () => {
     service.value === true ? (showroom.value = false) : (showroom.value = true);
   },
 );
-
-const {
-  data: locationData,
-  pending,
-  error,
-  refresh,
-} = await useFetch(runtimeConfig.public.apiUrl + "/data/showroom-address.json");
 </script>
 
 <template>
@@ -37,11 +52,11 @@ const {
     />
     <div class="">
       <div
-        class="search-container bg-product-BG-color px-3 py-2 flex flex-column md:flex-row align-items-center gap-3 md:gap-8 mb-3"
+        class="search-container bg-color-product-bg container px-3 py-2 flex flex-column md:flex-row align-items-center gap-3 md:gap-8 mb-3"
       >
         <div class="md:mb-0 locationSearchBar w-full">
           <div class="p-inputgroup flex-1 flex-wrap w-full">
-            <InputText placeholder="Search Locations" />
+            <InputText v-model="searchedText" placeholder="Search Locations" />
             <Button class="search-button" icon="pi pi-search" />
           </div>
         </div>
@@ -71,18 +86,21 @@ const {
         </div>
       </div>
     </div>
-    <PagesShowroomLocation :location-data="locationData" />
+    <PagesShowroomLocationView :location-data="filteredLocation" />
   </div>
 </template>
 
 <style lang="scss" scoped>
 @use "assets/styles/scss/base/mixins" as *;
+
 .search-container {
   border-radius: 4px;
 }
+
 .locationSearchBar {
   max-width: 582px !important;
 }
+
 :deep(.p-inputgroup .p-inputtext) {
   @include media-query(sm) {
     max-height: 42px;
@@ -91,6 +109,7 @@ const {
     max-height: 42px;
   }
 }
+
 :deep(.p-inputgroup .p-button) {
   @include media-query(sm) {
     max-height: 42px;
@@ -99,6 +118,7 @@ const {
     max-height: 42px;
   }
 }
+
 .search-button,
 .search-button:hover {
   background-color: var(--primary-color-envitect-sam-blue);

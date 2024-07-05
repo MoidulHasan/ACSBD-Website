@@ -27,6 +27,16 @@ export interface Blog {
   id: string;
 }
 
+export interface ILocation {
+  id?: number;
+  location_type: string;
+  title: string;
+  subtitle: string;
+  address: string;
+  phone: string;
+  map_url: string;
+}
+
 export interface SwiperSliderBreakpointsI {
   [key: string]: {
     slidesPerView: number;

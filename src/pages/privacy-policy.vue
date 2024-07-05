@@ -1,6 +1,6 @@
 <template>
   <div class="container my-4 md:my-5 md:pb-6">
-    <h1 class="font-heading-2 text-center text-color-primary-navy-blue">
+    <h1 class="font-heading-2 text-center text-primary-color-navy-blue">
       Privacy Policy
     </h1>
     <p class="text-regular-3 mt-3">
@@ -11,7 +11,7 @@
       customers.
     </p>
 
-    <h1 class="font-heading-3 text-color-primary-navy-blue mt-5 md:mt-6">
+    <h1 class="font-heading-3 text-primary-color-navy-blue mt-5 md:mt-6">
       Data that we collect
     </h1>
     <p class="text-regular-3 mt-3">
@@ -26,7 +26,7 @@
       us to process your orders swiftly.
     </p>
 
-    <h1 class="font-heading-3 text-color-primary-navy-blue mt-5 md:mt-6">
+    <h1 class="font-heading-3 text-primary-color-navy-blue mt-5 md:mt-6">
       Purposes for collection, Storage and/or use of personal data or
       information
     </h1>
@@ -48,7 +48,7 @@
       misleading and you must keep it up to date and inform us of changes.
     </p>
 
-    <h1 class="font-heading-3 text-color-primary-navy-blue mt-5 md:mt-6">
+    <h1 class="font-heading-3 text-primary-color-navy-blue mt-5 md:mt-6">
       Data that we collect
     </h1>
     <p class="text-regular-3 mt-3">
@@ -70,7 +70,7 @@
       website; carry out research on our users’ demographics.
     </p>
 
-    <h1 class="font-heading-3 text-color-primary-navy-blue mt-5 md:mt-6">
+    <h1 class="font-heading-3 text-primary-color-navy-blue mt-5 md:mt-6">
       Third parties and Links
     </h1>
     <p class="text-regular-3 mt-3">
@@ -82,7 +82,7 @@
       marketing or customer service assistance.
     </p>
 
-    <h1 class="font-heading-3 text-color-primary-navy-blue mt-5 md:mt-6">
+    <h1 class="font-heading-3 text-primary-color-navy-blue mt-5 md:mt-6">
       Security
     </h1>
     <p class="text-regular-3 mt-3">
@@ -96,7 +96,7 @@
       and to your computer.
     </p>
 
-    <h1 class="font-heading-3 text-color-primary-navy-blue mt-5 md:mt-6">
+    <h1 class="font-heading-3 text-primary-color-navy-blue mt-5 md:mt-6">
       Your Rights
     </h1>
     <p class="text-regular-3 mt-3">

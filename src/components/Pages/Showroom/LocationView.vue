@@ -1,37 +1,44 @@
 <script lang="ts" setup>
+import type { ILocation } from "~/contracts/common";
+
 definePageMeta({
   title: "Our Showroom",
   name: "our-showroom",
 });
+
 const props = defineProps<{
-  locationData: any[];
+  locationData: ILocation[];
 }>();
 
-const activeLocation = ref(props.locationData[0]?.locationMap);
 const activeIndex = ref(0);
+const activeLocation = computed(() => {
+  return props.locationData[activeIndex.value]?.map_url;
+});
 
-const clickOnAdress = (i: number, map: string) => {
+const changeActiveLocation = (i: number) => {
   activeIndex.value = i;
-  activeLocation.value = map;
 };
 </script>
 
 <template>
   <div class="container location grid w-full border-round-lg mb-5 relative">
     <div class="col-12 lg:col-6">
-      <div class="addressContainer overflow-scroll overflow-x-hidden">
+      <div
+        v-if="locationData.length"
+        class="addressContainer overflow-scroll overflow-x-hidden"
+      >
         <div
           v-for="(address, index) in locationData"
           :key="address.title"
           class="address bg-primary-color-white mb-2 lg:mb-3"
           :class="{ active: activeIndex === index }"
-          @click="clickOnAdress(index, address.locationMap)"
+          @click="changeActiveLocation(index)"
         >
           <h2 class="address-title font-heading-3-small mb-2">
             {{ address.title }}
           </h2>
           <h2 class="address-place font-heading-4-semi-bold mb-12px">
-            {{ address.tower }}
+            {{ address.subtitle }}
           </h2>
           <p class="address-location text-regular-3 mb-12px">
             {{ address.address }}
@@ -39,8 +46,13 @@ const clickOnAdress = (i: number, map: string) => {
           <h3 class="address-contact font-heading-5">{{ address.phone }}</h3>
         </div>
       </div>
+      <div v-else>
+        <h4 class="text-primary-color-navy-blue font-heading-4">
+          No Showroom Found
+        </h4>
+      </div>
     </div>
-    <div class="col-12 lg:col-6 mapContainer">
+    <div v-if="activeLocation" class="col-12 lg:col-6 mapContainer">
       <iframe
         class="w-full map h-full"
         :src="activeLocation"
@@ -68,6 +80,7 @@ const clickOnAdress = (i: number, map: string) => {
       max-height: 272px !important;
     }
   }
+
   .address {
     padding: 31px 38px;
     border-radius: 8px;
@@ -81,12 +94,15 @@ const clickOnAdress = (i: number, map: string) => {
       .address-title {
         color: #363636;
       }
+
       .address-place {
         color: #4b4b4b;
       }
+
       .address-location {
         color: #575757;
       }
+
       .address-contact {
         color: #575757;
       }
@@ -106,6 +122,7 @@ const clickOnAdress = (i: number, map: string) => {
         margin-bottom: 4px;
       }
     }
+
     .address-place {
       max-width: 405px;
       @include media-query(sm) {
@@ -117,6 +134,7 @@ const clickOnAdress = (i: number, map: string) => {
         max-width: 190px;
       }
     }
+
     .address-location {
       @include media-query(sm) {
         font-size: 7.444px;
@@ -126,6 +144,7 @@ const clickOnAdress = (i: number, map: string) => {
         margin-bottom: 4px;
       }
     }
+
     .address-contact {
       @include media-query(sm) {
         font-size: 8.374px;
@@ -135,9 +154,11 @@ const clickOnAdress = (i: number, map: string) => {
       }
     }
   }
+
   .mapContainer {
     border-radius: 8px;
   }
+
   .map {
     border-radius: 8px;
     @include media-query(sm) {
