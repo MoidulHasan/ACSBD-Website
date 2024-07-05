@@ -1,3 +1,5 @@
+import { defineNuxtPlugin } from "#app";
+
 import PrimeVue from "primevue/config";
 import Ripple from "primevue/ripple";
 import Tooltip from "primevue/tooltip";
@@ -17,10 +19,7 @@ import Rating from "primevue/rating";
 import Calendar from "primevue/calendar";
 import Card from "primevue/card";
 import Galleria from "primevue/galleria";
-import DataTable from "primevue/datatable";
-import Column from "primevue/column";
 import Row from "primevue/row";
-import { defineNuxtPlugin } from "#app";
 import Dropdown from "primevue/dropdown";
 import TabPanel from "primevue/tabpanel";
 import TabView from "primevue/tabview";

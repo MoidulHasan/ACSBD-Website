@@ -28,6 +28,7 @@ export default defineNuxtConfig({
     "@vueuse/nuxt",
     "@pinia/nuxt",
     "nuxt-swiper",
+    "@vee-validate/nuxt",
   ],
 
   image: {
@@ -100,10 +101,15 @@ export default defineNuxtConfig({
     },
   },
 
+  veeValidate: {
+    autoImports: true,
+  },
+
   runtimeConfig: {
     apiBase: "",
     public: {
       baseURL: "",
+      appUrl: "",
       apiUrl: "",
     },
   },

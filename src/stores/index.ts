@@ -20,6 +20,7 @@ export const useStore = defineStore("store", () => {
   const cart = ref<CartedProduct[]>([]);
   const favorites = ref<CartedProduct[]>([]);
   const headerHeight = ref(171);
+  const loading = ref(false);
   // getters
   const doubleCount = computed(() => count.value * 2);
 
@@ -150,6 +151,7 @@ export const useStore = defineStore("store", () => {
 
   return {
     count,
+    loading,
     headerHeight,
     cartVisible,
     doubleCount,
