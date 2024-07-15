@@ -14,6 +14,9 @@
     <div>
       <LayoutsAppFooter />
     </div>
+    <ClientOnly>
+      <Toast />
+    </ClientOnly>
   </main>
 </template>
 
