@@ -4,7 +4,6 @@ import { getProfile } from "~/app/api/getProfile";
 definePageMeta({
   name: "my-details",
   title: "My Details",
-  middleware: ["auth"],
 });
 
 const { data: profile } = await getProfile();

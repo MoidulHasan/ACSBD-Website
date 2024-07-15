@@ -15,6 +15,7 @@ definePageMeta({
   name: "my-account",
   title: "My Account",
   redirect: "my-details",
+  middleware: ["auth"],
   layout: false,
 });
 </script>
