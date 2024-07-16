@@ -9,6 +9,10 @@ interface ILoginPayload {
   password: string;
 }
 
+interface IRegisterPayLoad extends ILoginPayload {
+  name: string;
+}
+
 export const useAuthStore = defineStore("authStore", () => {
   const { $apiClient } = useNuxtApp();
 
@@ -38,6 +42,28 @@ export const useAuthStore = defineStore("authStore", () => {
     return response;
   };
 
+  const registerUser = async ({ name, email, password }: IRegisterPayLoad) => {
+    const response = await $apiClient("/user/register", {
+      method: "POST",
+      body: {
+        name,
+        email,
+        password,
+      },
+    }).catch((error) => error.data);
+    if ((response.status = "success" && response.token)) {
+      const token = useCookie("token");
+      const userCookie = useCookie("user");
+
+      token.value = response.token;
+      userCookie.value = response.user;
+
+      authorized.value = true;
+      user.value = response.user;
+    }
+    return response;
+  };
+
   const logoutUser = async () => {
     const response = await $apiClient<ICreateResponse>("/logout", {
       method: "POST",
@@ -64,6 +90,7 @@ export const useAuthStore = defineStore("authStore", () => {
     authorized,
     isAuthenticated,
     authenticateUser,
+    registerUser,
     logoutUser,
   };
 });

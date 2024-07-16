@@ -114,7 +114,7 @@ const onSubmit = handleSubmit(async (values) => {
         </form>
         <h2 class="sign-up-text mt-5 text-center">
           Don’t have an account yet?
-          <NuxtLink class="link" to="/">Sign Up</NuxtLink>
+          <NuxtLink class="link" to="/registration">Sign Up</NuxtLink>
         </h2>
       </template>
     </CommonAuthFormSection>
