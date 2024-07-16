@@ -43,8 +43,10 @@ defineProps<{
     border-radius: 8px;
     border: 1px solid var(--primary-color-envitect-sam-blue);
     background: var(--envitect-sam-blue-2);
+    overflow: hidden;
 
     .client-image {
+      max-width: 215px;
       @include media-query(lg) {
         height: 42.48px;
       }
