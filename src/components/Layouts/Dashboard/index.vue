@@ -1,7 +1,13 @@
 <script setup lang="ts">
+import { useToast } from "primevue/usetoast";
 import { getProfile } from "~/app/api/getProfile";
+import { useAuthStore } from "#imports";
 
 const { data: profile } = await getProfile();
+
+const store = useStore();
+const toast = useToast();
+const { user, isAuthenticated, logoutUser } = useAuthStore();
 
 const navLinks = [
   { icon: "pi pi-user", title: "My Details", to: "/account/my-details" },
@@ -31,8 +37,32 @@ const handleLogOut = (title: string) => {
   }
 };
 
-const gotToHome = () => {
-  navigateTo("/");
+const logOutUser = async () => {
+  store.loading = true;
+  const response = await logoutUser();
+  store.loading = false;
+
+  if (!isAuthenticated()) {
+    await navigateTo("/sign-in");
+    return;
+  }
+
+  // toast.add({
+  //   severity: "error",
+  //   summary: "Logout Failed",
+  //   detail: response?.errors,
+  //   life: 3000,
+  // });
+
+  Object.entries(response?.errors).forEach(([key, value]) => {
+    toast.add({
+      severity: "error",
+      summary: "Login Failed",
+      detail: value[0],
+      life: 3000,
+    });
+  });
+
   // navigateTo("http://localhost:3000/", {
   //   open: {
   //     target: "_blank",
@@ -108,7 +138,7 @@ const gotToHome = () => {
               </Button>
               <Button
                 class="modal-button logout font-heading-7 font-semibold"
-                @click="gotToHome"
+                @click="logOutUser"
               >
                 Logout
               </Button>

@@ -3,6 +3,7 @@ defineProps<{
   placeholderText: string;
   password?: boolean;
   disabled?: boolean;
+  type?: "text" | "number" | "email" | "password";
 }>();
 const emit = defineEmits<{
   (e: "update:text", value: string): void;
@@ -25,8 +26,8 @@ const toggleOpen = () => {
       :class="{ ' cursor-not-allowed ': disabled }"
       :placeholder="placeholderText"
       :type="password ? (isOpen ? 'text' : 'password') : 'text'"
-      @input="updateText"
       :disabled="disabled"
+      @input="updateText"
     />
     <i
       v-if="password"
@@ -51,13 +52,16 @@ const toggleOpen = () => {
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+
     &:focus {
       color: #000;
     }
   }
+
   .cursor-not-allowed {
     cursor: not-allowed;
   }
+
   .showIcon {
     width: 24px !important;
     height: 16px !important;

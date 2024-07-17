@@ -1,14 +1,54 @@
 <script setup lang="ts">
+import * as yup from "yup";
+import { useToast } from "primevue/usetoast";
+
 definePageMeta({
   title: "Sign In",
+  name: "sign-in",
 });
-const checked = ref(false);
-const email = ref("");
-const passwordValue = ref("");
+useHead({
+  title: "Sign In",
+});
 
-const login = () => {
-  console.warn("email :", email.value);
-};
+const toast = useToast();
+const store = useStore();
+const { authenticateUser, isAuthenticated } = useAuthStore();
+
+const checked = ref(false);
+
+const validationSchema = yup.object({
+  email: yup
+    .string()
+    .required("Email is Required")
+    .email("Enter valid email address"),
+  password: yup.string().required("Password is Required"),
+});
+
+const { handleSubmit, errors, meta } = useForm({ validationSchema });
+
+const { value: email } = useField("email");
+const { value: password } = useField("password");
+
+const onSubmit = handleSubmit(async (values) => {
+  store.loading = true;
+  const response = await authenticateUser({
+    email: values.email,
+    password: values.password,
+  });
+  store.loading = false;
+
+  if (isAuthenticated()) {
+    await navigateTo({ name: "my-details" });
+    return;
+  }
+
+  toast.add({
+    severity: "error",
+    summary: "Login Failed",
+    detail: response.statusMessage,
+    life: 3000,
+  });
+});
 </script>
 
 <template>
@@ -18,18 +58,37 @@ const login = () => {
       form-sub-title="Login to your an account"
     >
       <template #innerContent>
-        <form @submit.prevent="login">
-          <CommonAuthInputField
-            class="mb-4"
-            placeholder-text="Email or Phone"
-            @update:text="email = $event"
-          />
-          <CommonAuthInputField
-            class="password-input"
-            placeholder-text="Password"
-            :password="true"
-            @update:text="passwordValue = $event"
-          />
+        <form @submit.prevent="onSubmit">
+          <CommonFormInput
+            id="email"
+            label="Email Address"
+            required
+            :error="errors.email"
+            class="mb-3"
+          >
+            <InputText
+              id="email"
+              v-model="email"
+              placeholder="Enter your email address"
+              :invalid="!!errors.email"
+            />
+          </CommonFormInput>
+          <CommonFormInput
+            id="password"
+            label="Password"
+            required
+            :error="errors.password"
+            class="mb-3"
+          >
+            <Password
+              id="password"
+              v-model="password"
+              placeholder="Enter your password"
+              :invalid="!!errors.password"
+              toggle-mask
+              :feedback="false"
+            />
+          </CommonFormInput>
           <div
             class="utils-container flex align-items-center justify-content-between mb-4"
           >
@@ -43,19 +102,19 @@ const login = () => {
               <label class="ml-2 check-text" for="chbx">Remember</label>
             </div>
             <NuxtLink to="/reset-password" class="reset-text"
-              >Reset Password?</NuxtLink
-            >
+              >Reset Password?
+            </NuxtLink>
           </div>
           <Button
             type="submit"
             class="auth-button w-full"
-            :disabled="!(email && passwordValue)"
-            >Log In</Button
-          >
+            :disabled="!meta.valid || !meta.dirty"
+            >Log In
+          </Button>
         </form>
         <h2 class="sign-up-text mt-5 text-center">
           Don’t have an account yet?
-          <NuxtLink class="link" to="/">Sign Up </NuxtLink>
+          <NuxtLink class="link" to="/registration">Sign Up</NuxtLink>
         </h2>
       </template>
     </CommonAuthFormSection>
@@ -63,8 +122,8 @@ const login = () => {
 </template>
 
 <style scoped lang="scss">
-.password-input {
-  margin-bottom: 26px;
+:deep(.p-password .p-password-input) {
+  width: 100%;
 }
 
 .utils-container {
@@ -98,6 +157,7 @@ const login = () => {
   background: var(--primary-color-envitect-sam-blue);
   color: var(--primary-color-white);
 }
+
 .sign-up-text {
   color: #808080 !important;
   font-size: 16px;
@@ -106,7 +166,7 @@ const login = () => {
   line-height: 24px;
 
   .link {
-    text-decoration: none;
+    text-decoration: underline;
     cursor: pointer;
     color: #808080 !important;
   }

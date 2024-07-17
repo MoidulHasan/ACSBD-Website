@@ -5,6 +5,7 @@ definePageMeta({
   name: "my-details",
   title: "My Details",
 });
+
 const { data: profile } = await getProfile();
 
 const edit = ref(false);

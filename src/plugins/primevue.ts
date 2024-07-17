@@ -30,6 +30,7 @@ import Column from "primevue/column";
 import RadioButton from "primevue/radiobutton";
 import Divider from "primevue/divider";
 import Toast from "primevue/toast";
+import Password from "primevue/password";
 
 export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.use(PrimeVue, { ripple: true });
@@ -58,9 +59,8 @@ export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.component("TabView", TabView);
   nuxtApp.vueApp.component("InputNumber", InputNumber);
   nuxtApp.vueApp.component("Dialog", Dialog);
-  nuxtApp.vueApp.component("DataTable", DataTable);
-  nuxtApp.vueApp.component("Column", Column);
   nuxtApp.vueApp.component("RadioButton", RadioButton);
   nuxtApp.vueApp.component("Divider", Divider);
   nuxtApp.vueApp.component("Toast", Toast);
+  nuxtApp.vueApp.component("Password", Password);
 });
