@@ -74,3 +74,33 @@ export interface IAuthSuccessResponse {
   user: IUser;
   message: string;
 }
+
+export interface WishListImageObj {
+  id?: number;
+  path?: string;
+  created_at?: string;
+}
+
+export interface WishListProductPrice {
+  base_price: string;
+  final_price: string;
+  product_id: string;
+}
+
+export interface ProductInWishList {
+  id: number;
+  slug: string;
+  name: string;
+  images: WishListImageObj[];
+  price: WishListProductPrice;
+  brand_id?: string;
+  brand_name?: string;
+  stock: string;
+  created_at: string;
+}
+
+export interface WishListSuccessFetchResponse<T> {
+  data: T[];
+  message: string;
+  status: boolean;
+}

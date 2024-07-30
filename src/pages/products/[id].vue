@@ -3,6 +3,7 @@ import { useToast } from "primevue/usetoast";
 import { getProducts } from "~/app/api/getProducts";
 import type { ProductI } from "~/contracts/api-contracts/ProductsInterfaces";
 import { useStore } from "~/stores/index.ts";
+import { useAuthStore, useWishListStore } from "#imports";
 
 interface CartedProduct {
   id: number;
@@ -46,13 +47,24 @@ const isAvailableProduct = (isInStock: boolean) => {
 const value = ref(10);
 const favorite = ref(false);
 const store = useStore();
+const authStore = useAuthStore();
+const wishListStore = useWishListStore();
+const token = useCookie("token");
+const userCookie = useCookie("user");
 
-const toggleFavorite = (product: CartedProduct) => {
-  favorite.value = !favorite.value;
-  if (favorite.value) {
-    addToFav(product);
+const toggleFavorite = async (product: CartedProduct) => {
+  const productToToggle = {
+    slug: "whirlpool-fantasia-ac-spow-224-10-ton",
+  };
+  if (authStore?.user?.email && token && userCookie) {
+    if (!favorite.value) {
+      await wishListStore.addProductToWishList(productToToggle);
+    } else {
+      await wishListStore.deleteProductFromWishListBySlug(productToToggle.slug);
+    }
+    favorite.value = !favorite.value;
   } else {
-    store.deleteItemFromFav(product);
+    await navigateTo("/sign-in");
   }
 };
 
@@ -103,8 +115,8 @@ function addToFav(product: ProductI) {
 }
 
 onMounted(() => {
-  if (process.client) {
-    const favoriteProduct = store.favorites.find(
+  if (wishListStore.wishListedProduct?.length) {
+    const favoriteProduct = wishListStore.wishListedProduct?.find(
       (product) => product.id === singleProductData.value.id,
     );
     if (favoriteProduct) {
@@ -229,6 +241,13 @@ onMounted(() => {
             </ClientOnly>
 
             <i
+              :title="
+                token
+                  ? favorite
+                    ? 'Remove from your wishlist'
+                    : 'Add to your wishlist'
+                  : 'Sign In to add this product to your wishlist'
+              "
               :class="[
                 'pi',
                 'text-6xl',

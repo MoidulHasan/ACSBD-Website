@@ -10,9 +10,11 @@
 </template>
 <script lang="ts" setup>
 import { useStore } from "~/stores";
+import { useWishListStore } from "#imports";
 
 const route = useRoute();
 const store = useStore();
+const wishListStore = useWishListStore();
 
 useHead({
   title: computed(() => `${route.meta.title} | AC Service BD`),
@@ -27,6 +29,7 @@ useHead({
 });
 
 onBeforeMount(() => {
+  wishListStore.getWishListProduct();
   if (process.client) {
     store.setCartFromLocalStorage();
     store.setFavoritesFromLocalStorage();

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import * as yup from "yup";
 import { useToast } from "primevue/usetoast";
+import type { ProductInWishList } from "~/contracts/common";
 
 definePageMeta({
   title: "Sign In",
@@ -12,6 +13,7 @@ useHead({
 
 const toast = useToast();
 const store = useStore();
+const wishListStore = useWishListStore();
 const { authenticateUser, isAuthenticated } = useAuthStore();
 
 const checked = ref(false);
@@ -39,6 +41,10 @@ const onSubmit = handleSubmit(async (values) => {
 
   if (isAuthenticated()) {
     await navigateTo({ name: "my-details" });
+    const { data: customerWishList } = await useAsyncData<ProductInWishList[]>(
+      "wishlist-data",
+      () => wishListStore.fetchWishListProducts(),
+    );
     return;
   }
 
