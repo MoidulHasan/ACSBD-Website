@@ -40,7 +40,11 @@ const registration = async () => {
 
   if (isAuthenticated()) {
     name.value = email.value = password.value = "";
-    await navigateTo({ name: "my-details" });
+    const redirectTo = useCookie("redirectTo").value;
+    useCookie("redirectTo").value = null;
+    redirectTo
+      ? await navigateTo({ path: redirectTo })
+      : await navigateTo({ name: "my-details" });
     return;
   }
 

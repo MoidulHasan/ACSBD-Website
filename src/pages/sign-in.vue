@@ -40,7 +40,11 @@ const onSubmit = handleSubmit(async (values) => {
   store.loading = false;
 
   if (isAuthenticated()) {
-    await navigateTo({ name: "my-details" });
+    const redirectTo = useCookie("redirectTo").value;
+    useCookie("redirectTo").value = null;
+    redirectTo
+      ? await navigateTo({ path: redirectTo })
+      : await navigateTo({ name: "my-details" });
     const { data: customerWishList } = await useAsyncData<ProductInWishList[]>(
       "wishlist-data",
       () => wishListStore.fetchWishListProducts(),

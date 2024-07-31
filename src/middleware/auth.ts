@@ -2,6 +2,7 @@ export default defineNuxtRouteMiddleware((to, from) => {
   const { authorized, user } = storeToRefs(useAuthStore());
   const token = useCookie("token");
   const userCookie = useCookie("user");
+  useCookie("redirectTo").value = to.path;
 
   if (token.value && userCookie.value) {
     authorized.value = true;

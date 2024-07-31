@@ -49,9 +49,7 @@ const addProductsToCart = (product: ProductInWishList) => {
 const deleteProductFromWishlist = async (product: ProductInWishList) => {
   try {
     store.loading = true;
-    const response = await wishListStore.deleteProductFromWishListBySlug(
-      product.slug,
-    );
+    await wishListStore.deleteProductFromWishListBySlug(product.slug);
     store.loading = false;
 
     toast.add({

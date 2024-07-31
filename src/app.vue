@@ -15,6 +15,7 @@ import { useWishListStore } from "#imports";
 const route = useRoute();
 const store = useStore();
 const wishListStore = useWishListStore();
+const token = useCookie("token");
 
 useHead({
   title: computed(() => `${route.meta.title} | AC Service BD`),
@@ -29,8 +30,10 @@ useHead({
 });
 
 onBeforeMount(() => {
-  wishListStore.getWishListProduct();
   if (process.client) {
+    if (token.value) {
+      wishListStore.getWishListProduct();
+    }
     store.setCartFromLocalStorage();
     store.setFavoritesFromLocalStorage();
   }

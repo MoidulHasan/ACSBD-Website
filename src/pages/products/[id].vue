@@ -55,15 +55,35 @@ const userCookie = useCookie("user");
 const toggleFavorite = async (product: CartedProduct) => {
   const productToToggle = {
     slug: "whirlpool-fantasia-ac-spow-224-10-ton",
+    name: "Product One",
   };
-  if (authStore?.user?.email && token && userCookie) {
+  if (token.value && userCookie.value) {
     if (!favorite.value) {
       await wishListStore.addProductToWishList(productToToggle);
+      favorite.value = !favorite.value;
     } else {
-      await wishListStore.deleteProductFromWishListBySlug(productToToggle.slug);
+      try {
+        await wishListStore.deleteProductFromWishListBySlug(
+          productToToggle.slug,
+        );
+        toast.add({
+          severity: "success",
+          summary: "Deleted",
+          detail: `${product.name} removed from your wishlist`,
+          life: 3000,
+        });
+        favorite.value = !favorite.value;
+      } catch (error) {
+        toast.add({
+          severity: "error",
+          summary: error?.statusMessage ?? "Could not remove from wishlist",
+          detail: error?.data?.error ?? "Unknown Issue Occurred",
+          life: 3000,
+        });
+      }
     }
-    favorite.value = !favorite.value;
   } else {
+    useCookie("redirectTo").value = route.path;
     await navigateTo("/sign-in");
   }
 };
