@@ -11,11 +11,7 @@ defineProps<{
     <div
       class="image-container flex-1 flex align-items-center justify-content-center"
     >
-      <img
-        class="product-image"
-        :alt="product.name"
-        :src="`http://127.0.0.1:9000/${product?.images?.[0].path}`"
-      />
+      <img class="product-image" :alt="product.name" :src="product.image" />
     </div>
     <div
       class="product-detail flex flex-column justify-content-between flex-wrap flex-1"
@@ -28,7 +24,7 @@ defineProps<{
         <!--          Qty: {{ product.quantity }}-->
         <!--        </span>-->
         <span class="font-heading-7 font-semibold price-text">
-          TK. {{ product.price.final_price }}
+          TK. {{ product.final_price }}
         </span>
       </h2>
     </div>

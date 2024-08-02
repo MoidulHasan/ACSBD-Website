@@ -44,17 +44,15 @@ const isAvailableProduct = (isInStock: boolean) => {
   return isInStock ? "In Stock" : "Out of Stock";
 };
 
-const value = ref(10);
 const favorite = ref(false);
 const store = useStore();
-const authStore = useAuthStore();
 const wishListStore = useWishListStore();
 const token = useCookie("token");
 const userCookie = useCookie("user");
 
 const toggleFavorite = async (product: CartedProduct) => {
   const productToToggle = {
-    slug: "whirlpool-fantasia-ac-spow-224-10-ton",
+    slug: "singara-ac",
     name: "Product One",
   };
   if (token.value && userCookie.value) {

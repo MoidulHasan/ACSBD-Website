@@ -13,8 +13,9 @@ const store = useStore();
 const wishListStore = useWishListStore();
 const toast = useToast();
 
-await useAsyncData<ProductInWishList[]>("wishlist-data", () =>
-  wishListStore.fetchWishListProducts(),
+const { refresh: refreshWishList } = await useAsyncData<ProductInWishList[]>(
+  "wishlist-data",
+  () => wishListStore.fetchWishListProducts(),
 );
 
 const initialLength = ref(5);
@@ -47,26 +48,35 @@ const addProductsToCart = (product: ProductInWishList) => {
 };
 
 const deleteProductFromWishlist = async (product: ProductInWishList) => {
+  store.loading = true;
   try {
-    store.loading = true;
-    await wishListStore.deleteProductFromWishListBySlug(product.slug);
-    store.loading = false;
-
-    toast.add({
-      severity: "success",
-      summary: "Deleted",
-      detail: `${product.name} removed from your wishlist`,
-      life: 3000,
-    });
+    const { data } = await wishListStore.deleteProductFromWishListBySlug(
+      product.product_slug,
+    );
+    if (!data.error) {
+      toast.add({
+        severity: "success",
+        summary: "Deleted",
+        detail: `${product.name} removed from your wishlist`,
+        life: 3000,
+      });
+    } else {
+      toast.add({
+        severity: "error",
+        summary: "Could Not Remove",
+        detail: `${product.name} could not be removed from your wishlist`,
+        life: 3000,
+      });
+    }
   } catch (error) {
-    store.loading = false;
-
     toast.add({
       severity: "error",
       summary: error?.statusMessage ?? "Could not remove from wishlist",
       detail: error?.data?.error ?? "Unknown Issue Occurred",
       life: 3000,
     });
+  } finally {
+    store.loading = false;
   }
 };
 </script>
@@ -100,14 +110,14 @@ const deleteProductFromWishlist = async (product: ProductInWishList) => {
           <Column header="Brand">
             <template #body="slotProps">
               <h2 class="item-title font-heading-7">
-                {{ slotProps.data.brand_id }}
+                {{ slotProps.data.brand_name }}
               </h2>
             </template>
           </Column>
           <Column header="Date:">
             <template #body="slotProps">
               <h2 class="font-heading-7 item-title">
-                {{ formatDate(slotProps.data.created_at) }}
+                {{ slotProps.data.created_at }}
               </h2>
             </template>
           </Column>
@@ -128,7 +138,7 @@ const deleteProductFromWishlist = async (product: ProductInWishList) => {
             <template #body="slotProps">
               <p>
                 <NuxtLink
-                  :to="`/products/${slotProps.data.id}`"
+                  :to="`/products/${slotProps.data.product_slug}`"
                   class="action-button-box mr-2"
                 >
                   <i
@@ -187,7 +197,7 @@ const deleteProductFromWishlist = async (product: ProductInWishList) => {
               <li class="flex align-items-center order-item-list mb-14px">
                 <p class="order-item-title font-heading-7 mr-12px">Date:</p>
                 <p class="font-heading-7 item-title">
-                  {{ formatDate(favorite.created_at) }}
+                  {{ favorite.created_at }}
                 </p>
               </li>
               <li class="flex align-items-center order-item-list mb-14px">

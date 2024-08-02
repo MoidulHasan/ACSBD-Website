@@ -75,11 +75,11 @@ export interface IAuthSuccessResponse {
   message: string;
 }
 
-export interface WishListImageObj {
-  id?: number;
-  path?: string;
-  created_at?: string;
-}
+// export interface WishListImageObj {
+//   id?: number;
+//   path?: string;
+//   created_at?: string;
+// }
 
 export interface WishListProductPrice {
   base_price: string;
@@ -89,10 +89,10 @@ export interface WishListProductPrice {
 
 export interface ProductInWishList {
   id: number;
-  slug: string;
+  product_slug: string;
   name: string;
-  images: WishListImageObj[];
-  price: WishListProductPrice;
+  image: string;
+  final_price: string | number;
   brand_id?: string;
   brand_name?: string;
   stock: string;

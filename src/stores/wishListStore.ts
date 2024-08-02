@@ -66,7 +66,7 @@ export const useWishListStore = defineStore("wishListStore", () => {
         method: "DELETE",
       });
       wishListedProduct.value = wishListedProduct.value.filter(
-        (product) => product.slug !== slug,
+        (product) => product.product_slug !== slug,
       );
 
       localStorage.setItem(
