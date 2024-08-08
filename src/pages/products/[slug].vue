@@ -2,7 +2,6 @@
 import { useToast } from "primevue/usetoast";
 import { getProducts } from "~/app/api/getProducts";
 import type { ProductI } from "~/contracts/api-contracts/ProductsInterfaces";
-import { useStore } from "~/stores/index.ts";
 
 interface CartedProduct {
   id: number;
@@ -19,16 +18,46 @@ interface CartedProduct {
 const route = useRoute();
 const toast = useToast();
 
+// const { data, pending, refresh, error } = await useAsyncData(
+//   `product-${route.params.slug}`,
+//   () => $fetch(`/api/proxy/products/${route.params.slug}`),
+//   {
+//     transform(data) {
+//       return data.data;
+//     },
+//   },
+// );
+
+const { $apiClient } = useNuxtApp();
+const { data: singleProduct, error } = await useAsyncData(
+  "stocks",
+  () => $apiClient(`/admin/products/${route.params.slug}`),
+  {
+    transform(data) {
+      const imageUrls = data.data.images.map((image) => image.image_url);
+      return {
+        ...data.data,
+        sliderImages: [data.data.image, ...imageUrls],
+      };
+    },
+  },
+);
+
+// console.log(singleProduct, "DATA IS HERE");
+if (error) {
+  console.error("ERROR OCCURED");
+}
+
 const { data: productsData } = await getProducts();
 
 const singleProductData = computed<ProductI>(() => {
   return productsData.value.find((product) => {
-    return product.id === Number(route.params.id);
+    return product.id === Number("1");
   });
 });
 
 useHead({
-  title: singleProductData.value.name,
+  title: singleProduct.value.name,
 });
 const showReviewNumbers = (count: number) => {
   if (count >= 0) {
@@ -118,12 +147,12 @@ onMounted(() => {
   <div class="container single-product">
     <div class="grid mt-3 mb-6">
       <div class="col-12 lg:col-5">
-        <PagesProductImageGallerySlider :images="singleProductData.images" />
+        <PagesProductImageGallerySlider :images="singleProduct.sliderImages" />
       </div>
       <div class="col-12 lg:col-7">
         <div class="product-summary">
           <h1 class="product-title font-heading-4-semi-bold">
-            {{ singleProductData.name }}
+            {{ singleProduct.name }}
           </h1>
           <div class="product-stock-rating flex align-items-center flex-wrap">
             <p
@@ -154,34 +183,38 @@ onMounted(() => {
               </p>
             </div>
           </div>
-          <p
+          <div
             class="text-regular-3 text-primary-color-dark-gray flex flex-column meta-info gap-1"
-          >
-            <span> Brand: {{ singleProductData.brand }} </span>
-            <span> Model: {{ singleProductData.model }} </span>
-            <span> Color: {{ singleProductData.attributes.acType }} </span>
-            <span>
-              Capacity: {{ singleProductData.attributes.capacity }} ({{
-                singleProductData.attributes.BTU
-              }})
-            </span>
-            <span
-              >Type Air Conditioner:
-              {{ singleProductData.attributes.acType }}</span
-            >
-            <span
-              >Compressor:
-              {{ singleProductData.attributes.compressorType }}</span
-            >
-            <span>Energy Saving</span>
-          </p>
+            v-html="singleProduct.short_description"
+          />
+          <!--          <p-->
+          <!--            class="text-regular-3 text-primary-color-dark-gray flex flex-column meta-info gap-1"-->
+          <!--          >-->
+          <!--            <span> Brand: {{ singleProductData.brand }} </span>-->
+          <!--            <span> Model: {{ singleProductData.model }} </span>-->
+          <!--            <span> Color: {{ singleProductData.attributes.acType }} </span>-->
+          <!--            <span>-->
+          <!--              Capacity: {{ singleProductData.attributes.capacity }} ({{-->
+          <!--                singleProductData.attributes.BTU-->
+          <!--              }})-->
+          <!--            </span>-->
+          <!--            <span-->
+          <!--              >Type Air Conditioner:-->
+          <!--              {{ singleProductData.attributes.acType }}</span-->
+          <!--            >-->
+          <!--            <span-->
+          <!--              >Compressor:-->
+          <!--              {{ singleProductData.attributes.compressorType }}</span-->
+          <!--            >-->
+          <!--            <span>Energy Saving</span>-->
+          <!--          </p>-->
           <h1 class="product-price">
             <span class="font-heading-3 text-primary-color-envitect-sam-blue">
-              ৳{{ singleProductData.price.discounted }}
+              ৳{{ singleProduct.price.final_price }}
             </span>
             <span
               class="font-heading-3-thin product-previous-price text-dark-gray-60 line-through"
-              >৳{{ singleProductData.price.regular }}</span
+              >৳{{ singleProduct.price.base_price }}</span
             >
           </h1>
           <p class="text-medium-2 text-dark-gray-80 my-4">
@@ -190,10 +223,12 @@ onMounted(() => {
               v-if="singleProductData.price.discountPercentage"
               class="discount-container text-primary-color-navy-blue ml-4 text-semi-bold-1"
             >
-              Get upto {{ singleProductData.price.discountPercentage }}% off
+              Get upto {{ singleProduct.price.discount_amount }}
+              {{ singleProduct.price.is_percent ? "%" : "taka" }} off
             </span>
           </p>
           <p
+            v-if="singleProduct.installment"
             class="text-medium-2 text-dark-gray-80 mb-3 flex align-items-center"
           >
             Installment:
@@ -201,7 +236,7 @@ onMounted(() => {
               class="text-primary-color-navy-blue ml-4 flex align-items-center"
             >
               <i class="pi pi-calendar text-2xl mr-2" />
-              <span>Upto 12 months, 3000/- per month </span>
+              <span>{{ singleProduct.installment }} </span>
             </span>
           </p>
           <!--          quantity button -->
@@ -242,7 +277,7 @@ onMounted(() => {
           <p class="text-medium-2 text-dark-gray-80">
             Product SKU:
             <span class="text-semi-bold-1">
-              {{ singleProductData.model }}
+              {{ singleProduct.sku }}
             </span>
           </p>
           <div
@@ -260,7 +295,10 @@ onMounted(() => {
       </div>
     </div>
     <div>
-      <PagesProductDetailDescription :product="singleProductData" />
+      <PagesProductDetailDescription
+        :product="singleProductData"
+        :product-desc="singleProduct"
+      />
     </div>
     <div class="mt-5 lg:mt-8">
       <PagesProductRelatedProducts />

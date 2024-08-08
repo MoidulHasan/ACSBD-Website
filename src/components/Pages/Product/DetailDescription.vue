@@ -3,6 +3,7 @@ import type { ProductI } from "~/contracts/api-contracts/ProductsInterfaces";
 
 const props = defineProps<{
   product: ProductI;
+  productDesc: ProductI;
 }>();
 const active = ref(0);
 const selectedType = ref();
@@ -80,7 +81,11 @@ watch(active, () => {
     </div>
     <TabView v-model:activeIndex="active" class="work-details">
       <TabPanel v-for="type in types" :key="type.name">
-        <PagesProductDetailTab :type="type.name" :product="product" />
+        <PagesProductDetailTab
+          :type="type.name"
+          :product="product"
+          :product-desc="productDesc"
+        />
       </TabPanel>
     </TabView>
   </div>

@@ -1,6 +1,6 @@
 <template>
   <div class="product-card">
-    <NuxtLink class="w-full" :to="`/products/${id}`">
+    <NuxtLink class="w-full" :to="`/products/${slug}`">
       <div class="w-full grid">
         <div class="col-4">
           <div class="h-full flex justify-content-center relative">

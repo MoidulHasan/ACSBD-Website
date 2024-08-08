@@ -4,22 +4,29 @@ import type { ProductI } from "~/contracts/api-contracts/ProductsInterfaces";
 const props = defineProps<{
   type: string;
   product: ProductI;
+  productDesc: ProductI;
 }>();
 </script>
 
 <template>
   <div>
     <div v-if="type === 'DESCRIPTION'">
-      <PagesProductDescription :product="product" />
+      <PagesProductDescription :product="product" :product-desc="productDesc" />
     </div>
     <div v-else-if="type === 'ADDITIONAL INFORMATION'">
-      <PagesProductAdditionalInformation :product="product" />
+      <PagesProductAdditionalInformation
+        :product="product"
+        :product-desc="productDesc"
+      />
     </div>
     <div v-else-if="type === 'WARRANTY & SERVICES'">
-      <PagesProductWarrantyService :product="product" />
+      <PagesProductWarrantyService
+        :product="product"
+        :product-desc="productDesc"
+      />
     </div>
     <div v-else>
-      <PagesProductReviews :product="product" />
+      <PagesProductReviews :product="product" :product-desc="productDesc" />
     </div>
   </div>
 </template>

@@ -6,8 +6,14 @@
         :key="'product-card-' + product.id"
         :class="viewBy === 'grid' ? 'col-12 md:col-2 lg:col-3 p-2' : 'col-12'"
       >
-        <CommonProductCard v-if="viewBy === 'grid'" v-bind="{ ...product }" />
-        <CommonProductCardLarge v-else v-bind="{ ...product }" />
+        <CommonProductCard
+          v-if="viewBy === 'grid'"
+          v-bind="{ ...product, slug: 'ac-service-bd-ac' }"
+        />
+        <CommonProductCardLarge
+          v-else
+          v-bind="{ ...product, slug: 'ac-service-bd-ac' }"
+        />
       </div>
     </TransitionGroup>
 

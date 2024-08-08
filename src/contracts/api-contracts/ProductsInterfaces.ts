@@ -68,6 +68,7 @@ export interface ProductI {
   stock: ProductStockI;
   reviews: ProductReviewI[];
   timestamp: string;
+  slug: string;
 }
 
 export interface SortByOptionI {
