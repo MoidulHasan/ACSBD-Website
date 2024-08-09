@@ -30,7 +30,7 @@ const toast = useToast();
 
 const { $apiClient } = useNuxtApp();
 const { data: singleProduct, error } = await useAsyncData(
-  "stocks",
+  `product-${route.params.slug}`,
   () => $apiClient(`/admin/products/${route.params.slug}`),
   {
     transform(data) {
