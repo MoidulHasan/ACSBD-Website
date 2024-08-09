@@ -3,6 +3,7 @@ import type { ProductI } from "~/contracts/api-contracts/ProductsInterfaces";
 
 const props = defineProps<{
   product: ProductI;
+  productDesc: ProductI;
 }>();
 const productRating = computed(() => {
   return Math.round(props.product.ratings.average);
@@ -13,7 +14,7 @@ const ratings = ref([5, 4, 3, 2, 1]);
 <template>
   <div class="rating-section">
     <h1 class="font-heading-4-semi-bold text-primary-color-navy-blue mb-6">
-      Ratings & Reviews of {{ product.name }}
+      Ratings & Reviews of {{ productDesc.name }}
     </h1>
     <div
       class="login-section flex flex-column flex-wrap align-items-center justify-content-center bg-color-product-bg border-round-lg py-85px mb-85px"
