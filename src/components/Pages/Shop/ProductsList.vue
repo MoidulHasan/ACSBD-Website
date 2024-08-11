@@ -1,33 +1,8 @@
-<template>
-  <div class="w-full">
-    <TransitionGroup class="grid" name="fade" tag="div">
-      <div
-        v-for="product in productsData"
-        :key="'product-card-' + product.id"
-        :class="viewBy === 'grid' ? 'col-12 md:col-2 lg:col-3 p-2' : 'col-12'"
-      >
-        <CommonProductCard v-if="viewBy === 'grid'" v-bind="{ ...product }" />
-        <CommonProductCardLarge v-else v-bind="{ ...product }" />
-      </div>
-    </TransitionGroup>
-
-    <div class="mt-32px flex align-items-center justify-content-center">
-      <Button
-        :disabled="numberOfProductToShow >= products.length"
-        outlined
-        @click="handelLoadMoreProductButtonClick"
-      >
-        Load More
-      </Button>
-    </div>
-  </div>
-</template>
-
 <script lang="ts" setup>
-import type { ProductI } from "~/contracts/api-contracts/ProductsInterfaces";
+import type { ProductMinimalI } from "~/contracts/api-contracts/ProductsInterfaces";
 
 const props = defineProps<{
-  products: ProductI[];
+  products: ProductMinimalI[];
   sortBy?: string;
   viewBy?: string;
 }>();
@@ -64,6 +39,31 @@ const handelLoadMoreProductButtonClick = () => {
   numberOfProductToShow.value += 10;
 };
 </script>
+
+<template>
+  <div class="w-full">
+    <TransitionGroup class="grid" name="fade" tag="div">
+      <div
+        v-for="product in productsData"
+        :key="'product-card-' + product.id"
+        :class="viewBy === 'grid' ? 'col-12 md:col-2 lg:col-3 p-2' : 'col-12'"
+      >
+        <CommonProductCard v-if="viewBy === 'grid'" :product-data="product" />
+        <CommonProductCardLarge v-else :product-data="product" />
+      </div>
+    </TransitionGroup>
+
+    <div class="mt-32px flex align-items-center justify-content-center">
+      <Button
+        :disabled="numberOfProductToShow >= products.length"
+        outlined
+        @click="handelLoadMoreProductButtonClick"
+      >
+        Load More
+      </Button>
+    </div>
+  </div>
+</template>
 
 <style lang="scss" scoped>
 .fade-move {
