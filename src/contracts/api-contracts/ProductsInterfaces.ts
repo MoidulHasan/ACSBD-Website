@@ -85,6 +85,7 @@ export interface ProductMinimalI {
   id: number;
   sku: string;
   name: string;
+  short_description: string;
   slug: string;
   image: string;
   current_stock_quantity: number | null;
