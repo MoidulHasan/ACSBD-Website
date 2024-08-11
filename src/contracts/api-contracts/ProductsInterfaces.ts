@@ -1,8 +1,12 @@
 export interface ProductPriceI {
-  regular: number;
-  discountPercentage: number;
-  discounted: number;
-  currency: string;
+  id: number;
+  product_id: number;
+  base_price: string;
+  is_percent: number;
+  discount_amount: string;
+  final_price: string;
+  created_at: string;
+  updated_at: string;
 }
 
 export interface ProductCategoryI {
@@ -73,4 +77,17 @@ export interface ProductI {
 export interface SortByOptionI {
   label: string;
   value: string;
+}
+
+export interface ProductMinimalI {
+  category_id: number;
+  brand_id: number;
+  id: number;
+  sku: string;
+  name: string;
+  slug: string;
+  image: string;
+  current_stock_quantity: number | null;
+  avg_ratings: number | null;
+  price: ProductPriceI;
 }
