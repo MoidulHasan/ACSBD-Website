@@ -16,9 +16,10 @@ useHead({
 
 const { $apiClient } = useNuxtApp();
 
-// const { data: productsData } = await getProducts();
 const { data: products } = await useAsyncData<
-  DataResponse<PaginationResponse<ProductMinimalI>>
+  DataResponse<PaginationResponse<ProductMinimalI>>,
+  unknown,
+  ProductMinimalI[]
 >(`product-data`, () => $apiClient(`/products`), {
   transform: (response) => response.data.data,
 });
@@ -53,7 +54,7 @@ const productSortBy = ref("timestamp");
         />
 
         <PagesShopProductsList
-          :products="products"
+          :products="products || []"
           :sort-by="productSortBy"
           :view-by="productViewBy"
         />
