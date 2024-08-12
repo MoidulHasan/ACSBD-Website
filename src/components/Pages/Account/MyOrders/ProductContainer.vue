@@ -1,25 +1,8 @@
 <script setup lang="ts">
-interface Price {
-  regular: number;
-  discounted: number;
-  discountPercentage: number;
-  currency: string;
-}
-
-interface Product {
-  id: number;
-  name: string;
-  images: string[];
-  price: Price;
-  description: string;
-  quantity: string;
-  order_no: string;
-  status: string;
-  timestamp: string;
-}
+import type { ProductInWishList } from "~/contracts/common";
 
 defineProps<{
-  product: Product;
+  product: ProductInWishList;
 }>();
 </script>
 
@@ -37,11 +20,11 @@ defineProps<{
         {{ product.name }}
       </h2>
       <h2 class="">
-        <span class="heading-8 font-normal quantity-text">
-          Qty: {{ product.quantity }}
-        </span>
+        <!--        <span class="heading-8 font-normal quantity-text">-->
+        <!--          Qty: {{ product.quantity }}-->
+        <!--        </span>-->
         <span class="font-heading-7 font-semibold price-text">
-          TK. {{ product.price }}
+          TK. {{ product.final_price }}
         </span>
       </h2>
     </div>

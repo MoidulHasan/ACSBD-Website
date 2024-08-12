@@ -1,36 +1,35 @@
 <script setup lang="ts">
 import { useToast } from "primevue/usetoast";
-import { getWishlist } from "~/app/api/getWishlist";
 import { formatDate } from "~/utils/formatDate";
-
-const toast = useToast();
+import type { ProductInWishList } from "~/contracts/common";
+import { useWishListStore } from "#imports";
 
 definePageMeta({
   name: "my-wishlist",
   title: "My Wishlist",
 });
+
 const store = useStore();
-const { data: wishData } = await getWishlist();
+const wishListStore = useWishListStore();
+const toast = useToast();
 
-const wishLists = ref(wishData);
+const { refresh: refreshWishList } = await useAsyncData<ProductInWishList[]>(
+  "wishlist-data",
+  () => wishListStore.fetchWishListProducts(),
+);
 
-const modifyCartProductQuantity = (id: number, quantity: number) => {
-  store.modifyCartItems(id, quantity);
+const initialLength = ref(5);
+const wishListToShow = computed(() => {
+  return wishListStore.wishListedProduct.slice(0, initialLength.value);
+});
+
+const showMoreWishedProduct = () => {
+  if (initialLength.value < wishListStore.wishListedProduct?.length) {
+    initialLength.value += 5;
+  }
 };
 
-interface FavProduct {
-  id: number;
-  name: string;
-  image: string;
-  price: number;
-  brand: string;
-  capacity: string;
-  quantity: number;
-  stock: number;
-  timeStamp: string;
-}
-
-const addProductsToCart = (product: FavProduct) => {
+const addProductsToCart = (product: ProductInWishList) => {
   if (process.client) {
     const isAlreadyExists = store.cart.findIndex(
       (cartedItem) => cartedItem.id === product.id,
@@ -48,22 +47,51 @@ const addProductsToCart = (product: FavProduct) => {
   }
 };
 
-const deleteProductFromWishlist = (product) => {
-  store.deleteItemFromFav(product);
+const deleteProductFromWishlist = async (product: ProductInWishList) => {
+  store.loading = true;
+  try {
+    const { data } = await wishListStore.deleteProductFromWishListBySlug(
+      product.product_slug,
+    );
+    if (!data.error) {
+      toast.add({
+        severity: "success",
+        summary: "Deleted",
+        detail: `${product.name} removed from your wishlist`,
+        life: 3000,
+      });
+    } else {
+      toast.add({
+        severity: "error",
+        summary: "Could Not Remove",
+        detail: `${product.name} could not be removed from your wishlist`,
+        life: 3000,
+      });
+    }
+  } catch (error) {
+    toast.add({
+      severity: "error",
+      summary: error?.statusMessage ?? "Could not remove from wishlist",
+      detail: error?.data?.error ?? "Unknown Issue Occurred",
+      life: 3000,
+    });
+  } finally {
+    store.loading = false;
+  }
 };
 </script>
 
 <template>
   <div
     class="order-table-container"
-    :class="{ 'flex flex-column': !store.favorites.length }"
+    :class="{ 'flex flex-column': !wishListStore.wishListedProduct.length }"
   >
     <h2 class="container-title font-heading-3 mb-3 md:mb-5">
       My Wishlist / Favourite
     </h2>
 
     <div
-      v-if="!store.favorites.length"
+      v-if="!wishListStore.wishListedProduct.length"
       class="empty-container flex-1 flex flex-column gap-4 align-items-center justify-content-center"
     >
       <CommonSvgEmptyBox height="200" width="240" />
@@ -73,7 +101,7 @@ const deleteProductFromWishlist = (product) => {
     </div>
     <div v-else>
       <div class="order-table hidden lg:block">
-        <DataTable :value="store.favorites">
+        <DataTable :value="wishListToShow">
           <Column header="Products">
             <template #body="slotProps">
               <PagesAccountMyOrdersProductContainer :product="slotProps.data" />
@@ -82,14 +110,14 @@ const deleteProductFromWishlist = (product) => {
           <Column header="Brand">
             <template #body="slotProps">
               <h2 class="item-title font-heading-7">
-                {{ slotProps.data.brand }}
+                {{ slotProps.data.brand_name }}
               </h2>
             </template>
           </Column>
           <Column header="Date:">
             <template #body="slotProps">
               <h2 class="font-heading-7 item-title">
-                {{ formatDate(slotProps.data.timeStamp) }}
+                {{ slotProps.data.created_at }}
               </h2>
             </template>
           </Column>
@@ -98,9 +126,11 @@ const deleteProductFromWishlist = (product) => {
             <template #body="slotProps">
               <h2
                 class="item-title font-heading-7"
-                :class="[slotProps.data.stock < 1 ? 'stock-out' : '']"
+                :class="[
+                  slotProps.data.stock !== 'In Stock' ? 'stock-out' : '',
+                ]"
               >
-                {{ slotProps.data.stock ? "In Stock" : "Out of Stock" }}
+                {{ slotProps.data.stock }}
               </h2>
             </template>
           </Column>
@@ -108,7 +138,7 @@ const deleteProductFromWishlist = (product) => {
             <template #body="slotProps">
               <p>
                 <NuxtLink
-                  :to="`/products/${slotProps.data.id}`"
+                  :to="`/products/${slotProps.data.product_slug}`"
                   class="action-button-box mr-2"
                 >
                   <i
@@ -139,13 +169,21 @@ const deleteProductFromWishlist = (product) => {
           </Column>
         </DataTable>
         <div class="flex justify-content-center">
-          <Button class="load-more-button mt-5"> Load More</Button>
+          <Button
+            v-if="
+              wishListToShow?.length !== wishListStore.wishListedProduct?.length
+            "
+            class="load-more-button mt-5"
+            @click="showMoreWishedProduct"
+          >
+            Load More
+          </Button>
         </div>
       </div>
       <!--    mobile content -->
       <div class="order-table-mobile block md:hidden">
         <Divider class="mobile-divider mb-3" />
-        <div v-for="favorite in store.favorites">
+        <div v-for="favorite in wishListToShow" :key="favorite.slug">
           <div class="product-container-mobile mb-4">
             <h2 class="font-heading-7 mb-3 font-medium product-title-text">
               Product
@@ -154,28 +192,28 @@ const deleteProductFromWishlist = (product) => {
             <ul class="order-items-container mt-26px">
               <li class="flex align-items-center order-item-list mb-14px">
                 <p class="order-item-title font-heading-7 mr-12px">Brand</p>
-                <p class="font-heading-7 item-title">{{ favorite.brand }}</p>
+                <p class="font-heading-7 item-title">{{ favorite.brand_id }}</p>
               </li>
               <li class="flex align-items-center order-item-list mb-14px">
                 <p class="order-item-title font-heading-7 mr-12px">Date:</p>
                 <p class="font-heading-7 item-title">
-                  {{ formatDate(favorite.timeStamp) }}
+                  {{ favorite.created_at }}
                 </p>
               </li>
               <li class="flex align-items-center order-item-list mb-14px">
                 <p class="order-item-title font-heading-7 mr-12px">Stock</p>
                 <p
                   class="font-heading-7 item-title"
-                  :class="[favorite.stock < 1 ? 'stock-out' : '']"
+                  :class="[favorite.stock !== 'In Stock' ? 'stock-out' : '']"
                 >
-                  {{ favorite.stock ? "In Stock" : "Out of Stock" }}
+                  {{ favorite.stock }}
                 </p>
               </li>
               <li class="flex align-items-center order-item-list">
                 <p class="order-item-title font-heading-7 mr-12px">Action</p>
                 <p>
                   <NuxtLink
-                    :to="`/product/${favorite.id}`"
+                    :to="`/product/${favorite.slug}`"
                     class="action-button-box mr-2"
                   >
                     <i
@@ -207,7 +245,15 @@ const deleteProductFromWishlist = (product) => {
           </div>
         </div>
         <div class="flex justify-content-center">
-          <Button class="load-more-button mt-2"> Load More</Button>
+          <Button
+            v-if="
+              wishListToShow?.length !== wishListStore.wishListedProduct?.length
+            "
+            class="load-more-button mt-2"
+            @click="showMoreWishedProduct"
+          >
+            Load More
+          </Button>
         </div>
       </div>
     </div>

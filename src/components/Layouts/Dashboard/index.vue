@@ -6,6 +6,7 @@ import { useAuthStore } from "#imports";
 const { data: profile } = await getProfile();
 
 const store = useStore();
+const wishListStore = useWishListStore();
 const toast = useToast();
 const { user, isAuthenticated, logoutUser } = useAuthStore();
 
@@ -44,6 +45,7 @@ const logOutUser = async () => {
 
   if (!isAuthenticated()) {
     await navigateTo("/sign-in");
+    wishListStore.wishListedProduct = [];
     return;
   }
 

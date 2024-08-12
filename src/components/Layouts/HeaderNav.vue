@@ -136,10 +136,11 @@
               <div class="navbar-content-container flex justify-content-center">
                 <ClientOnly>
                   <span
-                    v-if="store.favorites.length"
+                    v-if="wishListStore.wishListedProduct.length"
                     class="navbar-items-count flex justify-content-center"
-                    >{{ store.favorites.length }}</span
                   >
+                    {{ wishListStore.wishListedProduct.length }}
+                  </span>
                 </ClientOnly>
 
                 <img
@@ -223,7 +224,7 @@
                 </ul>
               </li>
 
-              <li class="right">
+              <li class="right cursor-pointer">
                 <NuxtLink
                   class="navLink flex align-items-center justify-content-center"
                   @click="openModal"
@@ -258,10 +259,11 @@
                   >
                     <ClientOnly>
                       <span
-                        v-if="store.favorites.length"
+                        v-if="wishListStore.wishListedProduct.length"
                         class="header-item-count"
-                        >{{ store.favorites.length }}</span
                       >
+                        {{ wishListStore.wishListedProduct.length }}
+                      </span>
                     </ClientOnly>
                     <img
                       alt="favorite"
@@ -422,6 +424,7 @@ interface menus {
 }
 
 const store = useStore();
+const wishListStore = useWishListStore();
 
 const navMenues: Array<menus> = [
   {
