@@ -22,6 +22,7 @@ import Galleria from "primevue/galleria";
 import Row from "primevue/row";
 import Dropdown from "primevue/dropdown";
 import TabPanel from "primevue/tabpanel";
+import Panel from "primevue/panel";
 import TabView from "primevue/tabview";
 import InputNumber from "primevue/inputnumber";
 import Dialog from "primevue/dialog";
@@ -63,4 +64,5 @@ export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.component("Divider", Divider);
   nuxtApp.vueApp.component("Toast", Toast);
   nuxtApp.vueApp.component("Password", Password);
+  nuxtApp.vueApp.component("Panel", Panel);
 });
