@@ -74,3 +74,10 @@ export interface IAuthSuccessResponse {
   user: IUser;
   message: string;
 }
+
+export interface FilterItem {
+  id: number | string;
+  name: string;
+  value: number[] | string[];
+  children: FilterItem[];
+}
