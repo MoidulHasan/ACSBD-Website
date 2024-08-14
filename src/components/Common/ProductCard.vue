@@ -1,66 +1,74 @@
+<script lang="ts" setup>
+import type { ProductMinimalI } from "~/contracts/api-contracts/ProductsInterfaces";
+
+interface IProps {
+  productData: ProductMinimalI;
+}
+
+const props = defineProps<IProps>();
+
+const productRating = ref(props.productData.avg_ratings);
+</script>
+
 <template>
-  <NuxtLink :to="`/products/${slug}`">
+  <NuxtLink :to="`/products/${productData.slug}`">
     <div class="product-card w-full bg-color-product-front">
-      <div class="flex justify-content-center relative">
-        <img :alt="name" :src="images[0]" class="product-image" />
+      <div class="image-container">
+        <img
+          :alt="productData.name"
+          :src="productData.image"
+          class="product-image"
+        />
+
         <div
-          v-if="price.discountPercentage"
+          v-if="productData.price.base_price !== productData.price.final_price"
           class="discount-percentage text-center text-semi-bold-5 text-primary-color-white bg-navy-blue-80"
         >
-          {{ price.discountPercentage }}% Off
+          {{ productData.price.discount_amount }}
+          {{ productData.price.is_percent ? "%" : "Tk" }} Off
         </div>
       </div>
 
-      <div
-        class="product-info flex flex-column justify-content-between px-12px pt-12px pb-16px"
-      >
+      <div class="product-info-container px-12px pt-12px pb-16px">
         <div>
           <Rating v-model="productRating" :cancel="false" readonly />
 
-          <h3 class="mt-8px text-primary-color-dark-gray text-regular-3">
-            {{
-              name.slice(0, Math.min(name.length, 33)).trim() +
-              (name.length > 33 ? "..." : "")
-            }}
+          <h3
+            class="product-title mt-8px text-primary-color-dark-gray text-regular-3"
+          >
+            {{ productData.name }}
           </h3>
         </div>
 
         <p class="mt-8px flex align-items-center gap-8px">
           <span
-            v-if="price.discounted"
+            v-if="productData.price.discount_amount"
             class="text-medium-2 text-primary-color-envitect-sam-blue"
           >
-            ৳ {{ price.discounted }}
+            ৳ {{ productData.price.final_price }}
           </span>
           <span
+            v-if="
+              productData.price.base_price !== productData.price.final_price
+            "
             :class="[
               {
                 'text-medium-2 text-primary-color-envitect-sam-blue':
-                  !price.discounted,
+                  !productData.price.discount_amount,
               },
               {
                 'text-regular-4 text-dark-gray-40 line-through':
-                  price.discounted,
+                  productData.price.discount_amount,
               },
             ]"
           >
-            {{ price.currency }} {{ price.regular }}
+            ৳ {{ productData.price.base_price }}
           </span>
         </p>
       </div>
     </div>
   </NuxtLink>
 </template>
-
-<script lang="ts" setup>
-import type { ProductI } from "~/contracts/api-contracts/ProductsInterfaces";
-
-const props = defineProps<ProductI>();
-
-const productRating = ref(props.ratings.average);
-
-const titleContainer = ref(null);
-</script>
 
 <style lang="scss" scoped>
 .product-card {
@@ -69,31 +77,52 @@ const titleContainer = ref(null);
   cursor: pointer;
   height: 368px;
 
-  .product-image {
-    max-width: 100%;
-    min-height: 220px;
+  .image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 220px;
 
-    vertical-align: bottom;
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
-    transition: opacity 150ms linear;
-    user-select: none;
+    .product-image {
+      max-width: 100%;
+      max-height: 100%;
+
+      vertical-align: bottom;
+      border-top-left-radius: 4px;
+      border-top-right-radius: 4px;
+      transition: opacity 150ms linear;
+      user-select: none;
+    }
+
+    .discount-percentage {
+      position: absolute;
+      right: 12px;
+      top: 12px;
+
+      padding: 2px 12px;
+      border-radius: 2px;
+    }
+
+    .product-image:hover {
+      opacity: 0.8;
+    }
   }
 
-  .discount-percentage {
-    position: absolute;
-    right: 12px;
-    top: 12px;
+  .product-info-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
-    padding: 2px 12px;
-    border-radius: 2px;
-  }
+    .product-title {
+      width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
 
-  .product-image:hover {
-    opacity: 0.8;
-  }
-
-  .product-info {
     :deep(.p-rating-icon) {
       color: var(--color-orange);
     }

@@ -2,6 +2,8 @@
 import { useToast } from "primevue/usetoast";
 import { getProducts } from "~/app/api/getProducts";
 import type { ProductI } from "~/contracts/api-contracts/ProductsInterfaces";
+import { useStore } from "~/stores/index.ts";
+import { useAuthStore, useWishListStore } from "#imports";
 
 interface CartedProduct {
   id: number;
@@ -72,16 +74,45 @@ const isAvailableProduct = (isInStock: boolean) => {
   return isInStock ? "In Stock" : "Out of Stock";
 };
 
-const value = ref(10);
 const favorite = ref(false);
 const store = useStore();
+const wishListStore = useWishListStore();
+const token = useCookie("token");
+const userCookie = useCookie("user");
 
-const toggleFavorite = (product: CartedProduct) => {
-  favorite.value = !favorite.value;
-  if (favorite.value) {
-    addToFav(product);
+const toggleFavorite = async (product: CartedProduct) => {
+  const productToToggle = {
+    slug: "singara-ac",
+    name: "Product One",
+  };
+  if (token.value && userCookie.value) {
+    if (!favorite.value) {
+      await wishListStore.addProductToWishList(productToToggle);
+      favorite.value = !favorite.value;
+    } else {
+      try {
+        await wishListStore.deleteProductFromWishListBySlug(
+          productToToggle.slug,
+        );
+        toast.add({
+          severity: "success",
+          summary: "Deleted",
+          detail: `${product.name} removed from your wishlist`,
+          life: 3000,
+        });
+        favorite.value = !favorite.value;
+      } catch (error) {
+        toast.add({
+          severity: "error",
+          summary: error?.statusMessage ?? "Could not remove from wishlist",
+          detail: error?.data?.error ?? "Unknown Issue Occurred",
+          life: 3000,
+        });
+      }
+    }
   } else {
-    store.deleteItemFromFav(product);
+    useCookie("redirectTo").value = route.path;
+    await navigateTo("/sign-in");
   }
 };
 
@@ -132,8 +163,8 @@ function addToFav(product: ProductI) {
 }
 
 onMounted(() => {
-  if (process.client) {
-    const favoriteProduct = store.favorites.find(
+  if (wishListStore.wishListedProduct?.length) {
+    const favoriteProduct = wishListStore.wishListedProduct?.find(
       (product) => product.id === singleProductData.value.id,
     );
     if (favoriteProduct) {
@@ -147,7 +178,7 @@ onMounted(() => {
   <div class="container single-product">
     <div class="grid mt-3 mb-6">
       <div class="col-12 lg:col-5">
-        <PagesProductImageGallerySlider :images="singleProduct.sliderImages" />
+        <PagesProductImageGallerySlider :images="singleProductData.images" />
       </div>
       <div class="col-12 lg:col-7">
         <div class="product-summary">
@@ -264,6 +295,13 @@ onMounted(() => {
             </ClientOnly>
 
             <i
+              :title="
+                token
+                  ? favorite
+                    ? 'Remove from your wishlist'
+                    : 'Add to your wishlist'
+                  : 'Sign In to add this product to your wishlist'
+              "
               :class="[
                 'pi',
                 'text-6xl',

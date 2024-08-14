@@ -1,12 +1,23 @@
-<script setup lang="ts">
-import { getAcCategories } from "~/app/api/getAcCategories.ts";
+<script lang="ts" setup>
+import type {
+  Category,
+  CategoryDataResponse,
+} from "~/contracts/api-contracts/categoryInterface";
 
 definePageMeta({
   title: "Categories",
   name: "categories",
 });
 
-const { data: categories } = await getAcCategories();
+const { $apiClient } = useNuxtApp();
+
+const { data: categories } = await useAsyncData<
+  CategoryDataResponse,
+  Category[],
+  unknown
+>(`product-data`, () => $apiClient(`/categories`), {
+  transform: (response) => response.data,
+});
 </script>
 
 <template>
@@ -16,12 +27,13 @@ const { data: categories } = await getAcCategories();
     >
       <div
         v-for="category in categories"
+        :key="category.name"
         class="single-category bg-color-product-bg text-center flex flex-column justify-content-around flex-wrap"
       >
         <img
-          class="category-image"
-          :src="category.image_url"
           :alt="category.name"
+          :src="category.image_url"
+          class="category-image"
         />
         <h3 class="category-title text-semi-bold-5 text-dark-gray-80 mt-10px">
           {{ category.name }}
@@ -63,6 +75,9 @@ const { data: categories } = await getAcCategories();
   }
 
   .category-image {
+    max-height: 90px;
+    max-width: 100%;
+
     @include media-query(sm) {
       max-width: 84.789px;
       max-height: 39.2px;

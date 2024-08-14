@@ -18,6 +18,7 @@ export const useAuthStore = defineStore("authStore", () => {
 
   const user = ref<IUser | null>(null);
   const authorized = ref(false);
+  const wishListStore = useWishListStore();
 
   const authenticateUser = async ({ email, password }: ILoginPayload) => {
     const response = await $apiClient<IAuthSuccessResponse>("/login", {
@@ -78,6 +79,7 @@ export const useAuthStore = defineStore("authStore", () => {
 
       authorized.value = false;
       user.value = null;
+      wishListStore.removeWishList();
     }
 
     return response;

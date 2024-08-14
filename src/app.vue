@@ -10,9 +10,12 @@
 </template>
 <script lang="ts" setup>
 import { useStore } from "~/stores";
+import { useWishListStore } from "#imports";
 
 const route = useRoute();
 const store = useStore();
+const wishListStore = useWishListStore();
+const token = useCookie("token");
 
 useHead({
   title: computed(() => `${route.meta.title} | AC Service BD`),
@@ -28,6 +31,9 @@ useHead({
 
 onBeforeMount(() => {
   if (process.client) {
+    if (token.value) {
+      wishListStore.getWishListProduct();
+    }
     store.setCartFromLocalStorage();
     store.setFavoritesFromLocalStorage();
   }

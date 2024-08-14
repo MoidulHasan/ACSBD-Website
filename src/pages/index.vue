@@ -1,3 +1,11 @@
+<script lang="ts" setup>
+definePageMeta({
+  title: "Home",
+  layout: "default",
+  name: "home-page",
+});
+</script>
+
 <template>
   <div id="home-page">
     <PagesHomeHeroSlider />
@@ -8,7 +16,7 @@
       <PagesHomeServicesSection />
     </div>
     <div class="container mt-5 md:mt-6">
-      <PagesHomeOurShopSection />
+      <!--      <PagesHomeOurShopSection />-->
     </div>
     <div class="mt-5 md:mt-6">
       <PagesHomeClientsSection />
@@ -37,14 +45,6 @@
     </div>
   </div>
 </template>
-
-<script lang="ts" setup>
-definePageMeta({
-  title: "Home",
-  layout: "default",
-  name: "home-page",
-});
-</script>
 
 <style lang="scss" scoped>
 .section {

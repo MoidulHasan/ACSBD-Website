@@ -1,13 +1,48 @@
+<script lang="ts" setup>
+import type { SortByOptionI } from "~/contracts/api-contracts/ProductsInterfaces";
+
+defineProps<{
+  totalProductsFound: number;
+  category?: string;
+}>();
+
+const emits = defineEmits<{
+  (e: "onSortByOptionChange", SortByOptionValue: string): void;
+  (e: "onViewByOptionChange", ViewByOptionValue: string): void;
+}>();
+
+const sortByOptions = ref<SortByOptionI[]>([
+  { label: "Latest Products", value: "timestamp" },
+  { label: "Oldest Products", value: "timestamp" },
+  { label: "Price (Low to High)", value: "price.regular" },
+  { label: "Price (High to Low)", value: "-price.regular" },
+  { label: "Rating (Low to High)", value: "ratings.average" },
+  { label: "Rating (High to Low)", value: "-ratings.average" },
+]);
+
+const sortBy = ref<SortByOptionI>(sortByOptions.value[0]);
+const viewBy = ref("grid");
+
+const changeViewMode = (mode: string) => {
+  viewBy.value = mode;
+  emits("onViewByOptionChange", mode);
+};
+
+const handleSortByOptionChange = () => {
+  emits("onSortByOptionChange", sortBy.value.value);
+};
+</script>
+
 <template>
   <div
     class="w-full flex justify-content-between align-items-center header-container"
   >
     <p class="text-medium-2 text-primary-color-dark-gray">
-      {{ totalProductsFound }} items found
+      {{ totalProductsFound }} Items Found
       <span v-if="category">for "{{ category }}"</span>
     </p>
     <div class="flex align-items-center">
-      <div class="flex align-items-center">
+      <div class="sort-container flex align-items-center">
         <p class="text-medium-2 text-primary-color-dark-gray mr-8px">
           Sort By:
         </p>
@@ -63,41 +98,6 @@
   </div>
 </template>
 
-<script lang="ts" setup>
-import type { Ref } from "vue";
-import type { SortByOptionI } from "~/contracts/api-contracts/ProductsInterfaces";
-
-defineProps<{
-  totalProductsFound: number;
-  category?: string;
-}>();
-
-const emits = defineEmits<{
-  (e: "onSortByOptionChange", SortByOptionValue: string): void;
-  (e: "onViewByOptionChange", ViewByOptionValue: string): void;
-}>();
-
-const sortByOptions: SortByOptionI[] = ref([
-  { label: "Latest Products", value: "timestamp" },
-  { label: "Price (Low to High)", value: "price.regular" },
-  { label: "Price (High to Low)", value: "-price.regular" },
-  { label: "Rating (Low to High)", value: "ratings.average" },
-  { label: "Rating (High to Low)", value: "-ratings.average" },
-]);
-
-const sortBy: Ref<SortByOptionI> = ref(sortByOptions.value[0]);
-const viewBy = ref("grid");
-
-const changeViewMode = (mode: string) => {
-  viewBy.value = mode;
-  emits("onViewByOptionChange", mode);
-};
-
-const handleSortByOptionChange = () => {
-  emits("onSortByOptionChange", sortBy.value.value);
-};
-</script>
-
 <style lang="scss" scoped>
 .header-container {
   height: 48px;
@@ -134,6 +134,14 @@ const handleSortByOptionChange = () => {
 .isInActive {
   img {
     opacity: 0.5;
+  }
+}
+</style>
+
+<style lang="scss">
+.sort-container {
+  .p-dropdown-item {
+    padding: 0 !important;
   }
 }
 </style>
