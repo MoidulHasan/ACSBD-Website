@@ -3,7 +3,6 @@ import type { ProductI } from "~/contracts/api-contracts/ProductsInterfaces";
 
 const props = defineProps<{
   product: ProductI;
-  productDesc: ProductI;
 }>();
 </script>
 
@@ -15,11 +14,11 @@ const props = defineProps<{
           <tr class="table-row-odd">
             <td class="w-6 py-12px px-5 table-data text-medium-2">Brands</td>
             <td class="w-6 py-12px px-5 table-data text-medium-2">
-              {{ productDesc.brand?.name }}
+              {{ product.brand_name }}
             </td>
           </tr>
           <tr
-            v-for="(attribute, index) in productDesc.attributes"
+            v-for="(attribute, index) in product.attributes"
             :key="attribute.id"
             :class="{ 'table-row-odd': (index + 1) % 2 === 0 }"
           >

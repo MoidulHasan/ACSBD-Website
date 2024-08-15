@@ -3,11 +3,10 @@ import type { ProductI } from "~/contracts/api-contracts/ProductsInterfaces";
 
 const props = defineProps<{
   product: ProductI;
-  productDesc: ProductI;
 }>();
 
 const formattedWarrantyAndServices = computed(() => {
-  return props.productDesc.warranty_and_services.replace(/\n/g, "<br>");
+  return props.product.warranty_and_services.replace(/\n/g, "<br>");
 });
 </script>
 

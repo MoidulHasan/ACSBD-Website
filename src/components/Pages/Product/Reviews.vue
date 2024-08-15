@@ -3,10 +3,9 @@ import type { ProductI } from "~/contracts/api-contracts/ProductsInterfaces";
 
 const props = defineProps<{
   product: ProductI;
-  productDesc: ProductI;
 }>();
 const productRating = computed(() => {
-  return Math.round(props.product.ratings.average);
+  return Math.round(props.product.avg_ratings ?? 0);
 });
 const ratings = ref([5, 4, 3, 2, 1]);
 </script>
@@ -14,7 +13,7 @@ const ratings = ref([5, 4, 3, 2, 1]);
 <template>
   <div class="rating-section">
     <h1 class="font-heading-4-semi-bold text-primary-color-navy-blue mb-6">
-      Ratings & Reviews of {{ productDesc.name }}
+      Ratings & Reviews of {{ product.name }}
     </h1>
     <div
       class="login-section flex flex-column flex-wrap align-items-center justify-content-center bg-color-product-bg border-round-lg py-85px mb-85px"
@@ -35,13 +34,13 @@ const ratings = ref([5, 4, 3, 2, 1]);
       <div class="flex flex-column gap-3">
         <h2 class="font-heading-2">
           <span class="text-primary-color-envitect-sam-blue">{{
-            product.ratings.average
+            product.avg_ratings ?? 0
           }}</span>
           / 5
         </h2>
         <Rating v-model="productRating" :cancel="false" readonly />
         <p class="text-dark-gray-80 text-heading-5-semi-bold">
-          {{ product.ratings.count }} Ratings
+          {{ product.review_details?.length }} Ratings
         </p>
       </div>
       <div class="rating-bar">
@@ -58,7 +57,7 @@ const ratings = ref([5, 4, 3, 2, 1]);
         Product Reviews
       </h1>
       <div class="customer-review">
-        <PagesProductCustomerReview :reviews="product.reviews" />
+        <!--        <PagesProductCustomerReview :reviews="product.reviews" /> -->
       </div>
     </div>
   </div>

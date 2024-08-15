@@ -1,9 +1,8 @@
 <script setup lang="ts">
 import { useToast } from "primevue/usetoast";
-import { getProducts } from "~/app/api/getProducts";
 import type { ProductI } from "~/contracts/api-contracts/ProductsInterfaces";
 import { useStore } from "~/stores/index.ts";
-import { useAuthStore, useWishListStore } from "#imports";
+import { useWishListStore } from "#imports";
 
 interface CartedProduct {
   id: number;
@@ -20,47 +19,35 @@ interface CartedProduct {
 const route = useRoute();
 const toast = useToast();
 
-// const { data, pending, refresh, error } = await useAsyncData(
-//   `product-${route.params.slug}`,
-//   () => $fetch(`/api/proxy/products/${route.params.slug}`),
-//   {
-//     transform(data) {
-//       return data.data;
-//     },
-//   },
-// );
-
-const { $apiClient } = useNuxtApp();
-const { data: singleProduct, error } = await useAsyncData(
+const {
+  data: singleProductData,
+  refresh,
+  error,
+} = await useAsyncData(
   `product-${route.params.slug}`,
-  () => $apiClient(`/admin/products/${route.params.slug}`),
+  () => $fetch(`/api/proxy/products/${route.params.slug}`),
   {
     transform(data) {
       const imageUrls = data.data.images.map((image) => image.image_url);
       return {
         ...data.data,
+        avg_ratings: data.data.avg_ratings ?? 0,
         sliderImages: [data.data.image, ...imageUrls],
       };
     },
   },
 );
 
-// console.log(singleProduct, "DATA IS HERE");
-if (error) {
+console.log(singleProductData, "SINGLE PRODUCT");
+
+if (error.value) {
   console.error("ERROR OCCURED");
 }
 
-const { data: productsData } = await getProducts();
-
-const singleProductData = computed<ProductI>(() => {
-  return productsData.value.find((product) => {
-    return product.id === Number("1");
-  });
-});
-
 useHead({
-  title: singleProduct.value.name,
+  title: singleProductData.value.name,
 });
+
 const showReviewNumbers = (count: number) => {
   if (count >= 0) {
     if (count < 10) {
@@ -70,8 +57,9 @@ const showReviewNumbers = (count: number) => {
   }
   return "0 Review";
 };
-const isAvailableProduct = (isInStock: boolean) => {
-  return isInStock ? "In Stock" : "Out of Stock";
+
+const isAvailableProduct = (stock: number | null | undefined) => {
+  return stock ? "In Stock" : "Out of Stock";
 };
 
 const favorite = ref(false);
@@ -146,21 +134,21 @@ const addToCart = (product: ProductI) => {
   }
 };
 
-function addToFav(product: ProductI) {
-  const { id, name, images, price, brand, attributes, stock } = product;
-  const modifiedProduct: CartedProduct = {
-    id,
-    name,
-    image: images[0],
-    price: price.discounted ?? price.regular,
-    brand,
-    stock: stock.quantity,
-    capacity: attributes.capacity,
-    quantity: quantity.value,
-    timeStamp: currentTime,
-  };
-  store.addToFavorite(modifiedProduct);
-}
+// function addToFav(product: ProductI) {
+//   const { id, name, images, price, brand, attributes, stock } = product;
+//   const modifiedProduct: CartedProduct = {
+//     id,
+//     name,
+//     image: images[0],
+//     price: price.discounted ?? price.regular,
+//     brand,
+//     stock: stock.quantity,
+//     capacity: attributes.capacity,
+//     quantity: quantity.value,
+//     timeStamp: currentTime,
+//   };
+//   store.addToFavorite(modifiedProduct);
+// }
 
 onMounted(() => {
   if (wishListStore.wishListedProduct?.length) {
@@ -178,12 +166,14 @@ onMounted(() => {
   <div class="container single-product">
     <div class="grid mt-3 mb-6">
       <div class="col-12 lg:col-5">
-        <PagesProductImageGallerySlider :images="singleProductData.images" />
+        <PagesProductImageGallerySlider
+          :images="singleProductData.sliderImages"
+        />
       </div>
       <div class="col-12 lg:col-7">
         <div class="product-summary">
           <h1 class="product-title font-heading-4-semi-bold">
-            {{ singleProduct.name }}
+            {{ singleProductData.name }}
           </h1>
           <div class="product-stock-rating flex align-items-center flex-wrap">
             <p
@@ -193,30 +183,30 @@ onMounted(() => {
               <span
                 :class="[
                   'product-stock',
-                  singleProductData.stock.inStock
+                  singleProductData.stock
                     ? 'text-color-success'
                     : 'text-color-danger',
                 ]"
               >
-                {{ isAvailableProduct(singleProductData.stock.inStock) }}
+                {{ isAvailableProduct(singleProductData.stock) }}
               </span>
             </p>
             <div class="product-rating flex flex-wrap align-items-center">
               <Rating
-                v-model="singleProductData.ratings.average"
+                v-model="singleProductData.avg_ratings"
                 :cancel="false"
                 readonly
               />
               <p
                 class="pl-2 lg:pt-1 text-semi-bold-5 text-primary-color-navy-blue"
               >
-                {{ showReviewNumbers(singleProductData.ratings.count) }}
+                {{ showReviewNumbers(singleProductData.review_details.length) }}
               </p>
             </div>
           </div>
           <div
             class="text-regular-3 text-primary-color-dark-gray flex flex-column meta-info gap-1"
-            v-html="singleProduct.short_description"
+            v-html="singleProductData.short_description"
           />
           <!--          <p-->
           <!--            class="text-regular-3 text-primary-color-dark-gray flex flex-column meta-info gap-1"-->
@@ -241,25 +231,25 @@ onMounted(() => {
           <!--          </p>-->
           <h1 class="product-price">
             <span class="font-heading-3 text-primary-color-envitect-sam-blue">
-              ৳{{ singleProduct.price.final_price }}
+              ৳{{ singleProductData.price.final_price }}
             </span>
             <span
               class="font-heading-3-thin product-previous-price text-dark-gray-60 line-through"
-              >৳{{ singleProduct.price.base_price }}</span
+              >৳{{ singleProductData.price.base_price }}</span
             >
           </h1>
           <p class="text-medium-2 text-dark-gray-80 my-4">
             Promotions:
-            <span
-              v-if="singleProductData.price.discountPercentage"
-              class="discount-container text-primary-color-navy-blue ml-4 text-semi-bold-1"
-            >
-              Get upto {{ singleProduct.price.discount_amount }}
-              {{ singleProduct.price.is_percent ? "%" : "taka" }} off
-            </span>
+            <!--            <span-->
+            <!--              v-if="singleProductData.price.discountPercentage"-->
+            <!--              class="discount-container text-primary-color-navy-blue ml-4 text-semi-bold-1"-->
+            <!--            >-->
+            <!--              Get upto {{ singleProduct.price.discount_amount }}-->
+            <!--              {{ singleProduct.price.is_percent ? "%" : "taka" }} off-->
+            <!--            </span>-->
           </p>
           <p
-            v-if="singleProduct.installment"
+            v-if="singleProductData.installment"
             class="text-medium-2 text-dark-gray-80 mb-3 flex align-items-center"
           >
             Installment:
@@ -267,7 +257,7 @@ onMounted(() => {
               class="text-primary-color-navy-blue ml-4 flex align-items-center"
             >
               <i class="pi pi-calendar text-2xl mr-2" />
-              <span>{{ singleProduct.installment }} </span>
+              <span>{{ singleProductData.installment }} </span>
             </span>
           </p>
           <!--          quantity button -->
@@ -277,7 +267,7 @@ onMounted(() => {
             </p>
             <CommonQuantityInput
               v-model="quantity"
-              :stock="singleProductData.stock.quantity"
+              :stock="singleProductData.stock ?? 0"
             />
           </div>
           <div class="flex align-items-center flex-wrap gap-3 mb-3">
@@ -315,7 +305,7 @@ onMounted(() => {
           <p class="text-medium-2 text-dark-gray-80">
             Product SKU:
             <span class="text-semi-bold-1">
-              {{ singleProduct.sku }}
+              {{ singleProductData.sku }}
             </span>
           </p>
           <div
@@ -333,10 +323,7 @@ onMounted(() => {
       </div>
     </div>
     <div>
-      <PagesProductDetailDescription
-        :product="singleProductData"
-        :product-desc="singleProduct"
-      />
+      <!--      <PagesProductDetailDescription :product="singleProductData" />-->
     </div>
     <div class="mt-5 lg:mt-8">
       <PagesProductRelatedProducts />
