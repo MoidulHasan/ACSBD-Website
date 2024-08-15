@@ -50,6 +50,7 @@ const handleSortByOptionChange = () => {
           v-model="sortBy"
           :options="sortByOptions"
           class="dropdown-input"
+          input-class="p-1"
           option-label="label"
           placeholder="Sort By"
           @change="handleSortByOptionChange"
@@ -112,7 +113,8 @@ const handleSortByOptionChange = () => {
   border-radius: 2px;
   background: var(--color-6, #fff);
 
-  padding: 5px 12px;
+  padding: 0;
+  height: 32px;
 }
 
 .view-button {
@@ -134,14 +136,6 @@ const handleSortByOptionChange = () => {
 .isInActive {
   img {
     opacity: 0.5;
-  }
-}
-</style>
-
-<style lang="scss">
-.sort-container {
-  .p-dropdown-item {
-    padding: 0 !important;
   }
 }
 </style>
