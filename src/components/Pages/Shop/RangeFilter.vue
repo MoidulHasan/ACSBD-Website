@@ -11,9 +11,9 @@ const emits = defineEmits<{
 
 const rangeValue = ref<number[]>(props.modelValue);
 
-watch(rangeValue, () => {
+const onRangeChange = () => {
   emits("update:modelValue", rangeValue.value);
-});
+};
 </script>
 
 <template>
@@ -47,7 +47,12 @@ watch(rangeValue, () => {
     </div>
 
     <div class="w-full flex justify-content-center mt-4">
-      <Button class="common-button search-button" label="Search" outlined />
+      <Button
+        class="common-button search-button"
+        label="Search"
+        outlined
+        @click="onRangeChange"
+      />
     </div>
   </div>
 </template>
