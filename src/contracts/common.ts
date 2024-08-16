@@ -78,6 +78,7 @@ export interface IAuthSuccessResponse {
 export interface FilterItem {
   id: number | string;
   name: string;
+  slug: string;
   value: number[] | string[];
   children: FilterItem[];
 }

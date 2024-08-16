@@ -4,15 +4,17 @@ import type { ProductMinimalI } from "~/contracts/api-contracts/ProductsInterfac
 interface ItemInterface {
   id: number | string;
   name: string;
+  slug: string;
   childrens: ItemInterface[];
 
   [key: string]: any;
 }
 
 export function generateFilterItems(items: ItemInterface[]): FilterItem[] {
-  return items.map(({ id, name, childrens }) => ({
+  return items.map(({ id, name, slug, childrens }) => ({
     id,
     name,
+    slug,
     value: [],
     children: generateFilterItems(childrens),
   }));

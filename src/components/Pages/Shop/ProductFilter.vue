@@ -31,7 +31,7 @@ watch(filterValue, () => {
             v-model="filterValue"
             :input-id="filter.id.toString()"
             :name="name"
-            :value="filter.id"
+            :value="filter.slug"
           />
 
           <label
@@ -54,7 +54,7 @@ watch(filterValue, () => {
               <Checkbox
                 v-model="filter.value"
                 :input-id="filter.id.toString()"
-                :value="filter.id"
+                :value="filter.slug"
                 @click.stop
               />
 
