@@ -12,8 +12,7 @@ const emits = defineEmits<{
 }>();
 
 const sortByOptions = ref<SortByOptionI[]>([
-  { label: "Latest Products", value: "timestamp" },
-  { label: "Oldest Products", value: "timestamp" },
+  { label: "Latest Products", value: "latest" },
   { label: "Price (Low to High)", value: "price.regular" },
   { label: "Price (High to Low)", value: "-price.regular" },
   { label: "Rating (Low to High)", value: "ratings.average" },
