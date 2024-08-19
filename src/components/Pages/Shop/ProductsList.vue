@@ -1,66 +1,53 @@
 <script lang="ts" setup>
 import type { ProductMinimalI } from "~/contracts/api-contracts/ProductsInterfaces";
 
-const props = defineProps<{
+defineProps<{
   products: ProductMinimalI[];
   sortBy?: string;
   viewBy?: string;
+  disableLoadMoreButton?: boolean;
+  isLoading?: boolean;
 }>();
 
-const numberOfProductToShow = ref(10);
-
-const productsData = computed(() => {
-  const sortedProducts = [...props.products].sort((a, b) => {
-    const isDescending = props.sortBy.startsWith("-");
-    const property = isDescending ? props.sortBy.slice(1) : props.sortBy;
-
-    let aValue = a;
-    let bValue = b;
-
-    for (const prop of property.split(".")) {
-      aValue = aValue[prop];
-      bValue = bValue[prop];
-    }
-
-    if (isDescending) {
-      return bValue - aValue;
-    } else {
-      return aValue - bValue;
-    }
-  });
-
-  return sortedProducts.slice(
-    0,
-    Math.min(sortedProducts.length, numberOfProductToShow.value),
-  );
-});
-
-const handelLoadMoreProductButtonClick = () => {
-  numberOfProductToShow.value += 10;
-};
+const emits = defineEmits<{
+  (e: "loadMoreItems"): void;
+}>();
 </script>
 
 <template>
-  <div class="w-full">
-    <TransitionGroup class="grid" name="fade" tag="div">
-      <div
-        v-for="product in productsData"
-        :key="'product-card-' + product.id"
-        :class="viewBy === 'grid' ? 'col-12 md:col-2 lg:col-3 p-2' : 'col-12'"
-      >
-        <CommonProductCard v-if="viewBy === 'grid'" :product-data="product" />
-        <CommonProductCardLarge v-else :product-data="product" />
-      </div>
-    </TransitionGroup>
+  <div class="w-full flex justify-content-center">
+    <div v-if="products.length" class="w-full">
+      <TransitionGroup class="grid" name="fade" tag="div">
+        <div
+          v-for="product in products"
+          :key="'product-card-' + product.id"
+          :class="
+            viewBy === 'grid' ? 'col-6 md:col-1 lg:col-3 p-1 md:p-2' : 'col-12'
+          "
+        >
+          <CommonProductCard v-if="viewBy === 'grid'" :product-data="product" />
+          <CommonProductCardLarge v-else :product-data="product" />
+        </div>
+      </TransitionGroup>
 
-    <div class="mt-32px flex align-items-center justify-content-center">
-      <Button
-        :disabled="numberOfProductToShow >= products.length"
-        outlined
-        @click="handelLoadMoreProductButtonClick"
-      >
-        Load More
-      </Button>
+      <div class="mt-32px flex align-items-center justify-content-center">
+        <Button
+          :disabled="disableLoadMoreButton"
+          :loading="isLoading"
+          outlined
+          @click="() => emits('loadMoreItems')"
+        >
+          Load More
+        </Button>
+      </div>
+    </div>
+
+    <div v-else class="flex align-items-center justify-content-center p-5 my-5">
+      <img
+        alt="Products Not Found"
+        class="w-2"
+        src="~/assets/images/icons/empty-box.svg"
+      />
     </div>
   </div>
 </template>

@@ -13,8 +13,8 @@ const emits = defineEmits<{
 
 const sortByOptions = ref<SortByOptionI[]>([
   { label: "Latest Products", value: "latest" },
-  { label: "Price (Low to High)", value: "price.regular" },
-  { label: "Price (High to Low)", value: "-price.regular" },
+  { label: "Price (Low to High)", value: "price.low_to_high" },
+  { label: "Price (High to Low)", value: "price.high_to_low" },
   { label: "Rating (Low to High)", value: "ratings.average" },
   { label: "Rating (High to Low)", value: "-ratings.average" },
 ]);
@@ -41,7 +41,7 @@ const handleSortByOptionChange = () => {
       <span v-if="category">for "{{ category }}"</span>
     </p>
     <div class="flex align-items-center">
-      <div class="sort-container flex align-items-center">
+      <div class="sort-container hidden md:flex align-items-center">
         <p class="text-medium-2 text-primary-color-dark-gray mr-8px">
           Sort By:
         </p>
@@ -64,8 +64,18 @@ const handleSortByOptionChange = () => {
         </Dropdown>
       </div>
 
-      <div class="ml-24px flex align-items-center">
-        <p class="text-medium-2 text-primary-color-dark-gray mr-8px">View:</p>
+      <div>
+        <button :class="['view-button']" @click="() => changeViewMode('grid')">
+          <img alt="view by grid" src="~/assets/images/icons/filter.svg" />
+        </button>
+      </div>
+
+      <div class="ml-2 md:ml-24px flex align-items-center">
+        <p
+          class="text-medium-2 text-primary-color-dark-gray mr-8px hidden md:block"
+        >
+          View:
+        </p>
 
         <button
           :class="[

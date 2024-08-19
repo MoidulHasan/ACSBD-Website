@@ -17,10 +17,12 @@ useHead({ title: "Products" });
 
 const { $apiClient } = useNuxtApp();
 
+const currentPage = ref<number>(1);
 const productViewBy = ref("grid");
 const productSortBy = ref("latest");
 const priceMinMaxRange = [0, 100000];
 const priceRangeFilter = ref(priceMinMaxRange);
+const products = ref<ProductMinimalI[]>([]);
 
 const filterCategories = computed(() =>
   categories.value ? collectAllValues(categories.value) : [],
@@ -34,32 +36,84 @@ const { data: categories } = await useAsyncData<
   transform: (response) => generateFilterItems(response.data),
 });
 
-const { data: products } = await useAsyncData<
+// const { data: attributes } = await useAsyncData<
+//   DataResponse<Attribute[]>,
+//   unknown,
+//   Attribute[]
+// >(`attributes-data`, () => $apiClient(`/attributes`), {
+//   transform: (response) => response.data,
+// });
+//
+// const filterAttributes = computed(() =>
+//   attributes.value ? collectAllValues(categories.value) : [],
+// );
+
+const {
+  data: productsData,
+  status,
+  refresh: refreshProductsData,
+} = await useAsyncData<
   DataResponse<PaginationResponse<ProductMinimalI>>,
   unknown,
-  ProductMinimalI[]
+  PaginationResponse<ProductMinimalI>
 >(
   `product-data`,
   () =>
     $apiClient(`/products`, {
       query: {
+        page: currentPage.value,
         min_price: priceRangeFilter.value[0],
         max_price: priceRangeFilter.value[1],
         category: filterCategories.value,
         is_latest: productSortBy.value === "latest",
+        order_by:
+          productSortBy.value.split(".")[0] === "price"
+            ? productSortBy.value.split(".")[1]
+            : undefined,
       },
     }),
   {
-    transform: (response) => response.data.data,
-    watch: [priceRangeFilter, filterCategories, productSortBy],
+    transform: (response) => response.data,
   },
 );
+
+products.value = productsData.value?.data ?? [];
+
+const handleProductSortByChange = (sortBy: string) => {
+  productSortBy.value = sortBy;
+};
+
+const loadMoreProducts = async () => {
+  if (productsData.value?.has_more_page) {
+    currentPage.value += 1;
+    await refreshProductsData();
+  }
+};
+
+watch(
+  () => productsData.value?.current_page,
+  () => {
+    if (!productsData.value?.data.length) return;
+
+    products.value =
+      productsData.value?.current_page === 1
+        ? productsData.value?.data
+        : [...products.value, ...productsData.value?.data];
+  },
+);
+
+watch([priceRangeFilter, filterCategories, productSortBy], async () => {
+  currentPage.value = 1;
+  await refreshProductsData();
+});
 </script>
 
 <template>
   <div class="container">
-    <div class="w-full pt-16px pb-80px grid">
-      <div class="col-0 lg:col-2">
+    <div
+      class="flex justify-content-center align-content-center p-0 mt:pt-16px pb-80px grid"
+    >
+      <div class="col-0 lg:col-2 hidden md:block">
         <PagesShopFIlterContainer header="Filter Results By">
           <PagesShopProductFilter
             v-if="categories"
@@ -88,18 +142,21 @@ const { data: products } = await useAsyncData<
         </div>
 
         <PagesShopProductListHeader
-          :total-products-found="products?.length ?? 0"
+          :total-products-found="productsData?.total ?? 0"
           class="my-16px w-full"
-          @on-sort-by-option-change="(mode: string) => (productSortBy = mode)"
+          @on-sort-by-option-change="handleProductSortByChange"
           @on-view-by-option-change="
             (optionValue: string) => (productViewBy = optionValue)
           "
         />
 
         <PagesShopProductsList
+          :disable-load-more-button="!productsData?.has_more_page"
+          :is-loading="status === 'pending'"
           :products="products || []"
           :sort-by="productSortBy"
           :view-by="productViewBy"
+          @load-more-items="loadMoreProducts"
         />
       </div>
     </div>

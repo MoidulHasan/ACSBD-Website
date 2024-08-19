@@ -8,6 +8,12 @@ interface IProps {
 const props = defineProps<IProps>();
 
 const productRating = ref(props.productData.avg_ratings);
+
+const priceInt = (price: string) => {
+  const splitedPrice = price.split(".");
+
+  return splitedPrice.length ? splitedPrice[0] : price;
+};
 </script>
 
 <template>
@@ -34,36 +40,37 @@ const productRating = ref(props.productData.avg_ratings);
           <Rating v-model="productRating" :cancel="false" readonly />
 
           <h3
-            class="product-title mt-8px text-primary-color-dark-gray text-regular-3"
+            class="product-title mt-8px text-primary-color-dark-gray text-regular-4"
           >
             {{ productData.name }}
           </h3>
         </div>
 
         <p class="mt-8px flex align-items-center gap-8px">
-          <span
-            v-if="productData.price.discount_amount"
-            class="text-medium-2 text-primary-color-envitect-sam-blue"
-          >
-            ৳ {{ productData.price.final_price }}
-          </span>
-          <span
-            v-if="
-              productData.price.base_price !== productData.price.final_price
-            "
-            :class="[
-              {
-                'text-medium-2 text-primary-color-envitect-sam-blue':
-                  !productData.price.discount_amount,
-              },
-              {
-                'text-regular-4 text-dark-gray-40 line-through':
-                  productData.price.discount_amount,
-              },
-            ]"
-          >
-            ৳ {{ productData.price.base_price }}
-          </span>
+          {{ productData.price.final_price }}
+          <!--          <span-->
+          <!--            v-if="productData.price.discount_amount"-->
+          <!--            class="text-caption-regular-1 md:text-medium-2 text-primary-color-envitect-sam-blue"-->
+          <!--          >-->
+          <!--            ৳ {{ priceInt(productData.price.final_price) }}-->
+          <!--          </span>-->
+          <!--          <span-->
+          <!--            v-if="-->
+          <!--              productData.price.base_price !== productData.price.final_price-->
+          <!--            "-->
+          <!--            :class="[-->
+          <!--              {-->
+          <!--                'text-medium-2 text-primary-color-envitect-sam-blue':-->
+          <!--                  !productData.price.discount_amount,-->
+          <!--              },-->
+          <!--              {-->
+          <!--                'text-regular-4 text-dark-gray-40 line-through':-->
+          <!--                  productData.price.discount_amount,-->
+          <!--              },-->
+          <!--            ]"-->
+          <!--          >-->
+          <!--            ৳ {{ priceInt(productData.price.base_price) }}-->
+          <!--          </span>-->
         </p>
       </div>
     </div>

@@ -91,7 +91,12 @@ $font-styles-map-regular-screen: (
                 14px,
                 600,
                 20px
-        )
+        ),
+        regular-4: (
+                16px,
+                400,
+                24px,
+        ),
 );
 
 // Define heading font map for smaller screen
@@ -175,7 +180,12 @@ $font-styles-map-smaller-screen: (
                 16px,
                 500,
                 16px,
-        )
+        ),
+        regular-4: (
+                14px,
+                400,
+                20px,
+        ),
 );
 
 // Define text font map for regular screen
@@ -229,7 +239,12 @@ $text-styles-map: (
                 11.688px,
                 700,
                 17.532px,
-        )
+        ),
+        caption-regular-1: (
+                13px,
+                400,
+                20px,
+        ),
 );
 
 // Generate font style classes
