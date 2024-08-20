@@ -26,7 +26,7 @@ const props = defineProps<{
               {{ attribute.name }}
             </td>
             <td class="w-6 py-12px px-5 table-data text-medium-2">
-              {{ attribute.values.map((attr) => attr.name).join(", ") }}
+              {{ attribute.values.map((attr) => attr.value).join(", ") }}
             </td>
           </tr>
           <!--          <tr class="table-row-odd">-->

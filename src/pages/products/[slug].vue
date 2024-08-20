@@ -1,16 +1,20 @@
 <script setup lang="ts">
 import { useToast } from "primevue/usetoast";
 import type { ProductI } from "~/contracts/api-contracts/ProductsInterfaces";
-import { useStore } from "~/stores/index.ts";
-import { useWishListStore } from "#imports";
+// import { useStore } from "~/stores/index.ts";
+import { useWishListStore, useStore } from "#imports";
 
 interface CartedProduct {
   id: number;
   name: string;
   image: string;
-  price: number;
-  brand: string;
-  capacity: string;
+  slug: string;
+  price: {
+    base_price: number;
+    final_price: number;
+  };
+  brand_name?: string;
+  capacity?: string;
   quantity: number;
   stock: number;
   timeStamp: string;
@@ -19,16 +23,14 @@ interface CartedProduct {
 const route = useRoute();
 const toast = useToast();
 
-const {
-  data: singleProductData,
-  refresh,
-  error,
-} = await useAsyncData(
+const { data: singleProductData, error } = await useAsyncData(
   `product-${route.params.slug}`,
   () => $fetch(`/api/proxy/products/${route.params.slug}`),
   {
     transform(data) {
-      const imageUrls = data.data.images.map((image) => image.image_url);
+      const imageUrls = data.data.images.map((image) => {
+        return image.image_url ? image.image_url : image.path;
+      });
       return {
         ...data.data,
         avg_ratings: data.data.avg_ratings ?? 0,
@@ -108,7 +110,9 @@ const quantity = ref(1);
 const currentTime = new Date().toISOString();
 
 const addToCart = (product: ProductI) => {
-  const { id, name, images, price, brand, attributes, stock } = product;
+  const { id, name, image, price, brand_name, attributes, stock, slug } =
+    product;
+  console.log(id, name, image, price, brand_name, attributes, stock, slug);
   const isAlreadyInCart = store.cart.find(
     (cartedProduct) => cartedProduct.id === id,
   );
@@ -116,12 +120,12 @@ const addToCart = (product: ProductI) => {
     const modifiedProduct: CartedProduct = {
       id,
       name,
-      image: images[0],
-      price: price.discounted ?? price.regular,
-      brand,
+      image,
+      price: price.final_price ?? price.base_price,
+      brand: brand_name,
       capacity: attributes.capacity,
       quantity: quantity.value,
-      stock: stock.quantity,
+      stock: stock || 1,
       timeStamp: currentTime,
     };
     store.addToCart(modifiedProduct);
@@ -323,10 +327,10 @@ onMounted(() => {
       </div>
     </div>
     <div>
-      <!--      <PagesProductDetailDescription :product="singleProductData" />-->
+      <PagesProductDetailDescription :product="singleProductData" />
     </div>
     <div class="mt-5 lg:mt-8">
-      <PagesProductRelatedProducts />
+      <!--      <PagesProductRelatedProducts />-->
     </div>
   </div>
 </template>

@@ -13,13 +13,13 @@ const props = defineProps<{
       <PagesProductDescription :product="product" />
     </div>
     <div v-else-if="type === 'ADDITIONAL INFORMATION'">
-      <!--      <PagesProductAdditionalInformation :product="product" />-->
+      <PagesProductAdditionalInformation :product="product" />
     </div>
     <div v-else-if="type === 'WARRANTY & SERVICES'">
-      <!--      <PagesProductWarrantyService :product="product" />-->
+      <PagesProductWarrantyService :product="product" />
     </div>
     <div v-else>
-      <!--      <PagesProductReviews :product="product" />-->
+      <PagesProductReviews :product="product" />
     </div>
   </div>
 </template>
