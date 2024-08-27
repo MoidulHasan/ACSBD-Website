@@ -7,7 +7,7 @@ interface IProps {
 
 const props = defineProps<IProps>();
 
-const productRating = ref(props.productData.avg_ratings);
+const productRating = ref(props.productData.avg_ratings ?? 0);
 </script>
 
 <template>

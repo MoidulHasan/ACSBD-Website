@@ -14,51 +14,57 @@ const props = defineProps<{
           <tr class="table-row-odd">
             <td class="w-6 py-12px px-5 table-data text-medium-2">Brands</td>
             <td class="w-6 py-12px px-5 table-data text-medium-2">
-              {{ product.brand }}
+              {{ product.brand_name }}
             </td>
           </tr>
-          <tr>
-            <td class="w-6 py-12px px-5 table-data text-medium-2">BTU</td>
+          <tr
+            v-for="(attribute, index) in product.attributes"
+            :key="attribute.id"
+            :class="{ 'table-row-odd': (index + 1) % 2 === 0 }"
+          >
             <td class="w-6 py-12px px-5 table-data text-medium-2">
-              {{ product.attributes.BTU }}
+              {{ attribute.name }}
+            </td>
+            <td class="w-6 py-12px px-5 table-data text-medium-2">
+              {{ attribute.values.map((attr) => attr.value).join(", ") }}
             </td>
           </tr>
-          <tr class="table-row-odd">
-            <td class="w-6 py-12px px-5 table-data text-medium-2">Capacity</td>
-            <td class="w-6 py-12px px-5 table-data text-medium-2">
-              {{ product.attributes.capacity }}
-            </td>
-          </tr>
-          <tr>
-            <td class="w-6 py-12px px-5 table-data text-medium-2">AC Type</td>
-            <td class="w-6 py-12px px-5 table-data text-medium-2">
-              {{ product.type }}
-            </td>
-          </tr>
-          <tr class="table-row-odd">
-            <td class="w-6 py-12px px-5 table-data text-medium-2">
-              Outdoor Unit Model
-            </td>
-            <td class="w-6 py-12px px-5 table-data text-medium-2">
-              {{ product.attributes.outdoorUnitModel }}
-            </td>
-          </tr>
-          <tr>
-            <td class="w-6 py-12px px-5 table-data text-medium-2">
-              Refrigerant
-            </td>
-            <td class="w-6 py-12px px-5 table-data text-medium-2">
-              {{ product.attributes.refrigerant }}
-            </td>
-          </tr>
-          <tr class="table-row-odd">
-            <td class="w-6 py-12px px-5 table-data text-medium-2">
-              Color Name
-            </td>
-            <td class="w-6 py-12px px-5 table-data text-medium-2">
-              {{ product.attributes.color }}
-            </td>
-          </tr>
+          <!--          <tr class="table-row-odd">-->
+          <!--            <td class="w-6 py-12px px-5 table-data text-medium-2">Capacity</td>-->
+          <!--            <td class="w-6 py-12px px-5 table-data text-medium-2">-->
+          <!--              {{ product.attributes.capacity }}-->
+          <!--            </td>-->
+          <!--          </tr>-->
+          <!--          <tr>-->
+          <!--            <td class="w-6 py-12px px-5 table-data text-medium-2">AC Type</td>-->
+          <!--            <td class="w-6 py-12px px-5 table-data text-medium-2">-->
+          <!--              {{ product.type }}-->
+          <!--            </td>-->
+          <!--          </tr>-->
+          <!--          <tr class="table-row-odd">-->
+          <!--            <td class="w-6 py-12px px-5 table-data text-medium-2">-->
+          <!--              Outdoor Unit Model-->
+          <!--            </td>-->
+          <!--            <td class="w-6 py-12px px-5 table-data text-medium-2">-->
+          <!--              {{ product.attributes.outdoorUnitModel }}-->
+          <!--            </td>-->
+          <!--          </tr>-->
+          <!--          <tr>-->
+          <!--            <td class="w-6 py-12px px-5 table-data text-medium-2">-->
+          <!--              Refrigerant-->
+          <!--            </td>-->
+          <!--            <td class="w-6 py-12px px-5 table-data text-medium-2">-->
+          <!--              {{ product.attributes.refrigerant }}-->
+          <!--            </td>-->
+          <!--          </tr>-->
+          <!--          <tr class="table-row-odd">-->
+          <!--            <td class="w-6 py-12px px-5 table-data text-medium-2">-->
+          <!--              Color Name-->
+          <!--            </td>-->
+          <!--            <td class="w-6 py-12px px-5 table-data text-medium-2">-->
+          <!--              {{ product.attributes.color }}-->
+          <!--            </td>-->
+          <!--          </tr>-->
         </tbody>
       </table>
     </div>
