@@ -1,32 +1,12 @@
-<template>
-  <div class="min-w-100 min-h-100">
-    <Galleria
-      :num-visible="2"
-      :responsive-options="responsiveOptions"
-      :show-indicators="true"
-      :show-indicators-on-item="true"
-      :show-thumbnails="false"
-      :value="heroSliderImages"
-      auto-play
-      circular
-      class="slider"
-      container-style="min-width: 100%"
-    >
-      <template #item="slotProps">
-        <img
-          :alt="slotProps.item?.title"
-          :src="slotProps.item?.imageUrl"
-          style="width: 100%; display: block"
-        />
-      </template>
-    </Galleria>
-  </div>
-</template>
-
 <script lang="ts" setup>
-import { getHomePageHeroSliderImages } from "~/app/api/getHomePageHeroSliderImages";
+// import { getHomePageHeroSliderImages } from "~/app/api/getHomePageHeroSliderImages";
+import type { MediaItem } from "~/contracts/api-contracts/bannerSliderInterface";
 
-const { data: heroSliderImages } = await getHomePageHeroSliderImages();
+defineProps<{
+  sliders: MediaItem[];
+}>();
+
+// const { data: heroSliderImages } = await getHomePageHeroSliderImages();
 
 const responsiveOptions = ref([
   {
@@ -44,6 +24,31 @@ const responsiveOptions = ref([
 ]);
 </script>
 
+<template>
+  <div class="min-w-100 min-h-100">
+    <Galleria
+      :num-visible="2"
+      :responsive-options="responsiveOptions"
+      :show-indicators="true"
+      :show-indicators-on-item="true"
+      :show-thumbnails="false"
+      :value="sliders"
+      auto-play
+      circular
+      class="slider"
+      container-style="min-width: 100%"
+    >
+      <template #item="slotProps">
+        <img
+          :alt="`ACSBD ${slotProps.item?.type}`"
+          :src="slotProps.item?.path"
+          style="width: 100%; display: block; max-height: 600px"
+        />
+      </template>
+    </Galleria>
+  </div>
+</template>
+
 <style lang="scss" scoped>
 .slider {
   min-height: 600px;
@@ -58,6 +63,7 @@ const responsiveOptions = ref([
 :deep(.p-galleria-indicators) {
   background: transparent !important;
 }
+
 :deep(.p-galleria-indicators .p-galleria-indicator) {
   margin-left: 7px !important;
 }
