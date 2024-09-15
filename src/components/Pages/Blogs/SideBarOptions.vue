@@ -1,6 +1,9 @@
 <script setup lang="ts">
+const emit = defineEmits<{
+  (e: "searchBlog", value: string): void;
+}>();
 const handleSearchResult = (value: string) => {
-  console.log(value);
+  emit("searchBlog", value);
 };
 </script>
 

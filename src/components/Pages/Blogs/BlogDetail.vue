@@ -1,22 +1,18 @@
 <script setup lang="ts">
-import type { Blog } from "~/contracts/api-contracts/BlogsInterfaces";
+import type { IBlog } from "~/pages/our-blogs/index.vue";
 
 defineProps<{
-  blog: Blog;
+  blog: IBlog;
 }>();
 </script>
 <template>
   <div class="single-blog">
     <div>
-      <NuxtImg
-        :src="blog.detailImage[1]"
-        alt="blog.title"
-        class="blog-image mb-3"
-      />
+      <NuxtImg :src="blog.image" :alt="blog.title" class="blog-image mb-3" />
       <PagesBlogsBlogMetaInfos
-        :time="blog.published_date"
-        :views="blog.views"
-        :comments="blog.comments"
+        :time="blog.created_at"
+        :views="blog.views ?? 2"
+        :comments="blog.comments ?? 2"
       />
       <h3 class="mt-5 mb-3 font-heading-3 text-primary-color-dark-gray">
         {{ blog.title }}
@@ -56,11 +52,7 @@ defineProps<{
         Turn off the unit. For safety purposes, it's always a good idea to turn
         off the power and unplug the cord before working on an electrical unit.
       </p>
-      <NuxtImg
-        :src="blog.detailImage[0]"
-        :alt="blog.title"
-        class="blog-image-2 my-4"
-      />
+      <NuxtImg :src="blog.image" :alt="blog.title" class="blog-image-2 my-4" />
       <p class="text-regular-3 text-primary-color-dark-gray">
         How Often to Clean a Central AC Unit For central AC units, Mejean
         recommends checking the filter every 30 to 60 days to see if it's dirty
@@ -99,54 +91,54 @@ defineProps<{
           <i class="pi pi-facebook social-icon" />
           <i class="pi pi-facebook social-icon" />
         </div>
-        <NuxtLink :to="`/our-blogs/${blog.id}`">
+        <NuxtLink :to="`/our-blogs/${blog.slug}`">
           <CommonExploreMoreButton label="Next Page" />
         </NuxtLink>
       </div>
-      <div class="comment-section">
-        <h2 class="font-heading-3 text-primary-color-navy-blue mb-3">
-          {{ blog.comments }} Comments
-        </h2>
-        <div class="comments">
-          <!--          a single comment -->
-          <div class="flex justify-content-between single-comment">
-            <!--            commenter profile image -->
-            <NuxtImg
-              :src="blog.profile1"
-              :alt="blog.tag"
-              class="profile-picture"
-            />
-            <!--            comment -->
-            <div class="flex-grow-1">
-              <p class="text-regular-3 text-primary-color-dark-gray mb-12px">
-                The standard chunk of Lorem Ipsum used since the 1500s is
-                reproduced below for those interested. Sections 1.10.32 and
-                1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also
-                reproduced in their exact original form, accompanied by English
-                versions from the 1914 translation
-              </p>
-              <div
-                class="flex flex-wrap justify-content-between align-items-center"
-              >
-                <!--                commneter name -->
-                <PagesBlogsBlogCommentProfile
-                  profile="Dulal Hossain"
-                  :date="blog.published_date"
-                />
-                <CommonExploreMoreButton label="Reply" />
-              </div>
-              <!--              reply section -->
-              <PagesBlogsBlogCommentReply
-                class="mt-22px"
-                profile="Dulal Hossain"
-                comment="The standard chunk of Lorem Ipsum used since the 1500s is reproduced below"
-                :date="blog.published_date"
-                :img="blog.profile2"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
+      <!--      <div class="comment-section">-->
+      <!--        <h2 class="font-heading-3 text-primary-color-navy-blue mb-3">-->
+      <!--          {{ blog.comments }} Comments-->
+      <!--        </h2>-->
+      <!--        <div class="comments">-->
+      <!--          &lt;!&ndash;          a single comment &ndash;&gt;-->
+      <!--          <div class="flex justify-content-between single-comment">-->
+      <!--            &lt;!&ndash;            commenter profile image &ndash;&gt;-->
+      <!--            <NuxtImg-->
+      <!--              :src="blog.profile1"-->
+      <!--              :alt="blog.tag"-->
+      <!--              class="profile-picture"-->
+      <!--            />-->
+      <!--            &lt;!&ndash;            comment &ndash;&gt;-->
+      <!--            <div class="flex-grow-1">-->
+      <!--              <p class="text-regular-3 text-primary-color-dark-gray mb-12px">-->
+      <!--                The standard chunk of Lorem Ipsum used since the 1500s is-->
+      <!--                reproduced below for those interested. Sections 1.10.32 and-->
+      <!--                1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also-->
+      <!--                reproduced in their exact original form, accompanied by English-->
+      <!--                versions from the 1914 translation-->
+      <!--              </p>-->
+      <!--              <div-->
+      <!--                class="flex flex-wrap justify-content-between align-items-center"-->
+      <!--              >-->
+      <!--                &lt;!&ndash;                commneter name &ndash;&gt;-->
+      <!--                <PagesBlogsBlogCommentProfile-->
+      <!--                  profile="Dulal Hossain"-->
+      <!--                  :date="blog.published_date"-->
+      <!--                />-->
+      <!--                <CommonExploreMoreButton label="Reply" />-->
+      <!--              </div>-->
+      <!--              &lt;!&ndash;              reply section &ndash;&gt;-->
+      <!--              <PagesBlogsBlogCommentReply-->
+      <!--                class="mt-22px"-->
+      <!--                profile="Dulal Hossain"-->
+      <!--                comment="The standard chunk of Lorem Ipsum used since the 1500s is reproduced below"-->
+      <!--                :date="blog.published_date"-->
+      <!--                :img="blog.profile2"-->
+      <!--              />-->
+      <!--            </div>-->
+      <!--          </div>-->
+      <!--        </div>-->
+      <!--      </div> -->
       <PagesBlogsBlogCommentForm class="mt-6" />
     </div>
   </div>
@@ -159,11 +151,13 @@ defineProps<{
     max-height: 455px;
     border-radius: 4px;
   }
+
   .blog-image-2 {
     width: 100%;
     max-height: 431px;
     border-radius: 4px;
   }
+
   .share-content {
     color: var(--dark-gray-80);
     border-radius: 4px;
@@ -173,14 +167,17 @@ defineProps<{
       margin-right: 12px;
     }
   }
+
   .comment-section {
     .single-comment {
       gap: 12px;
+
       .profile-picture {
         height: 60px;
         width: 60px;
         border-radius: 50%;
       }
+
       .meta-info {
         padding: 9px 22px;
         border-radius: 4px;

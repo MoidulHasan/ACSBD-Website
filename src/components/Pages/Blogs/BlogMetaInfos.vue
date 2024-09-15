@@ -18,13 +18,13 @@ defineProps<{
       class="meta-info text-regular-4 bg-envitect-sam-blue-5 text-dark-gray-80"
     >
       <i class="pi pi-eye icon arrow-icon mr-3" />
-      <span>{{ views }} views</span>
+      <span>{{ views ?? 200 }} views</span>
     </p>
     <p
       class="meta-info text-regular-4 bg-envitect-sam-blue-5 text-dark-gray-80"
     >
       <i class="pi pi-comments icon arrow-icon mr-3" />
-      <span>{{ comments }}+ Comments</span>
+      <span>{{ comments ?? 10 }}+ Comments</span>
     </p>
   </div>
 </template>
