@@ -1,41 +1,10 @@
-<template>
-  <div class="faq-tabs-container">
-    <div class="faq-tabs-content">
-      <CommonSectionHeader
-        :header="faqList.title"
-        :sub-header="faqList.description"
-      />
-      <div class="mt-3 md:mt-5">
-        <Accordion :active-index="0" class="mb-6">
-          <AccordionTab
-            v-for="(tab, index) in faqList.tabs"
-            :key="tab.question"
-            :header="tab.question"
-            :pt="{
-              headerAction: ({ parent }) => handleHeaderAction(index, parent),
-            }"
-          >
-            <p class="faq-tab-header text-regular-4 bg-primary-color-white">
-              {{ tab.question }}
-            </p>
-          </AccordionTab>
-        </Accordion>
-        <div class="flex justify-content-center">
-          <Button class="view-all-tabs mb-5 md:mb-6">
-            Load More Questions
-          </Button>
-        </div>
-      </div>
-    </div>
-  </div>
-</template>
-
 <script lang="ts" setup>
 import type { AccordionPassThroughOptions } from "primevue/accordion";
-import type { FAQSection } from "~/contracts/api-contracts/faqData";
+import type { FAQSection, FAQTab } from "~/contracts/api-contracts/faqData";
 
-defineProps<{
-  faqList: FAQSection;
+const props = defineProps<{
+  faqList: FAQTab[];
+  selectedFaqTab: Omit<FAQSection, "tabs">;
 }>();
 
 const handleHeaderAction = (
@@ -53,7 +22,64 @@ const handleHeaderAction = (
     },
   };
 };
+
+const initialLength = ref(10);
+const faqsToShow = computed(() => {
+  return props.faqList?.slice(0, initialLength.value);
+});
+
+const showMoreFAQs = () => {
+  if (initialLength.value <= props.faqList?.length) {
+    initialLength.value += 10;
+  }
+};
+
+watch(
+  () => props.selectedFaqTab,
+  (newVal, oldVal) => {
+    if (oldVal.title !== newVal.title) {
+      initialLength.value = 10;
+    }
+  },
+);
 </script>
+
+<template>
+  <div class="faq-tabs-container">
+    <div class="faq-tabs-content">
+      {{ selectedFaqTab }}
+      <CommonSectionHeader
+        :header="selectedFaqTab.title"
+        :sub-header="selectedFaqTab.description"
+      />
+      <div class="mt-3 md:mt-5">
+        <Accordion :active-index="0" class="mb-6">
+          <AccordionTab
+            v-for="(tab, index) in faqsToShow"
+            :key="tab.question"
+            :header="tab.question"
+            :pt="{
+              headerAction: ({ parent }) => handleHeaderAction(index, parent),
+            }"
+          >
+            <p class="faq-tab-header text-regular-4 bg-primary-color-white">
+              {{ tab.answer }}
+            </p>
+          </AccordionTab>
+        </Accordion>
+        <div class="flex justify-content-center">
+          <Button
+            v-if="faqsToShow.length !== faqList?.length"
+            class="view-all-tabs mb-5 md:mb-6"
+            @click="showMoreFAQs"
+          >
+            Load More Questions
+          </Button>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
 
 <style lang="scss" scoped>
 .faq-tabs-container {

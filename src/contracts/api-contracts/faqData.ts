@@ -1,6 +1,7 @@
 export interface FAQTab {
   question: string;
   answer: string;
+  category: string;
 }
 
 export interface FAQSection {
@@ -8,4 +9,5 @@ export interface FAQSection {
   image: string;
   description: string;
   tabs: FAQTab[];
+  slug?: string;
 }

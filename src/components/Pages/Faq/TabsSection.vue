@@ -1,41 +1,3 @@
-<template>
-  <div class="max-w-full flex flex-column align-items-center">
-    <div class="max-w-full">
-      <Carousel
-        :num-scroll="1"
-        :num-visible="4"
-        :responsive-options="responsiveOptions"
-        :show-indicators="false"
-        :show-navigators="showNavigator"
-        :value="faqTabs"
-      >
-        <template #item="slotProps">
-          <div
-            class="flex justify-content-center align-items-center px-1 md:px-3"
-          >
-            <PagesFaqTabButton
-              :image="slotProps.data.image"
-              :is-active="slotProps.index === activeTab"
-              :title="slotProps.data.title"
-              @handle-state-change="
-                () => handleFaqSectionTabChange(slotProps.index)
-              "
-            />
-          </div>
-        </template>
-
-        <template #previousicon>
-          <i class="pi pi-arrow-left" />
-        </template>
-
-        <template #nexticon>
-          <i class="pi pi-arrow-right" />
-        </template>
-      </Carousel>
-    </div>
-  </div>
-</template>
-
 <script lang="ts" setup>
 import { useWindowSize } from "@vueuse/core";
 import type { FAQSection } from "~/contracts/api-contracts/faqData";
@@ -48,7 +10,7 @@ const props = defineProps<{
 }>();
 
 const emits = defineEmits<{
-  (e: "onActiveTabChange", activeTabIndex: number): void;
+  (e: "onActiveTabChange", activeTabIndex: number, payload: string): void;
 }>();
 
 const activeTab = ref(props.activeTabIndex ?? null);
@@ -70,11 +32,53 @@ const showNavigator = computed(() => {
   return width ? width.value < 846 : true;
 });
 
-const handleFaqSectionTabChange = (activeTabIndex: number) => {
+const handleFaqSectionTabChange = (activeTabIndex: number, tabName: string) => {
   activeTab.value = activeTabIndex;
-  emits("onActiveTabChange", activeTabIndex);
+  emits("onActiveTabChange", activeTabIndex, tabName);
 };
 </script>
+
+<template>
+  <div class="max-w-full flex flex-column align-items-center">
+    <div class="max-w-full">
+      <Carousel
+        :num-scroll="1"
+        :num-visible="4"
+        :responsive-options="responsiveOptions"
+        :show-indicators="false"
+        :show-navigators="showNavigator"
+        :value="faqTabs"
+      >
+        <template #item="slotProps">
+          <div
+            class="flex justify-content-center align-items-center px-1 md:px-3"
+          >
+            <PagesFaqTabButton
+              :image="slotProps.data.image"
+              :is-active="slotProps.index === activeTab"
+              :title="slotProps.data.title"
+              @handle-state-change="
+                () =>
+                  handleFaqSectionTabChange(
+                    slotProps.index,
+                    slotProps.data.slug,
+                  )
+              "
+            />
+          </div>
+        </template>
+
+        <template #previousicon>
+          <i class="pi pi-arrow-left" />
+        </template>
+
+        <template #nexticon>
+          <i class="pi pi-arrow-right" />
+        </template>
+      </Carousel>
+    </div>
+  </div>
+</template>
 
 <style lang="scss" scoped>
 ::v-deep(.p-carousel-next) {

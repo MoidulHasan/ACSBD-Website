@@ -1,16 +1,25 @@
 <script lang="ts" setup>
+import type { ImageResponse } from "~/contracts/api-contracts/bannerSliderInterface";
+
 definePageMeta({
   title: "Home",
   layout: "default",
   name: "home-page",
 });
+
+const { $apiClient } = useNuxtApp();
+
+const { data: bannerSliderImages } = await useAsyncData<ImageResponse>(
+  "banner-and-slider-images",
+  () => $apiClient(`/banner-and-sliders`),
+);
 </script>
 
 <template>
   <div id="home-page">
-    <PagesHomeHeroSlider />
+    <PagesHomeHeroSlider :sliders="bannerSliderImages.slider" />
     <div class="container mt-2 md:mt-4">
-      <PagesHomeBannerSection />
+      <PagesHomeBannerSection :banners="bannerSliderImages.banner" />
     </div>
     <div class="container mt-5 md:mt-6">
       <PagesHomeServicesSection />
