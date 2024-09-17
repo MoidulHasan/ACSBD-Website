@@ -58,11 +58,13 @@ export interface ProductI {
   id: number;
   name: string;
   description: string;
+  image?: string;
   images: string[];
   descriptionImage?: string[];
   ratings: ProductRattingI;
   price: ProductPriceI;
   category: ProductCategoryI;
+  brand_name?: string;
   brand: string;
   type: string;
   model: string;
@@ -72,6 +74,7 @@ export interface ProductI {
   stock: ProductStockI;
   reviews: ProductReviewI[];
   timestamp: string;
+  slug: string;
 }
 
 export interface SortByOptionI {

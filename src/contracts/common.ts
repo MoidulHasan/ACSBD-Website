@@ -82,3 +82,33 @@ export interface FilterItem {
   value: number[] | string[];
   children: FilterItem[];
 }
+
+// export interface WishListImageObj {
+//   id?: number;
+//   path?: string;
+//   created_at?: string;
+// }
+
+export interface WishListProductPrice {
+  base_price: string;
+  final_price: string;
+  product_id: string;
+}
+
+export interface ProductInWishList {
+  id: number;
+  product_slug: string;
+  name: string;
+  image: string;
+  final_price: string | number;
+  brand_id?: string;
+  brand_name?: string;
+  stock: string;
+  created_at: string;
+}
+
+export interface WishListSuccessFetchResponse<T> {
+  data: T[];
+  message: string;
+  status: boolean;
+}

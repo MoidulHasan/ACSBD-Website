@@ -1,26 +1,31 @@
+<script lang="ts" setup>
+import type { MediaItem } from "~/contracts/api-contracts/bannerSliderInterface";
+// import { getHomePageBannerImages } from "~/app/api/getHomePageBannerImages";
+
+const props = defineProps<{
+  banners: MediaItem[];
+}>();
+
+// const { data: images } = await getHomePageBannerImages();
+</script>
+
 <template>
   <div class="image-slide-container">
     <div class="flex">
       <div
-        v-for="(image, index) in images"
+        v-for="(image, index) in banners"
         :key="'banner-image-' + index"
         class="image-slide"
       >
         <img
-          :alt="image?.title"
-          :src="image?.imageUrl"
+          :alt="`AC Service ltd ${image.type}`"
+          :src="image?.path"
           :style="{ width: '100%', height: '100%', borderRadius: '4px' }"
         />
       </div>
     </div>
   </div>
 </template>
-
-<script lang="ts" setup>
-import { getHomePageBannerImages } from "~/app/api/getHomePageBannerImages";
-
-const { data: images } = await getHomePageBannerImages();
-</script>
 
 <style lang="scss" scoped>
 @use "assets/styles/scss/base/mixins" as *;

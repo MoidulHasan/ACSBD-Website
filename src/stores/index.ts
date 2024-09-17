@@ -137,7 +137,7 @@ export const useStore = defineStore("store", () => {
 
   function getTotalCartPrice() {
     const getTotalPrices = cart.value.reduce((sum, cartItem) => {
-      return sum + cartItem.price * (cartItem.quantity ?? 1);
+      return sum + +cartItem.price * (cartItem.quantity ?? 1);
     }, 0);
     return getTotalPrices;
   }

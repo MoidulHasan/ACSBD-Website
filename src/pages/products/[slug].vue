@@ -1,16 +1,20 @@
 <script setup lang="ts">
 import { useToast } from "primevue/usetoast";
-import { getProducts } from "~/app/api/getProducts";
 import type { ProductI } from "~/contracts/api-contracts/ProductsInterfaces";
-import { useStore } from "~/stores/index.ts";
+// import { useStore } from "~/stores/index.ts";
+import { useWishListStore, useStore } from "#imports";
 
 interface CartedProduct {
   id: number;
   name: string;
   image: string;
-  price: number;
-  brand: string;
-  capacity: string;
+  slug: string;
+  price: {
+    base_price: number;
+    final_price: number;
+  };
+  brand_name?: string;
+  capacity?: string;
   quantity: number;
   stock: number;
   timeStamp: string;
@@ -19,17 +23,33 @@ interface CartedProduct {
 const route = useRoute();
 const toast = useToast();
 
-const { data: productsData } = await getProducts();
+const { data: singleProductData, error } = await useAsyncData(
+  `product-${route.params.slug}`,
+  () => $fetch(`/api/proxy/products/${route.params.slug}`),
+  {
+    transform(data) {
+      const imageUrls = data.data.images.map((image) => {
+        return image.image_url ? image.image_url : image.path;
+      });
+      return {
+        ...data.data,
+        avg_ratings: data.data.avg_ratings ?? 0,
+        sliderImages: [data.data.image, ...imageUrls],
+      };
+    },
+  },
+);
 
-const singleProductData = computed<ProductI>(() => {
-  return productsData.value.find((product) => {
-    return product.id === Number(route.params.id);
-  });
-});
+console.log(singleProductData, "SINGLE PRODUCT");
+
+if (error.value) {
+  console.error("ERROR OCCURED");
+}
 
 useHead({
   title: singleProductData.value.name,
 });
+
 const showReviewNumbers = (count: number) => {
   if (count >= 0) {
     if (count < 10) {
@@ -39,20 +59,50 @@ const showReviewNumbers = (count: number) => {
   }
   return "0 Review";
 };
-const isAvailableProduct = (isInStock: boolean) => {
-  return isInStock ? "In Stock" : "Out of Stock";
+
+const isAvailableProduct = (stock: number | null | undefined) => {
+  return stock ? "In Stock" : "Out of Stock";
 };
 
-const value = ref(10);
 const favorite = ref(false);
 const store = useStore();
+const wishListStore = useWishListStore();
+const token = useCookie("token");
+const userCookie = useCookie("user");
 
-const toggleFavorite = (product: CartedProduct) => {
-  favorite.value = !favorite.value;
-  if (favorite.value) {
-    addToFav(product);
+const toggleFavorite = async (product: CartedProduct) => {
+  const productToToggle = {
+    slug: "singara-ac",
+    name: "Product One",
+  };
+  if (token.value && userCookie.value) {
+    if (!favorite.value) {
+      await wishListStore.addProductToWishList(productToToggle);
+      favorite.value = !favorite.value;
+    } else {
+      try {
+        await wishListStore.deleteProductFromWishListBySlug(
+          productToToggle.slug,
+        );
+        toast.add({
+          severity: "success",
+          summary: "Deleted",
+          detail: `${product.name} removed from your wishlist`,
+          life: 3000,
+        });
+        favorite.value = !favorite.value;
+      } catch (error) {
+        toast.add({
+          severity: "error",
+          summary: error?.statusMessage ?? "Could not remove from wishlist",
+          detail: error?.data?.error ?? "Unknown Issue Occurred",
+          life: 3000,
+        });
+      }
+    }
   } else {
-    store.deleteItemFromFav(product);
+    useCookie("redirectTo").value = route.path;
+    await navigateTo("/sign-in");
   }
 };
 
@@ -60,7 +110,9 @@ const quantity = ref(1);
 const currentTime = new Date().toISOString();
 
 const addToCart = (product: ProductI) => {
-  const { id, name, images, price, brand, attributes, stock } = product;
+  const { id, name, image, price, brand_name, attributes, stock, slug } =
+    product;
+  console.log(id, name, image, price, brand_name, attributes, stock, slug);
   const isAlreadyInCart = store.cart.find(
     (cartedProduct) => cartedProduct.id === id,
   );
@@ -68,12 +120,12 @@ const addToCart = (product: ProductI) => {
     const modifiedProduct: CartedProduct = {
       id,
       name,
-      image: images[0],
-      price: price.discounted ?? price.regular,
-      brand,
+      image,
+      price: price.final_price ?? price.base_price,
+      brand: brand_name,
       capacity: attributes.capacity,
       quantity: quantity.value,
-      stock: stock.quantity,
+      stock: stock || 1,
       timeStamp: currentTime,
     };
     store.addToCart(modifiedProduct);
@@ -86,25 +138,25 @@ const addToCart = (product: ProductI) => {
   }
 };
 
-function addToFav(product: ProductI) {
-  const { id, name, images, price, brand, attributes, stock } = product;
-  const modifiedProduct: CartedProduct = {
-    id,
-    name,
-    image: images[0],
-    price: price.discounted ?? price.regular,
-    brand,
-    stock: stock.quantity,
-    capacity: attributes.capacity,
-    quantity: quantity.value,
-    timeStamp: currentTime,
-  };
-  store.addToFavorite(modifiedProduct);
-}
+// function addToFav(product: ProductI) {
+//   const { id, name, images, price, brand, attributes, stock } = product;
+//   const modifiedProduct: CartedProduct = {
+//     id,
+//     name,
+//     image: images[0],
+//     price: price.discounted ?? price.regular,
+//     brand,
+//     stock: stock.quantity,
+//     capacity: attributes.capacity,
+//     quantity: quantity.value,
+//     timeStamp: currentTime,
+//   };
+//   store.addToFavorite(modifiedProduct);
+// }
 
 onMounted(() => {
-  if (process.client) {
-    const favoriteProduct = store.favorites.find(
+  if (wishListStore.wishListedProduct?.length) {
+    const favoriteProduct = wishListStore.wishListedProduct?.find(
       (product) => product.id === singleProductData.value.id,
     );
     if (favoriteProduct) {
@@ -118,7 +170,9 @@ onMounted(() => {
   <div class="container single-product">
     <div class="grid mt-3 mb-6">
       <div class="col-12 lg:col-5">
-        <PagesProductImageGallerySlider :images="singleProductData.images" />
+        <PagesProductImageGallerySlider
+          :images="singleProductData.sliderImages"
+        />
       </div>
       <div class="col-12 lg:col-7">
         <div class="product-summary">
@@ -133,67 +187,73 @@ onMounted(() => {
               <span
                 :class="[
                   'product-stock',
-                  singleProductData.stock.inStock
+                  singleProductData.stock
                     ? 'text-color-success'
                     : 'text-color-danger',
                 ]"
               >
-                {{ isAvailableProduct(singleProductData.stock.inStock) }}
+                {{ isAvailableProduct(singleProductData.stock) }}
               </span>
             </p>
             <div class="product-rating flex flex-wrap align-items-center">
               <Rating
-                v-model="singleProductData.ratings.average"
+                v-model="singleProductData.avg_ratings"
                 :cancel="false"
                 readonly
               />
               <p
                 class="pl-2 lg:pt-1 text-semi-bold-5 text-primary-color-navy-blue"
               >
-                {{ showReviewNumbers(singleProductData.ratings.count) }}
+                {{ showReviewNumbers(singleProductData.review_details.length) }}
               </p>
             </div>
           </div>
-          <p
+          <div
             class="text-regular-3 text-primary-color-dark-gray flex flex-column meta-info gap-1"
-          >
-            <span> Brand: {{ singleProductData.brand }} </span>
-            <span> Model: {{ singleProductData.model }} </span>
-            <span> Color: {{ singleProductData.attributes.acType }} </span>
-            <span>
-              Capacity: {{ singleProductData.attributes.capacity }} ({{
-                singleProductData.attributes.BTU
-              }})
-            </span>
-            <span
-              >Type Air Conditioner:
-              {{ singleProductData.attributes.acType }}</span
-            >
-            <span
-              >Compressor:
-              {{ singleProductData.attributes.compressorType }}</span
-            >
-            <span>Energy Saving</span>
-          </p>
+            v-html="singleProductData.short_description"
+          />
+          <!--          <p-->
+          <!--            class="text-regular-3 text-primary-color-dark-gray flex flex-column meta-info gap-1"-->
+          <!--          >-->
+          <!--            <span> Brand: {{ singleProductData.brand }} </span>-->
+          <!--            <span> Model: {{ singleProductData.model }} </span>-->
+          <!--            <span> Color: {{ singleProductData.attributes.acType }} </span>-->
+          <!--            <span>-->
+          <!--              Capacity: {{ singleProductData.attributes.capacity }} ({{-->
+          <!--                singleProductData.attributes.BTU-->
+          <!--              }})-->
+          <!--            </span>-->
+          <!--            <span-->
+          <!--              >Type Air Conditioner:-->
+          <!--              {{ singleProductData.attributes.acType }}</span-->
+          <!--            >-->
+          <!--            <span-->
+          <!--              >Compressor:-->
+          <!--              {{ singleProductData.attributes.compressorType }}</span-->
+          <!--            >-->
+          <!--            <span>Energy Saving</span>-->
+          <!--          </p>-->
           <h1 class="product-price">
             <span class="font-heading-3 text-primary-color-envitect-sam-blue">
-              ৳{{ singleProductData.price.discounted }}
+              ৳{{ singleProductData.price.final_price }}
             </span>
             <span
               class="font-heading-3-thin product-previous-price text-dark-gray-60 line-through"
-              >৳{{ singleProductData.price.regular }}</span
+              >৳{{ singleProductData.price.base_price }}</span
             >
           </h1>
           <p class="text-medium-2 text-dark-gray-80 my-4">
             Promotions:
-            <span
-              v-if="singleProductData.price.discountPercentage"
-              class="discount-container text-primary-color-navy-blue ml-4 text-semi-bold-1"
-            >
-              Get upto {{ singleProductData.price.discountPercentage }}% off
-            </span>
+            <!--            <span-->
+            <!--              v-if="singleProductData.price.discountPercentage"-->
+            <!--              class="discount-container text-primary-color-navy-blue ml-4 text-semi-bold-1"-->
+            <!--            >-->
+            <!--              Get upto {{ singleProduct.price.discount_amount }}-->
+            <!--              {{ singleProduct.price.is_percent ? "%" : "taka" }} off-->
+            <!--            </span>-->
           </p>
           <p
+            v-if="singleProductData.installment"
             class="text-medium-2 text-dark-gray-80 mb-3 flex align-items-center"
           >
             Installment:
@@ -201,7 +261,7 @@ onMounted(() => {
               class="text-primary-color-navy-blue ml-4 flex align-items-center"
             >
               <i class="pi pi-calendar text-2xl mr-2" />
-              <span>Upto 12 months, 3000/- per month </span>
+              <span>{{ singleProductData.installment }} </span>
             </span>
           </p>
           <!--          quantity button -->
@@ -211,7 +271,7 @@ onMounted(() => {
             </p>
             <CommonQuantityInput
               v-model="quantity"
-              :stock="singleProductData.stock.quantity"
+              :stock="singleProductData.stock ?? 0"
             />
           </div>
           <div class="flex align-items-center flex-wrap gap-3 mb-3">
@@ -229,6 +289,13 @@ onMounted(() => {
             </ClientOnly>
 
             <i
+              :title="
+                token
+                  ? favorite
+                    ? 'Remove from your wishlist'
+                    : 'Add to your wishlist'
+                  : 'Sign In to add this product to your wishlist'
+              "
               :class="[
                 'pi',
                 'text-6xl',
@@ -242,7 +309,7 @@ onMounted(() => {
           <p class="text-medium-2 text-dark-gray-80">
             Product SKU:
             <span class="text-semi-bold-1">
-              {{ singleProductData.model }}
+              {{ singleProductData.sku }}
             </span>
           </p>
           <div
@@ -263,7 +330,7 @@ onMounted(() => {
       <PagesProductDetailDescription :product="singleProductData" />
     </div>
     <div class="mt-5 lg:mt-8">
-      <PagesProductRelatedProducts />
+      <!--      <PagesProductRelatedProducts />-->
     </div>
   </div>
 </template>

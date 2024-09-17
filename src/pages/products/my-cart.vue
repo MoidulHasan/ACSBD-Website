@@ -77,7 +77,7 @@ const modifyCartProductQuantity = (id: number, quantity: number) => {
                         ৳
                         {{
                           (
-                            slotProps.data.price * slotProps.data.quantity
+                            +slotProps.data.price * +slotProps.data.quantity
                           ).toLocaleString("en-IN")
                         }}
                       </p>
@@ -124,7 +124,7 @@ const modifyCartProductQuantity = (id: number, quantity: number) => {
                       Brand: {{ item.brand }}
                     </h4>
                     <h4 class="text-dark-gray-80 text-semi-bold-6 pb-2">
-                      Capacity: {{ item.capacity }}
+                      <!--                      Capacity: {{ item.capacity }}-->
                     </h4>
                     <div
                       class="quantity-container flex flex-wrap align-items-center justify-content-between"
@@ -140,7 +140,7 @@ const modifyCartProductQuantity = (id: number, quantity: number) => {
                       <h4
                         class="text-semi-bold-1 text-primary-color-envitect-sam-blue"
                       >
-                        ৳ {{ item.price * item.quantity }}
+                        ৳ {{ +item.price.final_price * item.quantity }}
                       </h4>
                     </div>
                   </div>

@@ -7,13 +7,14 @@ interface IProps {
 
 const props = defineProps<IProps>();
 
-const productRating = ref(props.productData.avg_ratings);
 
 const priceInt = (price: string) => {
   const splitedPrice = price.split(".");
 
   return splitedPrice.length ? splitedPrice[0] : price;
 };
+
+const productRating = ref(props.productData.avg_ratings ?? 0);
 </script>
 
 <template>
