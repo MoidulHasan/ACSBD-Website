@@ -92,6 +92,6 @@ export interface ProductMinimalI {
   slug: string;
   image: string;
   current_stock_quantity: number | null;
-  avg_ratings: number | null;
+  avg_ratings: number;
   price: ProductPriceI;
 }
