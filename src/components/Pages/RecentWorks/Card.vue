@@ -14,7 +14,7 @@ defineProps<{
 
 <template>
   <div
-    class="bg-color-product-bg border-round-sm work-card relative"
+    class="bg-color-product-bg border-round-sm work-card relative m-1"
     :class="{ 'm-1': slidePresent }"
   >
     <NuxtImg class="work-banner w-full" :src="bannerImage" :alt="client" />
