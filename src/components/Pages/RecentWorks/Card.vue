@@ -1,15 +1,14 @@
 <script setup lang="ts">
-import type { RecentWork } from "~/contracts/api-contracts/recent-works";
-
 const route = useRoute();
 
 const slidePresent = ref(!!route.params.id);
 
 defineProps<{
   bannerImage: string;
-  company: string;
+  client: string;
   type: string;
-  id: number;
+  id: string;
+  slug: string;
 }>();
 </script>
 
@@ -18,7 +17,7 @@ defineProps<{
     class="bg-color-product-bg border-round-sm work-card relative"
     :class="{ 'm-1': slidePresent }"
   >
-    <NuxtImg class="work-banner w-full" :src="bannerImage" :alt="company" />
+    <NuxtImg class="work-banner w-full" :src="bannerImage" :alt="client" />
     <span
       class="absolute work-type text-regular-4 text-primary-color-envitect-sam-blue bg-envitect-sam-blue-10"
     >
@@ -26,9 +25,9 @@ defineProps<{
     </span>
     <div class="work-detail py-3 px-4">
       <h3 class="text-primary-color-dark-gray font-heading-5-semi-bold">
-        {{ company }}
+        {{ client }}
       </h3>
-      <NuxtLink :to="`/recent-works/${id}`">
+      <NuxtLink :to="`/recent-works/${slug}`">
         <a class="work-link text-semi-bold-5 text-envitect-sam-blue-80">
           See Project Details
         </a>

@@ -1,43 +1,37 @@
+<script lang="ts" setup>
+import type { Work } from "~/contracts/api-contracts/recentWorkInterfaces";
+
+defineProps<{
+  allWorks: Work[];
+}>();
+</script>
 <template>
   <div>
     <div class="grid">
-      <div class="col-12 h-[7.125rem] md:h-[24.4375rem] md:col-6 p-1">
+      <div
+        v-for="(work, index) in allWorks"
+        :key="work.slug"
+        :class="[
+          'p-1 h-[7.125rem] md:h-[24.4375rem] work-image-container',
+          [0, 1].includes(index)
+            ? 'col-12 md:col-6'
+            : allWorks.length >= 2 && allWorks.length - 1 === index
+              ? 'hidden md:block col-4'
+              : 'col-6 md:col-4',
+        ]"
+      >
         <img
+          :title="work.title"
           class="w-full h-full border-round-md"
-          src="/images/commercial 1.png"
-          alt="service ac"
-        />
-      </div>
-      <div class="col-12 h-[11.5rem] md:h-[24.4375rem] md:col-6 p-1">
-        <img
-          class="w-full h-full border-round-md"
-          src="/images/Repair-Installation-Of-HVAC 1.png"
-          alt="repaire ac row"
-        />
-      </div>
-      <div class="col-6 h-[7.125rem] md:h-[24.4375rem] md:col-4 p-1">
-        <img
-          class="w-full h-full border-round-md"
-          src="/images/image 10.png"
-          alt="commericial"
-        />
-      </div>
-      <div class="col-6 h-[7.125rem] md:h-[24.4375rem] md:col-4 p-1">
-        <img
-          class="w-full h-full border-round-md"
-          src="/images/image 10.png"
-          alt="commericial"
-        />
-      </div>
-      <div class="hidden md:block col-4 h-[7.125rem] md:h-[24.4375rem] p-1">
-        <img
-          class="w-full h-full border-round-md"
-          src="/images/image 11.png"
-          alt="gac mesurment"
+          :src="work.image"
+          :alt="work.title"
         />
       </div>
     </div>
   </div>
 </template>
-<script lang="ts" setup></script>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.work-image-container {
+  max-height: 360px;
+}
+</style>

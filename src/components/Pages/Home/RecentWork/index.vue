@@ -1,3 +1,59 @@
+<script lang="ts" setup>
+import type { WorkResponse } from "~/contracts/api-contracts/recentWorkInterfaces";
+
+const { $apiClient } = useNuxtApp();
+
+const { data: recentWorks } = await useAsyncData<WorkResponse>(
+  "recent-works",
+  () =>
+    $apiClient(`/works`, {
+      params: {
+        is_latest: true,
+      },
+    }),
+);
+
+const allWorks = computed(() => {
+  return recentWorks.value?.data.data || [];
+});
+
+const residentialWorks = computed(() => {
+  return (
+    recentWorks.value?.data?.data.filter(
+      (work) => work.type === "residential",
+    ) || []
+  );
+});
+
+const commercialWorks = computed(() => {
+  return (
+    recentWorks.value?.data?.data.filter(
+      (work) => work.type === "commercial",
+    ) || []
+  );
+});
+
+console.log(recentWorks.value);
+
+const active = ref(0);
+const selectedCity = ref();
+const cities = ref([
+  { name: "All Works" },
+  { name: "Residential" },
+  { name: "Commercial" },
+]);
+watch(
+  () => selectedCity.value,
+  () => {
+    selectedCity.value.name === "Residential"
+      ? (active.value = 1)
+      : selectedCity.value.name === "Commercial"
+        ? (active.value = 2)
+        : (active.value = 0);
+  },
+);
+</script>
+
 <template>
   <div class="container recentworks">
     <!-- header  -->
@@ -45,41 +101,24 @@
     </div>
     <TabView v-model:activeIndex="active">
       <TabPanel>
-        <PagesHomeRecentWorkAllWorks />
+        <PagesHomeRecentWorkAllWorks :all-works="allWorks.slice(0, 5)" />
       </TabPanel>
       <TabPanel>
-        <PagesHomeRecentWorkResidentialWork />
+        <PagesHomeRecentWorkResidentialWork
+          :residential-works="residentialWorks.slice(0, 5)"
+        />
       </TabPanel>
       <TabPanel>
-        <PagesHomeRecentWorkCommercialWork />
+        <PagesHomeRecentWorkCommercialWork
+          :commercial-works="commercialWorks.slice(0, 5)"
+        />
       </TabPanel>
     </TabView>
     <div class="mt-5 flex justify-content-center">
       <NuxtLink to="recent-works">
-        <ViewAllButton label="View Recent Works" />
+        <CommonViewAllButton label="View Recent Works" />
       </NuxtLink>
     </div>
   </div>
 </template>
-<script lang="ts" setup>
-import ViewAllButton from "~/components/Common/ViewAllButton.vue";
-
-const active = ref(0);
-const selectedCity = ref();
-const cities = ref([
-  { name: "All Works" },
-  { name: "Residential" },
-  { name: "Commercial" },
-]);
-watch(
-  () => selectedCity.value,
-  () => {
-    selectedCity.value.name === "Residential"
-      ? (active.value = 1)
-      : selectedCity.value.name === "Commercial"
-      ? (active.value = 2)
-      : (active.value = 0);
-  },
-);
-</script>
 <style lang="scss" scoped></style>
