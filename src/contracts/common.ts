@@ -75,6 +75,14 @@ export interface IAuthSuccessResponse {
   message: string;
 }
 
+export interface FilterItem {
+  id: number | string;
+  name: string;
+  slug: string;
+  value: number[] | string[];
+  children: FilterItem[];
+}
+
 // export interface WishListImageObj {
 //   id?: number;
 //   path?: string;
