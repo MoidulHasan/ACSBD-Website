@@ -15,7 +15,7 @@ const hideBreadCrumb = computed(() => {
 </script>
 
 <template>
-  <main>
+  <main class="overflow-x-hidden">
     <div>
       <LayoutsHeaderNav />
     </div>
