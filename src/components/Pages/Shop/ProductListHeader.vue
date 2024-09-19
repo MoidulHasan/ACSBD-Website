@@ -9,6 +9,7 @@ defineProps<{
 const emits = defineEmits<{
   (e: "onSortByOptionChange", SortByOptionValue: string): void;
   (e: "onViewByOptionChange", ViewByOptionValue: string): void;
+  (e: "onFilterButtonClick"): void;
 }>();
 
 const sortByOptions = ref<SortByOptionI[]>([
@@ -65,7 +66,10 @@ const handleSortByOptionChange = () => {
       </div>
 
       <div>
-        <button :class="['view-button']" @click="() => changeViewMode('grid')">
+        <button
+          :class="['view-button']"
+          @click="() => emits('onFilterButtonClick')"
+        >
           <img alt="view by grid" src="~/assets/images/icons/filter.svg" />
         </button>
       </div>
