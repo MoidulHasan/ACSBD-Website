@@ -1,6 +1,8 @@
 <script setup lang="ts">
-import { getRecentWorks } from "~/app/api/getRecentWorks";
-import type { RecentWork } from "~/contracts/api-contracts/recent-works";
+import type {
+  Work,
+  WorkResponse,
+} from "~/contracts/api-contracts/recentWorkInterfaces";
 
 definePageMeta({
   title: "Recent Works",
@@ -15,25 +17,48 @@ const types = ref([
   { name: "Commercial" },
 ]);
 
-const { data: recentWorks } = await getRecentWorks();
-const works = ref<RecentWork[]>([]);
+const { $apiClient } = useNuxtApp();
+
+const { data: recentWorksData } = await useAsyncData<WorkResponse>(
+  "recent-works",
+  () =>
+    $apiClient(`/works`, {
+      params: {
+        is_latest: true,
+      },
+    }),
+);
+
+const works = ref<Work[]>([]);
+works.value = recentWorksData.value?.data?.data || [];
+
+const initialLength = ref(6);
+const worksToShow = computed(() => {
+  return works.value?.slice(0, initialLength.value);
+});
+
+const showMoreWorks = () => {
+  if (initialLength.value <= works.value?.length) {
+    initialLength.value += 6;
+  }
+};
 
 watch(
   () => selectedType.value,
   () => {
     if (selectedType.value.name === "Residential") {
       active.value = 1;
-      works.value = recentWorks.value.filter(
-        (work: RecentWork) => work.type === "residential",
+      works.value = recentWorksData.value?.data?.data.filter(
+        (work: Work) => work.type === "residential",
       );
     } else if (selectedType.value.name === "Commercial") {
       active.value = 2;
-      works.value = recentWorks.value.filter(
-        (work: RecentWork) => work.type === "commercial",
+      works.value = recentWorksData.value?.data?.data.filter(
+        (work: Work) => work.type === "commercial",
       );
     } else {
       active.value = 0;
-      works.value = recentWorks.value;
+      works.value = recentWorksData.value?.data?.data;
     }
   },
 );
@@ -42,22 +67,18 @@ watch(
   () => active.value,
   () => {
     if (active.value === 1) {
-      works.value = recentWorks.value.filter(
-        (work: RecentWork) => work.type === "residential",
+      works.value = recentWorksData.value?.data?.data.filter(
+        (work: Work) => work.type === "residential",
       );
     } else if (active.value === 2) {
-      works.value = recentWorks.value.filter(
-        (work: RecentWork) => work.type === "commercial",
+      works.value = recentWorksData.value?.data?.data.filter(
+        (work: Work) => work.type === "commercial",
       );
     } else {
-      works.value = recentWorks.value;
+      works.value = recentWorksData.value?.data?.data;
     }
   },
 );
-
-onMounted(() => {
-  works.value = recentWorks.value;
-});
 </script>
 
 <template>
@@ -111,13 +132,13 @@ onMounted(() => {
       </TabPanel>
     </TabView>
     <div class="mt-5 flex justify-content-center mb-8">
-      <NuxtLink to="/recent-works">
-        <Button
-          class="lode-more-button border-primary-color-envitect-sam-blue bg-primary-color-white text-primary-color-envitect-sam-blue text-semi-bold-1"
-        >
-          Load More
-        </Button>
-      </NuxtLink>
+      <Button
+        v-if="worksToShow.length !== works?.length"
+        class="lode-more-button border-primary-color-envitect-sam-blue bg-primary-color-white text-primary-color-envitect-sam-blue text-semi-bold-1"
+        @click="showMoreWorks"
+      >
+        Load More
+      </Button>
     </div>
   </div>
 </template>

@@ -1,24 +1,9 @@
 <script setup lang="ts">
-import { getRecentWorks } from "~/app/api/getRecentWorks";
-import type { RecentWork } from "~/contracts/api-contracts/recent-works";
+import type { Work } from "~/contracts/api-contracts/recentWorkInterfaces";
 
 const props = defineProps<{
-  category: string;
+  relatedWorks: Work[];
 }>();
-const { data: recentWorks } = await getRecentWorks();
-const relatedWorks = ref<RecentWork>({});
-relatedWorks.value = recentWorks.value?.filter(
-  (work) => work.type === props.category,
-);
-
-relatedWorks.value = recentWorks.value
-  .filter((item) => item.type === props.category)
-  .map(({ images, type, id, company }) => ({
-    bannerImage: images[0],
-    type,
-    id,
-    company,
-  }));
 </script>
 
 <template>
@@ -30,7 +15,7 @@ relatedWorks.value = recentWorks.value
       slide-component="ProjectCard"
     >
       <template #header>
-        <CommonSectionHeader class="mb-32px" header="Related Products" />
+        <CommonSectionHeader class="mb-32px" header="Related Works" />
       </template>
     </CommonSliderSection>
   </div>

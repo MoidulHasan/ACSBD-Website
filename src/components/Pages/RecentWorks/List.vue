@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import type { RecentWork } from "~/contracts/api-contracts/recent-works";
+import type { Work } from "~/contracts/api-contracts/recentWorkInterfaces";
 
 defineProps<{
-  works: RecentWork[];
+  works: Work[];
 }>();
 </script>
 
@@ -10,14 +10,15 @@ defineProps<{
   <div class="grid">
     <div
       v-for="work in works"
-      :key="work.id"
+      :key="work.slug"
       class="col-12 md:col-6 lg:col-4 relative"
     >
       <PagesRecentWorksCard
-        :id="work.id"
-        :banner-image="work.images[0]"
+        :id="work.slug"
+        :slug="work.slug"
+        :image="work.image"
         :type="work.type"
-        :company="work.company"
+        :client="work.client"
       />
     </div>
   </div>
