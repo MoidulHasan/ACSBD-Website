@@ -7,6 +7,13 @@ interface IProps {
 
 const props = defineProps<IProps>();
 
+
+const priceInt = (price: string) => {
+  const splitedPrice = price.split(".");
+
+  return splitedPrice.length ? splitedPrice[0] : price;
+};
+
 const productRating = ref(props.productData.avg_ratings ?? 0);
 </script>
 
@@ -34,7 +41,7 @@ const productRating = ref(props.productData.avg_ratings ?? 0);
           <Rating v-model="productRating" :cancel="false" readonly />
 
           <h3
-            class="product-title mt-8px text-primary-color-dark-gray text-regular-3"
+            class="product-title mt-8px text-primary-color-dark-gray text-regular-4"
           >
             {{ productData.name }}
           </h3>
@@ -43,9 +50,9 @@ const productRating = ref(props.productData.avg_ratings ?? 0);
         <p class="mt-8px flex align-items-center gap-8px">
           <span
             v-if="productData.price.discount_amount"
-            class="text-medium-2 text-primary-color-envitect-sam-blue"
+            class="text-caption-regular-1 md:text-medium-2 text-primary-color-envitect-sam-blue"
           >
-            ৳ {{ productData.price.final_price }}
+            ৳ {{ priceInt(productData.price.final_price) }}
           </span>
           <span
             v-if="
@@ -62,7 +69,7 @@ const productRating = ref(props.productData.avg_ratings ?? 0);
               },
             ]"
           >
-            ৳ {{ productData.price.base_price }}
+            ৳ {{ priceInt(productData.price.base_price) }}
           </span>
         </p>
       </div>
