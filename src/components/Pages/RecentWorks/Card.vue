@@ -4,7 +4,7 @@ const route = useRoute();
 const slidePresent = ref(!!route.params.id);
 
 defineProps<{
-  bannerImage: string;
+  image: string;
   client: string;
   type: string;
   id: string;
@@ -17,7 +17,7 @@ defineProps<{
     class="bg-color-product-bg border-round-sm work-card relative m-1"
     :class="{ 'm-1': slidePresent }"
   >
-    <NuxtImg class="work-banner w-full" :src="bannerImage" :alt="client" />
+    <NuxtImg class="work-banner w-full" :src="image" :alt="client" />
     <span
       class="absolute work-type text-regular-4 text-primary-color-envitect-sam-blue bg-envitect-sam-blue-10"
     >

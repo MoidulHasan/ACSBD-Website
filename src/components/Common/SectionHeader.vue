@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 defineProps<{
   header: string;
-  subHeader: string;
+  subHeader?: string;
 }>();
 </script>
 

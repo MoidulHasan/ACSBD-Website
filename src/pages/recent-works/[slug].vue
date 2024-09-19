@@ -8,8 +8,6 @@ definePageMeta({
   name: "Work",
 });
 
-// const { data: recentWorks } = await getRecentWorks();
-
 const { $apiClient } = useNuxtApp();
 
 const { data: recentWorksData } = await useAsyncData<WorkResponse>(
@@ -22,15 +20,17 @@ const { data: recentWorksData } = await useAsyncData<WorkResponse>(
     }),
 );
 
-console.log(recentWorksData, "RECENT");
-
 const recentWork = computed(() => {
   return recentWorksData.value?.data?.data.find(
     (work) => work.slug === route.params.slug,
   );
 });
 
-console.log(recentWork, "RECENT WORKS");
+const relatedWorks = computed(() => {
+  return recentWorksData.value?.data?.data.filter(
+    (work) => work.type === recentWork.value?.type,
+  );
+});
 
 const formattedDate = (date: string) => {
   const dateString = new Date(date);
@@ -113,7 +113,7 @@ const formattedDate = (date: string) => {
     <PagesRecentWorksProjectGallery
       :product-images="recentWork.gallery_images"
     />
-    <PagesRecentWorksRelatedWork :category="recentWork.type" />
+    <PagesRecentWorksRelatedWork :related-works="relatedWorks" />
   </div>
 </template>
 

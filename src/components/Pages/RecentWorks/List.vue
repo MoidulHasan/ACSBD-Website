@@ -16,7 +16,7 @@ defineProps<{
       <PagesRecentWorksCard
         :id="work.slug"
         :slug="work.slug"
-        :banner-image="work.image"
+        :image="work.image"
         :type="work.type"
         :client="work.client"
       />

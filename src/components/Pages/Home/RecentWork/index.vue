@@ -116,7 +116,7 @@ watch(
     </TabView>
     <div class="mt-5 flex justify-content-center">
       <NuxtLink to="recent-works">
-        <CommonViewAllButton label="View Recent Works" />
+        <CommonViewAllItemsButton label="View Recent Works" />
       </NuxtLink>
     </div>
   </div>
