@@ -1,7 +1,7 @@
 <script lang="ts" setup></script>
 
 <template>
-  <div class="footer pt-6 pb-4">
+  <div class="footer pt-6 pb-4 px-2">
     <div class="container mx-auto">
       <div class="footerItems">
         <div class="grid footerCols">
@@ -161,7 +161,9 @@
   </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
+@use "assets/styles/scss/base/mixins" as *;
+
 .footer {
   background-color: var(--primary-color-navy-blue);
 }
@@ -206,7 +208,7 @@
 
 .subscribeButton,
 .subscribeButton:hover {
-  border-radius: 0px 4px 4px 0px;
+  border-radius: 0 4px 4px 0;
   padding: 20px 12px;
   background: var(--primary-color-envitect-sam-blue);
   font-size: 16px;
@@ -237,5 +239,10 @@
   font-weight: 400;
   line-height: 24px; /* 150% */
   padding-top: 9px;
+
+  @include media-query(sm) {
+    padding-bottom: 48px;
+    font-size: 12px;
+  }
 }
 </style>
