@@ -1,3 +1,5 @@
+<script lang="ts" setup></script>
+
 <template>
   <div class="footer pt-6 pb-4">
     <div class="container mx-auto">
@@ -86,23 +88,23 @@
               Contact US
             </NuxtLink>
             <NuxtLink
+              active-class="footer_active"
               class="footer-point"
               to="/warranty-policy"
-              active-class="footer_active"
             >
               Warranty Policy
             </NuxtLink>
             <NuxtLink
+              active-class="footer_active"
               class="footer-point"
               to="/return-refund-policy"
-              active-class="footer_active"
             >
               Return & Refund Policy
             </NuxtLink>
             <NuxtLink
+              active-class="footer_active"
               class="footer-point"
               to="/privacy-policy"
-              active-class="footer_active"
             >
               Privacy Policy
             </NuxtLink>
@@ -159,8 +161,6 @@
   </div>
 </template>
 
-<script lang="ts" setup></script>
-
 <style scoped>
 .footer {
   background-color: var(--primary-color-navy-blue);
@@ -186,11 +186,13 @@
   margin-bottom: 12px;
   transition: 0.5s ease;
   color: var(--primary-color-white);
+
   &:hover {
     text-decoration: underline;
     text-underline-offset: 0.2rem;
   }
 }
+
 .footer_active {
   text-decoration: underline !important;
   text-underline-offset: 0.2rem !important;
