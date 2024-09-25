@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { getRecentWorks } from "~/app/api/getRecentWorks";
-import type { RecentWork } from "~/contracts/api-contracts/recent-works";
+import type { WorkResponse } from "~/contracts/api-contracts/recentWorkInterfaces";
 
 const route = useRoute();
 
@@ -9,10 +8,28 @@ definePageMeta({
   name: "Work",
 });
 
-const { data: recentWorks } = await getRecentWorks();
+const { $apiClient } = useNuxtApp();
+
+const { data: recentWorksData } = await useAsyncData<WorkResponse>(
+  "recent-works",
+  () =>
+    $apiClient(`/works`, {
+      params: {
+        is_latest: true,
+      },
+    }),
+);
 
 const recentWork = computed(() => {
-  return recentWorks.value?.find((work) => work.id === Number(route.params.id));
+  return recentWorksData.value?.data?.data.find(
+    (work) => work.slug === route.params.slug,
+  );
+});
+
+const relatedWorks = computed(() => {
+  return recentWorksData.value?.data?.data.filter(
+    (work) => work.type === recentWork.value?.type,
+  );
 });
 
 const formattedDate = (date: string) => {
@@ -26,16 +43,16 @@ const formattedDate = (date: string) => {
 <template>
   <div class="container mb-8 mt-3 work-detail">
     <CommonSectionHeader
-      :header="recentWork.company"
-      :sub-header="recentWork.brief"
+      :header="recentWork.title"
+      :sub-header="recentWork.sub_title"
     />
     <div class="work-summary mt-5 grid mb-3">
       <div class="col-12 md:col-6 lg:col-8">
         <div class="banner-image w-full md:h-full relative">
           <NuxtImg
             class="top-image w-full border-round-sm md:h-full"
-            :src="recentWork.images[1]"
-            :alt="recentWork.company"
+            :src="recentWork.image"
+            :alt="recentWork.client"
           />
           <p
             class="absolute work-type text-regular-4 text-primary-color-envitect-sam-blue bg-envitect-sam-blue-10"
@@ -56,8 +73,12 @@ const formattedDate = (date: string) => {
               Date
             </h2>
             <p class="text-medium-2 text-dark-gray-80">
-              {{ formattedDate(recentWork.startDate) }} to
-              {{ formattedDate(recentWork.endDate) }}
+              {{ formattedDate(recentWork.from_date) }} to
+              {{
+                recentWork?.to_date
+                  ? formattedDate(recentWork.to_date)
+                  : "Running"
+              }}
             </p>
           </div>
           <div class="key-info mb-5">
@@ -65,7 +86,7 @@ const formattedDate = (date: string) => {
               Client
             </h2>
             <p class="text-medium-2 text-dark-gray-80">
-              {{ recentWork.company }}
+              {{ recentWork.client }}
             </p>
           </div>
           <div class="key-info mb-5">
@@ -87,10 +108,12 @@ const formattedDate = (date: string) => {
     </div>
     <p class="text-primary-color-dark-gray mb-6 text-justify">
       <span class="font-semibold">Project's Brief: </span>
-      {{ recentWork.brief }}
+      {{ recentWork.description }}
     </p>
-    <PagesRecentWorksProjectGallery :product-images="recentWork.images" />
-    <PagesRecentWorksRelatedWork :category="recentWork.type" />
+    <PagesRecentWorksProjectGallery
+      :product-images="recentWork.gallery_images"
+    />
+    <PagesRecentWorksRelatedWork :related-works="relatedWorks" />
   </div>
 </template>
 

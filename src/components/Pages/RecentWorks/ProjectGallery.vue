@@ -3,11 +3,16 @@ interface ProjectImage {
   image: string;
 }
 
+interface GalleryPath {
+  path: string;
+}
+
 const props = defineProps<{
-  productImages: string[];
+  productImages: GalleryPath[];
 }>();
+
 const newProjectImages: ProjectImage = props.productImages.map((imagePath) => ({
-  image: imagePath,
+  image: imagePath.path,
 }));
 </script>
 
