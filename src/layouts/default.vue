@@ -1,5 +1,21 @@
+<script lang="ts" setup>
+const router = useRouter();
+const { breadcrumbs } = useBreadcrumbs();
+const { width } = useWindowSize();
+
+const hideBreadCrumb = computed(() => {
+  return (
+    router.currentRoute.value.fullPath === "/" ||
+    breadcrumbs.value.length === 1 ||
+    width.value <= 768 ||
+    !breadcrumbs.value[breadcrumbs.value.length - 1]?.title ||
+    !router.currentRoute.value.name
+  );
+});
+</script>
+
 <template>
-  <main>
+  <main class="overflow-x-hidden">
     <div>
       <LayoutsHeaderNav />
     </div>
@@ -16,21 +32,5 @@
     </div>
   </main>
 </template>
-
-<script lang="ts" setup>
-const router = useRouter();
-const { breadcrumbs } = useBreadcrumbs();
-const { width } = useWindowSize();
-
-const hideBreadCrumb = computed(() => {
-  return (
-    router.currentRoute.value.fullPath === "/" ||
-    breadcrumbs.value.length === 1 ||
-    width.value <= 768 ||
-    !breadcrumbs.value[breadcrumbs.value.length - 1]?.title ||
-    !router.currentRoute.value.name
-  );
-});
-</script>
 
 <style scoped></style>

@@ -1,27 +1,220 @@
+<script lang="ts" setup>
+interface submenu {
+  title: string;
+  path: string;
+  submenu2?: Array<submenu>;
+}
+
+interface menus {
+  title: string;
+  path: string;
+  submenu?: Array<submenu>;
+}
+
+const store = useStore();
+const wishListStore = useWishListStore();
+
+const navMenues: Array<menus> = [
+  {
+    title: "Home",
+    path: "/",
+  },
+  {
+    title: "Services",
+    path: "/services",
+  },
+  {
+    title: "Products",
+    path: "/products",
+    submenu: [
+      {
+        title: "Air Conditioner",
+        path: "",
+        submenu2: [
+          {
+            title: "Non-Inverter AC",
+            path: "/products/non-air-conditioner",
+          },
+          {
+            title: "Inverter AC",
+            path: "/products/inverter-ac",
+          },
+          {
+            title: "Window AC",
+            path: "/products/window-ac",
+          },
+          {
+            title: "Portable AC",
+            path: "/products/portable-ac",
+          },
+          {
+            title: "Ceiling Type AC",
+            path: "/products/ceiling-type-ac",
+          },
+          {
+            title: "Cassette Type AC",
+            path: "/products/cassette-type-ac",
+          },
+          {
+            title: "Duct Type AC",
+            path: "/products/duct-type-ac",
+          },
+          {
+            title: "VRF AC",
+            path: "/products/vrf-ac",
+          },
+        ],
+      },
+      {
+        title: "AC Spares Parts",
+        path: "",
+        submenu2: [
+          {
+            title: "Non-Inverter AC",
+            path: "/products/non-air-conditioner",
+          },
+          {
+            title: "Inverter AC",
+            path: "/products/inverter-ac",
+          },
+          {
+            title: "Window AC",
+            path: "/products/window-ac",
+          },
+          {
+            title: "Portable AC",
+            path: "/products/portable-ac",
+          },
+          {
+            title: "Ceiling Type AC",
+            path: "/products/ceiling-type-ac",
+          },
+          {
+            title: "Cassette Type AC",
+            path: "/products/cassette-type-ac",
+          },
+          {
+            title: "Duct Type AC",
+            path: "/products/duct-type-ac",
+          },
+          {
+            title: "VRF AC",
+            path: "/products/vrf-ac",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "AC Rent",
+    path: "/ac-rent",
+  },
+  {
+    title: "Work Pricing",
+    path: "/work-pricing",
+  },
+  {
+    title: "Blog",
+    path: "/our-blogs",
+  },
+  {
+    title: "About Us",
+    path: "/about",
+  },
+  {
+    title: "Contact Us",
+    path: "/contact-us",
+  },
+];
+
+const show = ref(false);
+const firstRowHeader = ref(null);
+const showSearchBar = ref(false);
+const mobileScreen = ref(false);
+
+const { width } = useWindowSize();
+
+const toggleMenu = () => {
+  show.value = !show.value;
+};
+
+const checkNav = (path: string, subMenu: boolean = false): void => {
+  if (path !== "" && !subMenu) {
+    toggleMenu();
+  }
+};
+
+const toggleSeachShow = () => {
+  showSearchBar.value = !showSearchBar.value;
+};
+
+const checkWidth = () => {
+  if (width.value <= 768) {
+    showSearchBar.value = false;
+    mobileScreen.value = true;
+    position.value = "bottom";
+    return;
+  }
+  showSearchBar.value = true;
+  mobileScreen.value = false;
+  position.value = "topright";
+};
+
+const visible = ref(false);
+const position = ref("topright");
+const closeModal = () => {
+  visible.value = false;
+};
+
+const openModal = () => {
+  visible.value = true;
+};
+
+const deleteFromCart = (id: number) => {
+  store.deleteItemFromCart(id);
+};
+
+const modifyCartItems = (id: number, quantity: number) => {
+  store.modifyCartItems(id, quantity);
+};
+
+watch(
+  () => width.value,
+  () => {
+    checkWidth();
+  },
+);
+
+onMounted(() => {
+  checkWidth();
+});
+</script>
+
 <template>
   <div class="headerContainer">
     <div class="first-row">
       <div
         ref="firstRowHeader"
-        class="firstRowHeader flex flex-column md:flex-row container align-items-center justify-content-between py-3 md:py-4 gap-3 md:gap-4"
         :class="{ showSearchBar: showSearchBar && mobileScreen }"
+        class="firstRowHeader flex flex-column md:flex-row container align-items-center justify-content-between py-3 md:py-4 gap-3 md:gap-4"
       >
         <!-- main logo-->
         <div
-          class="flex align-items-center justify-content-between lg:justify-content-start w-full md:w-auto"
+          class="flex align-items-center justify-content-between lg:justify-content-start w-full md:w-auto px-2"
         >
           <NuxtLink class="home-logo-link" to="/">
             <img
-              class="home-logo"
               alt="ACBD"
+              class="home-logo"
               src="@/assets/images/header/logo_colored.svg"
             />
           </NuxtLink>
+
           <div class="block md:hidden icons-holder">
             <img
               v-if="!showSearchBar"
-              src="@/assets/images/icons/search_icon_with_frame.svg"
               alt="search"
+              src="@/assets/images/icons/search_icon_with_frame.svg"
               @click="toggleSeachShow"
             />
             <i
@@ -31,11 +224,12 @@
             />
           </div>
         </div>
+
         <!--        search bar -->
         <transition name="searchFade">
           <div
             v-if="showSearchBar"
-            class="md:mb-0 flex-1 headerSearchBar w-full"
+            class="md:mb-0 flex-1 headerSearchBar w-full px-2"
           >
             <div class="p-inputgroup flex-1 flex-wrap w-full">
               <InputText placeholder="Search Product" />
@@ -56,7 +250,7 @@
             />
           </NuxtLink>
           <div>
-            <NuxtLink href="tel:09613755755" class="flex align-items-center">
+            <NuxtLink class="flex align-items-center" href="tel:09613755755">
               <img
                 alt="phone"
                 class="inline-block mr-1 contact-img"
@@ -65,8 +259,8 @@
               <span class="contact-info">09613 755755</span>
             </NuxtLink>
             <NuxtLink
-              href="mailto:info@acsevice.com"
               class="flex align-items-center cursor-pointer"
+              href="mailto:info@acsevice.com"
             >
               <img
                 alt="mail"
@@ -79,6 +273,7 @@
         </div>
       </div>
     </div>
+
     <div class="second-row">
       <div class="navbar px-0 md:px-3 md:flex md:flex-wrap">
         <nav :class="{ active: show }" class="">
@@ -300,11 +495,11 @@
       <Dialog
         v-model:visible="visible"
         :breakpoints="{ '1899px': '468px', '575px': '90vw' }"
-        :position="position"
-        :modal="true"
-        :draggable="false"
-        :dismissable-mask="true"
         :closable="false"
+        :dismissable-mask="true"
+        :draggable="false"
+        :modal="true"
+        :position="position"
       >
         <template #header>
           <div
@@ -394,12 +589,13 @@
           <div class="flex justify-content-between gap-2 pb-5 px-4 pt-3">
             <NuxtLink to="/products/my-cart">
               <CommonButton
+                background="bg-primary-color-navy-blue"
                 text-color="primary-color-white"
                 title="View Cart"
-                background="bg-primary-color-navy-blue"
                 @click="closeModal"
               />
             </NuxtLink>
+
             <NuxtLink to="/products/checkout">
               <CommonButton title="Checkout" @click="closeModal" />
             </NuxtLink>
@@ -410,199 +606,7 @@
   </div>
 </template>
 
-<script lang="ts" setup>
-interface submenu {
-  title: string;
-  path: string;
-  submenu2?: Array<submenu>;
-}
-
-interface menus {
-  title: string;
-  path: string;
-  submenu?: Array<submenu>;
-}
-
-const store = useStore();
-const wishListStore = useWishListStore();
-
-const navMenues: Array<menus> = [
-  {
-    title: "Home",
-    path: "/",
-  },
-  {
-    title: "Services",
-    path: "/services",
-  },
-  {
-    title: "Products",
-    path: "/products",
-    submenu: [
-      {
-        title: "Air Conditioner",
-        path: "",
-        submenu2: [
-          {
-            title: "Non-Inverter AC",
-            path: "/products/non-air-conditioner",
-          },
-          {
-            title: "Inverter AC",
-            path: "/products/inverter-ac",
-          },
-          {
-            title: "Window AC",
-            path: "/products/window-ac",
-          },
-          {
-            title: "Portable AC",
-            path: "/products/portable-ac",
-          },
-          {
-            title: "Ceiling Type AC",
-            path: "/products/ceiling-type-ac",
-          },
-          {
-            title: "Cassette Type AC",
-            path: "/products/cassette-type-ac",
-          },
-          {
-            title: "Duct Type AC",
-            path: "/products/duct-type-ac",
-          },
-          {
-            title: "VRF AC",
-            path: "/products/vrf-ac",
-          },
-        ],
-      },
-      {
-        title: "AC Spares Parts",
-        path: "",
-        submenu2: [
-          {
-            title: "Non-Inverter AC",
-            path: "/products/non-air-conditioner",
-          },
-          {
-            title: "Inverter AC",
-            path: "/products/inverter-ac",
-          },
-          {
-            title: "Window AC",
-            path: "/products/window-ac",
-          },
-          {
-            title: "Portable AC",
-            path: "/products/portable-ac",
-          },
-          {
-            title: "Ceiling Type AC",
-            path: "/products/ceiling-type-ac",
-          },
-          {
-            title: "Cassette Type AC",
-            path: "/products/cassette-type-ac",
-          },
-          {
-            title: "Duct Type AC",
-            path: "/products/duct-type-ac",
-          },
-          {
-            title: "VRF AC",
-            path: "/products/vrf-ac",
-          },
-        ],
-      },
-    ],
-  },
-  {
-    title: "AC Rent",
-    path: "/ac-rent",
-  },
-  {
-    title: "Work Pricing",
-    path: "/work-pricing",
-  },
-  {
-    title: "Blog",
-    path: "/our-blogs",
-  },
-  {
-    title: "About Us",
-    path: "/about",
-  },
-  {
-    title: "Contact Us",
-    path: "/contact-us",
-  },
-];
-
-const show = ref(false);
-const firstRowHeader = ref(null);
-const showSearchBar = ref(false);
-const mobileScreen = ref(false);
-
-const { width } = useWindowSize();
-
-const toggleMenu = () => {
-  show.value = !show.value;
-};
-
-const checkNav = (path: string, subMenu: boolean = false): void => {
-  if (path !== "" && !subMenu) {
-    toggleMenu();
-  }
-};
-
-const toggleSeachShow = () => {
-  showSearchBar.value = !showSearchBar.value;
-};
-
-const checkWidth = () => {
-  if (width.value <= 768) {
-    showSearchBar.value = false;
-    mobileScreen.value = true;
-    position.value = "bottom";
-    return;
-  }
-  showSearchBar.value = true;
-  mobileScreen.value = false;
-  position.value = "topright";
-};
-
-const visible = ref(false);
-const position = ref("topright");
-const closeModal = () => {
-  visible.value = false;
-};
-
-const openModal = () => {
-  visible.value = true;
-};
-
-const deleteFromCart = (id: number) => {
-  store.deleteItemFromCart(id);
-};
-
-const modifyCartItems = (id: number, quantity: number) => {
-  store.modifyCartItems(id, quantity);
-};
-
-watch(
-  () => width.value,
-  () => {
-    checkWidth();
-  },
-);
-
-onMounted(() => {
-  checkWidth();
-});
-</script>
-
-<style scoped lang="scss">
+<style lang="scss" scoped>
 @use "assets/styles/scss/base/mixins" as *;
 
 .first-row {

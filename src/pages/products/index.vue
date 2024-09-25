@@ -23,6 +23,7 @@ const productSortBy = ref("latest");
 const priceMinMaxRange = [0, 100000];
 const priceRangeFilter = ref(priceMinMaxRange);
 const products = ref<ProductMinimalI[]>([]);
+const showFilterModal = ref(false);
 
 const filterCategories = computed(() =>
   categories.value ? collectAllValues(categories.value) : [],
@@ -132,6 +133,31 @@ watch([priceRangeFilter, filterCategories, productSortBy], async () => {
         </PagesShopFIlterContainer>
       </div>
 
+      <Sidebar
+        v-model:visible="showFilterModal"
+        position="bottom"
+        style="height: auto"
+      >
+        <div class="p-2">
+          <PagesShopFIlterContainer header="Filter Results By">
+            <PagesShopProductFilter
+              v-if="categories"
+              :collapsed-first-option="false"
+              :filter-options="categories"
+              :is-filter-top="true"
+            />
+          </PagesShopFIlterContainer>
+
+          <PagesShopFIlterContainer class="mt-4" header="Prices">
+            <PagesShopRangeFilter
+              v-model="priceRangeFilter"
+              :max="priceMinMaxRange[1]"
+              :min="priceMinMaxRange[0]"
+            />
+          </PagesShopFIlterContainer>
+        </div>
+      </Sidebar>
+
       <div class="col-12 lg:col-10">
         <div class="w-full">
           <img
@@ -148,6 +174,7 @@ watch([priceRangeFilter, filterCategories, productSortBy], async () => {
           @on-view-by-option-change="
             (optionValue: string) => (productViewBy = optionValue)
           "
+          @on-filter-button-click="showFilterModal = true"
         />
 
         <PagesShopProductsList

@@ -33,6 +33,7 @@ import Divider from "primevue/divider";
 import Toast from "primevue/toast";
 import Password from "primevue/password";
 import Slider from "primevue/slider";
+import Sidebar from "primevue/sidebar";
 
 export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.use(PrimeVue, { ripple: true });
@@ -67,4 +68,5 @@ export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.component("Password", Password);
   nuxtApp.vueApp.component("Panel", Panel);
   nuxtApp.vueApp.component("Slider", Slider);
+  nuxtApp.vueApp.component("Sidebar", Sidebar);
 });

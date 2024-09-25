@@ -1,5 +1,7 @@
+<script lang="ts" setup></script>
+
 <template>
-  <div class="footer pt-6 pb-4">
+  <div class="footer pt-6 pb-4 px-2">
     <div class="container mx-auto">
       <div class="footerItems">
         <div class="grid footerCols">
@@ -86,23 +88,23 @@
               Contact US
             </NuxtLink>
             <NuxtLink
+              active-class="footer_active"
               class="footer-point"
               to="/warranty-policy"
-              active-class="footer_active"
             >
               Warranty Policy
             </NuxtLink>
             <NuxtLink
+              active-class="footer_active"
               class="footer-point"
               to="/return-refund-policy"
-              active-class="footer_active"
             >
               Return & Refund Policy
             </NuxtLink>
             <NuxtLink
+              active-class="footer_active"
               class="footer-point"
               to="/privacy-policy"
-              active-class="footer_active"
             >
               Privacy Policy
             </NuxtLink>
@@ -159,9 +161,9 @@
   </div>
 </template>
 
-<script lang="ts" setup></script>
+<style lang="scss" scoped>
+@use "assets/styles/scss/base/mixins" as *;
 
-<style scoped>
 .footer {
   background-color: var(--primary-color-navy-blue);
 }
@@ -186,11 +188,13 @@
   margin-bottom: 12px;
   transition: 0.5s ease;
   color: var(--primary-color-white);
+
   &:hover {
     text-decoration: underline;
     text-underline-offset: 0.2rem;
   }
 }
+
 .footer_active {
   text-decoration: underline !important;
   text-underline-offset: 0.2rem !important;
@@ -204,7 +208,7 @@
 
 .subscribeButton,
 .subscribeButton:hover {
-  border-radius: 0px 4px 4px 0px;
+  border-radius: 0 4px 4px 0;
   padding: 20px 12px;
   background: var(--primary-color-envitect-sam-blue);
   font-size: 16px;
@@ -235,5 +239,10 @@
   font-weight: 400;
   line-height: 24px; /* 150% */
   padding-top: 9px;
+
+  @include media-query(sm) {
+    padding-bottom: 48px;
+    font-size: 12px;
+  }
 }
 </style>

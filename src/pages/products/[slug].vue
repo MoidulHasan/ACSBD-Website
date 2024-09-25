@@ -1,8 +1,8 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 import { useToast } from "primevue/usetoast";
 import type { ProductI } from "~/contracts/api-contracts/ProductsInterfaces";
 // import { useStore } from "~/stores/index.ts";
-import { useWishListStore, useStore } from "#imports";
+import { useStore, useWishListStore } from "#imports";
 
 interface CartedProduct {
   id: number;
@@ -167,7 +167,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="container single-product">
+  <div class="container single-product px-2">
     <div class="grid mt-3 mb-6">
       <div class="col-12 lg:col-5">
         <PagesProductImageGallerySlider
@@ -276,10 +276,10 @@ onMounted(() => {
           </div>
           <div class="flex align-items-center flex-wrap gap-3 mb-3">
             <CommonButton
-              to="/"
-              title="Buy Now"
-              text-color="text-primary-color-envitect-sam-blue"
               background="bg-primary-color-white"
+              text-color="text-primary-color-envitect-sam-blue"
+              title="Buy Now"
+              to="/"
             />
             <ClientOnly>
               <CommonButton
@@ -289,13 +289,6 @@ onMounted(() => {
             </ClientOnly>
 
             <i
-              :title="
-                token
-                  ? favorite
-                    ? 'Remove from your wishlist'
-                    : 'Add to your wishlist'
-                  : 'Sign In to add this product to your wishlist'
-              "
               :class="[
                 'pi',
                 'text-6xl',
@@ -303,6 +296,13 @@ onMounted(() => {
                   ? 'pi-heart-fill text-color-danger'
                   : 'pi-heart text-primary-color-dark-gray',
               ]"
+              :title="
+                token
+                  ? favorite
+                    ? 'Remove from your wishlist'
+                    : 'Add to your wishlist'
+                  : 'Sign In to add this product to your wishlist'
+              "
               @click="toggleFavorite(singleProductData)"
             />
           </div>
@@ -335,7 +335,7 @@ onMounted(() => {
   </div>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .product-summary {
   .product-title {
     margin-bottom: 0.75rem;
