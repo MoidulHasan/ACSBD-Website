@@ -8,7 +8,7 @@ defineProps<{
 <template>
   <div>
     <h1
-      class="text-primary-color-navy-blue font-heading-2 text-center mb-2 md:mb-3 pt-6"
+      class="text-primary-color-navy-blue font-heading-2 text-center mb-2 md:mb-3 pt-2 md:pt-6"
     >
       {{ header }}
     </h1>
