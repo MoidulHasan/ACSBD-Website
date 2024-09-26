@@ -15,7 +15,7 @@ const { data: services } = await useFetch(
   >
     <template #header>
       <CommonSectionHeader
-        class="mb-32px"
+        class="mb-3 md:mb-5"
         header="Our Services"
         sub-header="We have a large team of AC Service A Expert Technicians. Our services
             are AC installation, AC servicing, AC repair, AC maintenance, AC
