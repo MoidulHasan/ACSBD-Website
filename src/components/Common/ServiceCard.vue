@@ -37,7 +37,7 @@ defineProps<{
 @use "assets/styles/scss/base/mixins" as *;
 
 .service-card-container {
-  margin: 0px 15px 10px 15px;
+  margin: 0 15px 10px 15px;
 
   @include media-query(sm) {
     margin: 0;
@@ -77,7 +77,7 @@ defineProps<{
   }
 
   &:hover {
-    box-shadow: 0px 2px 8px 1px rgba(2, 2, 2, 0.15);
+    box-shadow: 0 2px 8px 1px rgba(2, 2, 2, 0.15);
 
     .contact-button {
       color: var(--primary-color-envitect-sam-blue);
