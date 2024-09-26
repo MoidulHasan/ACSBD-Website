@@ -1,8 +1,12 @@
+<script lang="ts" setup>
+const { data: brands } = await useFetch(() => `/api/proxy/brands`);
+</script>
+
 <template>
-  <div class="brands-top-container">
+  <div class="brands-top-container px-2">
     <div class="container py-3 md:py-6">
       <CommonSliderSection
-        :items="brands?.data"
+        :items="brands.data"
         :number-of-scroll="1"
         :visible-item="6"
         slide-component="ClientCard"
@@ -24,12 +28,6 @@
     </div>
   </div>
 </template>
-
-<script lang="ts" setup>
-import { getBrands } from "~/app/api/getBrands";
-
-const { data: brands } = await getBrands();
-</script>
 
 <style lang="scss" scoped>
 .brands-top-container {
