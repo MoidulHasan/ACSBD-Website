@@ -1,3 +1,35 @@
+<script lang="ts" setup>
+interface SliderProps {
+  slideComponent: string;
+  items: any;
+  visibleItem: number;
+  numberOfScroll: number;
+  showIndicators?: boolean;
+}
+
+withDefaults(defineProps<SliderProps>(), {
+  showIndicators: false,
+});
+
+const responsiveOptions = ref([
+  {
+    breakpoint: "1199px",
+    numVisible: 3,
+    numScroll: 3,
+  },
+  {
+    breakpoint: "991px",
+    numVisible: 2,
+    numScroll: 2,
+  },
+  {
+    breakpoint: "767px",
+    numVisible: 1,
+    numScroll: 1,
+  },
+]);
+</script>
+
 <template>
   <div>
     <div>
@@ -33,44 +65,17 @@
   </div>
 </template>
 
-<script lang="ts" setup>
-interface SliderProps {
-  slideComponent: string;
-  items: any;
-  visibleItem: number;
-  numberOfScroll: number;
-  showIndicators?: boolean;
-}
-
-withDefaults(defineProps<SliderProps>(), {
-  showIndicators: false,
-});
-
-const responsiveOptions = ref([
-  {
-    breakpoint: "1199px",
-    numVisible: 3,
-    numScroll: 3,
-  },
-  {
-    breakpoint: "991px",
-    numVisible: 2,
-    numScroll: 2,
-  },
-  {
-    breakpoint: "767px",
-    numVisible: 1,
-    numScroll: 1,
-  },
-]);
-</script>
-
 <style lang="scss" scoped>
 @use "assets/styles/scss/base/mixins" as *;
 
 .slider {
   margin-top: 32px;
   margin-bottom: 44px;
+
+  @include media-query(sm) {
+    margin-top: 16px;
+    margin-bottom: 22px;
+  }
 }
 
 ::v-deep(.p-carousel-next) {
