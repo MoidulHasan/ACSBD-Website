@@ -5,6 +5,7 @@ defineProps<{
   views: string;
   description: string;
   category: string;
+  slug: string;
 }>();
 </script>
 
@@ -35,10 +36,13 @@ defineProps<{
       </ClientOnly>
 
       <div class="blog-explore-container">
-        <a class="no-underline blog-explore-text" href="#">
+        <NuxtLink
+          :to="{ name: 'blog-description', params: { blogSlug: slug } }"
+          class="no-underline blog-explore-text"
+        >
           Explore More
           <i class="pi pi-arrow-right blog-explore-icon"></i>
-        </a>
+        </NuxtLink>
       </div>
     </div>
   </div>
