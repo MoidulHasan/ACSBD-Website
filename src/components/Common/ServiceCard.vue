@@ -1,3 +1,11 @@
+<script lang="ts" setup>
+defineProps<{
+  title: string;
+  imageUrl: string;
+  description: string;
+}>();
+</script>
+
 <template>
   <div class="service-card-container">
     <div
@@ -25,16 +33,9 @@
   </div>
 </template>
 
-<script lang="ts" setup>
-defineProps<{
-  title: string;
-  imageUrl: string;
-  description: string;
-}>();
-</script>
-
 <style lang="scss" scoped>
 @use "assets/styles/scss/base/mixins" as *;
+
 .service-card-container {
   margin: 0px 15px 10px 15px;
 
@@ -48,7 +49,6 @@ defineProps<{
   border-radius: 12px;
   background: var(--product-Front-color);
   transition: 0.8s;
-  min-height: 360px;
 
   .service-title {
     margin-bottom: 9px;
@@ -83,12 +83,16 @@ defineProps<{
       color: var(--primary-color-envitect-sam-blue);
     }
   }
+
   @include media-query(lg) {
     padding: 1rem;
+    min-height: 360px;
   }
+
   @include media-query(md) {
     padding: 1rem;
   }
+
   @include media-query(sm) {
     padding: 1rem;
   }

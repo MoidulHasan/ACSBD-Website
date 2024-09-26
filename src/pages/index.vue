@@ -21,7 +21,7 @@ const { data: bannerSliderImages } = await useAsyncData<ImageResponse>(
     <div class="container mt-2 md:mt-4">
       <PagesHomeBannerSection :banners="bannerSliderImages.banner" />
     </div>
-    <div class="container mt-5 md:mt-6">
+    <div class="container px-2 mt-5 md:mt-6">
       <PagesHomeServicesSection />
     </div>
     <div class="container mt-5 md:mt-6">
