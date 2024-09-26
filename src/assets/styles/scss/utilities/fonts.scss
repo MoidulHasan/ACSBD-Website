@@ -278,4 +278,8 @@ $text-styles-map: (
   .text-semi-bold-5 {
     @include font-styles(14px, 400, 20px);
   }
+
+  .text-regular-3 {
+    @include font-styles(14px, 400, 20px)
+  }
 }
