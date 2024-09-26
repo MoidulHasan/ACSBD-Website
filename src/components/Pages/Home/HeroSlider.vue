@@ -1,12 +1,7 @@
 <script lang="ts" setup>
-// import { getHomePageHeroSliderImages } from "~/app/api/getHomePageHeroSliderImages";
 import type { MediaItem } from "~/contracts/api-contracts/bannerSliderInterface";
 
-defineProps<{
-  sliders: MediaItem[];
-}>();
-
-// const { data: heroSliderImages } = await getHomePageHeroSliderImages();
+defineProps<{ sliders: MediaItem[] }>();
 
 const responsiveOptions = ref([
   {
