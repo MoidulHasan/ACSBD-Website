@@ -1,5 +1,11 @@
+<script lang="ts" setup>
+import { getClients } from "~/app/api/getClients";
+
+const { data: clients } = await getClients();
+</script>
+
 <template>
-  <div class="clients-top-container">
+  <div class="clients-top-container px-2">
     <div class="container py-3 lg:py-6">
       <CommonSliderSection
         :items="clients?.data"
@@ -29,12 +35,6 @@
     </div>
   </div>
 </template>
-
-<script lang="ts" setup>
-import { getClients } from "~/app/api/getClients";
-
-const { data: clients } = await getClients();
-</script>
 
 <style lang="scss" scoped>
 .clients-top-container {

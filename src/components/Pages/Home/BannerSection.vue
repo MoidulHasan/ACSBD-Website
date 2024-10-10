@@ -1,12 +1,9 @@
 <script lang="ts" setup>
 import type { MediaItem } from "~/contracts/api-contracts/bannerSliderInterface";
-// import { getHomePageBannerImages } from "~/app/api/getHomePageBannerImages";
 
-const props = defineProps<{
+defineProps<{
   banners: MediaItem[];
 }>();
-
-// const { data: images } = await getHomePageBannerImages();
 </script>
 
 <template>
@@ -32,8 +29,9 @@ const props = defineProps<{
 
 .image-slide-container {
   width: 100%;
-  height: fit-content;
+  height: 100%;
   overflow-x: scroll;
+  overflow-y: hidden;
   border-radius: 2px;
 }
 

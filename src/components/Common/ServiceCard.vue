@@ -1,3 +1,11 @@
+<script lang="ts" setup>
+defineProps<{
+  title: string;
+  imageUrl: string;
+  description: string;
+}>();
+</script>
+
 <template>
   <div class="service-card-container">
     <div
@@ -25,18 +33,11 @@
   </div>
 </template>
 
-<script lang="ts" setup>
-defineProps<{
-  title: string;
-  imageUrl: string;
-  description: string;
-}>();
-</script>
-
 <style lang="scss" scoped>
 @use "assets/styles/scss/base/mixins" as *;
+
 .service-card-container {
-  margin: 0px 15px 10px 15px;
+  margin: 0 15px 10px 15px;
 
   @include media-query(sm) {
     margin: 0;
@@ -48,7 +49,6 @@ defineProps<{
   border-radius: 12px;
   background: var(--product-Front-color);
   transition: 0.8s;
-  min-height: 360px;
 
   .service-title {
     margin-bottom: 9px;
@@ -77,18 +77,22 @@ defineProps<{
   }
 
   &:hover {
-    box-shadow: 0px 2px 8px 1px rgba(2, 2, 2, 0.15);
+    box-shadow: 0 2px 8px 1px rgba(2, 2, 2, 0.15);
 
     .contact-button {
       color: var(--primary-color-envitect-sam-blue);
     }
   }
+
   @include media-query(lg) {
     padding: 1rem;
+    min-height: 360px;
   }
+
   @include media-query(md) {
     padding: 1rem;
   }
+
   @include media-query(sm) {
     padding: 1rem;
   }

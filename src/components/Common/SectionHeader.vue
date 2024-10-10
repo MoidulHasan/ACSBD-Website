@@ -8,7 +8,7 @@ defineProps<{
 <template>
   <div>
     <h1
-      class="text-primary-color-navy-blue font-heading-2 text-center mb-2 md:mb-3 pt-6"
+      class="text-primary-color-navy-blue font-heading-2 text-center mb-2 md:mb-3 pt-2 md:pt-6"
     >
       {{ header }}
     </h1>
@@ -25,17 +25,17 @@ defineProps<{
 
 .subtitle {
   max-width: 1100px;
-  @include media-query(md) {
-    display: -webkit-box;
-    -webkit-line-clamp: 4;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-  @include media-query(sm) {
-    display: -webkit-box;
-    -webkit-line-clamp: 4;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
+  //@include media-query(md) {
+  //  display: -webkit-box;
+  //  -webkit-line-clamp: 4;
+  //  -webkit-box-orient: vertical;
+  //  overflow: hidden;
+  //}
+  //@include media-query(sm) {
+  //  display: -webkit-box;
+  //  -webkit-line-clamp: 4;
+  //  -webkit-box-orient: vertical;
+  //  overflow: hidden;
+  //}
 }
 </style>

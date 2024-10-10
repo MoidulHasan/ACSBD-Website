@@ -21,45 +21,47 @@ const changeActiveLocation = (i: number) => {
 </script>
 
 <template>
-  <div class="container location grid w-full border-round-lg mb-5 relative">
-    <div class="col-12 lg:col-6">
-      <div
-        v-if="locationData.length"
-        class="addressContainer overflow-scroll overflow-x-hidden"
-      >
-        <div
-          v-for="(address, index) in locationData"
-          :key="address.title"
-          class="address bg-primary-color-white mb-2 lg:mb-3"
-          :class="{ active: activeIndex === index }"
-          @click="changeActiveLocation(index)"
-        >
-          <h2 class="address-title font-heading-3-small mb-2">
-            {{ address.title }}
-          </h2>
-          <h2 class="address-place font-heading-4-semi-bold mb-12px">
-            {{ address.subtitle }}
-          </h2>
-          <p class="address-location text-regular-3 mb-12px">
-            {{ address.address }}
-          </p>
-          <h3 class="address-contact font-heading-5">{{ address.phone }}</h3>
+  <div class="container flex justify-content-center align-items-center">
+    <div
+      v-if="locationData.length"
+      class="location grid w-full border-round-lg mb-5 relative"
+    >
+      <div class="col-12 lg:col-6">
+        <div class="addressContainer overflow-scroll overflow-x-hidden">
+          <div
+            v-for="(address, index) in locationData"
+            :key="address.title"
+            :class="{ active: activeIndex === index }"
+            class="address bg-primary-color-white mb-2 lg:mb-3"
+            @click="changeActiveLocation(index)"
+          >
+            <h2 class="address-title font-heading-3-small mb-2">
+              {{ address.title }}
+            </h2>
+            <h2 class="address-place font-heading-4-semi-bold mb-12px">
+              {{ address.subtitle }}
+            </h2>
+            <p class="address-location text-regular-3 mb-12px">
+              {{ address.address }}
+            </p>
+            <h3 class="address-contact font-heading-5">{{ address.phone }}</h3>
+          </div>
         </div>
       </div>
-      <div v-else>
-        <h4 class="text-primary-color-navy-blue font-heading-4">
-          No Showroom Found
-        </h4>
+
+      <div v-if="activeLocation" class="col-12 lg:col-6 mapContainer">
+        <iframe
+          :src="activeLocation"
+          class="w-full map h-full"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          style="border: 0"
+        />
       </div>
     </div>
-    <div v-if="activeLocation" class="col-12 lg:col-6 mapContainer">
-      <iframe
-        class="w-full map h-full"
-        :src="activeLocation"
-        style="border: 0"
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-      ></iframe>
+
+    <div v-else class="location-not-found">
+      <h4 class="text-primary-color-navy-blue font-heading-4">No Data Found</h4>
     </div>
   </div>
 </template>
@@ -89,7 +91,7 @@ const changeActiveLocation = (i: number) => {
 
     &.active {
       opacity: 1;
-      box-shadow: 0px 3.84288px 3.84288px 0px rgba(189, 189, 189, 0.25);
+      box-shadow: 0 3.84288px 3.84288px 0 rgba(189, 189, 189, 0.25);
 
       .address-title {
         color: #363636;
@@ -168,5 +170,12 @@ const changeActiveLocation = (i: number) => {
       min-height: 531px !important;
     }
   }
+}
+
+.location-not-found {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
 }
 </style>

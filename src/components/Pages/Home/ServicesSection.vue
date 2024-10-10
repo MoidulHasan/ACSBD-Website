@@ -1,3 +1,11 @@
+<script lang="ts" setup>
+const runtimeConfig = useRuntimeConfig();
+
+const { data: services } = await useFetch(
+  runtimeConfig.public.apiUrl + "/data/services.json",
+);
+</script>
+
 <template>
   <CommonSliderSection
     :items="services"
@@ -7,23 +15,15 @@
   >
     <template #header>
       <CommonSectionHeader
-        class="mb-32px"
+        class="mb-3 md:mb-5"
         header="Our Services"
         sub-header="We have a large team of AC Service A Expert Technicians. Our services
-          are AC installation, AC servicing, AC repair, AC maintenance, AC
-          rental, and selling AC of any brand. and selling AC spare parts. AC
-          SERVICE is the best AC service company in Bangladesh. So you can
-          contact us at any time. Our expert technicians are available 7 days a
-          week to solve your AC problem."
+            are AC installation, AC servicing, AC repair, AC maintenance, AC
+            rental, and selling AC of any brand. and selling AC spare parts. AC
+            SERVICE is the best AC service company in Bangladesh. So you can
+            contact us at any time. Our expert technicians are available 7 days a
+            week to solve your AC problem."
       />
     </template>
   </CommonSliderSection>
 </template>
-
-<script lang="ts" setup>
-import { getServices } from "~/app/api/services";
-
-const { data: services } = await getServices();
-</script>
-
-<style lang="scss" scoped></style>

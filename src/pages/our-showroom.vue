@@ -46,7 +46,7 @@ watch(
 <template>
   <div>
     <CommonSectionHeader
-      class="mb-5 mt-3 container"
+      class="px-2 mb-5 mt-3 container"
       header="Our Showroom and Service Center Locations"
       sub-header="Your visit to our Istanbul Showroom not only would do us great honour; but you would also have the privilige to have a closer look at our wide range of collection of beautiful fabrics. You can enjoy the beauties of Istanbul for the rest of the day!."
     />
@@ -60,24 +60,24 @@ watch(
             <Button class="search-button" icon="pi pi-search" />
           </div>
         </div>
-        <div class="hidden lg:block">
+        <div class="lg:block">
           <div
             class="flex gap-2 xl:gap-6 align-items-center ml-0 md:ml-1 xl:ml-6"
           >
             <div class="flex flex-wrap align-items-center">
-              <Checkbox v-model="showroom" input-id="showroom" :binary="true" />
+              <Checkbox v-model="showroom" :binary="true" input-id="showroom" />
               <label
-                for="showroom"
                 class="ml-1 md:ml-3 font-heading-4-semi-bold font-medium text-primary-color-dark-gray"
+                for="showroom"
               >
                 Showrooms
               </label>
             </div>
             <div class="flex align-items-center">
-              <Checkbox v-model="service" input-id="service" :binary="true" />
+              <Checkbox v-model="service" :binary="true" input-id="service" />
               <label
-                for="service"
                 class="ml-1 md:ml-3 font-heading-4-semi-bold font-medium text-primary-color-dark-gray"
+                for="service"
               >
                 Service Center
               </label>

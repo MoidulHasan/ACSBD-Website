@@ -1,3 +1,15 @@
+<script lang="ts" setup>
+import type { Blog } from "~/contracts/api-contracts/BlogsInterfaces";
+
+defineProps<{
+  blogHeader?: string;
+}>();
+
+const { data: blogData } = await useFetch<Blog[]>("/api/proxy/blogs", {
+  transform: (response) => response.data.data,
+});
+</script>
+
 <template>
   <CommonSliderSection
     :items="blogData"
@@ -7,22 +19,16 @@
   >
     <template #header>
       <CommonSectionHeader
-        class="mb-32px"
         :header="blogHeader ?? 'Our Latest Blogs'"
+        class="mb-32px"
         sub-header="AC SERVICE always posts AC-related news and company news regularly. So stay connected with us to know about our latest news."
       />
     </template>
     <template #footer>
-      <CommonViewAllButton label="View All Blogs" />
+      <CommonViewAllButton
+        label="View All Blogs"
+        redirect-page-url="our-blogs"
+      />
     </template>
   </CommonSliderSection>
 </template>
-
-<script lang="ts" setup>
-import { getBlog } from "~/app/api/blog";
-defineProps<{
-  blogHeader?: string;
-}>();
-
-const { data: blogData } = await getBlog();
-</script>
