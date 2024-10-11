@@ -95,3 +95,10 @@ export interface ProductMinimalI {
   avg_ratings: number;
   price: ProductPriceI;
 }
+
+export interface Campaign {
+  name: string;
+  slug: string;
+  campaign_ending_date: string | null;
+  products: ProductMinimalI[];
+}
