@@ -2,40 +2,40 @@
 import type {
   DataResponse,
   PaginationResponse,
-} from "~/contracts/api-contracts/apiResponse";
-import type { ProductMinimalI } from "~/contracts/api-contracts/ProductsInterfaces";
-import type { CategoryDataResponse } from "~/contracts/api-contracts/categoryInterface";
-import type { FilterItem } from "~/contracts/common";
-import { generateFilterItems } from "~/utils/common";
+} from '~/contracts/api-contracts/apiResponse'
+import type { CategoryDataResponse } from '~/contracts/api-contracts/categoryInterface'
+import type { ProductMinimalI } from '~/contracts/api-contracts/ProductsInterfaces'
+import type { FilterItem } from '~/contracts/common'
+import { generateFilterItems } from '~/utils/common'
 
 definePageMeta({
-  title: "Products",
-  name: "products",
-});
+  title: 'Products',
+  name: 'products',
+})
 
-useHead({ title: "Products" });
+useHead({ title: 'Products' })
 
-const { $apiClient } = useNuxtApp();
+const { $apiClient } = useNuxtApp()
 
-const currentPage = ref<number>(1);
-const productViewBy = ref("grid");
-const productSortBy = ref("latest");
-const priceMinMaxRange = [0, 100000];
-const priceRangeFilter = ref(priceMinMaxRange);
-const products = ref<ProductMinimalI[]>([]);
-const showFilterModal = ref(false);
+const currentPage = ref<number>(1)
+const productViewBy = ref('grid')
+const productSortBy = ref('latest')
+const priceMinMaxRange = [0, 100000]
+const priceRangeFilter = ref(priceMinMaxRange)
+const products = ref<ProductMinimalI[]>([])
+const showFilterModal = ref(false)
 
 const filterCategories = computed(() =>
   categories.value ? collectAllValues(categories.value) : [],
-);
+)
 
 const { data: categories } = await useAsyncData<
   CategoryDataResponse,
   unknown,
   FilterItem[]
 >(`category-data`, () => $apiClient(`/categories`), {
-  transform: (response) => generateFilterItems(response.data),
-});
+  transform: response => generateFilterItems(response.data),
+})
 
 // const { data: attributes } = await useAsyncData<
 //   DataResponse<Attribute[]>,
@@ -66,47 +66,48 @@ const {
         min_price: priceRangeFilter.value[0],
         max_price: priceRangeFilter.value[1],
         category: filterCategories.value,
-        is_latest: productSortBy.value === "latest",
+        is_latest: productSortBy.value === 'latest',
         order_by:
-          productSortBy.value.split(".")[0] === "price"
-            ? productSortBy.value.split(".")[1]
+          productSortBy.value.split('.')[0] === 'price'
+            ? productSortBy.value.split('.')[1]
             : undefined,
       },
     }),
   {
-    transform: (response) => response.data,
+    transform: response => response.data,
   },
-);
+)
 
-products.value = productsData.value?.data ?? [];
+products.value = productsData.value?.data ?? []
 
-const handleProductSortByChange = (sortBy: string) => {
-  productSortBy.value = sortBy;
-};
+function handleProductSortByChange(sortBy: string) {
+  productSortBy.value = sortBy
+}
 
-const loadMoreProducts = async () => {
+async function loadMoreProducts() {
   if (productsData.value?.has_more_page) {
-    currentPage.value += 1;
-    await refreshProductsData();
+    currentPage.value += 1
+    await refreshProductsData()
   }
-};
+}
 
 watch(
   () => productsData.value?.current_page,
   () => {
-    if (!productsData.value?.data.length) return;
+    if (!productsData.value?.data.length)
+      return
 
-    products.value =
-      productsData.value?.current_page === 1
+    products.value
+      = productsData.value?.current_page === 1
         ? productsData.value?.data
-        : [...products.value, ...productsData.value?.data];
+        : [...products.value, ...productsData.value?.data]
   },
-);
+)
 
 watch([priceRangeFilter, filterCategories, productSortBy], async () => {
-  currentPage.value = 1;
-  await refreshProductsData();
-});
+  currentPage.value = 1
+  await refreshProductsData()
+})
 </script>
 
 <template>
@@ -163,8 +164,8 @@ watch([priceRangeFilter, filterCategories, productSortBy], async () => {
           <img
             alt="AC Service BD"
             class="w-full"
-            src="/images/shop-page-banner.jpeg"
-          />
+            src="~/assets/images/shop-page-banner.jpeg"
+          >
         </div>
 
         <PagesShopProductListHeader

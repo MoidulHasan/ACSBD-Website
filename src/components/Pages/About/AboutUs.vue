@@ -1,10 +1,14 @@
+<script lang="ts" setup></script>
+
 <template>
   <div class="aboutUs container">
     <div class="employes">
       <div class="employes-btn">
-        <button type="button">Our Team</button>
+        <button type="button">
+          Our Team
+        </button>
       </div>
-      <img src="/images/about-us.png" alt="employ" />
+      <img src="~/assets/images/about-us.png" alt="employ">
     </div>
     <div class="ac-service">
       <h3>About Us AC Service</h3>
@@ -22,7 +26,7 @@
     </div>
   </div>
 </template>
-<script lang="ts" setup></script>
+
 <style lang="scss" scoped>
 .aboutUs {
   .employes {

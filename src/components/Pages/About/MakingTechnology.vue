@@ -1,9 +1,11 @@
+<script lang="ts" setup></script>
+
 <template>
   <div class="making-technology container">
     <h2>Making Technology Again Working for You</h2>
     <div class="technologies-container">
       <div class="technologies">
-        <img src="/images/client-first.png" alt="client" />
+        <img src="~/assets/images/client-first.png" alt="client">
         <div class="service-type">
           <h3>Client First</h3>
           <h3>Always</h3>
@@ -11,7 +13,7 @@
       </div>
 
       <div class="technologies">
-        <img src="/images/people-strength.png" alt="client" />
+        <img src="~/assets/images/people-strength.png" alt="client">
         <div class="service-type">
           <h3>Our People Our</h3>
           <h3>Strength</h3>
@@ -19,7 +21,7 @@
       </div>
 
       <div class="technologies">
-        <img src="/images/quality-policy.png" alt="client" />
+        <img src="~/assets/images/quality-policy.png" alt="client">
         <div class="service-type">
           <h3>Quality Policy Not</h3>
           <h3>Negotiable</h3>
@@ -27,7 +29,7 @@
       </div>
 
       <div class="technologies">
-        <img src="/images/experience.png" />
+        <img src="~/assets/images/experience.png">
         <div class="service-type">
           <h3>Excelence We give</h3>
           <h3>our best</h3>
@@ -36,7 +38,7 @@
     </div>
   </div>
 </template>
-<script lang="ts" setup></script>
+
 <style lang="scss" scoped>
 .making-technology {
   display: flex;

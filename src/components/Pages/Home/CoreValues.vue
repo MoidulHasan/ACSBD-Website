@@ -1,7 +1,11 @@
+<script lang="ts" setup></script>
+
 <template>
   <div class="core-container container grid">
     <div class="core-header-mobile block lg:hidden">
-      <h3 class="text-center">Our Core Value</h3>
+      <h3 class="text-center">
+        Our Core Value
+      </h3>
       <p class="text-center">
         We always try to happy our customers with our best services. AC
         Installation, Servicing, Repair, Maintenance, AC Sales & AC Rent Service
@@ -11,7 +15,7 @@
       </p>
     </div>
     <div class="core-image col-12 lg:col-6">
-      <img alt="" src="/images/ac-servicing.png" />
+      <img alt="" src="~/assets/images/ac-servicing.png">
     </div>
     <div class="core-values col-12 lg:col-6">
       <div class="core-header hidden lg:block">
@@ -27,7 +31,7 @@
       <!-- great-services  -->
       <div class="core-values-provide flex aligin-items-center">
         <div class="core-values-provide-image">
-          <img alt="great-services" src="/images/great-services.png" />
+          <img alt="great-services" src="~/assets/images/great-services.png">
         </div>
         <div class="core-great-header">
           <h2>Great Services</h2>
@@ -40,7 +44,7 @@
       <!-- highest standards -->
       <div class="core-values-provide flex aligin-items-center">
         <div class="core-values-provide-image">
-          <img alt="great-services" src="/images/highest-standards.png" />
+          <img alt="great-services" src="~/assets/images/highest-standards.png">
         </div>
         <div class="core-great-header">
           <h2>highest standards</h2>
@@ -53,7 +57,7 @@
       <!-- professional team  -->
       <div class="core-values-provide flex aligin-items-center">
         <div class="core-values-provide-image">
-          <img alt="great-services" src="/images/professional-team.svg" />
+          <img alt="great-services" src="~/assets/images/professional-team.svg">
         </div>
         <div class="core-great-header">
           <h2>Professional Team</h2>
@@ -66,7 +70,7 @@
       <!-- creative solutions -->
       <div class="core-values-provide flex aligin-items-center">
         <div class="core-values-provide-image">
-          <img alt="great-services" src="/images/creative-solutions.svg" />
+          <img alt="great-services" src="~/assets/images/creative-solutions.svg">
         </div>
         <div class="core-great-header">
           <h2>creative Solutions</h2>
@@ -79,7 +83,7 @@
     </div>
   </div>
 </template>
-<script lang="ts" setup></script>
+
 <style lang="scss" scoped>
 .core-container {
   .core-header-mobile {
