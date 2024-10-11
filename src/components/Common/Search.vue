@@ -1,19 +1,18 @@
 <script setup lang="ts">
-import search from "primevue/icons/search/index.vue";
-
 defineProps<{
-  placeholder: string;
-}>();
+  placeholder: string
+}>()
 const emit = defineEmits<{
-  (e: "search", value: string): void;
-}>();
-const searchText = ref("");
-const regex = /^(?!.*[a-zA-Z0-9])[^\s]*$/;
-const submitText = () => {
-  emit("search", searchText.value);
-  searchText.value = "";
-};
+  (e: 'search', value: string): void
+}>()
+const searchText = ref('')
+const regex = /^(?!.*[a-z0-9])\S*$/i
+function submitText() {
+  emit('search', searchText.value)
+  searchText.value = ''
+}
 </script>
+
 <template>
   <div class="p-inputgroup flex-1 flex-wrap w-full">
     <InputText v-model="searchText" :placeholder="placeholder" />

@@ -1,3 +1,5 @@
+<script lang="ts" setup></script>
+
 <template>
   <div class="at-a-glance">
     <div class="bg-glance">
@@ -6,7 +8,7 @@
         <div class="root-glance grid">
           <div class="service-expert-glance col-6 md:col-6 lg:col">
             <div class="icon-glance">
-              <img alt="expert" src="/images/expert-technician.svg" />
+              <img alt="expert" src="~/assets/images/expert-technician.svg">
             </div>
             <div class="count-glance">
               <span>45+</span>
@@ -15,7 +17,7 @@
           </div>
           <div class="service-projects-glance col-6 md:col-6 lg:col">
             <div class="icon-glance">
-              <img alt="expert" src="/images/complete-projects.svg" />
+              <img alt="expert" src="~/assets/images/complete-projects.svg">
             </div>
             <div class="count-glance">
               <span>25000+</span>
@@ -25,7 +27,7 @@
 
           <div class="service-customers-glance col-6 md:col-6 lg:col">
             <div class="icon-glance">
-              <img alt="expert" src="/images/happy-customers.svg" />
+              <img alt="expert" src="~/assets/images/happy-customers.svg">
             </div>
             <div class="count-glance">
               <span>24600+</span>
@@ -35,7 +37,7 @@
 
           <div class="service-year-glance col-6 md:col-6 lg:col">
             <div class="icon-glance">
-              <img alt="expert" src="/images/years-of-company.svg" />
+              <img alt="expert" src="~/assets/images/years-of-company.svg">
             </div>
             <div class="count-glance">
               <span>16+</span>
@@ -48,12 +50,10 @@
   </div>
 </template>
 
-<script lang="ts" setup></script>
-
 <style lang="scss" scoped>
 .at-a-glance {
   color: var(--primary-color-white);
-  background-image: url("/images/at-a-glance.png");
+  background-image: url("~/assets/images/at-a-glance.png");
   background-size: cover;
   text-align: center;
   height: 300px;

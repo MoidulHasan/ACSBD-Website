@@ -1,6 +1,8 @@
+<script lang="ts" setup></script>
+
 <template>
   <div class="notfound">
-    <img alt="" src="/images/404-Not-found.png" />
+    <img alt="" src="~/assets/images/404-Not-found.png">
     <h3 class="font-heading-3 text-primary-color-navy-blue mt-40px">
       Opps! The page you requested not found!
     </h3>
@@ -9,7 +11,6 @@
     </NuxtLink>
   </div>
 </template>
-<script lang="ts" setup></script>
 
 <style lang="scss" scoped>
 .notfound {

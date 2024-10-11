@@ -1,0 +1,1424 @@
+[
+  {
+    "id": 1,
+    "name": "Samsung Arctic Breeze AC ABX 210 1.5 Ton",
+    "description": "A high-efficiency air conditioner from Samsung.",
+    "images": [
+      "/images/products/Gree-AC-1-ton-GS-12CT-1.png",
+      "/images/products/Gree-AC-1-ton-GS-12CT-1.png",
+      "/images/products/Gree-AC-1-ton-GS-12CT-1.png",
+      "/images/products/Gree-AC-1-ton-GS-12CT-1.png",
+      "/images/products/Gree-AC-1-ton-GS-12CT-1.png",
+      "/images/products/Gree-AC-1-ton-GS-12CT-1.png",
+      "/images/products/Gree-AC-1-ton-GS-12CT-1.png"
+    ],
+    "descriptionImage": [
+      "/images/products/productDescription.png",
+      "/images/products/productDescription53.png"
+    ],
+    "ratings": {
+      "average": 3.7,
+      "count": 180
+    },
+    "price": {
+      "regular": 75000,
+      "discounted": 64000,
+      "discountPercentage": 20,
+      "currency": "৳"
+    },
+    "category": {
+      "main": "Electronics",
+      "sub": "Air Conditioners"
+    },
+    "brand": "Samsung",
+    "type": "Inverter AC",
+    "model": "ABX 210",
+    "attributes": {
+      "BTU": "18000 BTU",
+      "capacity": "1.5 Ton",
+      "refrigerant": "R410a",
+      "material": "Metal",
+      "compressorType": "Inverter Compressors",
+      "color": "Silver",
+      "outdoorUnitModel": "OU-98765",
+      "acType": "Split AC"
+    },
+    "warranty": {
+      "electricalSpareParts": "3 Years",
+      "compressor": "5 Years",
+      "freeService": "2 Years"
+    },
+    "serviceInfo": {
+      "countryOfOrigin": "South Korea",
+      "countryOfAssemble": "India"
+    },
+    "stock": {
+      "quantity": 60,
+      "inStock": true
+    },
+    "reviews": [
+      {
+        "id": 1,
+        "userId": 123,
+        "rating": 4.9,
+        "text": "Outstanding performance, and it's energy-efficient.",
+        "timestamp": "2023-10-28T09:00:00Z",
+        "reviewImage": [
+          "/images/products/Gree-AC-1-ton-GS-12CT-1.png",
+          "/images/products/Gree-AC-1-ton-GS-12CT-1.png",
+          "/images/products/Gree-AC-1-ton-GS-12CT-1.png"
+        ]
+      }
+    ],
+    "timestamp": "2023-10-28T09:00:00Z"
+  },
+  {
+    "id": 2,
+    "name": "LG 5 Star Dual Inverter AC 1.5 Ton LS-Q19JNYX",
+    "description": "A dual inverter air conditioner from LG with 5 star energy rating.",
+    "images": [
+      "/images/products/Gree-AC-1-ton-GS-12CT-1.png",
+      "/images/products/Gree-AC-1-ton-GS-12CT-1.png",
+      "/images/products/Gree-AC-1-ton-GS-12CT-1.png",
+      "/images/products/Gree-AC-1-ton-GS-12CT-1.png",
+      "/images/products/Gree-AC-1-ton-GS-12CT-1.png"
+    ],
+    "descriptionImage": [
+      "/images/products/productDescription.png",
+      "/images/products/productDescription53.png"
+    ],
+    "ratings": {
+      "average": 4.9,
+      "count": 150
+    },
+    "price": {
+      "regular": 69000,
+      "discounted": 58000,
+      "discountPercentage": 20,
+      "currency": "৳"
+    },
+    "category": {
+      "main": "Electronics",
+      "sub": "Air Conditioners"
+    },
+    "brand": "LG",
+    "type": "Inverter AC",
+    "model": "LS-Q19JNYX",
+    "attributes": {
+      "BTU": "18000 BTU",
+      "capacity": "1.5 Ton",
+      "refrigerant": "R410a",
+      "material": "Metal",
+      "compressorType": "Dual Inverter Compressors",
+      "color": "White",
+      "outdoorUnitModel": "OU-987654",
+      "acType": "Split AC"
+    },
+    "warranty": {
+      "electricalSpareParts": "3 Years",
+      "compressor": "5 Years",
+      "freeService": "2 Years"
+    },
+    "serviceInfo": {
+      "countryOfOrigin": "South Korea",
+      "countryOfAssemble": "India"
+    },
+    "stock": {
+      "quantity": 50,
+      "inStock": true
+    },
+    "reviews": [
+      {
+        "id": 2,
+        "userId": 234,
+        "rating": 4.8,
+        "text": "Excellent cooling performance and very quiet.",
+        "timestamp": "2023-10-28T09:30:00Z"
+      }
+    ],
+    "timestamp": "2023-10-28T09:00:00Z"
+  },
+  {
+    "id": 3,
+    "name": "Whirlpool 3 Star Inverter AC 1.5 Ton W18S303PR",
+    "description": "A 3 star inverter air conditioner from Whirlpool.",
+    "images": [
+      "/images/products/Gree-AC-1-ton-GS-12CT-1.png",
+      "/images/products/Gree-AC-1-ton-GS-12CT-1.png",
+      "/images/products/Gree-AC-1-ton-GS-12CT-1.png",
+      "/images/products/Gree-AC-1-ton-GS-12CT-1.png",
+      "/images/products/Gree-AC-1-ton-GS-12CT-1.png"
+    ],
+    "descriptionImage": [
+      "/images/products/productDescription.png",
+      "/images/products/productDescription53.png"
+    ],
+    "ratings": {
+      "average": 4.5,
+      "count": 120
+    },
+    "price": {
+      "regular": 62000,
+      "discounted": 52000,
+      "discountPercentage": 20,
+      "currency": "৳"
+    },
+    "category": {
+      "main": "Electronics",
+      "sub": "Air Conditioners"
+    },
+    "brand": "Whirlpool",
+    "type": "Inverter AC",
+    "model": "W18S303PR",
+    "attributes": {
+      "BTU": "18000 BTU",
+      "capacity": "1.5 Ton",
+      "refrigerant": "R410a",
+      "material": "Metal",
+      "compressorType": "Inverter Compressors",
+      "color": "White",
+      "outdoorUnitModel": "OU-987653",
+      "acType": "Split AC"
+    },
+    "warranty": {
+      "electricalSpareParts": "2 Years",
+      "compressor": "5 Years",
+      "freeService": "1 Year"
+    },
+    "serviceInfo": {
+      "countryOfOrigin": "India",
+      "countryOfAssemble": "India"
+    },
+    "stock": {
+      "quantity": 40,
+      "inStock": true
+    },
+    "reviews": [
+      {
+        "id": 2,
+        "userId": 234,
+        "rating": 4.8,
+        "text": "Excellent cooling performance and very quiet.",
+        "timestamp": "2023-10-28T09:30:00Z"
+      }
+    ],
+    "timestamp": "2023-10-28T09:00:00Z"
+  },
+  {
+    "id": 4,
+    "name": "LG CoolWave AC CWX 130 1.0 Ton",
+    "description": "An energy-efficient air conditioner from LG.",
+    "images": [
+      "/images/products/Gree-AC-1-ton-GS-12CT-1.png",
+      "/images/products/Gree-AC-1-ton-GS-12CT-1.png",
+      "/images/products/Gree-AC-1-ton-GS-12CT-1.png",
+      "/images/products/Gree-AC-1-ton-GS-12CT-1.png",
+      "/images/products/Gree-AC-1-ton-GS-12CT-1.png"
+    ],
+    "descriptionImage": [
+      "/images/products/productDescription.png",
+      "/images/products/productDescription53.png"
+    ],
+    "ratings": {
+      "average": 4.5,
+      "count": 160
+    },
+    "price": {
+      "regular": 60000,
+      "discounted": 52000,
+      "discountPercentage": 20,
+      "currency": "৳"
+    },
+    "category": {
+      "main": "Electronics",
+      "sub": "Air Conditioners"
+    },
+    "brand": "LG",
+    "type": "Inverter AC",
+    "model": "CWX 130",
+    "attributes": {
+      "BTU": "12000 BTU",
+      "capacity": "1.0 Ton",
+      "refrigerant": "R410a",
+      "material": "Metal",
+      "compressorType": "Inverter Compressors",
+      "color": "Silver",
+      "outdoorUnitModel": "OU-76543",
+      "acType": "Split AC"
+    },
+    "warranty": {
+      "electricalSpareParts": "2 Years",
+      "compressor": "4 Years",
+      "freeService": "2 Years"
+    },
+    "serviceInfo": {
+      "countryOfOrigin": "South Korea",
+      "countryOfAssemble": "India"
+    },
+    "stock": {
+      "quantity": 55,
+      "inStock": true
+    },
+    "reviews": [
+      {
+        "id": 1,
+        "userId": 123,
+        "rating": 4.7,
+        "text": "Great AC, energy-efficient, and cools quickly.",
+        "timestamp": "2023-10-28T09:30:00Z"
+      }
+    ],
+    "timestamp": "2023-10-28T09:00:00Z"
+  },
+  {
+    "id": 5,
+    "name": "Gree GS-18CT 1.5 Ton Split Type AC",
+    "description": "A high-quality split-type air conditioner from Gree, designed to provide efficient cooling.",
+    "images": [
+      "/images/products/Gree-AC-1-ton-GS-12CT-1.png",
+      "/images/products/Gree-AC-1-ton-GS-12CT-1.png",
+      "/images/products/Gree-AC-1-ton-GS-12CT-1.png",
+      "/images/products/Gree-AC-1-ton-GS-12CT-1.png",
+      "/images/products/Gree-AC-1-ton-GS-12CT-1.png"
+    ],
+    "descriptionImage": [
+      "/images/products/productDescription.png",
+      "/images/products/productDescription53.png"
+    ],
+    "ratings": {
+      "average": 5,
+      "count": 210
+    },
+    "price": {
+      "regular": 72000,
+      "discounted": 65000,
+      "discountPercentage": 20,
+      "currency": "৳"
+    },
+    "category": {
+      "main": "Electronics",
+      "sub": "Air Conditioners"
+    },
+    "brand": "Gree",
+    "type": "Split AC",
+    "model": "GS-18CT",
+    "attributes": {
+      "BTU": "18000 BTU",
+      "capacity": "1.5 Ton",
+      "refrigerant": "R410a",
+      "material": "Metal",
+      "compressorType": "Rotary Compressor",
+      "color": "White",
+      "outdoorUnitModel": "OU-76543",
+      "acType": "Split AC"
+    },
+    "warranty": {
+      "electricalSpareParts": "3 Years",
+      "compressor": "5 Years",
+      "freeService": "2 Years"
+    },
+    "serviceInfo": {
+      "countryOfOrigin": "China",
+      "countryOfAssemble": "India"
+    },
+    "stock": {
+      "quantity": 50,
+      "inStock": true
+    },
+    "reviews": [
+      {
+        "id": 2,
+        "userId": 456,
+        "rating": 4.7,
+        "text": "Impressive cooling performance and a great value for the price.",
+        "timestamp": "2023-10-29T10:15:00Z"
+      }
+    ],
+    "timestamp": "2023-10-28T09:00:00Z"
+  },
+  {
+    "id": 6,
+    "name": "Sharp AC Inverter AH XP13SHVE",
+    "description": "A high-performance inverter air conditioner from Sharp, designed for efficient cooling and heating.",
+    "images": [
+      "/images/products/Gree-AC-1-ton-GS-12CT-1.png",
+      "/images/products/Gree-AC-1-ton-GS-12CT-1.png",
+      "/images/products/Gree-AC-1-ton-GS-12CT-1.png",
+      "/images/products/Gree-AC-1-ton-GS-12CT-1.png",
+      "/images/products/Gree-AC-1-ton-GS-12CT-1.png"
+    ],
+    "descriptionImage": [
+      "/images/products/productDescription.png",
+      "/images/products/productDescription53.png"
+    ],
+    "ratings": {
+      "average": 3.1,
+      "count": 150
+    },
+    "price": {
+      "regular": 82000,
+      "discounted": 75000,
+      "discountPercentage": 20,
+      "currency": "৳"
+    },
+    "category": {
+      "main": "Electronics",
+      "sub": "Air Conditioners"
+    },
+    "brand": "Sharp",
+    "type": "Inverter AC",
+    "model": "AH XP13SHVE",
+    "attributes": {
+      "BTU": "13000 BTU",
+      "capacity": "1.5 Ton",
+      "refrigerant": "R32",
+      "material": "Metal",
+      "compressorType": "Inverter Compressors",
+      "color": "White",
+      "acType": "Split AC"
+    },
+    "warranty": {
+      "electricalSpareParts": "3 Years",
+      "compressor": "5 Years",
+      "freeService": "2 Years"
+    },
+    "serviceInfo": {
+      "countryOfOrigin": "Japan",
+      "countryOfAssemble": "India"
+    },
+    "stock": {
+      "quantity": 40,
+      "inStock": true
+    },
+    "reviews": [
+      {
+        "id": 3,
+        "userId": 789,
+        "rating": 5,
+        "text": "Excellent cooling and heating performance, very satisfied with the product.",
+        "timestamp": "2023-10-30T11:30:00Z"
+      }
+    ],
+    "timestamp": "2023-10-28T09:00:00Z"
+  },
+  {
+    "id": 7,
+    "name": "Samsung Arctic Breeze AC ABX 210 1.5 Ton",
+    "description": "A high-efficiency air conditioner from Samsung.",
+    "images": [
+      "/images/products/Gree-AC-1-ton-GS-12CT-1.png",
+      "/images/products/Gree-AC-1-ton-GS-12CT-1.png",
+      "/images/products/Gree-AC-1-ton-GS-12CT-1.png",
+      "/images/products/Gree-AC-1-ton-GS-12CT-1.png",
+      "/images/products/Gree-AC-1-ton-GS-12CT-1.png"
+    ],
+    "descriptionImage": [
+      "/images/products/productDescription.png",
+      "/images/products/productDescription53.png"
+    ],
+    "ratings": {
+      "average": 3.7,
+      "count": 180
+    },
+    "price": {
+      "regular": 75000,
+      "discounted": 64000,
+      "discountPercentage": 20,
+      "currency": "৳"
+    },
+    "category": {
+      "main": "Electronics",
+      "sub": "Air Conditioners"
+    },
+    "brand": "Samsung",
+    "type": "Inverter AC",
+    "model": "ABX 210",
+    "attributes": {
+      "BTU": "18000 BTU",
+      "capacity": "1.5 Ton",
+      "refrigerant": "R410a",
+      "material": "Metal",
+      "compressorType": "Inverter Compressors",
+      "color": "Silver",
+      "outdoorUnitModel": "OU-98765",
+      "acType": "Split AC"
+    },
+    "warranty": {
+      "electricalSpareParts": "3 Years",
+      "compressor": "5 Years",
+      "freeService": "2 Years"
+    },
+    "serviceInfo": {
+      "countryOfOrigin": "South Korea",
+      "countryOfAssemble": "India"
+    },
+    "stock": {
+      "quantity": 60,
+      "inStock": true
+    },
+    "reviews": [
+      {
+        "id": 1,
+        "userId": 123,
+        "rating": 4.9,
+        "text": "Outstanding performance, and it's energy-efficient.",
+        "timestamp": "2023-10-28T09:00:00Z"
+      }
+    ],
+    "timestamp": "2023-10-28T09:00:00Z"
+  },
+  {
+    "id": 8,
+    "name": "Samsung Arctic Breeze AC ABX 210 1.5 Ton",
+    "description": "A high-efficiency air conditioner from Samsung.",
+    "images": [
+      "/images/products/Gree-AC-1-ton-GS-12CT-1.png",
+      "/images/products/Gree-AC-1-ton-GS-12CT-1.png",
+      "/images/products/Gree-AC-1-ton-GS-12CT-1.png",
+      "/images/products/Gree-AC-1-ton-GS-12CT-1.png",
+      "/images/products/Gree-AC-1-ton-GS-12CT-1.png"
+    ],
+    "descriptionImage": [
+      "/images/products/productDescription.png",
+      "/images/products/productDescription53.png"
+    ],
+    "ratings": {
+      "average": 3.7,
+      "count": 180
+    },
+    "price": {
+      "regular": 75000,
+      "discounted": 64000,
+      "discountPercentage": 20,
+      "currency": "৳"
+    },
+    "category": {
+      "main": "Electronics",
+      "sub": "Air Conditioners"
+    },
+    "brand": "Samsung",
+    "type": "Inverter AC",
+    "model": "ABX 210",
+    "attributes": {
+      "BTU": "18000 BTU",
+      "capacity": "1.5 Ton",
+      "refrigerant": "R410a",
+      "material": "Metal",
+      "compressorType": "Inverter Compressors",
+      "color": "Silver",
+      "outdoorUnitModel": "OU-98765",
+      "acType": "Split AC"
+    },
+    "warranty": {
+      "electricalSpareParts": "3 Years",
+      "compressor": "5 Years",
+      "freeService": "2 Years"
+    },
+    "serviceInfo": {
+      "countryOfOrigin": "South Korea",
+      "countryOfAssemble": "India"
+    },
+    "stock": {
+      "quantity": 60,
+      "inStock": true
+    },
+    "reviews": [
+      {
+        "id": 1,
+        "userId": 123,
+        "rating": 4.9,
+        "text": "Outstanding performance, and it's energy-efficient.",
+        "timestamp": "2023-10-28T09:00:00Z"
+      }
+    ],
+    "timestamp": "2023-10-28T09:00:00Z"
+  },
+  {
+    "id": 9,
+    "name": "Samsung Arctic Breeze AC ABX 210 1.5 Ton",
+    "description": "A high-efficiency air conditioner from Samsung.",
+    "images": [
+      "/images/products/Gree-AC-1-ton-GS-12CT-1.png",
+      "/images/products/Gree-AC-1-ton-GS-12CT-1.png",
+      "/images/products/Gree-AC-1-ton-GS-12CT-1.png",
+      "/images/products/Gree-AC-1-ton-GS-12CT-1.png",
+      "/images/products/Gree-AC-1-ton-GS-12CT-1.png"
+    ],
+    "descriptionImage": [
+      "/images/products/productDescription.png",
+      "/images/products/productDescription53.png"
+    ],
+    "ratings": {
+      "average": 3.7,
+      "count": 180
+    },
+    "price": {
+      "regular": 75000,
+      "discounted": 64000,
+      "discountPercentage": 20,
+      "currency": "৳"
+    },
+    "category": {
+      "main": "Electronics",
+      "sub": "Air Conditioners"
+    },
+    "brand": "Samsung",
+    "type": "Inverter AC",
+    "model": "ABX 210",
+    "attributes": {
+      "BTU": "18000 BTU",
+      "capacity": "1.5 Ton",
+      "refrigerant": "R410a",
+      "material": "Metal",
+      "compressorType": "Inverter Compressors",
+      "color": "Silver",
+      "outdoorUnitModel": "OU-98765",
+      "acType": "Split AC"
+    },
+    "warranty": {
+      "electricalSpareParts": "3 Years",
+      "compressor": "5 Years",
+      "freeService": "2 Years"
+    },
+    "serviceInfo": {
+      "countryOfOrigin": "South Korea",
+      "countryOfAssemble": "India"
+    },
+    "stock": {
+      "quantity": 60,
+      "inStock": true
+    },
+    "reviews": [
+      {
+        "id": 1,
+        "userId": 123,
+        "rating": 4.9,
+        "text": "Outstanding performance, and it's energy-efficient.",
+        "timestamp": "2023-10-28T09:00:00Z"
+      }
+    ],
+    "timestamp": "2023-10-28T09:00:00Z"
+  },
+  {
+    "id": 10,
+    "name": "Samsung Arctic Breeze AC ABX 210 1.5 Ton",
+    "description": "A high-efficiency air conditioner from Samsung.",
+    "images": [
+      "/images/products/Gree-AC-1-ton-GS-12CT-1.png",
+      "/images/products/Gree-AC-1-ton-GS-12CT-1.png",
+      "/images/products/Gree-AC-1-ton-GS-12CT-1.png",
+      "/images/products/Gree-AC-1-ton-GS-12CT-1.png",
+      "/images/products/Gree-AC-1-ton-GS-12CT-1.png"
+    ],
+    "descriptionImage": [
+      "/images/products/productDescription.png",
+      "/images/products/productDescription53.png"
+    ],
+    "ratings": {
+      "average": 3.7,
+      "count": 180
+    },
+    "price": {
+      "regular": 75000,
+      "discounted": 64000,
+      "discountPercentage": 20,
+      "currency": "৳"
+    },
+    "category": {
+      "main": "Electronics",
+      "sub": "Air Conditioners"
+    },
+    "brand": "Samsung",
+    "type": "Inverter AC",
+    "model": "ABX 210",
+    "attributes": {
+      "BTU": "18000 BTU",
+      "capacity": "1.5 Ton",
+      "refrigerant": "R410a",
+      "material": "Metal",
+      "compressorType": "Inverter Compressors",
+      "color": "Silver",
+      "outdoorUnitModel": "OU-98765",
+      "acType": "Split AC"
+    },
+    "warranty": {
+      "electricalSpareParts": "3 Years",
+      "compressor": "5 Years",
+      "freeService": "2 Years"
+    },
+    "serviceInfo": {
+      "countryOfOrigin": "South Korea",
+      "countryOfAssemble": "India"
+    },
+    "stock": {
+      "quantity": 60,
+      "inStock": true
+    },
+    "reviews": [
+      {
+        "id": 1,
+        "userId": 123,
+        "rating": 4.9,
+        "text": "Outstanding performance, and it's energy-efficient.",
+        "timestamp": "2023-10-28T09:00:00Z"
+      }
+    ],
+    "timestamp": "2023-10-28T09:00:00Z"
+  },
+  {
+    "id": 11,
+    "name": "Samsung Arctic Breeze AC ABX 210 1.5 Ton",
+    "description": "A high-efficiency air conditioner from Samsung.",
+    "images": [
+      "/images/products/Gree-AC-1-ton-GS-12CT-1.png",
+      "/images/products/Gree-AC-1-ton-GS-12CT-1.png",
+      "/images/products/Gree-AC-1-ton-GS-12CT-1.png",
+      "/images/products/Gree-AC-1-ton-GS-12CT-1.png",
+      "/images/products/Gree-AC-1-ton-GS-12CT-1.png"
+    ],
+    "descriptionImage": [
+      "/images/products/productDescription.png",
+      "/images/products/productDescription53.png"
+    ],
+    "ratings": {
+      "average": 3.7,
+      "count": 180
+    },
+    "price": {
+      "regular": 75000,
+      "discounted": 64000,
+      "discountPercentage": 20,
+      "currency": "৳"
+    },
+    "category": {
+      "main": "Electronics",
+      "sub": "Air Conditioners"
+    },
+    "brand": "Samsung",
+    "type": "Inverter AC",
+    "model": "ABX 210",
+    "attributes": {
+      "BTU": "18000 BTU",
+      "capacity": "1.5 Ton",
+      "refrigerant": "R410a",
+      "material": "Metal",
+      "compressorType": "Inverter Compressors",
+      "color": "Silver",
+      "outdoorUnitModel": "OU-98765",
+      "acType": "Split AC"
+    },
+    "warranty": {
+      "electricalSpareParts": "3 Years",
+      "compressor": "5 Years",
+      "freeService": "2 Years"
+    },
+    "serviceInfo": {
+      "countryOfOrigin": "South Korea",
+      "countryOfAssemble": "India"
+    },
+    "stock": {
+      "quantity": 60,
+      "inStock": true
+    },
+    "reviews": [
+      {
+        "id": 1,
+        "userId": 123,
+        "rating": 4.9,
+        "text": "Outstanding performance, and it's energy-efficient.",
+        "timestamp": "2023-10-28T09:00:00Z"
+      }
+    ],
+    "timestamp": "2023-10-28T09:00:00Z"
+  },
+  {
+    "id": 12,
+    "name": "Samsung Arctic Breeze AC ABX 210 1.5 Ton",
+    "description": "A high-efficiency air conditioner from Samsung.",
+    "images": [
+      "/images/products/Gree-AC-1-ton-GS-12CT-1.png",
+      "/images/products/Gree-AC-1-ton-GS-12CT-1.png",
+      "/images/products/Gree-AC-1-ton-GS-12CT-1.png",
+      "/images/products/Gree-AC-1-ton-GS-12CT-1.png",
+      "/images/products/Gree-AC-1-ton-GS-12CT-1.png"
+    ],
+    "descriptionImage": [
+      "/images/products/productDescription.png",
+      "/images/products/productDescription53.png"
+    ],
+    "ratings": {
+      "average": 3.7,
+      "count": 180
+    },
+    "price": {
+      "regular": 75000,
+      "discounted": 64000,
+      "discountPercentage": 20,
+      "currency": "৳"
+    },
+    "category": {
+      "main": "Electronics",
+      "sub": "Air Conditioners"
+    },
+    "brand": "Samsung",
+    "type": "Inverter AC",
+    "model": "ABX 210",
+    "attributes": {
+      "BTU": "18000 BTU",
+      "capacity": "1.5 Ton",
+      "refrigerant": "R410a",
+      "material": "Metal",
+      "compressorType": "Inverter Compressors",
+      "color": "Silver",
+      "outdoorUnitModel": "OU-98765",
+      "acType": "Split AC"
+    },
+    "warranty": {
+      "electricalSpareParts": "3 Years",
+      "compressor": "5 Years",
+      "freeService": "2 Years"
+    },
+    "serviceInfo": {
+      "countryOfOrigin": "South Korea",
+      "countryOfAssemble": "India"
+    },
+    "stock": {
+      "quantity": 60,
+      "inStock": true
+    },
+    "reviews": [
+      {
+        "id": 1,
+        "userId": 123,
+        "rating": 4.9,
+        "text": "Outstanding performance, and it's energy-efficient.",
+        "timestamp": "2023-10-28T09:00:00Z"
+      }
+    ],
+    "timestamp": "2023-10-28T09:00:00Z"
+  },
+  {
+    "id": 13,
+    "name": "Samsung Arctic Breeze AC ABX 210 1.5 Ton",
+    "description": "A high-efficiency air conditioner from Samsung.",
+    "images": [
+      "/images/products/Gree-AC-1-ton-GS-12CT-1.png",
+      "/images/products/Gree-AC-1-ton-GS-12CT-1.png",
+      "/images/products/Gree-AC-1-ton-GS-12CT-1.png",
+      "/images/products/Gree-AC-1-ton-GS-12CT-1.png",
+      "/images/products/Gree-AC-1-ton-GS-12CT-1.png"
+    ],
+    "descriptionImage": [
+      "/images/products/productDescription.png",
+      "/images/products/productDescription53.png"
+    ],
+    "ratings": {
+      "average": 3.7,
+      "count": 180
+    },
+    "price": {
+      "regular": 75000,
+      "discounted": 64000,
+      "discountPercentage": 20,
+      "currency": "৳"
+    },
+    "category": {
+      "main": "Electronics",
+      "sub": "Air Conditioners"
+    },
+    "brand": "Samsung",
+    "type": "Inverter AC",
+    "model": "ABX 210",
+    "attributes": {
+      "BTU": "18000 BTU",
+      "capacity": "1.5 Ton",
+      "refrigerant": "R410a",
+      "material": "Metal",
+      "compressorType": "Inverter Compressors",
+      "color": "Silver",
+      "outdoorUnitModel": "OU-98765",
+      "acType": "Split AC"
+    },
+    "warranty": {
+      "electricalSpareParts": "3 Years",
+      "compressor": "5 Years",
+      "freeService": "2 Years"
+    },
+    "serviceInfo": {
+      "countryOfOrigin": "South Korea",
+      "countryOfAssemble": "India"
+    },
+    "stock": {
+      "quantity": 60,
+      "inStock": true
+    },
+    "reviews": [
+      {
+        "id": 1,
+        "userId": 123,
+        "rating": 4.9,
+        "text": "Outstanding performance, and it's energy-efficient.",
+        "timestamp": "2023-10-28T09:00:00Z"
+      }
+    ],
+    "timestamp": "2023-10-28T09:00:00Z"
+  },
+  {
+    "id": 14,
+    "name": "Samsung Arctic Breeze AC ABX 210 1.5 Ton",
+    "description": "A high-efficiency air conditioner from Samsung.",
+    "images": [
+      "images/products/Gree-AC-1-ton-GS-12CT-1.png"
+    ],
+    "ratings": {
+      "average": 3.7,
+      "count": 180
+    },
+    "descriptionImage": [
+      "/images/products/productDescription.png",
+      "/images/products/productDescription53.png"
+    ],
+    "price": {
+      "regular": 75000,
+      "discounted": 64000,
+      "discountPercentage": 20,
+      "currency": "৳"
+    },
+    "category": {
+      "main": "Electronics",
+      "sub": "Air Conditioners"
+    },
+    "brand": "Samsung",
+    "type": "Inverter AC",
+    "model": "ABX 210",
+    "attributes": {
+      "BTU": "18000 BTU",
+      "capacity": "1.5 Ton",
+      "refrigerant": "R410a",
+      "material": "Metal",
+      "compressorType": "Inverter Compressors",
+      "color": "Silver",
+      "outdoorUnitModel": "OU-98765",
+      "acType": "Split AC"
+    },
+    "warranty": {
+      "electricalSpareParts": "3 Years",
+      "compressor": "5 Years",
+      "freeService": "2 Years"
+    },
+    "serviceInfo": {
+      "countryOfOrigin": "South Korea",
+      "countryOfAssemble": "India"
+    },
+    "stock": {
+      "quantity": 60,
+      "inStock": true
+    },
+    "reviews": [
+      {
+        "id": 1,
+        "userId": 123,
+        "rating": 4.9,
+        "text": "Outstanding performance, and it's energy-efficient.",
+        "timestamp": "2023-10-28T09:00:00Z"
+      }
+    ],
+    "timestamp": "2023-10-28T09:00:00Z"
+  },
+  {
+    "id": 15,
+    "name": "Samsung Arctic Breeze AC ABX 210 1.5 Ton",
+    "description": "A high-efficiency air conditioner from Samsung.",
+    "images": [
+      "images/products/Gree-AC-1-ton-GS-12CT-1.png"
+    ],
+    "ratings": {
+      "average": 3.7,
+      "count": 180
+    },
+    "descriptionImage": [
+      "/images/products/productDescription.png",
+      "/images/products/productDescription53.png"
+    ],
+    "price": {
+      "regular": 75000,
+      "discounted": 64000,
+      "discountPercentage": 20,
+      "currency": "৳"
+    },
+    "category": {
+      "main": "Electronics",
+      "sub": "Air Conditioners"
+    },
+    "brand": "Samsung",
+    "type": "Inverter AC",
+    "model": "ABX 210",
+    "attributes": {
+      "BTU": "18000 BTU",
+      "capacity": "1.5 Ton",
+      "refrigerant": "R410a",
+      "material": "Metal",
+      "compressorType": "Inverter Compressors",
+      "color": "Silver",
+      "outdoorUnitModel": "OU-98765",
+      "acType": "Split AC"
+    },
+    "warranty": {
+      "electricalSpareParts": "3 Years",
+      "compressor": "5 Years",
+      "freeService": "2 Years"
+    },
+    "serviceInfo": {
+      "countryOfOrigin": "South Korea",
+      "countryOfAssemble": "India"
+    },
+    "stock": {
+      "quantity": 60,
+      "inStock": true
+    },
+    "reviews": [
+      {
+        "id": 1,
+        "userId": 123,
+        "rating": 4.9,
+        "text": "Outstanding performance, and it's energy-efficient.",
+        "timestamp": "2023-10-28T09:00:00Z"
+      }
+    ],
+    "timestamp": "2023-10-28T09:00:00Z"
+  },
+  {
+    "id": 16,
+    "name": "Samsung Arctic Breeze AC ABX 210 1.5 Ton",
+    "description": "A high-efficiency air conditioner from Samsung.",
+    "images": [
+      "images/products/Gree-AC-1-ton-GS-12CT-1.png"
+    ],
+    "ratings": {
+      "average": 3.7,
+      "count": 180
+    },
+    "descriptionImage": [
+      "/images/products/productDescription.png",
+      "/images/products/productDescription53.png"
+    ],
+    "price": {
+      "regular": 75000,
+      "discounted": 64000,
+      "discountPercentage": 20,
+      "currency": "৳"
+    },
+    "category": {
+      "main": "Electronics",
+      "sub": "Air Conditioners"
+    },
+    "brand": "Samsung",
+    "type": "Inverter AC",
+    "model": "ABX 210",
+    "attributes": {
+      "BTU": "18000 BTU",
+      "capacity": "1.5 Ton",
+      "refrigerant": "R410a",
+      "material": "Metal",
+      "compressorType": "Inverter Compressors",
+      "color": "Silver",
+      "outdoorUnitModel": "OU-98765",
+      "acType": "Split AC"
+    },
+    "warranty": {
+      "electricalSpareParts": "3 Years",
+      "compressor": "5 Years",
+      "freeService": "2 Years"
+    },
+    "serviceInfo": {
+      "countryOfOrigin": "South Korea",
+      "countryOfAssemble": "India"
+    },
+    "stock": {
+      "quantity": 60,
+      "inStock": true
+    },
+    "reviews": [
+      {
+        "id": 1,
+        "userId": 123,
+        "rating": 4.9,
+        "text": "Outstanding performance, and it's energy-efficient.",
+        "timestamp": "2023-10-28T09:00:00Z"
+      }
+    ],
+    "timestamp": "2023-10-28T09:00:00Z"
+  },
+  {
+    "id": 17,
+    "name": "Samsung Arctic Breeze AC ABX 210 1.5 Ton",
+    "description": "A high-efficiency air conditioner from Samsung.",
+    "images": [
+      "images/products/Gree-AC-1-ton-GS-12CT-1.png"
+    ],
+    "descriptionImage": [
+      "/images/products/productDescription.png",
+      "/images/products/productDescription53.png"
+    ],
+    "ratings": {
+      "average": 3.7,
+      "count": 180
+    },
+    "price": {
+      "regular": 75000,
+      "discounted": 64000,
+      "discountPercentage": 20,
+      "currency": "৳"
+    },
+    "category": {
+      "main": "Electronics",
+      "sub": "Air Conditioners"
+    },
+    "brand": "Samsung",
+    "type": "Inverter AC",
+    "model": "ABX 210",
+    "attributes": {
+      "BTU": "18000 BTU",
+      "capacity": "1.5 Ton",
+      "refrigerant": "R410a",
+      "material": "Metal",
+      "compressorType": "Inverter Compressors",
+      "color": "Silver",
+      "outdoorUnitModel": "OU-98765",
+      "acType": "Split AC"
+    },
+    "warranty": {
+      "electricalSpareParts": "3 Years",
+      "compressor": "5 Years",
+      "freeService": "2 Years"
+    },
+    "serviceInfo": {
+      "countryOfOrigin": "South Korea",
+      "countryOfAssemble": "India"
+    },
+    "stock": {
+      "quantity": 60,
+      "inStock": true
+    },
+    "reviews": [
+      {
+        "id": 1,
+        "userId": 123,
+        "rating": 4.9,
+        "text": "Outstanding performance, and it's energy-efficient.",
+        "timestamp": "2023-10-28T09:00:00Z"
+      }
+    ],
+    "timestamp": "2023-10-28T09:00:00Z"
+  },
+  {
+    "id": 18,
+    "name": "Samsung Arctic Breeze AC ABX 210 1.5 Ton",
+    "description": "A high-efficiency air conditioner from Samsung.",
+    "images": [
+      "images/products/Gree-AC-1-ton-GS-12CT-1.png"
+    ],
+    "descriptionImage": [
+      "/images/products/productDescription.png",
+      "/images/products/productDescription53.png"
+    ],
+    "ratings": {
+      "average": 3.7,
+      "count": 180
+    },
+    "price": {
+      "regular": 75000,
+      "discounted": 64000,
+      "discountPercentage": 20,
+      "currency": "৳"
+    },
+    "category": {
+      "main": "Electronics",
+      "sub": "Air Conditioners"
+    },
+    "brand": "Samsung",
+    "type": "Inverter AC",
+    "model": "ABX 210",
+    "attributes": {
+      "BTU": "18000 BTU",
+      "capacity": "1.5 Ton",
+      "refrigerant": "R410a",
+      "material": "Metal",
+      "compressorType": "Inverter Compressors",
+      "color": "Silver",
+      "outdoorUnitModel": "OU-98765",
+      "acType": "Split AC"
+    },
+    "warranty": {
+      "electricalSpareParts": "3 Years",
+      "compressor": "5 Years",
+      "freeService": "2 Years"
+    },
+    "serviceInfo": {
+      "countryOfOrigin": "South Korea",
+      "countryOfAssemble": "India"
+    },
+    "stock": {
+      "quantity": 60,
+      "inStock": true
+    },
+    "reviews": [
+      {
+        "id": 1,
+        "userId": 123,
+        "rating": 4.9,
+        "text": "Outstanding performance, and it's energy-efficient.",
+        "timestamp": "2023-10-28T09:00:00Z"
+      }
+    ],
+    "timestamp": "2023-10-28T09:00:00Z"
+  },
+  {
+    "id": 19,
+    "name": "Samsung Arctic Breeze AC ABX 210 1.5 Ton",
+    "description": "A high-efficiency air conditioner from Samsung.",
+    "images": [
+      "images/products/Gree-AC-1-ton-GS-12CT-1.png"
+    ],
+    "descriptionImage": [
+      "/images/products/productDescription.png",
+      "/images/products/productDescription53.png"
+    ],
+    "ratings": {
+      "average": 3.7,
+      "count": 180
+    },
+    "price": {
+      "regular": 75000,
+      "discounted": 64000,
+      "discountPercentage": 20,
+      "currency": "৳"
+    },
+    "category": {
+      "main": "Electronics",
+      "sub": "Air Conditioners"
+    },
+    "brand": "Samsung",
+    "type": "Inverter AC",
+    "model": "ABX 210",
+    "attributes": {
+      "BTU": "18000 BTU",
+      "capacity": "1.5 Ton",
+      "refrigerant": "R410a",
+      "material": "Metal",
+      "compressorType": "Inverter Compressors",
+      "color": "Silver",
+      "outdoorUnitModel": "OU-98765",
+      "acType": "Split AC"
+    },
+    "warranty": {
+      "electricalSpareParts": "3 Years",
+      "compressor": "5 Years",
+      "freeService": "2 Years"
+    },
+    "serviceInfo": {
+      "countryOfOrigin": "South Korea",
+      "countryOfAssemble": "India"
+    },
+    "stock": {
+      "quantity": 60,
+      "inStock": true
+    },
+    "reviews": [
+      {
+        "id": 1,
+        "userId": 123,
+        "rating": 4.9,
+        "text": "Outstanding performance, and it's energy-efficient.",
+        "timestamp": "2023-10-28T09:00:00Z"
+      }
+    ],
+    "timestamp": "2023-10-28T09:00:00Z"
+  },
+  {
+    "id": 20,
+    "name": "Samsung Arctic Breeze AC ABX 210 1.5 Ton",
+    "description": "A high-efficiency air conditioner from Samsung.",
+    "images": [
+      "images/products/Gree-AC-1-ton-GS-12CT-1.png"
+    ],
+    "descriptionImage": [
+      "/images/products/productDescription.png",
+      "/images/products/productDescription53.png"
+    ],
+    "ratings": {
+      "average": 3.7,
+      "count": 180
+    },
+    "price": {
+      "regular": 75000,
+      "discounted": 64000,
+      "discountPercentage": 20,
+      "currency": "৳"
+    },
+    "category": {
+      "main": "Electronics",
+      "sub": "Air Conditioners"
+    },
+    "brand": "Samsung",
+    "type": "Inverter AC",
+    "model": "ABX 210",
+    "attributes": {
+      "BTU": "18000 BTU",
+      "capacity": "1.5 Ton",
+      "refrigerant": "R410a",
+      "material": "Metal",
+      "compressorType": "Inverter Compressors",
+      "color": "Silver",
+      "outdoorUnitModel": "OU-98765",
+      "acType": "Split AC"
+    },
+    "warranty": {
+      "electricalSpareParts": "3 Years",
+      "compressor": "5 Years",
+      "freeService": "2 Years"
+    },
+    "serviceInfo": {
+      "countryOfOrigin": "South Korea",
+      "countryOfAssemble": "India"
+    },
+    "stock": {
+      "quantity": 60,
+      "inStock": true
+    },
+    "reviews": [
+      {
+        "id": 1,
+        "userId": 123,
+        "rating": 4.9,
+        "text": "Outstanding performance, and it's energy-efficient.",
+        "timestamp": "2023-10-28T09:00:00Z"
+      }
+    ],
+    "timestamp": "2023-10-28T09:00:00Z"
+  },
+  {
+    "id": 21,
+    "name": "Samsung Arctic Breeze AC ABX 210 1.5 Ton",
+    "description": "A high-efficiency air conditioner from Samsung.",
+    "images": [
+      "images/products/Gree-AC-1-ton-GS-12CT-1.png"
+    ],
+    "descriptionImage": [
+      "/images/products/productDescription.png",
+      "/images/products/productDescription53.png"
+    ],
+    "ratings": {
+      "average": 3.7,
+      "count": 180
+    },
+    "price": {
+      "regular": 75000,
+      "discounted": 64000,
+      "discountPercentage": 20,
+      "currency": "৳"
+    },
+    "category": {
+      "main": "Electronics",
+      "sub": "Air Conditioners"
+    },
+    "brand": "Samsung",
+    "type": "Inverter AC",
+    "model": "ABX 210",
+    "attributes": {
+      "BTU": "18000 BTU",
+      "capacity": "1.5 Ton",
+      "refrigerant": "R410a",
+      "material": "Metal",
+      "compressorType": "Inverter Compressors",
+      "color": "Silver",
+      "outdoorUnitModel": "OU-98765",
+      "acType": "Split AC"
+    },
+    "warranty": {
+      "electricalSpareParts": "3 Years",
+      "compressor": "5 Years",
+      "freeService": "2 Years"
+    },
+    "serviceInfo": {
+      "countryOfOrigin": "South Korea",
+      "countryOfAssemble": "India"
+    },
+    "stock": {
+      "quantity": 60,
+      "inStock": true
+    },
+    "reviews": [
+      {
+        "id": 1,
+        "userId": 123,
+        "rating": 4.9,
+        "text": "Outstanding performance, and it's energy-efficient.",
+        "timestamp": "2023-10-28T09:00:00Z"
+      }
+    ],
+    "timestamp": "2023-10-28T09:00:00Z"
+  },
+  {
+    "id": 22,
+    "name": "Samsung Arctic Breeze AC ABX 210 1.5 Ton",
+    "description": "A high-efficiency air conditioner from Samsung.",
+    "images": [
+      "images/products/Gree-AC-1-ton-GS-12CT-1.png"
+    ],
+    "descriptionImage": [
+      "/images/products/productDescription.png",
+      "/images/products/productDescription53.png"
+    ],
+    "ratings": {
+      "average": 3.7,
+      "count": 180
+    },
+    "price": {
+      "regular": 75000,
+      "discounted": 64000,
+      "discountPercentage": 20,
+      "currency": "৳"
+    },
+    "category": {
+      "main": "Electronics",
+      "sub": "Air Conditioners"
+    },
+    "brand": "Samsung",
+    "type": "Inverter AC",
+    "model": "ABX 210",
+    "attributes": {
+      "BTU": "18000 BTU",
+      "capacity": "1.5 Ton",
+      "refrigerant": "R410a",
+      "material": "Metal",
+      "compressorType": "Inverter Compressors",
+      "color": "Silver",
+      "outdoorUnitModel": "OU-98765",
+      "acType": "Split AC"
+    },
+    "warranty": {
+      "electricalSpareParts": "3 Years",
+      "compressor": "5 Years",
+      "freeService": "2 Years"
+    },
+    "serviceInfo": {
+      "countryOfOrigin": "South Korea",
+      "countryOfAssemble": "India"
+    },
+    "stock": {
+      "quantity": 60,
+      "inStock": true
+    },
+    "reviews": [
+      {
+        "id": 1,
+        "userId": 123,
+        "rating": 4.9,
+        "text": "Outstanding performance, and it's energy-efficient.",
+        "timestamp": "2023-10-28T09:00:00Z"
+      }
+    ],
+    "timestamp": "2023-10-28T09:00:00Z"
+  }
+]

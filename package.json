@@ -7,36 +7,31 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "lint:js": "eslint --ext \".ts,.vue\" --ignore-path .gitignore .",
-    "lint:prettier": "prettier --check .",
-    "lint": "pnpm lint:js && yarn lint:prettier",
-    "lintfix": "prettier --write --list-different . && pnpm lint:js --fix"
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "devDependencies": {
+    "@antfu/eslint-config": "^3.7.3",
     "@nuxt/devtools": "^1.0.0",
-    "@nuxtjs/eslint-config-typescript": "^12.1.0",
-    "@nuxtjs/eslint-module": "^4.1.0",
-    "@typescript-eslint/parser": "^6.9.0",
+    "@nuxt/eslint": "^0.5.7",
     "@vueuse/core": "^10.5.0",
     "@vueuse/nuxt": "^10.5.0",
-    "eslint": "^8.52.0",
-    "eslint-config-prettier": "^9.0.0",
-    "eslint-plugin-prettier": "^5.0.1",
-    "nuxt": "^3.8.0",
-    "prettier": "^3.0.3",
+    "nuxt": "^3.13.2",
+    "nuxt-primevue": "^3.0.0",
     "primeflex": "^3.3.1",
     "primeicons": "^6.0.1",
-    "primevue": "^3.38.1",
-    "sass": "^1.69.5",
-    "typescript": "^5.2.2"
+    "sass": "^1.79.5",
+    "typescript": "^5.6.3"
   },
   "dependencies": {
     "@nuxt/image": "1.0.0",
     "@pinia/nuxt": "^0.5.1",
-    "nuxt-swiper": "^1.2.2",
-    "pinia": "^2.1.7",
     "@vee-validate/nuxt": "^4.12.8",
     "@vee-validate/yup": "^4.13.1",
+    "nuxt-swiper": "^1.2.2",
+    "pinia": "^2.1.7",
+    "primevue": "3.53.0",
     "yup": "^1.4.0"
-  }
+  },
+  "packageManager": "pnpm@8.15.1+sha512.831cf4c5f8b8374af71521d4d153db49d7086de615c2af7cb5e9d7eb8ba630ddac46fea495d643e552ef2e68a3aa99a3e5e9fbee8696702967504df5c59cb273"
 }
