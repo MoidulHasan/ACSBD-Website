@@ -33,8 +33,6 @@ const commercialWorks = computed(() => {
   )
 })
 
-console.log(recentWorks.value)
-
 const active = ref(0)
 const selectedCity = ref()
 const cities = ref([
