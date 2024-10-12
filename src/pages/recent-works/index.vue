@@ -2,83 +2,87 @@
 import type {
   Work,
   WorkResponse,
-} from "~/contracts/api-contracts/recentWorkInterfaces";
+} from '~/contracts/api-contracts/recentWorkInterfaces'
 
 definePageMeta({
-  title: "Recent Works",
-  name: "recent-works",
-});
+  title: 'Recent Works',
+  name: 'recent-works',
+})
 
-const active = ref(0);
-const selectedType = ref();
+const active = ref(0)
+const selectedType = ref()
 const types = ref([
-  { name: "All Works" },
-  { name: "Residential" },
-  { name: "Commercial" },
-]);
+  { name: 'All Works' },
+  { name: 'Residential' },
+  { name: 'Commercial' },
+])
 
-const { $apiClient } = useNuxtApp();
+const { $apiClient } = useNuxtApp()
 
 const { data: recentWorksData } = await useAsyncData<WorkResponse>(
-  "recent-works",
+  'recent-works',
   () =>
     $apiClient(`/works`, {
       params: {
         is_latest: true,
       },
     }),
-);
+)
 
-const works = ref<Work[]>([]);
-works.value = recentWorksData.value?.data?.data || [];
+const works = ref<Work[]>([])
+works.value = recentWorksData.value?.data?.data || []
 
-const initialLength = ref(6);
+const initialLength = ref(6)
 const worksToShow = computed(() => {
-  return works.value?.slice(0, initialLength.value);
-});
+  return works.value?.slice(0, initialLength.value)
+})
 
-const showMoreWorks = () => {
+function showMoreWorks() {
   if (initialLength.value <= works.value?.length) {
-    initialLength.value += 6;
+    initialLength.value += 6
   }
-};
+}
 
 watch(
   () => selectedType.value,
   () => {
-    if (selectedType.value.name === "Residential") {
-      active.value = 1;
+    if (selectedType.value.name === 'Residential') {
+      active.value = 1
       works.value = recentWorksData.value?.data?.data.filter(
-        (work: Work) => work.type === "residential",
-      );
-    } else if (selectedType.value.name === "Commercial") {
-      active.value = 2;
+        (work: Work) => work.type === 'residential',
+      )
+    }
+    else if (selectedType.value.name === 'Commercial') {
+      active.value = 2
       works.value = recentWorksData.value?.data?.data.filter(
-        (work: Work) => work.type === "commercial",
-      );
-    } else {
-      active.value = 0;
-      works.value = recentWorksData.value?.data?.data;
+        (work: Work) => work.type === 'commercial',
+      )
+    }
+    else {
+      active.value = 0
+      works.value = recentWorksData.value?.data?.data
     }
   },
-);
+)
 
 watch(
   () => active.value,
   () => {
     if (active.value === 1) {
       works.value = recentWorksData.value?.data?.data.filter(
-        (work: Work) => work.type === "residential",
-      );
-    } else if (active.value === 2) {
+        (work: Work) => work.type === 'residential',
+      )
+    }
+    else if (active.value === 2) {
       works.value = recentWorksData.value?.data?.data.filter(
-        (work: Work) => work.type === "commercial",
-      );
-    } else {
-      works.value = recentWorksData.value?.data?.data;
+        (work: Work) => work.type === 'commercial',
+      )
+    }
+    else {
+      works.value = recentWorksData.value?.data?.data
     }
   },
-);
+)
 </script>
 
 <template>
@@ -90,13 +94,13 @@ watch(
       sub-header="AC SERVICE is a leading AC Installation, Servicing, Repair, Maintenance, AC Sales & AC Rent Service All over Bangladesh. We have already completed 25000+ projects and 20 projects are running. AC SERVICE has an expert team and well-known engineers. Our clients are Hospitals, groups of companies, Markets, banks, Shopping malls, Multinational organizations, etc."
     />
     <!-- TabView -->
-    <div class="w-full block md:hidden flex justify-content-center">
+    <div class="w-full block md:hidden flex justify-content-center px-2">
       <Dropdown
         v-model="selectedType"
         :options="types"
         option-label="name"
         placeholder="Type of Work"
-        class="w-full text-primary-color-navy-blue px-16px py-12px bg-primary-50 mb-16px font-medium-2"
+        class="w-full text-primary-color-navy-blue px-16px bg-primary-50 mb-16px font-medium-2"
       />
     </div>
 
@@ -126,7 +130,7 @@ watch(
         Commercial
       </button>
     </div>
-    <TabView v-model:activeIndex="active" class="work-details">
+    <TabView v-model:active-index="active" class="work-details">
       <TabPanel v-for="type in types" :key="type.name">
         <PagesRecentWorksList :works="works" />
       </TabPanel>
