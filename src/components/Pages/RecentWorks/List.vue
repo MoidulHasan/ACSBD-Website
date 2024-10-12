@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import type { Work } from "~/contracts/api-contracts/recentWorkInterfaces";
+import type { Work } from '~/contracts/api-contracts/recentWorkInterfaces'
 
 defineProps<{
-  works: Work[];
-}>();
+  works: Work[]
+}>()
 </script>
 
 <template>
-  <div class="grid">
+  <div class="grid work-lists px-1 md:px-0">
     <div
       v-for="work in works"
       :key="work.slug"

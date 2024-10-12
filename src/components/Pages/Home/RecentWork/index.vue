@@ -1,57 +1,55 @@
 <script lang="ts" setup>
-import type { WorkResponse } from "~/contracts/api-contracts/recentWorkInterfaces";
+import type { WorkResponse } from '~/contracts/api-contracts/recentWorkInterfaces'
 
-const { $apiClient } = useNuxtApp();
+const { $apiClient } = useNuxtApp()
 
 const { data: recentWorks } = await useAsyncData<WorkResponse>(
-  "recent-works",
+  'recent-works',
   () =>
     $apiClient(`/works`, {
       params: {
         is_latest: true,
       },
     }),
-);
+)
 
 const allWorks = computed(() => {
-  return recentWorks.value?.data.data || [];
-});
+  return recentWorks.value?.data.data || []
+})
 
 const residentialWorks = computed(() => {
   return (
     recentWorks.value?.data?.data.filter(
-      (work) => work.type === "residential",
+      work => work.type === 'residential',
     ) || []
-  );
-});
+  )
+})
 
 const commercialWorks = computed(() => {
   return (
     recentWorks.value?.data?.data.filter(
-      (work) => work.type === "commercial",
+      work => work.type === 'commercial',
     ) || []
-  );
-});
+  )
+})
 
-console.log(recentWorks.value);
-
-const active = ref(0);
-const selectedCity = ref();
+const active = ref(0)
+const selectedCity = ref()
 const cities = ref([
-  { name: "All Works" },
-  { name: "Residential" },
-  { name: "Commercial" },
-]);
+  { name: 'All Works' },
+  { name: 'Residential' },
+  { name: 'Commercial' },
+])
 watch(
   () => selectedCity.value,
   () => {
-    selectedCity.value.name === "Residential"
+    selectedCity.value.name === 'Residential'
       ? (active.value = 1)
-      : selectedCity.value.name === "Commercial"
+      : selectedCity.value.name === 'Commercial'
         ? (active.value = 2)
-        : (active.value = 0);
+        : (active.value = 0)
   },
-);
+)
 </script>
 
 <template>
@@ -68,8 +66,8 @@ watch(
         v-model="selectedCity"
         :options="cities"
         option-label="name"
-        placeholder="Select a City"
-        class="w-full text-primary-color-navy-blue px-16px py-12px bg-primary-50 mb-16px font-medium-2"
+        placeholder="Type of Work"
+        class="w-full text-primary-color-navy-blue px-16px bg-primary-50 mb-16px font-medium-2"
       />
     </div>
 
@@ -99,7 +97,7 @@ watch(
         Commercial
       </button>
     </div>
-    <TabView v-model:activeIndex="active">
+    <TabView v-model:active-index="active" class="work-listing">
       <TabPanel>
         <PagesHomeRecentWorkAllWorks :all-works="allWorks.slice(0, 5)" />
       </TabPanel>
@@ -121,4 +119,9 @@ watch(
     </div>
   </div>
 </template>
-<style lang="scss" scoped></style>
+
+<style lang="scss" scoped>
+.work-listing :deep(.p-tabview-nav-container) {
+  display: none;
+}
+</style>
