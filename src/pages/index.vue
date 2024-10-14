@@ -33,11 +33,11 @@ const { data: bannerSliderImages } = await useAsyncData<ImageResponse>(
       <PagesHomeServicesSection />
     </div>
 
-    <div class="container mt-2 md:mt-6">
+    <div class="container px-2 mt-2 md:mt-6">
       <PagesHomeOurShopSection />
     </div>
 
-    <div class="mt-2 md:mt-6">
+    <div class="mt-5 md:mt-6">
       <PagesHomeClientsSection />
     </div>
 
