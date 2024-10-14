@@ -1,23 +1,13 @@
 <script lang="ts" setup>
-import type {
-  Category,
-  CategoryDataResponse,
-} from "~/contracts/api-contracts/categoryInterface";
+import { useProductCategories } from '~/composables/useProductCategories'
+import { flattenCategoryData } from '~/utils/flatternCategoryData'
 
 definePageMeta({
-  title: "Categories",
-  name: "categories",
-});
+  title: 'Categories',
+  name: 'categories',
+})
 
-const { $apiClient } = useNuxtApp();
-
-const { data: categories } = await useAsyncData<
-  CategoryDataResponse,
-  Category[],
-  unknown
->(`product-data`, () => $apiClient(`/categories`), {
-  transform: (response) => response.data,
-});
+const categories = await useProductCategories()
 </script>
 
 <template>
@@ -26,15 +16,15 @@ const { data: categories } = await useAsyncData<
       class="category-flex-container flex flex-wrap pt-3 pb-4 align-items-center justify-content-center lg:justify-content-start"
     >
       <div
-        v-for="category in categories"
+        v-for="category in flattenCategoryData(categories)"
         :key="category.name"
-        class="single-category bg-color-product-bg text-center flex flex-column justify-content-around flex-wrap"
+        class="single-category bg-color-product-bg text-center flex flex-column align-items-center justify-content-around flex-wrap"
       >
         <img
           :alt="category.name"
           :src="category.image_url"
           class="category-image"
-        />
+        >
         <h3 class="category-title text-semi-bold-5 text-dark-gray-80 mt-10px">
           {{ category.name }}
         </h3>

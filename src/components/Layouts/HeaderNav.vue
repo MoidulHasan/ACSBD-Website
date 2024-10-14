@@ -1,193 +1,142 @@
 <script lang="ts" setup>
-interface submenu {
-  title: string;
-  path: string;
-  submenu2?: Array<submenu>;
+import { useProductCategories } from '~/composables/useProductCategories'
+
+interface SubMenu {
+  title: string
+  path: string
+  submenu2?: Array<SubMenu>
 }
 
-interface menus {
-  title: string;
-  path: string;
-  submenu?: Array<submenu>;
+interface Menu {
+  title: string
+  path: string
+  submenu?: Array<SubMenu>
 }
 
-const store = useStore();
-const wishListStore = useWishListStore();
+const store = useStore()
+const wishListStore = useWishListStore()
 
-const navMenues: Array<menus> = [
-  {
-    title: "Home",
-    path: "/",
-  },
-  {
-    title: "Services",
-    path: "/services",
-  },
-  {
-    title: "Products",
-    path: "/products",
-    submenu: [
-      {
-        title: "Air Conditioner",
-        path: "",
-        submenu2: [
-          {
-            title: "Non-Inverter AC",
-            path: "/products/non-air-conditioner",
-          },
-          {
-            title: "Inverter AC",
-            path: "/products/inverter-ac",
-          },
-          {
-            title: "Window AC",
-            path: "/products/window-ac",
-          },
-          {
-            title: "Portable AC",
-            path: "/products/portable-ac",
-          },
-          {
-            title: "Ceiling Type AC",
-            path: "/products/ceiling-type-ac",
-          },
-          {
-            title: "Cassette Type AC",
-            path: "/products/cassette-type-ac",
-          },
-          {
-            title: "Duct Type AC",
-            path: "/products/duct-type-ac",
-          },
-          {
-            title: "VRF AC",
-            path: "/products/vrf-ac",
-          },
-        ],
-      },
-      {
-        title: "AC Spares Parts",
-        path: "",
-        submenu2: [
-          {
-            title: "Non-Inverter AC",
-            path: "/products/non-air-conditioner",
-          },
-          {
-            title: "Inverter AC",
-            path: "/products/inverter-ac",
-          },
-          {
-            title: "Window AC",
-            path: "/products/window-ac",
-          },
-          {
-            title: "Portable AC",
-            path: "/products/portable-ac",
-          },
-          {
-            title: "Ceiling Type AC",
-            path: "/products/ceiling-type-ac",
-          },
-          {
-            title: "Cassette Type AC",
-            path: "/products/cassette-type-ac",
-          },
-          {
-            title: "Duct Type AC",
-            path: "/products/duct-type-ac",
-          },
-          {
-            title: "VRF AC",
-            path: "/products/vrf-ac",
-          },
-        ],
-      },
-    ],
-  },
-  {
-    title: "AC Rent",
-    path: "/ac-rent",
-  },
-  {
-    title: "Work Pricing",
-    path: "/work-pricing",
-  },
-  {
-    title: "Blog",
-    path: "/our-blogs",
-  },
-  {
-    title: "About Us",
-    path: "/about",
-  },
-  {
-    title: "Contact Us",
-    path: "/contact-us",
-  },
-];
+const categories = await useProductCategories()
 
-const show = ref(false);
-const firstRowHeader = ref(null);
-const showSearchBar = ref(false);
-const mobileScreen = ref(false);
+const navMenues = ref<Menu[]>([
+  {
+    title: 'Home',
+    path: '/',
+  },
+  {
+    title: 'Services',
+    path: '/services',
+  },
+  {
+    title: 'Products',
+    path: '/products',
+    submenu: [],
+  },
+  {
+    title: 'AC Rent',
+    path: '/ac-rent',
+  },
+  {
+    title: 'Work Pricing',
+    path: '/work-pricing',
+  },
+  {
+    title: 'Blog',
+    path: '/our-blogs',
+  },
+  {
+    title: 'About Us',
+    path: '/about',
+  },
+  {
+    title: 'Contact Us',
+    path: '/contact-us',
+  },
+])
 
-const { width } = useWindowSize();
-
-const toggleMenu = () => {
-  show.value = !show.value;
-};
-
-const checkNav = (path: string, subMenu: boolean = false): void => {
-  if (path !== "" && !subMenu) {
-    toggleMenu();
+// Recursive function to build nested submenus
+function buildNestedSubmenu(category) {
+  return {
+    title: category.name,
+    path: `/products/${category.slug}`,
+    submenu: category.childrens && category.childrens.length > 0
+      ? category.childrens.map(child => buildNestedSubmenu(child))
+      : [], // Recursively build submenus for children
   }
-};
+}
 
-const toggleSeachShow = () => {
-  showSearchBar.value = !showSearchBar.value;
-};
+navMenues.value = navMenues.value.map((menu) => {
+  if (menu.title === 'Products') {
+    return {
+      ...menu,
+      submenu:
+        categories.value.map(category => buildNestedSubmenu(category)),
+    }
+  }
+  return menu
+})
 
-const checkWidth = () => {
+const show = ref(false)
+const firstRowHeader = ref(null)
+const showSearchBar = ref(false)
+const mobileScreen = ref(false)
+
+const { width } = useWindowSize()
+
+function toggleMenu() {
+  show.value = !show.value
+}
+
+function checkNav(path: string, subMenu: boolean = false): void {
+  if (path !== '' && !subMenu) {
+    toggleMenu()
+  }
+}
+
+function toggleSeachShow() {
+  showSearchBar.value = !showSearchBar.value
+}
+
+function checkWidth() {
   if (width.value <= 768) {
-    showSearchBar.value = false;
-    mobileScreen.value = true;
-    position.value = "bottom";
-    return;
+    showSearchBar.value = false
+    mobileScreen.value = true
+    position.value = 'bottom'
+    return
   }
-  showSearchBar.value = true;
-  mobileScreen.value = false;
-  position.value = "topright";
-};
+  showSearchBar.value = true
+  mobileScreen.value = false
+  position.value = 'topright'
+}
 
-const visible = ref(false);
-const position = ref("topright");
-const closeModal = () => {
-  visible.value = false;
-};
+const visible = ref(false)
+const position = ref('topright')
+function closeModal() {
+  visible.value = false
+}
 
-const openModal = () => {
-  visible.value = true;
-};
+function openModal() {
+  visible.value = true
+}
 
-const deleteFromCart = (id: number) => {
-  store.deleteItemFromCart(id);
-};
+function deleteFromCart(id: number) {
+  store.deleteItemFromCart(id)
+}
 
-const modifyCartItems = (id: number, quantity: number) => {
-  store.modifyCartItems(id, quantity);
-};
+function modifyCartItems(id: number, quantity: number) {
+  store.modifyCartItems(id, quantity)
+}
 
 watch(
   () => width.value,
   () => {
-    checkWidth();
+    checkWidth()
   },
-);
+)
 
 onMounted(() => {
-  checkWidth();
-});
+  checkWidth()
+})
 </script>
 
 <template>
@@ -198,7 +147,7 @@ onMounted(() => {
         :class="{ showSearchBar: showSearchBar && mobileScreen }"
         class="firstRowHeader flex flex-column md:flex-row container align-items-center justify-content-between py-3 md:py-4 gap-3 md:gap-4"
       >
-        <!-- main logo-->
+        <!-- main logo -->
         <div
           class="flex align-items-center justify-content-between lg:justify-content-start w-full md:w-auto px-2"
         >
@@ -207,7 +156,7 @@ onMounted(() => {
               alt="ACBD"
               class="home-logo"
               src="@/assets/images/header/logo_colored.svg"
-            />
+            >
           </NuxtLink>
 
           <div class="block md:hidden icons-holder">
@@ -216,7 +165,7 @@ onMounted(() => {
               alt="search"
               src="@/assets/images/icons/search_icon_with_frame.svg"
               @click="toggleSeachShow"
-            />
+            >
             <i
               v-else
               class="cross-search pi pi-times"
@@ -238,7 +187,7 @@ onMounted(() => {
           </div>
         </transition>
 
-        <!--        contact info-->
+        <!--        contact info -->
         <div
           class="md:align-items-center md:justify-content-center lg:justify-content-end float-right hidden md:flex"
         >
@@ -247,7 +196,7 @@ onMounted(() => {
               alt="service"
               class="mr-2 lg:mr-3 flex align-items-center service-image"
               src="@/assets/images/header/service.svg"
-            />
+            >
           </NuxtLink>
           <div>
             <NuxtLink class="flex align-items-center" href="tel:09613755755">
@@ -255,7 +204,7 @@ onMounted(() => {
                 alt="phone"
                 class="inline-block mr-1 contact-img"
                 src="@/assets/images/header/phoneIcon.svg"
-              />
+              >
               <span class="contact-info">09613 755755</span>
             </NuxtLink>
             <NuxtLink
@@ -266,7 +215,7 @@ onMounted(() => {
                 alt="mail"
                 class="inline-block mr-1 contact-img"
                 src="@/assets/images/header/mail.svg"
-              />
+              >
               <span class="contact-info">info@acsevice.com</span>
             </NuxtLink>
           </div>
@@ -282,15 +231,15 @@ onMounted(() => {
           >
             <NuxtLink
               ref="menuToggle"
-              :class="[{ 'lg:hidden menuToggle': true }]"
-              class="flex flex-column align-items-center justify-content-center"
+              :class="[]"
+              class="flex flex-column align-items-center justify-content-center lg:hidden menuToggle"
               @click="toggleMenu"
             >
               <img
                 alt="three dot"
                 class="headerIcon menuBarIcon"
                 src="@/assets/images/header/threebarMenu.svg"
-              />
+              >
               <span class="block headerIcon-text">Menu</span>
             </NuxtLink>
             <NuxtLink
@@ -300,7 +249,7 @@ onMounted(() => {
                 alt="three dot"
                 class="headerIcon"
                 src="@/assets/images/header/home.svg"
-              />
+              >
               <span class="block headerIcon-text">Home</span>
             </NuxtLink>
             <NuxtLink
@@ -321,7 +270,7 @@ onMounted(() => {
                   alt="cart"
                   class="favoriteIcon navBarIcons"
                   src="@/assets/images/header/cart.svg"
-                />
+                >
               </div>
               <span class="block headerIcon-text">Shop</span>
             </NuxtLink>
@@ -342,7 +291,7 @@ onMounted(() => {
                   alt="favorite"
                   class="favoriteIcon navBarIcons"
                   src="@/assets/images/header/heart.svg"
-                />
+                >
               </div>
               <span class="block headerIcon-text">Favorite</span>
             </NuxtLink>
@@ -354,13 +303,13 @@ onMounted(() => {
                 alt="three dot"
                 class="headerIcon"
                 src="@/assets/images/header/profile.svg"
-              />
+              >
               <span class="block headerIcon-text">Profile</span>
             </NuxtLink>
           </div>
           <!--          here transition can be added  -->
           <div class="relative menu-box lg:flex lg:flex-wrap">
-            <div class="overlap" @click="toggleMenu"></div>
+            <div class="overlap" @click="toggleMenu" />
             <ul class="menu container lg:mx-auto">
               <li v-for="navItem in navMenues" :key="navItem.title">
                 <NuxtLink
@@ -378,45 +327,11 @@ onMounted(() => {
                 >
                   <span>{{ navItem.title }}</span>
                   <i
-                    v-if="navItem.submenu"
+                    v-if="navItem.submenu?.length"
                     class="pi pi-chevron-down navLink_i"
-                  ></i>
+                  />
                 </NuxtLink>
-                <ul v-if="navItem.submenu" class="submenu">
-                  <li
-                    v-for="subNavItem in navItem.submenu"
-                    :key="subNavItem.title"
-                  >
-                    <NuxtLink
-                      :to="subNavItem.path"
-                      active-class="active"
-                      class="subMenuLink pb-2 flex gap-3 lg:justify-content-between"
-                      @click="checkNav(subNavItem.path)"
-                    >
-                      <span>{{ subNavItem.title }}</span>
-                      <i
-                        v-if="subNavItem.submenu2"
-                        class="pi pi-chevron-right navLink_i subNavLink_i"
-                      ></i>
-                    </NuxtLink>
-                    <ul v-if="subNavItem.submenu2" class="submenu2">
-                      <li
-                        v-for="multiSubNavItem in subNavItem.submenu2"
-                        :key="multiSubNavItem.title"
-                        class=""
-                      >
-                        <NuxtLink
-                          :to="multiSubNavItem.path"
-                          active-class="active"
-                          class="subMenuLink"
-                          @click="checkNav(multiSubNavItem.path)"
-                        >
-                          {{ multiSubNavItem.title }}
-                        </NuxtLink>
-                      </li>
-                    </ul>
-                  </li>
-                </ul>
+                <LayoutsHeaderSubMenuList v-if="navItem.submenu?.length" :nav-item="navItem" />
               </li>
 
               <li class="right cursor-pointer">
@@ -431,14 +346,13 @@ onMounted(() => {
                       <span
                         v-if="store.cart.length"
                         class="header-item-count"
-                        >{{ store.cart.length }}</span
-                      >
+                      >{{ store.cart.length }}</span>
                     </ClientOnly>
                     <img
                       alt="cart"
                       class="favoriteIcon navBarIcons"
                       src="@/assets/images/header/cartsIcon.svg"
-                    />
+                    >
                   </div>
                   <span class="block">Cart</span>
                 </NuxtLink>
@@ -464,7 +378,7 @@ onMounted(() => {
                       alt="favorite"
                       class="favoriteIcon navBarIcons"
                       src="@/assets/images/header/heart.svg"
-                    />
+                    >
                   </div>
 
                   <span class="block">Favorites</span>
@@ -480,7 +394,7 @@ onMounted(() => {
                     alt="profile"
                     class="profileIcon navBarIcons"
                     src="@/assets/images/header/profile.svg"
-                  />
+                  >
                   <span class="block">Account</span>
                 </NuxtLink>
               </li>
@@ -606,7 +520,7 @@ onMounted(() => {
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @use "assets/styles/scss/base/mixins" as *;
 
 .first-row {
