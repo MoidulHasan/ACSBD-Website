@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import type { IBlog } from "~/pages/our-blogs/index.vue";
+import type { IBlog } from '~/pages/our-blogs/index.vue'
 
 defineProps<{
-  featured: IBlog;
-}>();
+  featured: IBlog
+}>()
 
 // const { data: recentBlogs, error } = await useAsyncData(
 //   `blogs-featured`,
@@ -18,8 +18,8 @@ defineProps<{
 </script>
 
 <template>
-  <div class="blog-card grid w-full">
-    <div class="blog-image-container col-12 lg:col-6">
+  <div class="blog-card grid px-2 md:px-0">
+    <div class="blog-image-container col-12 lg:col-6 py-0 md:py-2">
       <NuxtImg
         class="w-full feature-blog-img"
         :src="featured.image"
@@ -27,7 +27,16 @@ defineProps<{
       />
     </div>
     <div class="blog-details col-12 lg:col-6">
-      <CommonBadge :label="featured.category" class="mt-3 mb-4" />
+      <div class="flex justify-content-between md:justify-content-start align-items-center pb-2 md:pb-0">
+        <CommonBadge :label="featured.category" class="md:mt-3 md:mb-4 " />
+        <span
+          class="block md:hidden text-semi-bold-6 text-navy-blue-80 flex align-items-center"
+        >
+          <i class="pi pi-eye arrow-icon mr-4px inline-block" />
+          <span class="inline-block">{{ featured.comments ?? 20 }} View(s)</span>
+        </span>
+      </div>
+
       <h1
         class="font-heading-3 text-primary-color-dark-gray mb-3 feature-blog-heading"
       >
@@ -41,11 +50,13 @@ defineProps<{
       <NuxtLink :to="`our-blogs/${featured.slug}`">
         <CommonExploreMoreButton class="mt-12px mb-4" />
       </NuxtLink>
-      <PagesBlogsBlogMetaInfos
-        :time="featured.created_at"
-        :comments="featured.comments"
-        :views="featured.views"
-      />
+      <div class="hidden md:block">
+        <PagesBlogsBlogMetaInfos
+          :time="featured.created_at"
+          :comments="featured.comments"
+          :views="featured.views"
+        />
+      </div>
     </div>
   </div>
 </template>
