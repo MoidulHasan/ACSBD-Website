@@ -1,10 +1,16 @@
 <script setup lang="ts">
+const props = withDefaults(defineProps<{
+  blogDetailPage?: boolean
+}>(), {
+  blogDetailPage: false,
+})
+
 const emit = defineEmits<{
-  (e: "searchBlog", value: string): void;
-}>();
-const handleSearchResult = (value: string) => {
-  emit("searchBlog", value);
-};
+  (e: 'searchBlog', value: string): void
+}>()
+function handleSearchResult(value: string) {
+  emit('searchBlog', value)
+}
 </script>
 
 <template>
@@ -15,8 +21,8 @@ const handleSearchResult = (value: string) => {
       @search="handleSearchResult"
     />
     <PagesBlogsBlogCategories />
-    <PagesBlogsRecentPosts class="mt-4" />
-    <PagesBlogsBlogTags class="mt-4" />
+    <PagesBlogsRecentPosts class="mt-4" :class="[props.blogDetailPage ? '' : 'hidden md:block']" />
+    <PagesBlogsBlogTags class="mt-3 md:mt-4" :class="[props.blogDetailPage ? '' : 'hidden md:block']" />
   </div>
 </template>
 

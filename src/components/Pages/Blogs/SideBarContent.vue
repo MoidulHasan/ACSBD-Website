@@ -1,12 +1,12 @@
 <script setup lang="ts">
 defineProps<{
-  title: string;
-}>();
+  title: string
+}>()
 </script>
 
 <template>
-  <div class="side-bar-block p-3 bg-color-product-bg">
-    <h3 class="pb-3 text-semi-bold-1 text-primary-color-navy-blue">
+  <div class="side-bar-block p-2 md:p-3 bg-color-product-bg">
+    <h3 class="pb-3 pt-2 md:pt-0 text-semi-bold-1 text-primary-color-navy-blue">
       {{ title }}
     </h3>
     <slot />
