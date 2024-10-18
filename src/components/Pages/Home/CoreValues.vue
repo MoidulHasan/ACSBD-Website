@@ -1,26 +1,28 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+</script>
 
 <template>
-  <div class="core-container container grid">
-    <div class="core-header-mobile block lg:hidden">
-      <h3 class="text-center">
-        Our Core Value
-      </h3>
-      <p class="text-center">
-        We always try to happy our customers with our best services. AC
+  <div class="core-value-section-container container grid">
+    <CommonSectionHeader
+      class="block md:hidden mb-3 md:mb-5"
+      header="Our Core Value"
+      sub-header="We always try to happy our customers with our best services. AC
         Installation, Servicing, Repair, Maintenance, AC Sales & AC Rent Service
         All over Bangladesh is now available at AC SERVICE. Our 45 expert
         technicians always try to find out your Air Conditioner problem in a
-        short time and solved it in a short time.
-      </p>
-    </div>
-    <div class="core-image col-12 lg:col-6">
+        short time and solved it in a short time."
+    />
+
+    <div class="core-value-image-container col-12 md:col-6">
       <img alt="" src="~/assets/images/ac-servicing.png">
     </div>
-    <div class="core-values col-12 lg:col-6">
-      <div class="core-header hidden lg:block">
-        <h3>Our Core Values</h3>
-        <p>
+
+    <div class="col-12 md:col-6">
+      <div class="hidden md:block ">
+        <h3 class="font-heading-2 text-primary-color-navy-blue">
+          Our Core Values
+        </h3>
+        <p class="text-regular-3">
           We always try to happy our customers with our best services. AC
           Installation, Servicing, Repair, Maintenance, AC Sales & AC Rent
           Service All over Bangladesh is now available at AC SERVICE. Our 45
@@ -28,53 +30,63 @@
           in a short time and solved it in a short time.
         </p>
       </div>
-      <!-- great-services  -->
-      <div class="core-values-provide flex aligin-items-center">
-        <div class="core-values-provide-image">
+
+      <div class="core-value-item flex align-items-start">
+        <div class="core-value-item-image">
           <img alt="great-services" src="~/assets/images/great-services.png">
         </div>
-        <div class="core-great-header">
-          <h2>Great Services</h2>
-          <p>
+
+        <div class="core-value-item-header">
+          <h2 class="font-heading-4 text-primary-color-navy-blue">
+            Great Services
+          </h2>
+          <p class="text-regular-3 text-primary-color-dark-gray">
             We provide our customers great services with our 45 expert
             technicians team.
           </p>
         </div>
       </div>
-      <!-- highest standards -->
-      <div class="core-values-provide flex aligin-items-center">
-        <div class="core-values-provide-image">
+
+      <div class="core-value-item flex align-items-start">
+        <div class="core-value-item-image">
           <img alt="great-services" src="~/assets/images/highest-standards.png">
         </div>
-        <div class="core-great-header">
-          <h2>highest standards</h2>
-          <p>
+
+        <div class="core-value-item-header">
+          <h2 class="font-heading-4 text-primary-color-navy-blue">
+            Highest standards
+          </h2>
+          <p class="text-regular-3 text-primary-color-dark-gray">
             Our expert technicians team always follows the highest standard &
-            rules for your service yours...
+            rules for your service.
           </p>
         </div>
       </div>
-      <!-- professional team  -->
-      <div class="core-values-provide flex aligin-items-center">
-        <div class="core-values-provide-image">
+
+      <div class="core-value-item flex align-items-start">
+        <div class="core-value-item-image">
           <img alt="great-services" src="~/assets/images/professional-team.svg">
         </div>
-        <div class="core-great-header">
-          <h2>Professional Team</h2>
-          <p>
+        <div class="core-value-item-header">
+          <h2 class="font-heading-4 text-primary-color-navy-blue">
+            Professional Team
+          </h2>
+          <p class="text-regular-3 text-primary-color-dark-gray">
             We have 20 Professional Teams for services your any kind of Air
             Conditioner solution.
           </p>
         </div>
       </div>
-      <!-- creative solutions -->
-      <div class="core-values-provide flex aligin-items-center">
-        <div class="core-values-provide-image">
+
+      <div class="core-value-item flex align-items-start">
+        <div class="core-value-item-image">
           <img alt="great-services" src="~/assets/images/creative-solutions.svg">
         </div>
-        <div class="core-great-header">
-          <h2>creative Solutions</h2>
-          <p>
+        <div class="core-value-item-header">
+          <h2 class="font-heading-4 text-primary-color-navy-blue">
+            Creative Solutions
+          </h2>
+          <p class="text-regular-3 text-primary-color-dark-gray">
             After visiting your home or office. Our Creative team provides you
             best solution for you.
           </p>
@@ -85,184 +97,65 @@
 </template>
 
 <style lang="scss" scoped>
-.core-container {
-  .core-header-mobile {
-    h3 {
-      color: var(--primary-color-navy-blue);
-      font-size: 36px;
-      font-weight: 700;
-      line-height: 44px;
-      letter-spacing: 0em;
-      text-align: left;
-    }
+@use "assets/styles/scss/base/mixins" as *;
 
-    p {
-      margin-top: -20px;
-      font-size: 16px;
-      font-weight: 400;
-      line-height: 24px;
-      letter-spacing: 0em;
-      text-align: left;
-      color: var(--primary-color-dark-gray);
-    }
-
-    @media screen and (min-width: 375px) {
-      h3 {
-        font-size: 24px;
-      }
-      p {
-        font-size: 14px;
-        font-weight: 400;
-        line-height: 20px;
-        opacity: 0.8;
-        padding: 24px 0;
-      }
-    }
-    @media screen and (min-width: 768px) {
-      h3 {
-        font-size: 26px;
-      }
-      p {
-        font-size: 18x;
-        line-height: 24px;
-        opacity: 0.8;
-      }
-    }
-
-    @media screen and (min-width: 1024px) {
-      h3 {
-        font-size: 360px;
-      }
-      p {
-        font-size: 18x;
-        line-height: 24px;
-        opacity: 0.8;
-      }
-    }
-  }
-
-  .core-image {
+.core-value-section-container {
+  .core-value-image-container {
     display: flex;
     align-items: center;
     justify-content: center;
 
     img {
-      width: 95%;
-      @media screen and (min-width: 375px) {
-        width: 70%;
-        margin-bottom: 40px;
+      max-width: 100%;
+
+      @include media-query(sm) {
+        max-height: 320px;
       }
-      @media screen and (min-width: 768px) {
-        width: 60%;
-      }
-      @media screen and (min-width: 1024px) and (max-width: 1280px) {
-        width: 80%;
+
+      @include media-query(md) {
+        max-height: 320px;
       }
     }
   }
 
-  .core-values {
-    margin-top: -30px;
-    height: auto;
+  .core-value-item {
+      margin-top: 28px;
 
-    .core-header {
-      h3 {
-        color: var(--primary-color-navy-blue);
-        font-size: 36px;
-        font-weight: 700;
-        line-height: 44px;
-        letter-spacing: 0em;
-        text-align: left;
+      @include media-query(sm) {
+        margin-top: 16px;
       }
 
-      p {
-        font-size: 16px;
-        font-weight: 400;
-        line-height: 24px;
-        letter-spacing: 0em;
-        text-align: left;
-        padding: 8px 0;
-        color: var(--primary-color-dark-gray);
-      }
-    }
-
-    .core-values-provide {
-      width: 70%;
-      margin-top: 18px;
-      @media screen and (min-width: 375px) {
-        width: 100%;
-      }
-      @media screen and (min-width: 768px) {
-        /* width: 90%; */
-        padding: 0 30px;
+      @include media-query(md) {
+        margin-top: 24px;
       }
 
-      .core-values-provide-image img {
+      .core-value-item-image img {
         width: 50px;
         height: 50px;
         border-radius: 2px;
-        @media screen and (min-width: 375px) and (max-width: 1280px) {
+
+        @include media-query(sm) {
+          width: 36px;
+          height: 36px;
+        }
+
+        @include media-query(md) {
           width: 40px;
           height: 40px;
         }
-        @media screen and (min-width: 1280px) {
-          width: 50px;
-          height: 50px;
-        }
       }
 
-      .core-great-header {
-        position: relative;
-        margin-left: 25px;
-        @media screen and (min-width: 375px) {
-          margin-top: -8px;
-          margin-left: 15px;
-        }
-        @media screen and (min-width: 768px) {
-          margin-top: -6px;
-        }
-        @media screen and (min-width: 1280px) {
-          margin-top: -4px;
+      .core-value-item-header {
+        margin-left: 24px;
+
+        @include media-query(sm) {
+          margin-left: 16px;
         }
 
-        h2 {
-          color: var(--primary-color-navy-blue);
-          font-size: 24px;
-          font-weight: 600;
-          line-height: 32px;
-          letter-spacing: 0em;
-          text-align: left;
-          @media screen and (min-width: 375px) {
-            font-size: 18px;
-            line-height: 26px;
-          }
-          @media screen and (min-width: 768px) {
-            font-size: 20px;
-            line-height: 26px;
-            /* margin-bottom: 0.5px; */
-            padding-bottom: 3px;
-          }
-        }
-
-        p {
-          font-size: 16px;
-          font-weight: 400;
-          line-height: 24px;
-          letter-spacing: 0em;
-          text-align: left;
-          color: var(--primary-color-dark-gray);
-          @media screen and (min-width: 375px) {
-            font-size: 12px;
-            line-height: 18px;
-            padding-top: 3px;
-          }
-          @media screen and (min-width: 768px) {
-            font-size: 15px;
-            line-height: 18px;
-          }
+        @include media-query(md) {
+          margin-left: 20px;
         }
       }
-    }
   }
 }
 </style>

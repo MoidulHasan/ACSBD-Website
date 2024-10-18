@@ -1,33 +1,48 @@
 <script lang="ts" setup>
+interface SliderResponsiveOption {
+  breakpoint: string
+  numVisible: number
+  numScroll: number
+}
+
 interface SliderProps {
-  slideComponent: string;
-  items: any;
-  visibleItem: number;
-  numberOfScroll: number;
-  showIndicators?: boolean;
+  slideComponent: string
+  items: any
+  visibleItem: number
+  numberOfScroll: number
+  showIndicators?: boolean
+  responsiveOptions?: SliderResponsiveOption[]
 }
 
 withDefaults(defineProps<SliderProps>(), {
+  slideComponent: undefined,
+  items: [],
+  numberOfScroll: 1,
+  visibleItem: 1,
   showIndicators: false,
-});
-
-const responsiveOptions = ref([
-  {
-    breakpoint: "1199px",
-    numVisible: 3,
-    numScroll: 3,
-  },
-  {
-    breakpoint: "991px",
-    numVisible: 2,
-    numScroll: 2,
-  },
-  {
-    breakpoint: "767px",
-    numVisible: 1,
-    numScroll: 1,
-  },
-]);
+  responsiveOptions: () => ([
+    {
+      breakpoint: '1440px',
+      numVisible: 4,
+      numScroll: 4,
+    },
+    {
+      breakpoint: '1299px',
+      numVisible: 3,
+      numScroll: 3,
+    },
+    {
+      breakpoint: '991px',
+      numVisible: 2,
+      numScroll: 2,
+    },
+    {
+      breakpoint: '767px',
+      numVisible: 1,
+      numScroll: 1,
+    },
+  ]),
+})
 </script>
 
 <template>
@@ -41,12 +56,12 @@ const responsiveOptions = ref([
         :num-scroll="numberOfScroll"
         :num-visible="visibleItem"
         :responsive-options="responsiveOptions"
-        :show-indicators="false"
+        :show-indicators="showIndicators"
         :value="items"
         circular
       >
         <template #item="slotProps">
-          <component :is="slideComponent" v-bind="{ ...slotProps.data }" />
+          <component :is="slideComponent" v-if="slideComponent" v-bind="{ ...slotProps.data }" />
         </template>
 
         <template #previousicon>
