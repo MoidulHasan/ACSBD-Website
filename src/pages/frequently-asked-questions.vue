@@ -1,61 +1,58 @@
 <script lang="ts" setup>
-import { useStorage } from "@vueuse/core";
-import { getFAQData } from "~/app/api/getFAQData";
-import type { FAQSection, FAQTab } from "~/contracts/api-contracts/faqData";
+import { useStorage } from '@vueuse/core'
+import { getFAQData } from '~/app/api/getFAQData'
+import type { FAQSection, FAQTab } from '~/contracts/api-contracts/faqData'
 
 definePageMeta({
-  title: "Frequently Asked Questions",
-  name: "frequently-asked-questions",
-});
+  title: 'Frequently Asked Questions',
+  name: 'frequently-asked-questions',
+})
 
-const { data: allFaqData } = await getFAQData();
+const { data: allFaqData } = await getFAQData()
 
-const { $apiClient } = useNuxtApp();
+const { $apiClient } = useNuxtApp()
 
-const { data: allFaqs } = await useAsyncData("frequently-asked-questions", () =>
-  $apiClient(`/faqs`),
-);
+const { data: allFaqs } = await useAsyncData('frequently-asked-questions', () =>
+  $apiClient(`/faqs`))
 
-const faqTabs: Omit<FAQSection, "tabs">[] = [
+const faqTabs: Omit<FAQSection, 'tabs'>[] = [
   {
-    title: "Services",
-    slug: "service",
-    image: "/images/faq/services.svg",
+    title: 'Services',
+    slug: 'service',
+    image: '/images/faq/services.svg',
     description:
-      "We have a large team to service any kind of branded AC with the latest tools under experienced engineer. Best AC servicing company in Bangladesh.",
+      'We have a large team to service any kind of branded AC with the latest tools under experienced engineer. Best AC servicing company in Bangladesh.',
   },
   {
-    title: "AC Rent",
-    slug: "ac_rent",
-    image: "/images/faq/ac_rent.svg",
+    title: 'AC Rent',
+    slug: 'ac_rent',
+    image: '/images/faq/ac_rent.svg',
     description:
-      "We have a large team to service any kind of branded AC with the latest tools under experienced engineer. Best AC servicing company in Bangladesh.",
+      'We have a large team to service any kind of branded AC with the latest tools under experienced engineer. Best AC servicing company in Bangladesh.',
   },
   {
-    title: "Products",
-    slug: "product",
-    image: "/images/faq/products.svg",
+    title: 'Products',
+    slug: 'product',
+    image: '/images/faq/products.svg',
     description:
-      "We have a large team to service any kind of branded AC with the latest tools under experienced engineer. Best AC servicing company in Bangladesh.",
+      'We have a large team to service any kind of branded AC with the latest tools under experienced engineer. Best AC servicing company in Bangladesh.',
   },
   {
-    title: "Policy",
-    slug: "policy",
-    image: "/images/faq/policy.svg",
+    title: 'Policy',
+    slug: 'policy',
+    image: '/images/faq/policy.svg',
     description:
-      "We have a large team to service any kind of branded AC with the latest tools under experienced engineer. Best AC servicing company in Bangladesh.",
+      'We have a large team to service any kind of branded AC with the latest tools under experienced engineer. Best AC servicing company in Bangladesh.',
   },
-];
-const activeTabIndex = ref(0);
-const activeTabName = useStorage("activeTabName", "service");
-const faqSearchText = ref("");
+]
+const activeTabIndex = ref(0)
+const activeTabName = useStorage('activeTabName', 'service')
+const faqSearchText = ref('')
 
-const handleActiveTabChange = (index: number, name: string) => {
-  activeTabName.value = name;
-  activeTabIndex.value = index;
-};
-
-console.log(allFaqs.value, "ALLFAQS");
+function handleActiveTabChange(index: number, name: string) {
+  activeTabName.value = name
+  activeTabIndex.value = index
+}
 
 // const faqTabData = computed(() => {
 //   if (!allFaqData.value) return [];
@@ -70,35 +67,33 @@ console.log(allFaqs.value, "ALLFAQS");
 // });
 
 const faqListOfSelectedTab = computed(() => {
-  return allFaqData.value?.length ? allFaqData.value[activeTabIndex.value] : [];
-});
-console.log(faqListOfSelectedTab.value, "PREVIOUS");
+  return allFaqData.value?.length ? allFaqData.value[activeTabIndex.value] : []
+})
+console.log(faqListOfSelectedTab.value, 'PREVIOUS')
 
 const selectedFaqList = computed(() => {
   if (allFaqs.value?.data && activeTabName.value) {
-    const faqs = allFaqs.value.data[activeTabName.value];
+    const faqs = allFaqs.value.data[activeTabName.value]
 
     if (faqs) {
       return faqSearchText.value
         ? faqs.filter((item: FAQTab) =>
-            item.question
-              .toLowerCase()
-              .includes(faqSearchText.value.toLowerCase()),
-          )
-        : faqs;
+          item.question
+            .toLowerCase()
+            .includes(faqSearchText.value.toLowerCase()),
+        )
+        : faqs
     }
   }
-  return [];
-});
+  return []
+})
 // activeTabIndex;
-console.log(selectedFaqList.value, "SELECTED FAQ LIST", activeTabName.value);
 
 const selectedFaqTab = computed(() => {
   return faqTabs.find((faq) => {
-    return faq.slug === activeTabName.value;
-  });
-});
-console.log(selectedFaqTab.value, "SELECTED FAW");
+    return faq.slug === activeTabName.value
+  })
+})
 </script>
 
 <template>
