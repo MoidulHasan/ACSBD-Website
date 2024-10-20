@@ -58,7 +58,7 @@ const navMenues = ref<Menu[]>([
 function buildNestedSubmenu(category) {
   return {
     title: category.name,
-    path: `/products/${category.slug}`,
+    path: { path: '/products', query: { category: category.name } },
     submenu: category.childrens && category.childrens.length > 0
       ? category.childrens.map(child => buildNestedSubmenu(child))
       : [], // Recursively build submenus for children
@@ -137,6 +137,8 @@ watch(
 onMounted(() => {
   checkWidth()
 })
+
+console.log(navMenues.value)
 </script>
 
 <template>

@@ -1,10 +1,11 @@
 <script lang="ts" setup>
-import type { IBlog } from "~/pages/our-blogs/index.vue";
+import type { IBlog } from '~/pages/our-blogs/index.vue'
 
 defineProps<{
-  blog: IBlog;
-}>();
+  blog: IBlog
+}>()
 </script>
+
 <template>
   <div class="single-blog">
     <div>
@@ -24,63 +25,65 @@ defineProps<{
         class="share-content flex align-items-center justify-content-between py-3 px-4 bg-color-product-front my-5"
       >
         <div class="w-full flex align-items-center justify-content-between">
-          <p class="font-heading-4-semi-bold pr-2">Share it on -</p>
+          <p class="font-heading-4-semi-bold pr-2">
+            Share it on -
+          </p>
 
           <div>
-            <i class="pi pi-facebook social-icon" />
-            <i class="pi pi-facebook social-icon" />
-            <i class="pi pi-facebook social-icon" />
-            <i class="pi pi-facebook social-icon" />
+            <NuxtLink><i class="pi pi-facebook text-2xl social-icon" /></NuxtLink>
+            <NuxtLink><i class="pi pi-twitter text-2xl social-icon" /></NuxtLink>
+            <NuxtLink><i class="pi pi-linkedin text-2xl social-icon" /></NuxtLink>
+            <NuxtLink><i class="pi pi-instagram text-2xl social-icon" /></NuxtLink>
           </div>
         </div>
 
-        <!--        <NuxtLink :to="`/our-blogs/${blog.slug}`">-->
-        <!--          <CommonExploreMoreButton label="Next Page" />-->
-        <!--        </NuxtLink>-->
+        <!--        <NuxtLink :to="`/our-blogs/${blog.slug}`"> -->
+        <!--          <CommonExploreMoreButton label="Next Page" /> -->
+        <!--        </NuxtLink> -->
       </div>
-      <!--      <div class="comment-section">-->
-      <!--        <h2 class="font-heading-3 text-primary-color-navy-blue mb-3">-->
-      <!--          {{ blog.comments }} Comments-->
-      <!--        </h2>-->
-      <!--        <div class="comments">-->
-      <!--          &lt;!&ndash;          a single comment &ndash;&gt;-->
-      <!--          <div class="flex justify-content-between single-comment">-->
-      <!--            &lt;!&ndash;            commenter profile image &ndash;&gt;-->
-      <!--            <NuxtImg-->
-      <!--              :src="blog.profile1"-->
-      <!--              :alt="blog.tag"-->
-      <!--              class="profile-picture"-->
-      <!--            />-->
-      <!--            &lt;!&ndash;            comment &ndash;&gt;-->
-      <!--            <div class="flex-grow-1">-->
-      <!--              <p class="text-regular-3 text-primary-color-dark-gray mb-12px">-->
-      <!--                The standard chunk of Lorem Ipsum used since the 1500s is-->
-      <!--                reproduced below for those interested. Sections 1.10.32 and-->
-      <!--                1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also-->
-      <!--                reproduced in their exact original form, accompanied by English-->
-      <!--                versions from the 1914 translation-->
-      <!--              </p>-->
-      <!--              <div-->
-      <!--                class="flex flex-wrap justify-content-between align-items-center"-->
-      <!--              >-->
-      <!--                &lt;!&ndash;                commneter name &ndash;&gt;-->
-      <!--                <PagesBlogsBlogCommentProfile-->
-      <!--                  profile="Dulal Hossain"-->
-      <!--                  :date="blog.published_date"-->
-      <!--                />-->
-      <!--                <CommonExploreMoreButton label="Reply" />-->
-      <!--              </div>-->
-      <!--              &lt;!&ndash;              reply section &ndash;&gt;-->
-      <!--              <PagesBlogsBlogCommentReply-->
-      <!--                class="mt-22px"-->
-      <!--                profile="Dulal Hossain"-->
-      <!--                comment="The standard chunk of Lorem Ipsum used since the 1500s is reproduced below"-->
-      <!--                :date="blog.published_date"-->
-      <!--                :img="blog.profile2"-->
-      <!--              />-->
-      <!--            </div>-->
-      <!--          </div>-->
-      <!--        </div>-->
+      <!--      <div class="comment-section"> -->
+      <!--        <h2 class="font-heading-3 text-primary-color-navy-blue mb-3"> -->
+      <!--          {{ blog.comments }} Comments -->
+      <!--        </h2> -->
+      <!--        <div class="comments"> -->
+      <!--          &lt;!&ndash;          a single comment &ndash;&gt; -->
+      <!--          <div class="flex justify-content-between single-comment"> -->
+      <!--            &lt;!&ndash;            commenter profile image &ndash;&gt; -->
+      <!--            <NuxtImg -->
+      <!--              :src="blog.profile1" -->
+      <!--              :alt="blog.tag" -->
+      <!--              class="profile-picture" -->
+      <!--            /> -->
+      <!--            &lt;!&ndash;            comment &ndash;&gt; -->
+      <!--            <div class="flex-grow-1"> -->
+      <!--              <p class="text-regular-3 text-primary-color-dark-gray mb-12px"> -->
+      <!--                The standard chunk of Lorem Ipsum used since the 1500s is -->
+      <!--                reproduced below for those interested. Sections 1.10.32 and -->
+      <!--                1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also -->
+      <!--                reproduced in their exact original form, accompanied by English -->
+      <!--                versions from the 1914 translation -->
+      <!--              </p> -->
+      <!--              <div -->
+      <!--                class="flex flex-wrap justify-content-between align-items-center" -->
+      <!--              > -->
+      <!--                &lt;!&ndash;                commneter name &ndash;&gt; -->
+      <!--                <PagesBlogsBlogCommentProfile -->
+      <!--                  profile="Dulal Hossain" -->
+      <!--                  :date="blog.published_date" -->
+      <!--                /> -->
+      <!--                <CommonExploreMoreButton label="Reply" /> -->
+      <!--              </div> -->
+      <!--              &lt;!&ndash;              reply section &ndash;&gt; -->
+      <!--              <PagesBlogsBlogCommentReply -->
+      <!--                class="mt-22px" -->
+      <!--                profile="Dulal Hossain" -->
+      <!--                comment="The standard chunk of Lorem Ipsum used since the 1500s is reproduced below" -->
+      <!--                :date="blog.published_date" -->
+      <!--                :img="blog.profile2" -->
+      <!--              /> -->
+      <!--            </div> -->
+      <!--          </div> -->
+      <!--        </div> -->
       <!--      </div> -->
       <PagesBlogsBlogCommentForm class="mt-6" />
     </div>

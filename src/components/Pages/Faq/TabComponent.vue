@@ -1,53 +1,49 @@
 <script lang="ts" setup>
-import type { AccordionPassThroughOptions } from "primevue/accordion";
-import type { FAQSection, FAQTab } from "~/contracts/api-contracts/faqData";
+import type { AccordionPassThroughOptions } from 'primevue/accordion'
+import type { FAQSection, FAQTab } from '~/contracts/api-contracts/faqData'
 
 const props = defineProps<{
-  faqList: FAQTab[];
-  selectedFaqTab: Omit<FAQSection, "tabs">;
-}>();
+  faqList: FAQTab[]
+  selectedFaqTab: Omit<FAQSection, 'tabs'>
+}>()
 
-const handleHeaderAction = (
-  index: number,
-  parent: AccordionPassThroughOptions,
-) => {
-  const isActive = parent.state.d_activeIndex === index;
-  const hasShadow = !isActive;
+function handleHeaderAction(index: number, parent: AccordionPassThroughOptions) {
+  const isActive = parent.state.d_activeIndex === index
+  const hasShadow = !isActive
 
   return {
     class: {
-      "faq-tab-header": true,
-      active: isActive,
-      "shadow-none": hasShadow,
+      'faq-tab-header': true,
+      'active': isActive,
+      'shadow-none': hasShadow,
     },
-  };
-};
-
-const initialLength = ref(10);
-const faqsToShow = computed(() => {
-  return props.faqList?.slice(0, initialLength.value);
-});
-
-const showMoreFAQs = () => {
-  if (initialLength.value <= props.faqList?.length) {
-    initialLength.value += 10;
   }
-};
+}
+
+const initialLength = ref(10)
+const faqsToShow = computed(() => {
+  return props.faqList?.slice(0, initialLength.value)
+})
+
+function showMoreFAQs() {
+  if (initialLength.value <= props.faqList?.length) {
+    initialLength.value += 10
+  }
+}
 
 watch(
   () => props.selectedFaqTab,
   (newVal, oldVal) => {
     if (oldVal.title !== newVal.title) {
-      initialLength.value = 10;
+      initialLength.value = 10
     }
   },
-);
+)
 </script>
 
 <template>
   <div class="faq-tabs-container">
     <div class="faq-tabs-content">
-      {{ selectedFaqTab }}
       <CommonSectionHeader
         :header="selectedFaqTab.title"
         :sub-header="selectedFaqTab.description"

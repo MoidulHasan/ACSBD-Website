@@ -1,20 +1,23 @@
 <script lang="ts" setup>
-import type { ProductMinimalI } from "~/contracts/api-contracts/ProductsInterfaces";
+import type { ProductMinimalI } from '~/contracts/api-contracts/ProductsInterfaces'
 
 interface IProps {
-  productData: ProductMinimalI;
+  productData: ProductMinimalI
 }
 
-const props = defineProps<IProps>();
+const props = defineProps<IProps>()
 
+function priceInt(price: string) {
+  const splitedPrice = price.split('.')
 
-const priceInt = (price: string) => {
-  const splitedPrice = price.split(".");
+  return splitedPrice.length ? splitedPrice[0] : price
+}
 
-  return splitedPrice.length ? splitedPrice[0] : price;
-};
+const productRating = ref(props.productData.avg_ratings ?? 0)
 
-const productRating = ref(props.productData.avg_ratings ?? 0);
+function isInteger(value: number): boolean {
+  return Number.isInteger(value)
+}
 </script>
 
 <template>
@@ -25,13 +28,16 @@ const productRating = ref(props.productData.avg_ratings ?? 0);
           :alt="productData.name"
           :src="productData.image"
           class="product-image"
-        />
+        >
 
         <div
           v-if="productData.price.base_price !== productData.price.final_price"
           class="discount-percentage text-center text-semi-bold-5 text-primary-color-white bg-navy-blue-80"
         >
-          {{ productData.price.discount_amount }}
+          {{ isInteger(Number(productData.price.discount_amount))
+            ? Number(productData.price.discount_amount).toFixed(0)
+            : Number(productData.price.discount_amount).toFixed(2)
+          }}
           {{ productData.price.is_percent ? "%" : "Tk" }} Off
         </div>
       </div>
