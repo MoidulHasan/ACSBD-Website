@@ -1,22 +1,22 @@
 <script setup lang="ts">
-import { getClients } from "~/app/api/getClients";
+import { getClients } from '~/app/api/getClients'
 
 definePageMeta({
-  title: "Clients",
-  name: "our-clients",
-});
+  title: 'Clients',
+  name: 'our-clients',
+})
 
-const { data: clientsData } = await getClients();
-const initialLength = ref(18);
+const { data: clientsData } = await getClients()
+const initialLength = ref(18)
 const clientsToShow = computed(() => {
-  return clientsData.value?.data.slice(0, initialLength.value);
-});
+  return clientsData.value?.data.slice(0, initialLength.value)
+})
 
-const showMoreClients = () => {
+function showMoreClients() {
   if (initialLength.value <= clientsData.value?.length) {
-    initialLength.value += 18;
+    initialLength.value += 18
   }
-};
+}
 </script>
 
 <template>
@@ -34,7 +34,7 @@ const showMoreClients = () => {
           :src="client.image"
           :alt="client.name"
           :title="client.name"
-        />
+        >
       </div>
     </div>
     <div class="text-center mb-5 lg:mb-8">
@@ -76,6 +76,10 @@ const showMoreClients = () => {
   }
 
   .client-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+
     @include media-query(sm) {
       max-width: 83.932px;
       max-height: 38px;

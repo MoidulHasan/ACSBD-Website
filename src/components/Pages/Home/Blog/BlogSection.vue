@@ -1,13 +1,13 @@
 <script lang="ts" setup>
-import type { Blog } from "~/contracts/api-contracts/BlogsInterfaces";
+import type { Blog } from '~/contracts/api-contracts/BlogsInterfaces'
 
 defineProps<{
-  blogHeader?: string;
-}>();
+  blogHeader?: string
+}>()
 
-const { data: blogData } = await useFetch<Blog[]>("/api/proxy/blogs", {
-  transform: (response) => response.data.data,
-});
+const { data: blogData } = await useFetch<Blog[]>('/api/proxy/blogs', {
+  transform: response => response.data.data,
+})
 </script>
 
 <template>
@@ -15,7 +15,7 @@ const { data: blogData } = await useFetch<Blog[]>("/api/proxy/blogs", {
     :items="blogData"
     :number-of-scroll="1"
     :visible-item="4"
-    slide-component="SingleBlogCard"
+    slide-component="BlogCard"
   >
     <template #header>
       <CommonSectionHeader

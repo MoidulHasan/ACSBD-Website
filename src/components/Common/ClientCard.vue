@@ -1,3 +1,11 @@
+<script lang="ts" setup>
+defineProps<{
+  name: string
+  image_url?: string
+  image?: string
+}>()
+</script>
+
 <template>
   <div class="client-info-container">
     <div
@@ -8,18 +16,10 @@
         :src="image_url ?? image"
         class="client-image"
         :title="name"
-      />
+      >
     </div>
   </div>
 </template>
-
-<script lang="ts" setup>
-defineProps<{
-  name: string;
-  image_url?: string;
-  image?: string;
-}>();
-</script>
 
 <style lang="scss" scoped>
 @use "assets/styles/scss/base/mixins" as *;
@@ -46,16 +46,19 @@ defineProps<{
     overflow: hidden;
 
     .client-image {
-      max-width: 215px;
-      @include media-query(lg) {
-        height: 42.48px;
-      }
-      @include media-query(md) {
-        height: 42.48px;
-      }
-      @include media-query(sm) {
-        height: 42.48px;
-      }
+      max-height: 100%;
+      max-width: 100%;
+      object-fit: contain;
+      //max-width: 215px;
+      //@include media-query(lg) {
+      //  height: 42.48px;
+      //}
+      //@include media-query(md) {
+      //  height: 42.48px;
+      //}
+      //@include media-query(sm) {
+      //  height: 42.48px;
+      //}
     }
   }
 }
