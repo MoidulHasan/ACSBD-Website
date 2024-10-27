@@ -1,24 +1,24 @@
 <script setup lang="ts">
 interface ProjectImage {
-  image: string;
+  image: string
 }
 
 interface GalleryPath {
-  path: string;
+  path: string
 }
 
 const props = defineProps<{
-  productImages: GalleryPath[];
-}>();
+  productImages: GalleryPath[]
+}>()
 
-const newProjectImages: ProjectImage = props.productImages.map((imagePath) => ({
+const newProjectImages: ProjectImage = props.productImages.map(imagePath => ({
   image: imagePath.path,
-}));
+}))
 </script>
 
 <template>
   <div class="photo-gallery mb-5 md:mb-7">
-    <h1 class="mb-4 text-primary-color-navy-blue font-heading-2">
+    <h1 class="mb-4 text-primary-color-navy-blue font-heading-2 p-2 md:p-0">
       Photo Gallery
     </h1>
     <CommonSliderSection

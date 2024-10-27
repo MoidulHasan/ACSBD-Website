@@ -1,17 +1,5 @@
 <script lang="ts" setup>
-import type { WorkResponse } from '~/contracts/api-contracts/recentWorkInterfaces'
-
-const { $apiClient } = useNuxtApp()
-
-const { data: recentWorks } = await useAsyncData<WorkResponse>(
-  'recent-works',
-  () =>
-    $apiClient(`/works`, {
-      params: {
-        is_latest: true,
-      },
-    }),
-)
+const recentWorks = await useWorks()
 
 const allWorks = computed(() => {
   return recentWorks.value?.data.data || []

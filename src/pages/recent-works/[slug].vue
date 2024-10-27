@@ -1,43 +1,33 @@
 <script setup lang="ts">
-import type { WorkResponse } from "~/contracts/api-contracts/recentWorkInterfaces";
+import type { Work } from '~/contracts/api-contracts/recentWorkInterfaces'
 
-const route = useRoute();
+const route = useRoute()
 
 definePageMeta({
-  title: "Recent Work",
-  name: "Work",
-});
+  title: 'Recent Work',
+  name: 'single-recent-work',
+})
 
-const { $apiClient } = useNuxtApp();
+const recentWorks = await useWorks()
 
-const { data: recentWorksData } = await useAsyncData<WorkResponse>(
-  "recent-works",
-  () =>
-    $apiClient(`/works`, {
-      params: {
-        is_latest: true,
-      },
-    }),
-);
+const recentWork = computed<Work>(() => {
+  return recentWorks.value?.data?.data.find(
+    work => work.slug === route.params.slug,
+  )
+})
 
-const recentWork = computed(() => {
-  return recentWorksData.value?.data?.data.find(
-    (work) => work.slug === route.params.slug,
-  );
-});
+const relatedWorks = computed<Work[]>(() => {
+  return recentWorks.value?.data?.data.filter(
+    work => work.type === recentWork.value?.type,
+  )
+})
 
-const relatedWorks = computed(() => {
-  return recentWorksData.value?.data?.data.filter(
-    (work) => work.type === recentWork.value?.type,
-  );
-});
-
-const formattedDate = (date: string) => {
-  const dateString = new Date(date);
-  const options = { day: "numeric", month: "long", year: "numeric" };
-  const formattedDate = dateString.toLocaleDateString("en-GB", options);
-  return formattedDate;
-};
+function formattedDate(date: string) {
+  const dateString = new Date(date)
+  const options = { day: 'numeric', month: 'long', year: 'numeric' }
+  const formattedDate = dateString.toLocaleDateString('en-GB', options)
+  return formattedDate
+}
 </script>
 
 <template>
@@ -101,12 +91,14 @@ const formattedDate = (date: string) => {
             <h2 class="text-primary-color-dark-gray font-heading-5 pb-2">
               Completed By
             </h2>
-            <p class="text-medium-2 text-dark-gray-80">AC Service BD</p>
+            <p class="text-medium-2 text-dark-gray-80">
+              {{ recentWork.completed_by }}
+            </p>
           </div>
         </div>
       </div>
     </div>
-    <p class="text-primary-color-dark-gray mb-6 text-justify">
+    <p class="text-primary-color-dark-gray mb-6 text-justify p-2 md:p-0">
       <span class="font-semibold">Project's Brief: </span>
       {{ recentWork.description }}
     </p>
