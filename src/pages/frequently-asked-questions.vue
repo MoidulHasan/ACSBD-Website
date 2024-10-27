@@ -1,6 +1,4 @@
 <script lang="ts" setup>
-import { useStorage } from '@vueuse/core'
-import { getFAQData } from '~/app/api/getFAQData'
 import type { FAQSection, FAQTab } from '~/contracts/api-contracts/faqData'
 
 definePageMeta({
@@ -8,7 +6,7 @@ definePageMeta({
   name: 'frequently-asked-questions',
 })
 
-const { data: allFaqData } = await getFAQData()
+const route = useRoute()
 
 const { $apiClient } = useNuxtApp()
 
@@ -46,30 +44,25 @@ const faqTabs: Omit<FAQSection, 'tabs'>[] = [
   },
 ]
 const activeTabIndex = ref(0)
-const activeTabName = useStorage('activeTabName', 'service')
+const activeTabName = ref(route.query.topic as string || 'service')
+activeTabIndex.value = findFaqIndexBySlug(activeTabName.value)
+
 const faqSearchText = ref('')
 
-function handleActiveTabChange(index: number, name: string) {
+async function handleActiveTabChange(index: number, name: string) {
   activeTabName.value = name
   activeTabIndex.value = index
+  await navigateTo({
+    name: 'frequently-asked-questions',
+    query: {
+      topic: name,
+    },
+  })
 }
 
-// const faqTabData = computed(() => {
-//   if (!allFaqData.value) return [];
-//
-//   return allFaqData.value.map((faqData: FAQSection) => {
-//     return {
-//       title: faqData.title,
-//       image: faqData.image,
-//       description: faqData.description,
-//     };
-//   });
-// });
-
-const faqListOfSelectedTab = computed(() => {
-  return allFaqData.value?.length ? allFaqData.value[activeTabIndex.value] : []
-})
-console.log(faqListOfSelectedTab.value, 'PREVIOUS')
+function findFaqIndexBySlug(name: string): number {
+  return faqTabs.findIndex(faq => faq.slug === name)
+}
 
 const selectedFaqList = computed(() => {
   if (allFaqs.value?.data && activeTabName.value) {
@@ -87,12 +80,23 @@ const selectedFaqList = computed(() => {
   }
   return []
 })
-// activeTabIndex;
 
 const selectedFaqTab = computed(() => {
   return faqTabs.find((faq) => {
     return faq.slug === activeTabName.value
   })
+})
+
+watch(() => route.query.topic, (newTopic: string) => {
+  if (newTopic !== activeTabName.value) {
+    activeTabName.value = newTopic || 'service'
+    if (findFaqIndexBySlug(newTopic) !== -1) {
+      activeTabIndex.value = findFaqIndexBySlug(newTopic)
+    }
+    else {
+      activeTabIndex.value = 0
+    }
+  }
 })
 </script>
 
@@ -118,7 +122,14 @@ const selectedFaqTab = computed(() => {
     </div>
 
     <div class="more-question-form-container mt-48px mb-80px">
-      <PagesFaqMoreQuestionForm class="w-full" />
+      <h3 class="font-heading-3 text-primary-color-navy-blue mb-3">
+        Have more questions?
+      </h3>
+      <PagesContactQuestionForm
+        :show-checkbox="true"
+        :submit-button-full-width="false"
+        submit-button-font-class="text-semi-bold-1"
+      />
     </div>
   </div>
 </template>

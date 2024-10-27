@@ -137,8 +137,6 @@ watch(
 onMounted(() => {
   checkWidth()
 })
-
-console.log(navMenues.value)
 </script>
 
 <template>

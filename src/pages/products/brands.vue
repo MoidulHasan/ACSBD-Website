@@ -1,22 +1,22 @@
 <script setup lang="ts">
-import { getBrands } from "~/app/api/getBrands";
+import { getBrands } from '~/app/api/getBrands'
 
 definePageMeta({
-  title: "Brands",
-  name: "brands",
-});
+  title: 'Brands',
+  name: 'brands',
+})
 
-const { data: brandsData } = await getBrands();
-const initialLength = ref(18);
+const { data: brandsData } = await getBrands()
+const initialLength = ref(18)
 const brandsToShow = computed(() => {
-  return brandsData.value?.data.slice(0, initialLength.value);
-});
+  return brandsData.value?.data.slice(0, initialLength.value)
+})
 
-const showMoreBrands = () => {
+function showMoreBrands() {
   if (initialLength.value <= brandsData.value?.length) {
-    initialLength.value += 18;
+    initialLength.value += 18
   }
-};
+}
 </script>
 
 <template>
@@ -34,7 +34,7 @@ const showMoreBrands = () => {
           :src="brand.image_url"
           :alt="brand.name"
           :title="brand.name"
-        />
+        >
       </div>
     </div>
     <div class="text-center mb-5 lg:mb-8">
@@ -54,6 +54,9 @@ const showMoreBrands = () => {
 
 .brand-container {
   min-height: 30rem;
+  @include media-query(sm) {
+    min-height: min-content;
+  }
 
   .brand-flex-container {
     gap: 15px;

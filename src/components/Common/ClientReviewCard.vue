@@ -1,27 +1,30 @@
 <script lang="ts" setup>
 const props = defineProps<{
-  reviewer_name: string;
-  reviewer_title: string;
-  reviewer_image: string;
-  review: string;
-  star: number;
-}>();
+  reviewer_name: string
+  reviewer_title: string
+  reviewer_image: string
+  review: string
+  star: number
+}>()
 
-const showDetailedReview = ref(false);
-const showReviewModal = () => {
-  showDetailedReview.value = true;
-  console.log(props.reviewer_image);
-};
+const showDetailedReview = ref(false)
+function showReviewModal() {
+  showDetailedReview.value = true
+}
 </script>
 
 <template>
   <div class="review-card flex flex-column align-items-center">
     <div class="image-container">
-      <img :src="reviewer_image" alt="" />
+      <img :src="reviewer_image" alt="">
     </div>
 
-    <h4 class="name mb-0">{{ reviewer_name }}</h4>
-    <h5 class="title mt-0">{{ reviewer_title }}</h5>
+    <h4 class="name mb-0">
+      {{ reviewer_name }}
+    </h4>
+    <h5 class="title mt-0">
+      {{ reviewer_title }}
+    </h5>
     <p class="review">
       {{ review.length > 177 ? `"${review.slice(0, 177)}...` : `"${review}"` }}
     </p>

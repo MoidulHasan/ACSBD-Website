@@ -58,7 +58,7 @@ watch(
               headerAction: ({ parent }) => handleHeaderAction(index, parent),
             }"
           >
-            <p class="faq-tab-header text-regular-4 bg-primary-color-white">
+            <p class="faq-tab-header text-regular-4 bg-primary-color-white h-full">
               {{ tab.answer }}
             </p>
           </AccordionTab>
@@ -116,6 +116,9 @@ watch(
 
 :deep(.p-accordion-tab) {
   margin-bottom: 16px;
+}
+:deep(.p-accordion-header-text) {
+  padding-right: 1rem;
 }
 
 ::v-deep(.p-accordion-toggle-icon) {
