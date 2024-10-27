@@ -1,5 +1,12 @@
+<script lang="ts" setup>
+definePageMeta({
+  title: 'Privacy Policy',
+  name: 'privacy-policy',
+})
+</script>
+
 <template>
-  <div class="container my-4 md:my-5 md:pb-6">
+  <div class="container my-4 md:my-5 md:pb-6 px-2 md:px-0">
     <h1 class="font-heading-2 text-center text-primary-color-navy-blue">
       Privacy Policy
     </h1>
@@ -40,7 +47,7 @@
       number, mobile number, fax number, payment details, payment card details
       or bank account details. We will use the information you provide to enable
       us to process your orders swiftly and to provide you with the services and
-      information offered through our website and which you request.<br /><br />
+      information offered through our website and which you request.<br><br>
 
       We may pass your name and address on to a third party in order to make
       delivery of the product to you (for example to our courier or supplier).
@@ -108,10 +115,3 @@
     </p>
   </div>
 </template>
-
-<script lang="ts" setup>
-definePageMeta({
-  title: "Privacy Policy",
-  name: "privacy-policy",
-});
-</script>
