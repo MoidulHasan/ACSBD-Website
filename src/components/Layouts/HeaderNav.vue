@@ -87,6 +87,12 @@ function toggleMenu() {
   show.value = !show.value
 }
 
+function closeMenu() {
+  if (show.value) {
+    show.value = false
+  }
+}
+
 function checkNav(path: string, subMenu: boolean = false): void {
   if (path !== '' && !subMenu) {
     toggleMenu()
@@ -246,6 +252,9 @@ console.log(navMenues.value)
             </NuxtLink>
             <NuxtLink
               class="flex flex-column align-items-center justify-content-center"
+              active-class=""
+              :to="{ name: 'home-page' }"
+              @click="closeMenu"
             >
               <img
                 alt="three dot"
@@ -256,7 +265,7 @@ console.log(navMenues.value)
             </NuxtLink>
             <NuxtLink
               class="flex flex-column align-items-center justify-content-center"
-              @click="openModal"
+              @click="() => { closeMenu(); openModal(); }"
             >
               <div class="navbar-content-container flex justify-content-center">
                 <ClientOnly>
@@ -278,6 +287,8 @@ console.log(navMenues.value)
             </NuxtLink>
             <NuxtLink
               class="flex flex-column align-items-center justify-content-center"
+              :to="{ name: 'my-wishlist' }"
+              @click="closeMenu"
             >
               <div class="navbar-content-container flex justify-content-center">
                 <ClientOnly>
@@ -299,7 +310,9 @@ console.log(navMenues.value)
             </NuxtLink>
 
             <NuxtLink
-              class="flex flex-column align-items-center justify-content-center"
+              class="flex flex-column align-items-center justify-content-center profile"
+              :to="{ name: 'my-details' }"
+              @click="closeMenu"
             >
               <img
                 alt="three dot"
@@ -333,7 +346,7 @@ console.log(navMenues.value)
                     class="pi pi-chevron-down navLink_i"
                   />
                 </NuxtLink>
-                <LayoutsHeaderSubMenuList v-if="navItem.submenu?.length" :nav-item="navItem" />
+                <LayoutsHeaderSubMenuList v-if="navItem.submenu?.length" :nav-item="navItem" @toggle-menu="toggleMenu" />
               </li>
 
               <li class="right cursor-pointer">
