@@ -1,27 +1,28 @@
 <script lang="ts" setup>
-import { getTestimonials } from "~/app/api/getTestimonials";
+import { getTestimonials } from '~/app/api/getTestimonials'
 
 definePageMeta({
-  title: "Client Reviews",
-  name: "client-reviews",
-});
+  title: 'Client Reviews',
+  name: 'client-reviews',
+})
 
-const { data: testimonials } = await getTestimonials();
-const initialLength = ref(12);
+const { data: testimonials } = await getTestimonials()
+const initialLength = ref(12)
 const testimonialsToDisplay = computed(() => {
-  return testimonials.value?.data.slice(0, initialLength.value);
-});
+  return testimonials.value?.data.slice(0, initialLength.value)
+})
 
-const showMore = () => {
+function showMore() {
   if (initialLength.value <= testimonials.value?.length) {
-    initialLength.value += 18;
+    initialLength.value += 18
   }
-};
+}
 </script>
 
 <template>
   <div :style="{ marginBottom: '80px' }" class="container">
     <CommonSectionHeader
+      class="p-2 md:p-0"
       header="Our Customers Say"
       sub-header="We have already completed 3500+ projects. Our clients are Hospitals,
                   Group of companies, Markets, Bank, Shopping Mall, Multinational
@@ -33,7 +34,7 @@ const showMore = () => {
     <div class="mt-3 w-full grid">
       <div
         v-for="(clientReview, index) in testimonialsToDisplay"
-        :key="'client-review-' + index"
+        :key="`client-review-${index}`"
         class="col-12 md:col-3 my-3"
       >
         <CommonClientReviewCard

@@ -1,41 +1,45 @@
 <script lang="ts" setup>
-import { useWindowSize } from "@vueuse/core";
-import type { FAQSection } from "~/contracts/api-contracts/faqData";
-
-const { width } = useWindowSize();
+import { useWindowSize } from '@vueuse/core'
+import type { FAQSection } from '~/contracts/api-contracts/faqData'
 
 const props = defineProps<{
-  faqTabs: Omit<FAQSection, "tabs">[];
-  activeTabIndex?: number;
-}>();
+  faqTabs: Omit<FAQSection, 'tabs'>[]
+  activeTabIndex?: number
+}>()
 
 const emits = defineEmits<{
-  (e: "onActiveTabChange", activeTabIndex: number, payload: string): void;
-}>();
+  (e: 'onActiveTabChange', activeTabIndex: number, payload: string): void
+}>()
 
-const activeTab = ref(props.activeTabIndex ?? null);
+const { width } = useWindowSize()
+
+const activeTab = ref(props.activeTabIndex ?? null)
 
 const responsiveOptions = ref([
   {
-    breakpoint: "845px",
+    breakpoint: '845px',
     numVisible: 3,
     numScroll: 1,
   },
   {
-    breakpoint: "645px",
+    breakpoint: '645px',
     numVisible: 2,
     numScroll: 2,
   },
-]);
+])
 
 const showNavigator = computed(() => {
-  return width ? width.value < 846 : true;
-});
+  return width ? width.value < 846 : true
+})
 
-const handleFaqSectionTabChange = (activeTabIndex: number, tabName: string) => {
-  activeTab.value = activeTabIndex;
-  emits("onActiveTabChange", activeTabIndex, tabName);
-};
+function handleFaqSectionTabChange(activeTabIndex: number, tabName: string) {
+  activeTab.value = activeTabIndex
+  emits('onActiveTabChange', activeTabIndex, tabName)
+}
+
+watch(() => props.activeTabIndex, (newIndex) => {
+  activeTab.value = newIndex
+})
 </script>
 
 <template>
@@ -51,7 +55,7 @@ const handleFaqSectionTabChange = (activeTabIndex: number, tabName: string) => {
       >
         <template #item="slotProps">
           <div
-            class="flex justify-content-center align-items-center px-1 md:px-3"
+            class="flex justify-content-center align-items-center px-0 md:px-3"
           >
             <PagesFaqTabButton
               :image="slotProps.data.image"

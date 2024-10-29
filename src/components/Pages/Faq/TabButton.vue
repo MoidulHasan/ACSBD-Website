@@ -1,3 +1,15 @@
+<script lang="ts" setup>
+defineProps<{
+  title: string
+  image: string
+  isActive: boolean
+}>()
+
+const emits = defineEmits<{
+  (e: 'handleStateChange'): void
+}>()
+</script>
+
 <template>
   <div
     :style="{
@@ -16,11 +28,10 @@
         }"
         alt=""
         class="tab-image"
-      />
+      >
     </div>
     <h3
-      :class="[
-        'text-heading-1-semi-bold',
+      class="text-heading-1-semi-bold" :class="[
         isActive ? 'text-primary-color-envitect-sam-blue' : 'text-dark-gray-80',
       ]"
     >
@@ -28,18 +39,6 @@
     </h3>
   </div>
 </template>
-
-<script lang="ts" setup>
-defineProps<{
-  title: string;
-  image: string;
-  isActive: boolean;
-}>();
-
-const emits = defineEmits<{
-  (e: "handleStateChange"): void;
-}>();
-</script>
 
 <style lang="scss" scoped>
 @use "assets/styles/scss/base/mixins" as *;
@@ -53,7 +52,7 @@ const emits = defineEmits<{
 
   border-radius: 4px;
   background: var(--primary-color-white);
-  box-shadow: 0 4px 12px 8px rgba(164, 164, 164, 0.18);
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   margin: 8px;
 
   &:hover {

@@ -54,6 +54,9 @@ function showMoreBrands() {
 
 .brand-container {
   min-height: 30rem;
+  @include media-query(sm) {
+    min-height: min-content;
+  }
 
   .brand-flex-container {
     gap: 15px;

@@ -54,6 +54,9 @@ function showMoreClients() {
 
 .client-container {
   min-height: 30rem;
+  @include media-query(sm) {
+    min-height: max-content;
+  }
 
   .client-flex-container {
     gap: 15px;
