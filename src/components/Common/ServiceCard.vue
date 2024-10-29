@@ -1,9 +1,9 @@
 <script lang="ts" setup>
 defineProps<{
-  title: string;
-  imageUrl: string;
-  description: string;
-}>();
+  title: string
+  imageUrl: string
+  description: string
+}>()
 </script>
 
 <template>
@@ -11,7 +11,7 @@ defineProps<{
     <div
       class="flex flex-column align-items-center justify-content-between service-card"
     >
-      <img :alt="title" :src="imageUrl" class="service-image mb-3" />
+      <img :alt="title" :src="imageUrl" class="service-image mb-3">
       <h2
         class="service-title font-heading-4-semi-bold text-primary-color-navy-blue"
       >

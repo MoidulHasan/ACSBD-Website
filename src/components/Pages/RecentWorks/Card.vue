@@ -1,15 +1,14 @@
 <script setup lang="ts">
-const route = useRoute();
-
-const slidePresent = ref(!!route.params.id);
-
 defineProps<{
-  image: string;
-  client: string;
-  type: string;
-  id: string;
-  slug: string;
-}>();
+  image: string
+  client: string
+  type: string
+  slug: string
+}>()
+
+const route = useRoute()
+
+const slidePresent = ref(!!route.params.id)
 </script>
 
 <template>
@@ -40,6 +39,7 @@ defineProps<{
 .work-card {
   .work-banner {
     min-height: 381px;
+    max-height: 381px;
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
   }

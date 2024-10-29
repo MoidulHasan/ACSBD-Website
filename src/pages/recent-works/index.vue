@@ -1,8 +1,5 @@
 <script setup lang="ts">
-import type {
-  Work,
-  WorkResponse,
-} from '~/contracts/api-contracts/recentWorkInterfaces'
+import type { Work } from '~/contracts/api-contracts/recentWorkInterfaces'
 
 definePageMeta({
   title: 'Recent Works',
@@ -17,20 +14,10 @@ const types = ref([
   { name: 'Commercial' },
 ])
 
-const { $apiClient } = useNuxtApp()
-
-const { data: recentWorksData } = await useAsyncData<WorkResponse>(
-  'recent-works',
-  () =>
-    $apiClient(`/works`, {
-      params: {
-        is_latest: true,
-      },
-    }),
-)
+const recentWorks = await useWorks()
 
 const works = ref<Work[]>([])
-works.value = recentWorksData.value?.data?.data || []
+works.value = recentWorks.value?.data?.data || []
 
 const initialLength = ref(6)
 const worksToShow = computed(() => {
@@ -48,19 +35,19 @@ watch(
   () => {
     if (selectedType.value.name === 'Residential') {
       active.value = 1
-      works.value = recentWorksData.value?.data?.data.filter(
+      works.value = recentWorks.value?.data?.data.filter(
         (work: Work) => work.type === 'residential',
       )
     }
     else if (selectedType.value.name === 'Commercial') {
       active.value = 2
-      works.value = recentWorksData.value?.data?.data.filter(
+      works.value = recentWorks.value?.data?.data.filter(
         (work: Work) => work.type === 'commercial',
       )
     }
     else {
       active.value = 0
-      works.value = recentWorksData.value?.data?.data
+      works.value = recentWorks.value?.data?.data
     }
   },
 )
@@ -69,17 +56,17 @@ watch(
   () => active.value,
   () => {
     if (active.value === 1) {
-      works.value = recentWorksData.value?.data?.data.filter(
+      works.value = recentWorks.value?.data?.data.filter(
         (work: Work) => work.type === 'residential',
       )
     }
     else if (active.value === 2) {
-      works.value = recentWorksData.value?.data?.data.filter(
+      works.value = recentWorks.value?.data?.data.filter(
         (work: Work) => work.type === 'commercial',
       )
     }
     else {
-      works.value = recentWorksData.value?.data?.data
+      works.value = recentWorks.value?.data?.data
     }
   },
 )
