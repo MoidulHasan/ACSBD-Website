@@ -318,7 +318,7 @@ onMounted(() => {
             <p class="text-medium-2">
               Share:
             </p>
-            <div class="flex gap-2 justify-center flex-wrap mt-1">
+            <div class="flex gap-2 md:gap-3 justify-center flex-wrap">
               <SocialShare
                 v-for="network in ['facebook', 'x', 'linkedin', 'threads']"
                 :key="network"

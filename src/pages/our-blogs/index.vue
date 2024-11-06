@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import type { Ref } from 'vue'
-
 definePageMeta({
   title: 'Our Blogs',
   name: 'our-blogs',
