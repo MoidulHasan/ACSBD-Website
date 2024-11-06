@@ -25,15 +25,19 @@ defineProps<{
         class="share-content flex align-items-center justify-content-between py-3 px-4 bg-color-product-front my-5"
       >
         <div class="w-full flex align-items-center justify-content-between">
-          <p class="font-heading-4-semi-bold pr-2">
+          <p class="font-heading-4-semi-bold pr-2 text-dark-gray-80">
             Share it on -
           </p>
 
-          <div>
-            <NuxtLink><i class="pi pi-facebook text-2xl social-icon" /></NuxtLink>
-            <NuxtLink><i class="pi pi-twitter text-2xl social-icon" /></NuxtLink>
-            <NuxtLink><i class="pi pi-linkedin text-2xl social-icon" /></NuxtLink>
-            <NuxtLink><i class="pi pi-instagram text-2xl social-icon" /></NuxtLink>
+          <div class="flex gap-2 justify-center flex-wrap">
+            <SocialShare
+              v-for="network in ['facebook', 'x', 'linkedin', 'threads']"
+              :key="network"
+              :network="network"
+              :styled="true"
+              :label="false"
+              class="social-share-buttons"
+            />
           </div>
         </div>
 
@@ -105,12 +109,16 @@ defineProps<{
   }
 
   .share-content {
-    color: var(--dark-gray-80);
     border-radius: 4px;
 
-    .social-icon {
-      font-size: 30px;
-      margin-right: 12px;
+    .social-share-buttons {
+      height: 30px;
+      width: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: .3rem;
+      border-radius: 50%;
     }
   }
 

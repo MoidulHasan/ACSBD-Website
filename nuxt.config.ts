@@ -27,6 +27,7 @@ export default defineNuxtConfig({
     '@vee-validate/nuxt',
     '@nuxt/eslint',
     'nuxt-primevue',
+    '@stefanobartoletti/nuxt-social-share',
   ],
 
   primevue: {
@@ -118,6 +119,10 @@ export default defineNuxtConfig({
       appUrl: '',
       apiUrl: '',
     },
+  },
+
+  socialShare: {
+    baseUrl: process.env.NUXT_PUBLIC_BASE_URL || 'http://localhost:3000', // required!
   },
 
   nitro: {
