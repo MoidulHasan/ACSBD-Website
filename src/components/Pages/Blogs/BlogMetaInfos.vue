@@ -1,9 +1,9 @@
 <script setup lang="ts">
 defineProps<{
-  time: string;
-  views: number;
-  comments: number;
-}>();
+  time: string
+  views: number | string
+  comments: number | string
+}>()
 </script>
 
 <template>
@@ -18,7 +18,7 @@ defineProps<{
       class="meta-info text-regular-4 bg-envitect-sam-blue-5 text-dark-gray-80"
     >
       <i class="pi pi-eye icon arrow-icon mr-3" />
-      <span>{{ views ?? 200 }} views</span>
+      <span>{{ views ?? '200' }} views</span>
     </p>
     <p
       class="meta-info text-regular-4 bg-envitect-sam-blue-5 text-dark-gray-80"
