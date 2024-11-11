@@ -5,6 +5,10 @@ defineProps<{
   navItem: any
   navClass?: string
 }>()
+const emit = defineEmits<{
+  (e: 'toggleMenu'): void
+}>()
+
 const route = useRoute()
 const show = ref(false)
 
@@ -15,6 +19,7 @@ function toggleMenu() {
 function checkNav(path: string, subMenu: boolean = false): void {
   if (path !== '' && !subMenu) {
     toggleMenu()
+    emit('toggleMenu')
   }
 }
 
@@ -65,7 +70,7 @@ function isProductParentActive(navItem: any): boolean {
         :active-class="checkExactActiveRouteForCategory(subNavItem.title)"
         class="subMenuLink pb-2 flex gap-3 lg:justify-content-between"
         :class="{ 'parent-class': isProductParentActive(subNavItem) }"
-        @click="checkNav(subNavItem.path)"
+        @click="checkNav(subNavItem.path, subNavItem.submenu.length)"
       >
         <span>{{ subNavItem.title }}</span>
         <i
@@ -73,7 +78,7 @@ function isProductParentActive(navItem: any): boolean {
           class="pi pi-chevron-right navLink_i subNavLink_i"
         />
       </NuxtLink>
-      <LayoutsHeaderSubMenuList v-if="subNavItem.submenu?.length " :nav-item="subNavItem" nav-class="submenu2" />
+      <LayoutsHeaderSubMenuList v-if="subNavItem.submenu?.length " :nav-item="subNavItem" nav-class="submenu2" @toggle-menu="emit('toggleMenu')" />
     </li>
   </ul>
 </template>

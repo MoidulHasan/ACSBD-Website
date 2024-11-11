@@ -1,25 +1,23 @@
 <script setup lang="ts">
 const props = defineProps<{
-  paddingX?: string;
-  paddingY?: string;
-  textColor?: string;
-  text?: string;
-  background?: string;
-  title: string;
-  to?: string;
-  fullWidth?: boolean;
-}>();
+  paddingX?: string
+  paddingY?: string
+  textColor?: string
+  text?: string
+  background?: string
+  title: string
+  to?: string
+  fullWidth?: boolean
+}>()
 </script>
 
 <template>
   <NuxtLink :to="to">
     <Button
-      :class="[
-        'common-button',
-        'text-center',
+      class="common-button text-center" :class="[
         textColor ?? 'text-primary-color-white',
         background ?? 'bg-primary-color-envitect-sam-blue',
-        paddingX ?? 'px-6',
+        paddingX ?? 'md:px-6',
         paddingY ?? 'py-12px',
         text ?? 'text-semi-bold-1',
         { 'w-full justify-content-center': fullWidth },
