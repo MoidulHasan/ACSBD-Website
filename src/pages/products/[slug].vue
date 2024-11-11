@@ -318,11 +318,15 @@ onMounted(() => {
             <p class="text-medium-2">
               Share:
             </p>
-            <div class="flex gap-3 mt-1">
-              <NuxtLink><i class="pi pi-facebook text-2xl" /></NuxtLink>
-              <NuxtLink><i class="pi pi-twitter text-2xl" /></NuxtLink>
-              <NuxtLink><i class="pi pi-linkedin text-2xl" /></NuxtLink>
-              <NuxtLink><i class="pi pi-instagram text-2xl" /></NuxtLink>
+            <div class="flex gap-2 md:gap-3 justify-center flex-wrap">
+              <SocialShare
+                v-for="network in ['facebook', 'x', 'linkedin', 'threads']"
+                :key="network"
+                :network="network"
+                :styled="true"
+                :label="false"
+                class="social-share-buttons"
+              />
             </div>
           </div>
         </div>
@@ -382,6 +386,15 @@ onMounted(() => {
 
   .social-medias {
     max-width: 379px;
+    .social-share-buttons {
+      height: 30px;
+      width: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: .3rem;
+      border-radius: 50%;
+    }
   }
 }
 </style>

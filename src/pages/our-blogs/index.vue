@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import type { Ref } from 'vue'
-
 definePageMeta({
   title: 'Our Blogs',
   name: 'our-blogs',
@@ -17,6 +15,7 @@ export interface IBlog {
   title: string
   comments: string | number
   views: string | number
+  next_blog: { slug: string, title: string } | null
 }
 
 export interface IBlogParam {
