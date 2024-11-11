@@ -1,14 +1,15 @@
 <script setup lang="ts">
-import type { Blog } from "~/contracts/api-contracts/BlogsInterfaces";
+import type { Blog } from '~/contracts/api-contracts/BlogsInterfaces'
+
 defineProps<{
-  blogs: Blog[];
-}>();
+  blogs: Blog[]
+}>()
 </script>
 
 <template>
   <div class="grid">
     <div v-for="blog in blogs" :key="blog.id" class="col-12 lg:col-4">
-      <PagesBlogsBlogCard :blog="blog" />
+      <PagesBlogsBlogCard :key="blog.id" :blog="blog" />
     </div>
   </div>
 </template>

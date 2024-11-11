@@ -15,7 +15,7 @@ export interface IBlog {
   sub_title: string
   tags: string[]
   title: string
-  comments: any
+  comments: string | number
   views: string | number
 }
 

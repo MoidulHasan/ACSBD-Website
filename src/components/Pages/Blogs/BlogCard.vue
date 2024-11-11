@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import type { IBlog } from "~/pages/our-blogs/index.vue";
+import type { IBlog } from '~/pages/our-blogs/index.vue'
 
 defineProps<{
-  blog: IBlog;
-}>();
+  blog: IBlog
+}>()
 </script>
 
 <template>
@@ -29,7 +29,7 @@ defineProps<{
       <p class="blog-content text-semi-bold-6 text-dark-gray-80 mb-12px">
         {{ blog.sub_title }}
       </p>
-      <NuxtLink :to="`our-blogs/${blog.slug}`">
+      <NuxtLink :key="blog.slug" :to="`/our-blogs/${blog.slug}`">
         <CommonExploreMoreButton class="mb-2" text="text-semi-bold-5" />
       </NuxtLink>
     </div>

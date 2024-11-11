@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 definePageMeta({
-  title: 'Blog Description',
   name: 'blog-description',
 })
 
@@ -10,7 +9,6 @@ const { data: singleBlog, error } = await useAsyncData(
   `blog-${route.params.blogSlug}`,
   () => $fetch(`/api/proxy/blogs/${route.params.blogSlug}`),
 )
-
 if (error.value) {
   throw createError({ statusCode: 404, statusMessage: 'Blog Not Found' })
 }
