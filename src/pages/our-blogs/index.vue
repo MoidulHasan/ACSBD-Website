@@ -15,6 +15,7 @@ export interface IBlog {
   title: string
   comments: any
   views: string | number
+  next_blog: { slug: string, title: string } | null
 }
 
 export interface IBlogParam {

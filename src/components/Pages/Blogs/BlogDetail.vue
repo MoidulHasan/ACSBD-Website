@@ -24,7 +24,7 @@ defineProps<{
       <div
         class="share-content flex align-items-center justify-content-between py-3 px-4 bg-color-product-front my-5"
       >
-        <div class="w-full flex align-items-center justify-content-between">
+        <div class="flex align-items-center">
           <p class="font-heading-4-semi-bold pr-2 text-dark-gray-80">
             Share it on -
           </p>
@@ -41,9 +41,9 @@ defineProps<{
           </div>
         </div>
 
-        <!--        <NuxtLink :to="`/our-blogs/${blog.slug}`"> -->
-        <!--          <CommonExploreMoreButton label="Next Page" /> -->
-        <!--        </NuxtLink> -->
+        <NuxtLink v-if="blog.next_blog" :to="`/our-blogs/${blog.next_blog?.slug}`">
+          <CommonExploreMoreButton label="Next Blog" />
+        </NuxtLink>
       </div>
       <!--      <div class="comment-section"> -->
       <!--        <h2 class="font-heading-3 text-primary-color-navy-blue mb-3"> -->
