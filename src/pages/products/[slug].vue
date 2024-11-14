@@ -168,6 +168,20 @@ onMounted(() => {
     }
   }
 })
+
+function priceInt(price: string) {
+  const splitedPrice = price.split('.')
+
+  return splitedPrice.length ? splitedPrice[0] : price
+}
+
+function isInteger(value: number): boolean {
+  return Number.isInteger(value)
+}
+
+function getRoundedDiscount(price: number) {
+  return isInteger(Number(price)) ? Number(price).toFixed(0) : Number(price).toFixed(2)
+}
 </script>
 
 <template>
@@ -246,13 +260,14 @@ onMounted(() => {
           </h1>
           <p class="text-medium-2 text-dark-gray-80 my-4">
             Promotions:
-            <!--            <span -->
-            <!--              v-if="singleProductData.price.discountPercentage" -->
-            <!--              class="discount-container text-primary-color-navy-blue ml-4 text-semi-bold-1" -->
-            <!--            > -->
-            <!--              Get upto {{ singleProduct.price.discount_amount }} -->
-            <!--              {{ singleProduct.price.is_percent ? "%" : "taka" }} off -->
-            <!--            </span> -->
+            <span
+              v-if="singleProductData.price.discount_amount"
+              class="discount-container text-primary-color-navy-blue ml-4 text-semi-bold-1"
+            >
+
+              Get upto {{ getRoundedDiscount(Number(singleProductData.price.discount_amount)) }}
+              {{ singleProductData.price.is_percent ? "%" : "taka" }} off
+            </span>
           </p>
           <p
             v-if="singleProductData.installment"
@@ -336,7 +351,7 @@ onMounted(() => {
       <PagesProductDetailDescription :product="singleProductData" />
     </div>
     <div class="mt-5 lg:mt-8">
-      <!--      <PagesProductRelatedProducts /> -->
+      <PagesProductRelatedProducts :current-product-slug="singleProductData.slug" :current-product-category="singleProductData.category" />
     </div>
   </div>
 </template>

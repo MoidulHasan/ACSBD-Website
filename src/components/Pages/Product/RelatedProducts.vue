@@ -1,51 +1,66 @@
 <script setup lang="ts">
-import { getAirConditioners } from "~/app/api/getAirConditioners";
+import type {
+  DataResponse,
+  PaginationResponse,
+} from '~/contracts/api-contracts/apiResponse'
+import type { ProductMinimalI } from '~/contracts/api-contracts/ProductsInterfaces'
 
-const { data: airConditioners } = await getAirConditioners();
+const props = defineProps<{
+  currentProductSlug: string
+  currentProductCategory: {
+    name: string
+    slug: string
+  }
+}>()
 
-const responsiveOptions = ref([
+const { $apiClient } = useNuxtApp()
+
+const {
+  data: relatedProductData,
+  status,
+  error,
+} = await useAsyncData<
+  DataResponse<PaginationResponse<ProductMinimalI>>,
+  unknown,
+  PaginationResponse<ProductMinimalI>
+>(
+  `related-product-data-for-${props.currentProductCategory.slug}`,
+  () =>
+    $apiClient(`/products`, {
+      query: {
+        category: props.currentProductCategory.name,
+        is_latest: true,
+        per_page: 100,
+      },
+    }),
   {
-    breakpoint: "1199px",
-    numVisible: 3,
-    numScroll: 3,
+    transform: response => response.data,
   },
-  {
-    breakpoint: "991px",
-    numVisible: 2,
-    numScroll: 2,
-  },
-  {
-    breakpoint: "767px",
-    numVisible: 1,
-    numScroll: 1,
-  },
-]);
+)
+
+const relatedProductsToShow = computed(() => {
+  if (!relatedProductData.value?.data.length)
+    return []
+  return props.currentProductSlug
+    ? relatedProductData.value?.data?.filter(product => product.slug !== props.currentProductSlug)
+    : relatedProductData.value?.data
+})
 </script>
 
 <template>
-  <div class="related-product-section">
+  <div class="">
     <CommonSliderSection
-      :items="airConditioners"
-      :responsive-options="responsiveOptions"
+      v-if="relatedProductsToShow.length"
+      :items="relatedProductsToShow"
       :number-of-scroll="1"
-      :visible-item="5"
-      slide-component="ProductCard"
+      :visible-item="4"
+      slide-component="RelatedProductCard"
     >
       <template #header>
-        <CommonSectionHeader
-          class="mb-32px"
-          header="Our Latest Blogs"
-          sub-header="AC SERVICE always posts AC-related news and company news regularly. So stay connected with us to know about our latest news."
-        />
+        <CommonSectionHeader class="mb-32px" header="Related Product" />
       </template>
     </CommonSliderSection>
   </div>
 </template>
 
-<style scoped lang="scss">
-.related-product-section {
-  :deep(.p-carousel-item) {
-    padding: 8px;
-  }
-}
-</style>
+<style lang="scss" scoped></style>

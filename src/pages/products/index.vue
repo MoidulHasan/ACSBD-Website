@@ -9,7 +9,6 @@ import type { FilterItem } from '~/contracts/common'
 import { generateFilterItems } from '~/utils/common'
 
 definePageMeta({
-  title: 'Products',
   name: 'products',
 })
 
