@@ -5,14 +5,20 @@ defineProps<{
   blogHeader?: string
 }>()
 
+const route = useRoute()
+
 const { data: blogData } = await useFetch<Blog[]>('/api/proxy/blogs', {
   transform: response => response.data.data,
+})
+
+const blogsToShow = computed(() => {
+  return route.params.blogSlug ? blogData.value?.filter(blog => blog.slug !== route.params.blogSlug) : blogData.value
 })
 </script>
 
 <template>
   <CommonSliderSection
-    :items="blogData"
+    :items="blogsToShow"
     :number-of-scroll="1"
     :visible-item="4"
     slide-component="BlogCard"

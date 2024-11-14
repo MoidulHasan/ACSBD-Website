@@ -4,8 +4,7 @@ import type { Work } from '~/contracts/api-contracts/recentWorkInterfaces'
 const route = useRoute()
 
 definePageMeta({
-  title: 'Recent Work',
-  name: 'single-recent-work',
+  name: 'recent-work-detail',
 })
 
 const recentWorks = await useWorks()
@@ -16,9 +15,13 @@ const recentWork = computed<Work>(() => {
   )
 })
 
+useHead({
+  title: recentWork.value.title,
+})
+
 const relatedWorks = computed<Work[]>(() => {
   return recentWorks.value?.data?.data.filter(
-    work => work.type === recentWork.value?.type,
+    work => work.type === recentWork.value?.type && work.slug !== route.params.slug,
   )
 })
 
@@ -105,7 +108,9 @@ function formattedDate(date: string) {
     <PagesRecentWorksProjectGallery
       :product-images="recentWork.gallery_images"
     />
-    <PagesRecentWorksRelatedWork :related-works="relatedWorks" />
+    <ClientOnly>
+      <PagesRecentWorksRelatedWork :related-works="relatedWorks" />
+    </ClientOnly>
   </div>
 </template>
 
